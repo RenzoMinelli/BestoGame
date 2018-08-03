@@ -8,3 +8,6 @@ C:\Users\Renzo\Documents\Visual Studio 2010\Projects\BestoGameEver\BestoGameEver
 C:\Users\Renzo\Documents\Visual Studio 2010\Projects\BestoGameEver\BestoGameEver\obj\x86\Debug\BestoGameEver.exe
 C:\Users\Renzo\Documents\Visual Studio 2010\Projects\BestoGameEver\BestoGameEver\obj\x86\Debug\BestoGameEver.xml
 C:\Users\Renzo\Documents\Visual Studio 2010\Projects\BestoGameEver\BestoGameEver\obj\x86\Debug\BestoGameEver.pdb
+C:\Users\Renzo\Documents\GitHub\proyecto\BestoGame\BestoGameEver\obj\x86\Debug\BestoGameEver.exe
+C:\Users\Renzo\Documents\GitHub\proyecto\BestoGame\BestoGameEver\obj\x86\Debug\BestoGameEver.xml
+C:\Users\Renzo\Documents\GitHub\proyecto\BestoGame\BestoGameEver\obj\x86\Debug\BestoGameEver.pdb
