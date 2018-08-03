@@ -1,0 +1,10 @@
+C:\Users\Renzo\AppData\Local\Temporary Projects\ya ni se\obj\x86\Debug\ya_ni_se.Form1.resources
+C:\Users\Renzo\AppData\Local\Temporary Projects\ya ni se\obj\x86\Debug\ya_ni_se.Resources.resources
+C:\Users\Renzo\AppData\Local\Temporary Projects\ya ni se\obj\x86\Debug\ya ni se.vbproj.GenerateResource.Cache
+C:\Users\Renzo\AppData\Local\Temporary Projects\ya ni se\bin\Debug\ya ni se.exe
+C:\Users\Renzo\AppData\Local\Temporary Projects\ya ni se\bin\Debug\ya ni se.pdb
+C:\Users\Renzo\AppData\Local\Temporary Projects\ya ni se\bin\Debug\ya ni se.xml
+C:\Users\Renzo\AppData\Local\Temporary Projects\ya ni se\obj\x86\Debug\ya_ni_se.inicio.resources
+C:\Users\Renzo\AppData\Local\Temporary Projects\ya ni se\obj\x86\Debug\ya ni se.exe
+C:\Users\Renzo\AppData\Local\Temporary Projects\ya ni se\obj\x86\Debug\ya ni se.xml
+C:\Users\Renzo\AppData\Local\Temporary Projects\ya ni se\obj\x86\Debug\ya ni se.pdb
