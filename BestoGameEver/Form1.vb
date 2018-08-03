@@ -156,14 +156,7 @@
     Private Sub Timer3_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Descenso.Tick
         SaltoAnima.Enabled = False
 
-<<<<<<< HEAD
         'Guardo las posiciones del picturebox y del panel(plataforma)
-=======
-<<<<<<< HEAD
-        'Guardo las posiciones del picturebox y del panel(plataforma)
-=======
->>>>>>> b3b867ffbdbb1cdf28522ac36465a09509ac30dc
->>>>>>> 63536e072e4d5ba341e4b54d74288a06e202dd28
         Dim y As Double = PictureBox1.Location.Y
         Dim x As Double = PictureBox1.Location.X
         Dim py As Double = Panel4.Location.Y
@@ -174,15 +167,7 @@
         If y >= py - 30 And y <= py And x > px And x < px + 430 Then
 
 
-<<<<<<< HEAD
             PictureBox1.Location = New Point(x, py - 100)
-=======
-<<<<<<< HEAD
-            PictureBox1.Location = New Point(x, py - 100)
-=======
-            PictureBox1.Location = New Point(x, py)
->>>>>>> b3b867ffbdbb1cdf28522ac36465a09509ac30dc
->>>>>>> 63536e072e4d5ba341e4b54d74288a06e202dd28
             Label1.Text += vbNewLine + "Detected"
 
 
@@ -330,15 +315,7 @@
     End Sub
 
     Private Sub Idle_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Idle.Tick
-<<<<<<< HEAD
         CorrerDelante.Enabled = False
-=======
-<<<<<<< HEAD
-        CorrerDelante.Enabled = False
-=======
-        CorrerAtras.Enabled = False
->>>>>>> b3b867ffbdbb1cdf28522ac36465a09509ac30dc
->>>>>>> 63536e072e4d5ba341e4b54d74288a06e202dd28
         CorrerAtras.Enabled = False
 
         If lado = 0 Then
@@ -466,15 +443,7 @@
 
     End Sub
 
-<<<<<<< HEAD
     Private Sub Esfera_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs)
-=======
-<<<<<<< HEAD
-    Private Sub Esfera_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs)
-=======
-    Private Sub Esfera_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Esfera.Tick
->>>>>>> b3b867ffbdbb1cdf28522ac36465a09509ac30dc
->>>>>>> 63536e072e4d5ba341e4b54d74288a06e202dd28
 
     End Sub
 End Class

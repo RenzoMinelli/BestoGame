@@ -28,3 +28,6 @@ C:\Users\Renzo\Documents\Visual Studio 2010\Projects\BestoGame\BestoGameEver\obj
 C:\Users\Renzo\Documents\Visual Studio 2010\Projects\BestoGame\BestoGameEver\obj\x86\Debug\ya_ni_se.inicio.resources
 C:\Users\Renzo\Documents\Visual Studio 2010\Projects\BestoGame\BestoGameEver\obj\x86\Debug\ya_ni_se.Resources.resources
 C:\Users\Renzo\Documents\Visual Studio 2010\Projects\BestoGame\BestoGameEver\obj\x86\Debug\BestoGameEver.vbproj.GenerateResource.Cache
+C:\Users\Renzo\Downloads\BestoGame\BestoGameEver\obj\x86\Debug\BestoGameEver.exe
+C:\Users\Renzo\Downloads\BestoGame\BestoGameEver\obj\x86\Debug\BestoGameEver.xml
+C:\Users\Renzo\Downloads\BestoGame\BestoGameEver\obj\x86\Debug\BestoGameEver.pdb
