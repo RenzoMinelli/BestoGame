@@ -176,23 +176,21 @@
         Label1.Text = "PanelY: " + py.ToString + vbNewLine + "Panelx: " + px.ToString + " hasta: " + (px + 325).ToString + vbNewLine + "Y: " + y.ToString + vbNewLine + "X: " + x.ToString
 
         If y >= (py - 30) And y <= py And x > px And x < px + 430 Then
+           
 
+            'Por que no mueve en el eje y ??????? help me pls, cambien el 38 si quieren, no hace nada
+            PictureBox1.Location = New Point(x, py - 100)
+            Label1.Text += vbNewLine + "Detected"
 
             BajoAnima.Enabled = False
             Idle.Enabled = True
-
-
-            'Por que no mueve en el eje y ??????? help me pls, cambien el 400 si quieren, no hace nada
-            PictureBox1.Location = New Point(x, 12)
-            Label1.Text += vbNewLine + "Detected"
-
 
 
             caida2 = caida
             acelcaida2 = acelcaida
 
             Descenso.Enabled = False
-
+            Movimiento.Enabled = False
 
         End If
 
