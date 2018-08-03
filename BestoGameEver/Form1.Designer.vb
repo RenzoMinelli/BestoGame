@@ -90,7 +90,7 @@ Partial Class Form1
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.ya_ni_se.My.Resources.Resources._01
-        Me.PictureBox1.Location = New System.Drawing.Point(382, 302)
+        Me.PictureBox1.Location = New System.Drawing.Point(385, 299)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(47, 54)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage

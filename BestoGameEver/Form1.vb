@@ -37,10 +37,13 @@
             a = 1
             Movimiento.Enabled = True
             lado = 0
+            Idle.Enabled = True
+
+
         End If
         If e.KeyCode = Keys.D Then
             
-
+            Idle.Enabled = True
             d = 1
             lado = 1
             Movimiento.Enabled = True
@@ -62,32 +65,40 @@
 
     Private Sub Form1_KeyUp(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyUp
         If e.KeyCode = Keys.A Then
+            If d = 1 Then
+                Idle.Enabled = False
+                lado = 1
+                CorrerDelante.Enabled = True
+                Movimiento.Enabled = True
+            Else
+                Movimiento.Enabled = False
+                CorrerAtras.Enabled = False
+                Idle.Enabled = True
 
-            Movimiento.Enabled = False
-            CorrerAtras.Enabled = False
-
-            lado = 0
-            Idle.Enabled = True
-
+            End If
             avanzar2 = avanzar
             a = 0
+            
         End If
         If e.KeyCode = Keys.D Then
+            If a = 1 Then
+                Idle.Enabled = False
+                lado = 0
+                CorrerAtras.Enabled = True
+                Movimiento.Enabled = True
+            Else
+                Movimiento.Enabled = False
+                CorrerDelante.Enabled = False
+                Idle.Enabled = True
 
-            Movimiento.Enabled = False
-            CorrerDelante.Enabled = False
-
-            lado = 1
-            Idle.Enabled = True
+            End If
+           
 
             avanzar2 = avanzar
             d = 0
 
         End If
-        If e.KeyCode = Keys.W Then
 
-
-        End If
     End Sub
 
 
@@ -164,10 +175,15 @@
 
         Label1.Text = "PanelY: " + py.ToString + vbNewLine + "Panelx: " + px.ToString + " hasta: " + (px + 325).ToString + vbNewLine + "Y: " + y.ToString + vbNewLine + "X: " + x.ToString
 
-        If y >= py - 30 And y <= py And x > px And x < px + 430 Then
+        If y >= (py - 30) And y <= py And x > px And x < px + 430 Then
 
 
-            PictureBox1.Location = New Point(x, py - 100)
+            BajoAnima.Enabled = False
+            Idle.Enabled = True
+
+
+            'Por que no mueve en el eje y ??????? help me pls, cambien el 400 si quieren, no hace nada
+            PictureBox1.Location = New Point(x, 12)
             Label1.Text += vbNewLine + "Detected"
 
 
@@ -175,23 +191,20 @@
             caida2 = caida
             acelcaida2 = acelcaida
 
-
-
-            BajoAnima.Enabled = False
-            Idle.Enabled = True
             Descenso.Enabled = False
+
 
         End If
 
-        If (y + caida2) <= 302 Then
+        If (y + caida2) <= 299 Then
 
             PictureBox1.Location = New Point(PictureBox1.Location.X, y + caida2)
 
             caida2 += acelcaida2
 
-        ElseIf y <= 302 Then
+        ElseIf y <= 299 Then
 
-            PictureBox1.Location = New Point(PictureBox1.Location.X, 302)
+            PictureBox1.Location = New Point(PictureBox1.Location.X, 299)
 
             caida2 = caida
             acelcaida2 = acelcaida
