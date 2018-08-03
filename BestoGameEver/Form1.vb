@@ -175,8 +175,8 @@
 
         Label1.Text = "PanelY: " + py.ToString + vbNewLine + "Panelx: " + px.ToString + " hasta: " + (px + 325).ToString + vbNewLine + "Y: " + y.ToString + vbNewLine + "X: " + x.ToString
 
-        If y >= (py - 30) And y <= py And x > px And x < px + 430 Then
-           
+        If y >= (py - 55) And y <= py And x > px And x < px + 430 Then
+
 
             'Por que no mueve en el eje y ??????? help me pls, cambien el 38 si quieren, no hace nada
             PictureBox1.Location = New Point(x, py - 100)
@@ -451,10 +451,6 @@
         End If
         
 
-
-    End Sub
-
-    Private Sub Esfera_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs)
 
     End Sub
 End Class

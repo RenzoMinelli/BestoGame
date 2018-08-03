@@ -31,3 +31,13 @@ C:\Users\Renzo\Documents\Visual Studio 2010\Projects\BestoGame\BestoGameEver\obj
 C:\Users\Renzo\Downloads\BestoGame\BestoGameEver\obj\x86\Debug\BestoGameEver.exe
 C:\Users\Renzo\Downloads\BestoGame\BestoGameEver\obj\x86\Debug\BestoGameEver.xml
 C:\Users\Renzo\Downloads\BestoGame\BestoGameEver\obj\x86\Debug\BestoGameEver.pdb
+C:\Users\nicol\Documents\GitHub\BestoGame\BestoGameEver\obj\x86\Debug\BestoGameEver.exe
+C:\Users\nicol\Documents\GitHub\BestoGame\BestoGameEver\obj\x86\Debug\BestoGameEver.xml
+C:\Users\nicol\Documents\GitHub\BestoGame\BestoGameEver\obj\x86\Debug\BestoGameEver.pdb
+C:\Users\nicol\Documents\GitHub\BestoGame\BestoGameEver\bin\Debug\BestoGameEver.exe
+C:\Users\nicol\Documents\GitHub\BestoGame\BestoGameEver\bin\Debug\BestoGameEver.pdb
+C:\Users\nicol\Documents\GitHub\BestoGame\BestoGameEver\bin\Debug\BestoGameEver.xml
+C:\Users\nicol\Documents\GitHub\BestoGame\BestoGameEver\obj\x86\Debug\ya_ni_se.Form1.resources
+C:\Users\nicol\Documents\GitHub\BestoGame\BestoGameEver\obj\x86\Debug\ya_ni_se.inicio.resources
+C:\Users\nicol\Documents\GitHub\BestoGame\BestoGameEver\obj\x86\Debug\ya_ni_se.Resources.resources
+C:\Users\nicol\Documents\GitHub\BestoGame\BestoGameEver\obj\x86\Debug\BestoGameEver.vbproj.GenerateResource.Cache
