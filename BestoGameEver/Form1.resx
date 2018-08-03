@@ -141,4 +141,10 @@
   <metadata name="BajoAnima.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>764, 17</value>
   </metadata>
+<<<<<<< HEAD
+=======
+  <metadata name="Esfera.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>874, 17</value>
+  </metadata>
+>>>>>>> b3b867ffbdbb1cdf28522ac36465a09509ac30dc
 </root>

@@ -35,8 +35,15 @@ Partial Class Form1
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.SaltoAnima = New System.Windows.Forms.Timer(Me.components)
         Me.BajoAnima = New System.Windows.Forms.Timer(Me.components)
+<<<<<<< HEAD
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel4 = New System.Windows.Forms.Panel()
+=======
+        Me.Esfera = New System.Windows.Forms.Timer(Me.components)
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.Panel5 = New System.Windows.Forms.Panel()
+>>>>>>> b3b867ffbdbb1cdf28522ac36465a09509ac30dc
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -92,7 +99,11 @@ Partial Class Form1
         Me.PictureBox1.Image = Global.ya_ni_se.My.Resources.Resources._01
         Me.PictureBox1.Location = New System.Drawing.Point(382, 302)
         Me.PictureBox1.Name = "PictureBox1"
+<<<<<<< HEAD
         Me.PictureBox1.Size = New System.Drawing.Size(47, 54)
+=======
+        Me.PictureBox1.Size = New System.Drawing.Size(47, 51)
+>>>>>>> b3b867ffbdbb1cdf28522ac36465a09509ac30dc
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
@@ -105,6 +116,12 @@ Partial Class Form1
         '
         Me.BajoAnima.Interval = 1
         '
+<<<<<<< HEAD
+=======
+        'Esfera
+        '
+        '
+>>>>>>> b3b867ffbdbb1cdf28522ac36465a09509ac30dc
         'Label1
         '
         Me.Label1.AutoSize = True
@@ -123,11 +140,25 @@ Partial Class Form1
         Me.Panel4.Size = New System.Drawing.Size(429, 38)
         Me.Panel4.TabIndex = 5
         '
+<<<<<<< HEAD
+=======
+        'Panel5
+        '
+        Me.Panel5.Location = New System.Drawing.Point(78, 236)
+        Me.Panel5.Name = "Panel5"
+        Me.Panel5.Size = New System.Drawing.Size(49, 10)
+        Me.Panel5.TabIndex = 6
+        '
+>>>>>>> b3b867ffbdbb1cdf28522ac36465a09509ac30dc
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(827, 417)
+<<<<<<< HEAD
+=======
+        Me.Controls.Add(Me.Panel5)
+>>>>>>> b3b867ffbdbb1cdf28522ac36465a09509ac30dc
         Me.Controls.Add(Me.Panel4)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Label1)
@@ -152,7 +183,14 @@ Partial Class Form1
     Friend WithEvents Idle As System.Windows.Forms.Timer
     Friend WithEvents SaltoAnima As System.Windows.Forms.Timer
     Friend WithEvents BajoAnima As System.Windows.Forms.Timer
+<<<<<<< HEAD
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Panel4 As System.Windows.Forms.Panel
+=======
+    Friend WithEvents Esfera As System.Windows.Forms.Timer
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents Panel4 As System.Windows.Forms.Panel
+    Friend WithEvents Panel5 As System.Windows.Forms.Panel
+>>>>>>> b3b867ffbdbb1cdf28522ac36465a09509ac30dc
 
 End Class
