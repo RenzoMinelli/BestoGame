@@ -35,7 +35,6 @@ Partial Class Form1
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.SaltoAnima = New System.Windows.Forms.Timer(Me.components)
         Me.BajoAnima = New System.Windows.Forms.Timer(Me.components)
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel4 = New System.Windows.Forms.Panel()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -105,16 +104,6 @@ Partial Class Form1
         '
         Me.BajoAnima.Interval = 1
         '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(80, 39)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(77, 25)
-        Me.Label1.TabIndex = 4
-        Me.Label1.Text = "Label1"
-        '
         'Panel4
         '
         Me.Panel4.BackColor = System.Drawing.Color.SaddleBrown
@@ -130,14 +119,12 @@ Partial Class Form1
         Me.ClientSize = New System.Drawing.Size(827, 417)
         Me.Controls.Add(Me.Panel4)
         Me.Controls.Add(Me.PictureBox1)
-        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
         Me.Name = "Form1"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
@@ -152,7 +139,6 @@ Partial Class Form1
     Friend WithEvents Idle As System.Windows.Forms.Timer
     Friend WithEvents SaltoAnima As System.Windows.Forms.Timer
     Friend WithEvents BajoAnima As System.Windows.Forms.Timer
-    Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Panel4 As System.Windows.Forms.Panel
 
 End Class
