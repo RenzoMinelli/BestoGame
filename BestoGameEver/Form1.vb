@@ -59,6 +59,12 @@
             End If
 
         End If
+        If e.KeyCode = Keys.S Then
+            If Ascenso.Enabled = False And Descenso.Enabled = False And PictureBox1.Location.Y < Panel4.Location.Y Then
+                PictureBox1.Location = New Point(PictureBox1.Location.X, PictureBox1.Location.Y + 30)
+                Descenso.Enabled = True
+            End If
+        End If
 
     End Sub
 
@@ -153,8 +159,8 @@
             End If
 
         End If
-        If Descenso.Enabled = False Then
-            If PictureBox1.Location.X < Panel4.Location.X - 20 Or PictureBox1.Location.X > Panel4.Location.X + Panel4.Width Then
+        If Descenso.Enabled = False And Ascenso.Enabled = False Then
+            If PictureBox1.Location.X < Panel4.Location.X - 35 Or PictureBox1.Location.X > Panel4.Location.X + Panel4.Width Then
 
                 Descenso.Enabled = True
 
@@ -175,7 +181,7 @@
 
 
 
-        If y >= (py - 55) And y <= (py - 38) And x > px And x < px + 430 Then
+        If y >= (py - 55) And y <= (py - 38) And x > px - 35 And x < px + 430 Then
 
 
             'Por que no mueve en el eje y ??????? help me pls, cambien el 38 si quieren, no hace nada
