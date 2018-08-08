@@ -34,7 +34,7 @@
     Private Sub Form1_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyDown
 
         'Al presionar la tecla A
-        If e.KeyCode = Keys.A Then
+        If e.KeyCode = Keys.A Or e.KeyCode = Keys.Left Then
 
             'Le cambio la imagen a la primera en movimineto para que al menos se muestre un cambio al precionar la tecla la primera vez
             If a = 0 And d = 0 Then
@@ -56,7 +56,7 @@
         End If
 
         'Al presionar la tecla D
-        If e.KeyCode = Keys.D Then
+        If e.KeyCode = Keys.D Or e.KeyCode = Keys.Right Then
 
             'Le cambio la imagen a la primera en movimineto para que al menos se muestre un cambio al precionar la tecla
             If d = 0 And a = 0 Then
@@ -80,7 +80,7 @@
         End If
 
         'Al presionar la tecla W o la barra
-        If e.KeyCode = Keys.W Or e.KeyCode = Keys.Space Then
+        If e.KeyCode = Keys.W Or e.KeyCode = Keys.Up Then
 
             'Verifico que no este descendiedo para que asi no salta en el aire
             If Descenso.Enabled = False Then
@@ -94,7 +94,7 @@
         End If
 
         'Al presionar la tecla S
-        If e.KeyCode = Keys.S Then
+        If e.KeyCode = Keys.S Or e.KeyCode = Keys.Down Then
 
             'Verifico que no estoy ascendiendo ni descendiendo además de que debe estar por ensima del panel4 (plataforma)
             If Ascenso.Enabled = False And Descenso.Enabled = False And PictureBox1.Location.Y < Panel4.Location.Y Then
@@ -113,7 +113,7 @@
     Private Sub Form1_KeyUp(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyUp
 
         'Al soltar la tecla A
-        If e.KeyCode = Keys.A Then
+        If e.KeyCode = Keys.A Or e.KeyCode = Keys.Left Then
 
             'Si la tecla D sigue presionada,  entonces se debe mover a la derecha
             If d = 1 Then
@@ -145,8 +145,8 @@
         End If
 
         'Al soltar la tecla D
-        If e.KeyCode = Keys.D Then
-           
+        If e.KeyCode = Keys.D Or e.KeyCode = Keys.Right Then
+
             'Si la tecla A sigue presionada,  entonces se debe mover a la izquierda
             If a = 1 Then
 

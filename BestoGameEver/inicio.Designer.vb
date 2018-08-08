@@ -53,7 +53,7 @@ Partial Class inicio
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(11, 107)
+        Me.Label8.Location = New System.Drawing.Point(12, 115)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(147, 20)
         Me.Label8.TabIndex = 32
@@ -129,7 +129,7 @@ Partial Class inicio
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(11, 235)
+        Me.Label7.Location = New System.Drawing.Point(11, 243)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(195, 20)
         Me.Label7.TabIndex = 23
@@ -139,7 +139,7 @@ Partial Class inicio
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(11, 321)
+        Me.Label6.Location = New System.Drawing.Point(12, 322)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(159, 20)
         Me.Label6.TabIndex = 22
@@ -149,7 +149,7 @@ Partial Class inicio
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(11, 275)
+        Me.Label5.Location = New System.Drawing.Point(12, 280)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(190, 20)
         Me.Label5.TabIndex = 21
@@ -159,7 +159,7 @@ Partial Class inicio
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(11, 192)
+        Me.Label4.Location = New System.Drawing.Point(11, 200)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(155, 20)
         Me.Label4.TabIndex = 20
@@ -179,7 +179,7 @@ Partial Class inicio
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(12, 59)
+        Me.Label2.Location = New System.Drawing.Point(12, 67)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(92, 20)
         Me.Label2.TabIndex = 18
