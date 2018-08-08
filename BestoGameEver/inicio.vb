@@ -8,7 +8,7 @@
         TextBox1.Text = Form1.avanzar.ToString
         TextBox2.Text = Form1.acelereacion.ToString
         TextBox3.Text = Form1.salto.ToString
-        TextBox4.Text = Form1.velsubida.ToString
+        TextBox4.Text = Form1.pixSubida.ToString
         TextBox5.Text = Form1.desasubida.ToString
         TextBox6.Text = Form1.caida.ToString
         TextBox7.Text = Form1.acelcaida.ToString
@@ -23,7 +23,7 @@
         Form1.avanzar = TextBox1.Text
         Form1.acelereacion = TextBox2.Text
         Form1.salto = TextBox3.Text
-        Form1.velsubida = TextBox4.Text
+        Form1.pixSubida = TextBox4.Text
         Form1.desasubida = TextBox5.Text
         Form1.caida = TextBox6.Text
         Form1.acelcaida = TextBox7.Text
