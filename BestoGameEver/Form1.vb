@@ -21,8 +21,6 @@
     Dim caida2 As Double = caida
     Dim acelcaida2 As Double = acelcaida
 
-    Dim bajo As Integer = 0
-    Dim sal As Integer = 0
     Dim lado As Integer = 0
     Dim stand As Integer = 0
     Dim foto As Integer = 0
@@ -498,83 +496,40 @@
        
     End Sub
 
-    Private Sub SaltoAnima_Disposed(ByVal sender As Object, ByVal e As System.EventArgs) Handles SaltoAnima.Disposed
-
-        'Cuando se detenga este timer, la variable que utiliza vuelve al estado inicial
-        sal = 0
-    End Sub
+    
 
     Private Sub SaltoAnima_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SaltoAnima.Tick
        
         'En la variable lado se indica a que lado debe ver el PictureBox, 0 = izquierda,  1 = derecha
         If lado = 0 Then
-
-            'Para lograr que una imágen dure mas que otra, en vez de repetir lineas en el select utilice rangos con if anidados
-            If sal >= 0 And sal < 5 Then
-                PictureBox1.Image = My.Resources._01
-                sal += 1
-            ElseIf sal >= 5 And sal < 10 Then
-                PictureBox1.Image = My.Resources._20
-                sal += 1
-            Else
+            
                 PictureBox1.Image = My.Resources.a
-            End If
-
+          
         ElseIf lado = 1 Then
-
-            If sal >= 0 And sal < 5 Then
-                PictureBox1.Image = My.Resources._01
-                PictureBox1.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-                sal += 1
-            ElseIf sal >= 5 And sal < 10 Then
-                PictureBox1.Image = My.Resources._20
-                PictureBox1.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-                sal += 1
-            Else
+           
                 PictureBox1.Image = My.Resources.a
                 PictureBox1.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-            End If
 
         End If
 
-
     End Sub
+
+  
 
     Private Sub BajoAnima_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BajoAnima.Tick
 
         'En la variable lado se indica a que lado debe ver el PictureBox, 0 = izquierda,  1 = derecha
         If lado = 0 Then
 
-            'Para lograr que una imágen dure mas que otra, en vez de repetir lineas en el select utilice rangos con if anidados
-            If bajo >= 0 And bajo < 5 Then
-                PictureBox1.Image = My.Resources._18
-                bajo += 1
-            ElseIf bajo >= 5 And bajo < 10 Then
-                PictureBox1.Image = My.Resources.b
-                bajo += 1
-            Else
-                PictureBox1.Image = My.Resources.c
-
-            End If
+            PictureBox1.Image = My.Resources.c
 
         ElseIf lado = 1 Then
 
-            If bajo >= 0 And bajo < 5 Then
-                PictureBox1.Image = My.Resources._18
-                PictureBox1.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-                bajo += 1
-            ElseIf bajo >= 5 And bajo < 10 Then
-                PictureBox1.Image = My.Resources.b
-                PictureBox1.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-                bajo += 1
-            Else
-                PictureBox1.Image = My.Resources.c
-                PictureBox1.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-
-            End If
+            PictureBox1.Image = My.Resources.c
+            PictureBox1.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
 
         End If
-        
+
 
 
     End Sub
