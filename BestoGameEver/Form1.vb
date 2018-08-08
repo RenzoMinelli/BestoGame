@@ -25,9 +25,9 @@
     Dim sal As Integer = 0
     Dim lado As Integer = 0
     Dim stand As Integer = 0
-    Dim foto As Integer = 7
-    Dim d As Integer
-    Dim a As Integer
+    Dim foto As Integer = 0
+    Dim d As Integer = 0
+    Dim a As Integer = 0
     Dim cont As Integer = 0
 
 
@@ -37,13 +37,11 @@
         If e.KeyCode = Keys.A Then
 
             'Le cambio la imagen a la primera en movimineto para que al menos se muestre un cambio al precionar la tecla la primera vez
-            If a = 0 Then
-                PictureBox1.Image = My.Resources._17
-            End If
+            If a = 0 And d = 0 Then
 
-            'Levanto la bandera de movimiento a la izquierda e inicio el timer movimiento
-            a = 1
-            Movimiento.Start()
+                PictureBox1.Image = My.Resources._17
+
+            End If
 
             'Indico de que lado debe estar la animacion de correr (izquierda)
             lado = 0
@@ -51,26 +49,33 @@
             'Apago el timer de animacion Idle
             Idle.Dispose()
 
+            'Levanto la bandera de movimiento a la izquierda e inicio el timer movimiento
+            a = 1
+            Movimiento.Start()
+
         End If
 
         'Al presionar la tecla D
         If e.KeyCode = Keys.D Then
 
             'Le cambio la imagen a la primera en movimineto para que al menos se muestre un cambio al precionar la tecla
-            If d = 0 Then
+            If d = 0 And a = 0 Then
+
                 PictureBox1.Image = My.Resources._17
                 PictureBox1.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-            End If
 
-            'Levanto la bandera de movimiento a la izquierda e inicio el timer movimiento
-            d = 1
-            Movimiento.Start()
+            End If
 
             'Indico de que lado debe estar la animacion de correr (derecha)
             lado = 1
 
             'Apago el timer de animacion Idle
             Idle.Dispose()
+
+            'Levanto la bandera de movimiento a la izquierda e inicio el timer movimiento
+            d = 1
+            Movimiento.Start()
+
 
         End If
 
@@ -191,14 +196,12 @@
         'Si solo la tecla D está presionada
         If d = 1 And a = 0 Then
 
-            'Se desactiva la animación idle se activa la de correr si aún no lo está
-            Idle.Dispose()
-
+            'Se activa la animacion de correr si aún no lo está
             If CorrerDelante.Enabled = False Then
+
                 CorrerDelante.Start()
+
             End If
-
-
 
 
             'El PictureBox avanza lo que esta en la variable avanzar2
@@ -215,11 +218,11 @@
             'Si solo la tecla A está presionada
         ElseIf a = 1 And d = 0 Then
 
-            'Se desactiva la animacion idle y se activa la de correr si aún no lo está
-            Idle.Stop()
-
+            'Se activa la animación de correr si aún no lo está
             If CorrerAtras.Enabled = False Then
+
                 CorrerAtras.Start()
+
             End If
 
 
@@ -238,11 +241,15 @@
             'Si ambas teclas A y D estás presionadas
         ElseIf a = 1 And d = 1 Then
 
-            'Que no se genere ningun movimiento y la animación idle se active
+            'Que no se genere ningun movimiento 
             CorrerDelante.Dispose()
             CorrerAtras.Dispose()
             Movimiento.Dispose()
+
+            'Y la animación idle se active solo si no lo estaba antes
             Idle.Start()
+
+
 
         End If
 
@@ -260,7 +267,7 @@
                     BajoAnima.Start()
 
                 End If
-               
+
             End If
 
         End If
