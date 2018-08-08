@@ -11,6 +11,7 @@
     Public acelcaida As Double = 0.01
     '//////////////////////////////////////////////////////////////////////////
 
+    'Utilizo una copia de las variables para luego devolverlas al valor inicial
     Dim avanzar2 As Double = avanzar
     Dim acelereacion2 As Double = acelereacion
     Dim limvel2 As Double = limvel
@@ -31,38 +32,73 @@
 
 
     Private Sub Form1_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyDown
+
+        'Al presionar la tecla A
         If e.KeyCode = Keys.A Then
 
+            'Le cambio la imagen a la primera en movimineto para que al menos se muestre un cambio al precionar la tecla la primera vez
+            If a = 0 Then
+                PictureBox1.Image = My.Resources._17
+            End If
 
+            'Levanto la bandera de movimiento a la izquierda e inicio el timer movimiento
             a = 1
-            Movimiento.Enabled = True
+            Movimiento.Start()
+
+            'Indico de que lado debe estar la animacion de correr (izquierda)
             lado = 0
-            Idle.Enabled = True
 
+            'Apago el timer de animacion Idle
+            Idle.Dispose()
 
         End If
+
+        'Al presionar la tecla D
         If e.KeyCode = Keys.D Then
-            
-            Idle.Enabled = True
+
+            'Le cambio la imagen a la primera en movimineto para que al menos se muestre un cambio al precionar la tecla
+            If d = 0 Then
+                PictureBox1.Image = My.Resources._17
+                PictureBox1.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+            End If
+
+            'Levanto la bandera de movimiento a la izquierda e inicio el timer movimiento
             d = 1
+            Movimiento.Start()
+
+            'Indico de que lado debe estar la animacion de correr (derecha)
             lado = 1
-            Movimiento.Enabled = True
+
+            'Apago el timer de animacion Idle
+            Idle.Dispose()
 
         End If
+
+        'Al presionar la tecla W o la barra
         If e.KeyCode = Keys.W Or e.KeyCode = Keys.Space Then
 
+            'Verifico que no este descendiedo para que asi no salta en el aire
             If Descenso.Enabled = False Then
 
-                SaltoAnima.Enabled = True
-                Ascenso.Enabled = True
+                'Inicio el ascenso y la animación del mismo
+                Ascenso.Start()
+                SaltoAnima.Start()
 
             End If
 
         End If
+
+        'Al presionar la tecla S
         If e.KeyCode = Keys.S Then
+
+            'Verifico que no estoy ascendiendo ni descendiendo además de que debe estar por ensima del panel4 (plataforma)
             If Ascenso.Enabled = False And Descenso.Enabled = False And PictureBox1.Location.Y < Panel4.Location.Y Then
+
+                'Muevo el PictureBox un poco mas abajo para que de esta forma no este dentro del margen de control para frenar e inicio el descenso con animación
                 PictureBox1.Location = New Point(PictureBox1.Location.X, PictureBox1.Location.Y + 30)
-                Descenso.Enabled = True
+                Descenso.Start()
+                BajoAnima.Start()
+
             End If
         End If
 
@@ -70,37 +106,59 @@
 
 
     Private Sub Form1_KeyUp(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyUp
+
+        'Al soltar la tecla A
         If e.KeyCode = Keys.A Then
+
+            'Si la tecla D sigue presionada,  entonces se debe mover a la derecha
             If d = 1 Then
-                Idle.Enabled = False
+
+                'Se apaga la animacion de idle, se indica el lado y se enciende la animacion de correr a la derecha
+                Idle.Dispose()
                 lado = 1
-                CorrerDelante.Enabled = True
-                Movimiento.Enabled = True
+                CorrerDelante.Start()
+                Movimiento.Start()
+
+                'Sino, que se detenga y que se encienda la animacion idle
             Else
-                Movimiento.Enabled = False
-                CorrerAtras.Enabled = False
-                Idle.Enabled = True
+                Movimiento.Dispose()
+                CorrerAtras.Dispose()
+                Idle.Start()
 
             End If
+
+            'Se restaura la aceleracion a la inicial
             avanzar2 = avanzar
+
+            'Se indica que la tecla A ya no está presionada
             a = 0
-            
+
         End If
+
+        'Al soltar la tecla D
         If e.KeyCode = Keys.D Then
+
+            'Si la tecla A sigue presionada,  entonces se debe mover a la izquierda
             If a = 1 Then
-                Idle.Enabled = False
+
+                'Se apaga la animacion de idle, se indica el lado y se enciende la animacion de correr a la izquierda
+                Idle.Dispose()
                 lado = 0
-                CorrerAtras.Enabled = True
-                Movimiento.Enabled = True
+                CorrerAtras.Start()
+                Movimiento.Start()
+
+                'Sino, que se detenga y que se encienda la animacion idle
             Else
-                Movimiento.Enabled = False
-                CorrerDelante.Enabled = False
-                Idle.Enabled = True
+                Movimiento.Dispose()
+                CorrerDelante.Dispose()
+                Idle.Start()
 
             End If
-           
 
+            'Se restaura la aceleracion a la inicial
             avanzar2 = avanzar
+
+            'Se indica que la tecla D ya no está presionada
             d = 0
 
         End If
@@ -110,68 +168,98 @@
 
     Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Movimiento.Tick
 
+        'Si el PictureBox llega al borde de la sala, que lo mueva hacia atrás
         If PictureBox1.Location.X >= 722 Then
 
-            PictureBox1.Location = New Point(PictureBox1.Location.X - 10, PictureBox1.Location.Y)
-            Movimiento.Enabled = False
+            PictureBox1.Location = New Point(PictureBox1.Location.X - 5, PictureBox1.Location.Y)
 
         ElseIf PictureBox1.Location.X <= 53 Then
-            PictureBox1.Location = New Point(PictureBox1.Location.X + 10, PictureBox1.Location.Y)
-            Movimiento.Enabled = False
-        Else
-            If d = 1 Then
 
-                PictureBox1.Location = New Point(PictureBox1.Location.X + avanzar2, PictureBox1.Location.Y)
-
-                If Descenso.Enabled = False And avanzar2 <= limvel2 Then
-                    avanzar2 += acelereacion2
-                End If
-
-                Idle.Enabled = False
-                CorrerDelante.Enabled = True
-
-
-
-
-            End If
-
-            If a = 1 Then
-
-                PictureBox1.Location = New Point(PictureBox1.Location.X - avanzar2, PictureBox1.Location.Y)
-
-                If Descenso.Enabled = False And avanzar2 <= limvel2 Then
-                    avanzar2 += acelereacion2
-                End If
-
-                Idle.Enabled = False
-                CorrerAtras.Enabled = True
-
-                If PictureBox1.Location.X <= -10 Then
-                    PictureBox1.Location = New Point(2000, PictureBox1.Location.Y)
-                End If
-            End If
-
-            If a = 1 And d = 1 Then
-                CorrerDelante.Enabled = False
-                CorrerAtras.Enabled = False
-                Movimiento.Enabled = False
-                Idle.Enabled = True
-            End If
+            PictureBox1.Location = New Point(PictureBox1.Location.X + 5, PictureBox1.Location.Y)
 
         End If
+
+        'Si solo la tecla D está presionada
+        If d = 1 And a = 0 Then
+
+            'Se desactiva la animación idle se activa la de correr si aún no lo está
+            Idle.Dispose()
+
+            If CorrerDelante.Enabled = False Then
+                CorrerDelante.Start()
+            End If
+
+
+
+
+            'El PictureBox avanza lo que esta en la variable avanzar2
+            PictureBox1.Location = New Point(PictureBox1.Location.X + avanzar2, PictureBox1.Location.Y)
+
+            'Solo en el caso que el PictureBox no esté descendiendo, se acelerará el movimiento. Sino, solo será la inicial
+            If Descenso.Enabled = False And avanzar2 <= limvel2 Then
+
+                avanzar2 += acelereacion2
+
+            End If
+
+
+            'Si solo la tecla A está presionada
+        ElseIf a = 1 And d = 0 Then
+
+            'Se desactiva la animacion idle y se activa la de correr si aún no lo está
+            Idle.Stop()
+
+            If CorrerAtras.Enabled = False Then
+                CorrerAtras.Start()
+            End If
+
+
+            'El PictureBox avanza lo que esta en la variable avanzar2
+            PictureBox1.Location = New Point(PictureBox1.Location.X - avanzar2, PictureBox1.Location.Y)
+
+            'Solo en el caso que el PictureBox no esté descendiendo, se acelerará el movimiento. Sino, solo será la inicial
+            If Descenso.Enabled = False And avanzar2 <= limvel2 Then
+
+                avanzar2 += acelereacion2
+
+            End If
+
+
+
+            'Si ambas teclas A y D estás presionadas
+        ElseIf a = 1 And d = 1 Then
+
+            'Que no se genere ningun movimiento y la animación idle se active
+            CorrerDelante.Dispose()
+            CorrerAtras.Dispose()
+            Movimiento.Dispose()
+            Idle.Start()
+
+        End If
+
+        'Si el PictureBox no está ascendiendo ni bajando
         If Descenso.Enabled = False And Ascenso.Enabled = False Then
+
+            'Si el PictureBox esta a la izquierda o la derecha del Panel4 (Plataforma)
             If PictureBox1.Location.X < Panel4.Location.X - 35 Or PictureBox1.Location.X > Panel4.Location.X + Panel4.Width Then
 
-                Descenso.Enabled = True
+                'Si el PictureBox esta por ensima del Panel4 (Plataforma)
+                If PictureBox1.Location.Y < Panel4.Location.Y Then
 
+                    'Que inicie el descenso y la animación del mismo
+                    Descenso.Start()
+                    BajoAnima.Start()
+
+                End If
+               
             End If
+
         End If
 
-        
     End Sub
 
     Private Sub Timer3_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Descenso.Tick
-        SaltoAnima.Enabled = False
+
 
         'Guardo las posiciones del picturebox y del panel(plataforma)
         Dim y As Double = PictureBox1.Location.Y
@@ -181,21 +269,21 @@
 
 
 
-        If y >= (py - 55) And y <= (py - 38) And x > px - 35 And x < px + 430 Then
+        If y >= (py - 55) And y <= (py - Panel4.Height) And x > px - 35 And x < (px + Panel4.Width) Then
 
 
             'Por que no mueve en el eje y ??????? help me pls, cambien el 38 si quieren, no hace nada
-            PictureBox1.Location = New Point(x, py - 38)
+            PictureBox1.Location = New Point(x, py - 50)
 
 
-            BajoAnima.Enabled = False
-            Idle.Enabled = True
+            BajoAnima.Dispose()
+            Idle.Start()
 
 
             caida2 = caida
             acelcaida2 = acelcaida
 
-            Descenso.Enabled = False
+            Descenso.Dispose()
 
 
         End If
@@ -213,12 +301,12 @@
             caida2 = caida
             acelcaida2 = acelcaida
 
-            BajoAnima.Enabled = False
+            BajoAnima.Dispose()
 
 
-            Idle.Enabled = True
+            Idle.Start()
 
-            Descenso.Enabled = False
+            Descenso.Dispose()
 
 
         Else
@@ -226,12 +314,12 @@
             caida2 = caida
             acelcaida2 = acelcaida
 
-            BajoAnima.Enabled = False
+            BajoAnima.Dispose()
 
 
-            Idle.Enabled = True
+            Idle.Start()
 
-            Descenso.Enabled = False
+            Descenso.Dispose()
 
         End If
 
@@ -241,30 +329,34 @@
 
     End Sub
 
+    Private Sub CorrerDelante_Disposed(ByVal sender As Object, ByVal e As System.EventArgs) Handles CorrerDelante.Disposed
+        foto = 0
+    End Sub
+
 
     Private Sub animacion_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CorrerDelante.Tick
         Select Case foto
 
-            Case 7
-                PictureBox1.Image = My.Resources._13
+            Case 0
+                PictureBox1.Image = My.Resources._17
                 PictureBox1.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
                 foto += 1
-            Case 8
-                PictureBox1.Image = My.Resources._14
-                PictureBox1.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-                foto += 1
-            Case 9
-                PictureBox1.Image = My.Resources._15
-                PictureBox1.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-                foto += 1
-            Case 10
+            Case 1
                 PictureBox1.Image = My.Resources._16
                 PictureBox1.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
                 foto += 1
-            Case 11
-                PictureBox1.Image = My.Resources._17
+            Case 2
+                PictureBox1.Image = My.Resources._15
                 PictureBox1.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-                foto = 7
+                foto += 1
+            Case 3
+                PictureBox1.Image = My.Resources._14
+                PictureBox1.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                foto += 1
+            Case 4
+                PictureBox1.Image = My.Resources._13
+                PictureBox1.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                foto = 0
 
 
         End Select
@@ -272,7 +364,8 @@
 
 
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        Idle.Enabled = True
+        'Inicio la animación Idle y muestro el menu de configuraciones
+        Idle.Start()
         inicio.Show()
 
     End Sub
@@ -291,9 +384,9 @@
 
         Else
             velsubida2 = velsubida
-            Ascenso.Enabled = False
-            Descenso.Enabled = True
-            BajoAnima.Enabled = True
+            Ascenso.Dispose()
+            Descenso.Start()
+            BajoAnima.Start()
             cont = 0
 
         End If
@@ -305,35 +398,43 @@
 
     End Sub
 
+    Private Sub CorrerAtras_Disposed(ByVal sender As Object, ByVal e As System.EventArgs) Handles CorrerAtras.Disposed
+        foto = 0
+    End Sub
+
 
     Private Sub correr_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CorrerAtras.Tick
 
 
         Select Case foto
 
-             Case 7
-                PictureBox1.Image = My.Resources._13
+            Case 0
+                PictureBox1.Image = My.Resources._17
                 foto += 1
-            Case 8
-                PictureBox1.Image = My.Resources._14
-                foto += 1
-            Case 9
-                PictureBox1.Image = My.Resources._15
-                foto += 1
-            Case 10
+            Case 1
                 PictureBox1.Image = My.Resources._16
                 foto += 1
-            Case 11
-                PictureBox1.Image = My.Resources._17
-                foto = 7
+            Case 2
+                PictureBox1.Image = My.Resources._15
+                foto += 1
+            Case 3
+                PictureBox1.Image = My.Resources._14
+                foto += 1
+            Case 4
+                PictureBox1.Image = My.Resources._13
+                foto = 0
 
         End Select
 
     End Sub
 
+    Private Sub Idle_Disposed(ByVal sender As Object, ByVal e As System.EventArgs) Handles Idle.Disposed
+        stand = 0
+    End Sub
+
     Private Sub Idle_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Idle.Tick
-        CorrerDelante.Enabled = False
-        CorrerAtras.Enabled = False
+        CorrerDelante.Dispose()
+        CorrerAtras.Dispose()
 
         If lado = 0 Then
             Select Case stand
@@ -382,10 +483,14 @@
        
     End Sub
 
+    Private Sub SaltoAnima_Disposed(ByVal sender As Object, ByVal e As System.EventArgs) Handles SaltoAnima.Disposed
+        sal = 0
+    End Sub
+
     Private Sub SaltoAnima_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SaltoAnima.Tick
        
 
-        Idle.Enabled = False
+        Idle.Dispose()
 
         If lado = 0 Then
 
@@ -423,7 +528,7 @@
 
     Private Sub BajoAnima_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BajoAnima.Tick
 
-        SaltoAnima.Enabled = False
+        SaltoAnima.Dispose()
 
         If lado = 0 Then
 
