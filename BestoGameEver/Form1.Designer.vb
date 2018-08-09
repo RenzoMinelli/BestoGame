@@ -35,10 +35,12 @@ Partial Class Form1
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.SaltoAnima = New System.Windows.Forms.Timer(Me.components)
         Me.BajoAnima = New System.Windows.Forms.Timer(Me.components)
-        Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Panel6 = New System.Windows.Forms.Panel()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.control = New System.Windows.Forms.Timer(Me.components)
+        Me.Panel4 = New System.Windows.Forms.Panel()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -107,20 +109,12 @@ Partial Class Form1
         '
         Me.BajoAnima.Interval = 1
         '
-        'Panel4
-        '
-        Me.Panel4.BackColor = System.Drawing.Color.SaddleBrown
-        Me.Panel4.Location = New System.Drawing.Point(172, 264)
-        Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(163, 34)
-        Me.Panel4.TabIndex = 5
-        '
         'Panel5
         '
         Me.Panel5.BackColor = System.Drawing.Color.SaddleBrown
-        Me.Panel5.Location = New System.Drawing.Point(354, 202)
+        Me.Panel5.Location = New System.Drawing.Point(137, 249)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(157, 34)
+        Me.Panel5.Size = New System.Drawing.Size(190, 34)
         Me.Panel5.TabIndex = 6
         '
         'Label1
@@ -132,23 +126,47 @@ Partial Class Form1
         Me.Label1.TabIndex = 7
         Me.Label1.Text = "Label1"
         '
-        'Panel6
+        'Label2
         '
-        Me.Panel6.BackColor = System.Drawing.Color.SaddleBrown
-        Me.Panel6.Location = New System.Drawing.Point(578, 202)
-        Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(157, 34)
-        Me.Panel6.TabIndex = 7
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(558, 86)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(39, 13)
+        Me.Label2.TabIndex = 8
+        Me.Label2.Text = "Label2"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(558, 149)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(39, 13)
+        Me.Label3.TabIndex = 9
+        Me.Label3.Text = "Label3"
+        '
+        'control
+        '
+        Me.control.Enabled = True
+        Me.control.Interval = 1
+        '
+        'Panel4
+        '
+        Me.Panel4.BackColor = System.Drawing.Color.SaddleBrown
+        Me.Panel4.Location = New System.Drawing.Point(385, 204)
+        Me.Panel4.Name = "Panel4"
+        Me.Panel4.Size = New System.Drawing.Size(183, 34)
+        Me.Panel4.TabIndex = 7
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(827, 417)
-        Me.Controls.Add(Me.Panel6)
+        Me.Controls.Add(Me.Panel4)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Panel5)
-        Me.Controls.Add(Me.Panel4)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel2)
@@ -171,9 +189,11 @@ Partial Class Form1
     Friend WithEvents Idle As System.Windows.Forms.Timer
     Friend WithEvents SaltoAnima As System.Windows.Forms.Timer
     Friend WithEvents BajoAnima As System.Windows.Forms.Timer
-    Friend WithEvents Panel4 As System.Windows.Forms.Panel
     Friend WithEvents Panel5 As System.Windows.Forms.Panel
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents Panel6 As System.Windows.Forms.Panel
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents control As System.Windows.Forms.Timer
+    Friend WithEvents Panel4 As System.Windows.Forms.Panel
 
 End Class

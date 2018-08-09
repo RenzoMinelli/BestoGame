@@ -194,7 +194,7 @@
 
         'Si solo la tecla D está presionada
         If d = 1 And a = 0 Then
-
+            Label2.Text = "mover"
             'Se activa la animacion de correr si aún no lo está
             If CorrerDelante.Enabled = False Then
 
@@ -245,7 +245,7 @@
             CorrerAtras.Dispose()
             Movimiento.Dispose()
 
-            'Y la animación idle se active solo si no lo estaba antes
+            'Y la animación idle se active
             Idle.Start()
 
 
@@ -255,8 +255,8 @@
         'Si el PictureBox no está ascendiendo ni bajando
         If Descenso.Enabled = False And Ascenso.Enabled = False Then
 
-            'Si el PictureBox esta a la izquierda o la derecha del Panel4 (Plataforma)
-            If PictureBox1.Location.X < (pan.Location.X - PictureBox1.Width) Or PictureBox1.Location.X > pan.Location.X + pan.Width Or Math.Abs(PictureBox1.Location.Y - (pan.Location.Y - pan.Height)) > 10 Then
+            'Si el PictureBox esta a la izquierda o la derecha del Panel (Plataforma)
+            If PictureBox1.Location.X < (pan.Location.X - PictureBox1.Width) Or PictureBox1.Location.X > pan.Location.X + pan.Width Or (pan.Location.Y - pan.Height) - PictureBox1.Location.Y > 5 Then
 
                 'Si el PictureBox esta por ensima del Panel4 (Plataforma)
                 If PictureBox1.Location.Y < pan.Location.Y Then
@@ -275,7 +275,7 @@
 
     Private Sub Timer3_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Descenso.Tick
 
-
+        Label3.Text = "bajando"
         'Guardo las posiciones del picturebox y del panel(plataforma)
         Dim y As Double = PictureBox1.Location.Y
         Dim x As Double = PictureBox1.Location.X
@@ -284,7 +284,7 @@
 
 
         'Si el PictureBox se encuentra sobre el Panel4 a una distancia menor a 55 pixeles?
-        If y >= (py - 50) And y <= (py - pan.Height) And x > px - 35 And x < (px + Panel4.Width) Then
+        If y >= (py - pan.Height) - 20 And y <= (py - pan.Height) And x > px - PictureBox1.Width And x < (px + pan.Width) Then
 
 
             'Mi objetivo era reubicarlo en un punto por defecto del eje y pero no lo hace :v
@@ -445,7 +445,7 @@
     End Sub
 
     Private Sub Idle_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Idle.Tick
-
+        Label3.Text = "idle"
         'En la variable lado se indica a que lado debe ver el PictureBox, 0 = izquierda,  1 = derecha
         If lado = 0 Then
 
@@ -535,49 +535,41 @@
 
     End Sub
 
-    Private Sub PictureBox1_Move(ByVal sender As Object, ByVal e As System.EventArgs) Handles PictureBox1.Move
-        Dim cont = 0
+  
+   
+    Private Sub Timer1_Tick_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles control.Tick
         Dim panelfinal As Control = PictureBox1
         Dim dy As Integer = 1000
-        Dim dx As Integer = 1000
+
         For Each ctrl As Control In Me.Controls
 
 
-            If Math.Abs(PictureBox1.Location.Y - ctrl.Location.Y) < dy And ctrl.Location.Y >= PictureBox1.Location.Y And ctrl.Name <> PictureBox1.Name And ctrl.Name <> Panel1.Name Then
-                If Math.Abs(PictureBox1.Location.X - ctrl.Location.X) < dx Then
-                    If PictureBox1.Location.X >= ctrl.Location.X And PictureBox1.Location.X < ctrl.Location.X + ctrl.Width Then
-                        panelfinal = ctrl
-                        dx = Math.Abs(PictureBox1.Location.X - ctrl.Location.X)
-                        dy = Math.Abs(PictureBox1.Location.Y - ctrl.Location.Y)
-                    Else
-                        'panelfinal = Panel1
-                    End If
+            If (ctrl.Location.Y - PictureBox1.Location.Y) < dy And ctrl.Location.Y >= PictureBox1.Location.Y And ctrl.Name <> PictureBox1.Name And ctrl.Name <> Panel1.Name Then
 
 
+                If PictureBox1.Location.X >= ctrl.Location.X And PictureBox1.Location.X < (ctrl.Location.X + ctrl.Width) Then
+
+                    panelfinal = ctrl
+
+                    dy = ctrl.Location.Y - PictureBox1.Location.Y
+                Else
+                    'panelfinal = Panel1
                 End If
+
 
             End If
 
 
 
-
-
         Next
-       
-            Try
-                pan = panelfinal
-            Catch ex As Exception
 
-            End Try
-       
+        Try
+            pan = panelfinal
+        Catch ex As Exception
+
+        End Try
+
 
         Label1.Text = pan.Name
-    End Sub
-    Private Sub controlPanel(ByVal panel As Panel)
-        
-    End Sub
-
-    Private Sub control_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs)
-
     End Sub
 End Class
