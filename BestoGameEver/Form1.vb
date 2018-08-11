@@ -25,9 +25,17 @@
     Dim lado As Integer = 0
     Dim stand As Integer = 0
     Dim foto As Integer = 0
+    Dim cont As Integer = 0
+
     Dim d As Integer = 0
     Dim a As Integer = 0
-    Dim cont As Integer = 0
+
+    '0 equivale a caer y 1 a subir
+    Dim moviVertical As Integer = 0
+
+    Dim animMovimiento As Integer = vbNull
+
+
 
 
     Private Sub Form1_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyDown
@@ -44,13 +52,10 @@
 
             'Indico de que lado debe estar la animacion de correr (izquierda)
             lado = 0
-
-            'Apago el timer de animacion Idle
-            Anim_Idle_Principal.Dispose()
-
+            
             'Levanto la bandera de movimiento a la izquierda e inicio el timer movimiento
             a = 1
-            Movimiento_Lateral.Start()
+
 
         End If
 
@@ -68,12 +73,9 @@
             'Indico de que lado debe estar la animacion de correr (derecha)
             lado = 1
 
-            'Apago el timer de animacion Idle
-            Anim_Idle_Principal.Dispose()
 
             'Levanto la bandera de movimiento a la izquierda e inicio el timer movimiento
             d = 1
-            Movimiento_Lateral.Start()
 
 
         End If
@@ -82,11 +84,10 @@
         If e.KeyCode = Keys.W Or e.KeyCode = Keys.Up Then
 
             'Verifico que no este descendiedo para que asi no salta en el aire
-            If Movimiento_Descenso.Enabled = False Then
+            If moviVertical = vbNull Then
 
                 'Inicio el ascenso y la animación del mismo
-                Movimiento_Ascenso.Start()
-                Anim_Ascenso_Principal.Start()
+                'moviVertical = 1
 
             End If
 
@@ -96,12 +97,11 @@
         If e.KeyCode = Keys.S Or e.KeyCode = Keys.Down Then
 
             'Verifico que no estoy ascendiendo ni descendiendo además de que debe estar por ensima del panel4 (plataforma)
-            If Movimiento_Ascenso.Enabled = False And Movimiento_Descenso.Enabled = False And PictureBox1.Location.Y < pan.Location.Y Then
+            If moviVertical = vbNull And PictureBox1.Location.Y < pan.Location.Y Then
 
                 'Muevo el PictureBox un poco mas abajo para que de esta forma no este dentro del margen de control para frenar e inicio el descenso con animación
                 PictureBox1.Location = New Point(PictureBox1.Location.X, PictureBox1.Location.Y + pan.Height)
-                Movimiento_Descenso.Start()
-                Anim_Descenso_Principal.Start()
+                moviVertical = 0
 
             End If
         End If
@@ -118,20 +118,16 @@
             If d = 1 Then
 
                 'Se apaga la animacion de idle, se indica el lado y se enciende la animacion de correr a la derecha
-                Anim_Idle_Principal.Dispose()
+
                 lado = 1
-                Anim_Correr_Derecha_Principal.Start()
-                Movimiento_Lateral.Start()
+
+
 
                 'Sino, que se detenga y que se encienda la animacion idle
             Else
 
                 'Determino esta imagen para mostrar como al soltar, se detiene el caminar
                 PictureBox1.Image = My.Resources._0
-
-                Movimiento_Lateral.Dispose()
-                Anim_Correr_Izquierda_Principal.Dispose()
-                Anim_Idle_Principal.Start()
 
             End If
 
@@ -150,10 +146,8 @@
             If a = 1 Then
 
                 'Se apaga la animacion de idle, se indica el lado y se enciende la animacion de correr a la izquierda
-                Anim_Idle_Principal.Dispose()
+
                 lado = 0
-                Anim_Correr_Izquierda_Principal.Start()
-                Movimiento_Lateral.Start()
 
                 'Sino, que se detenga y que se encienda la animacion idle
             Else
@@ -162,9 +156,6 @@
                 PictureBox1.Image = My.Resources._0
                 PictureBox1.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
 
-                Movimiento_Lateral.Dispose()
-                Anim_Correr_Derecha_Principal.Dispose()
-                Anim_Idle_Principal.Start()
 
             End If
 
@@ -180,351 +171,338 @@
 
 
     Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Movimiento_Lateral.Tick
+        If d = 1 Or a = 1 Then
+            'Si el PictureBox llega al borde de la sala, que lo mueva hacia atrás
+            If PictureBox1.Location.X >= 722 Then
 
-        'Si el PictureBox llega al borde de la sala, que lo mueva hacia atrás
-        If PictureBox1.Location.X >= 722 Then
+                PictureBox1.Location = New Point(PictureBox1.Location.X - 5, PictureBox1.Location.Y)
 
-            PictureBox1.Location = New Point(PictureBox1.Location.X - 5, PictureBox1.Location.Y)
+            ElseIf PictureBox1.Location.X <= 53 Then
 
-        ElseIf PictureBox1.Location.X <= 53 Then
-
-            PictureBox1.Location = New Point(PictureBox1.Location.X + 5, PictureBox1.Location.Y)
-
-        End If
-
-        'Si solo la tecla D está presionada
-        If d = 1 And a = 0 Then
-
-            'Se activa la animacion de correr si aún no lo está
-            If Anim_Correr_Derecha_Principal.Enabled = False Then
-
-                Anim_Correr_Derecha_Principal.Start()
+                PictureBox1.Location = New Point(PictureBox1.Location.X + 5, PictureBox1.Location.Y)
 
             End If
 
+            'Si solo la tecla D está presionada
+            If d = 1 And a = 0 Then
 
-            'El PictureBox avanza lo que esta en la variable avanzar2
-            PictureBox1.Location = New Point(PictureBox1.Location.X + avanzar2, PictureBox1.Location.Y)
+                'Se activa la animación de correr si aún no lo está
+                If Not animMovimiento = 1 Then
 
-            'Solo en el caso que el PictureBox no esté descendiendo, se acelerará el movimiento. Sino, solo será la inicial
-            If Movimiento_Descenso.Enabled = False And avanzar2 <= limvel2 Then
+                    animMovimiento = 1
 
-                avanzar2 += acelereacion2
+                End If
+
+                'El PictureBox avanza lo que esta en la variable avanzar2
+                PictureBox1.Location = New Point(PictureBox1.Location.X + avanzar2, PictureBox1.Location.Y)
+
+                'Solo en el caso que el PictureBox no esté descendiendo, se acelerará el movimiento. Sino, solo será la inicial
+                If moviVertical = vbNull And avanzar2 <= limvel2 Then
+
+                    avanzar2 += acelereacion2
+
+                End If
+
+
+                'Si solo la tecla A está presionada
+            ElseIf a = 1 And d = 0 Then
+
+                'Se activa la animación de correr si aún no lo está
+                If Not animMovimiento = 0 Then
+
+                    animMovimiento = 0
+
+                End If
+
+
+                'El PictureBox avanza lo que esta en la variable avanzar2
+                PictureBox1.Location = New Point(PictureBox1.Location.X - avanzar2, PictureBox1.Location.Y)
+
+                'Solo en el caso que el PictureBox no esté descendiendo, se acelerará el movimiento. Sino, solo será la inicial
+                If moviVertical = vbNull And avanzar2 <= limvel2 Then
+
+                    avanzar2 += acelereacion2
+
+                End If
+
+
+
+                'Si ambas teclas A y D estás presionadas
+            ElseIf a = 1 And d = 1 Then
+
+                'Que no se genere ningun movimiento 
+                animMovimiento = vbNull
+
+                a = 0
+                d = 0
 
             End If
 
+            'Si el PictureBox no está ascendiendo ni bajando
+            If moviVertical = vbNull Then
 
-            'Si solo la tecla A está presionada
-        ElseIf a = 1 And d = 0 Then
+                'Si el PictureBox esta a la izquierda o la derecha del Panel (Plataforma)
+                If PictureBox1.Location.X < (pan.Location.X - PictureBox1.Width + 5) Or PictureBox1.Location.X > pan.Location.X + pan.Width - 10 Then
 
-            'Se activa la animación de correr si aún no lo está
-            If Anim_Correr_Izquierda_Principal.Enabled = False Then
+                    'Si el PictureBox esta por ensima del Panel4 (Plataforma)
+                    If PictureBox1.Location.Y < pan.Location.Y Then
 
-                Anim_Correr_Izquierda_Principal.Start()
-
-            End If
-
-
-            'El PictureBox avanza lo que esta en la variable avanzar2
-            PictureBox1.Location = New Point(PictureBox1.Location.X - avanzar2, PictureBox1.Location.Y)
-
-            'Solo en el caso que el PictureBox no esté descendiendo, se acelerará el movimiento. Sino, solo será la inicial
-            If Movimiento_Descenso.Enabled = False And avanzar2 <= limvel2 Then
-
-                avanzar2 += acelereacion2
-
-            End If
+                        'Que inicie el descenso y la animación del mismo
+                        moviVertical = 0
 
 
-
-            'Si ambas teclas A y D estás presionadas
-        ElseIf a = 1 And d = 1 Then
-
-            'Que no se genere ningun movimiento 
-            Anim_Correr_Derecha_Principal.Dispose()
-            Anim_Correr_Izquierda_Principal.Dispose()
-            Movimiento_Lateral.Dispose()
-
-            'Y la animación idle se active
-            Anim_Idle_Principal.Start()
-
-
-
-        End If
-
-        'Si el PictureBox no está ascendiendo ni bajando
-        If Movimiento_Descenso.Enabled = False And Movimiento_Ascenso.Enabled = False Then
-
-            'Si el PictureBox esta a la izquierda o la derecha del Panel (Plataforma)
-            If PictureBox1.Location.X < (pan.Location.X - PictureBox1.Width + 5) Or PictureBox1.Location.X > pan.Location.X + pan.Width - 10 Then
-
-                'Si el PictureBox esta por ensima del Panel4 (Plataforma)
-                If PictureBox1.Location.Y < pan.Location.Y Then
-
-                    'Que inicie el descenso y la animación del mismo
-                    Movimiento_Descenso.Start()
-                    Anim_Descenso_Principal.Start()
+                    End If
 
                 End If
 
             End If
+        End If
+      
 
+    End Sub
+
+    Private Sub Timer3_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Movimiento_Vertical.Tick
+
+        If moviVertical = 0 Then
+
+            'Si el PictureBox se encuentra sobre el Panel4 a una distancia menor a 55 pixeles?
+            If PictureBox1.Location.Y >= (pan.Location.Y - pan.Height) - 20 And PictureBox1.Location.Y <= (pan.Location.Y - pan.Height) And PictureBox1.Location.X > pan.Location.X - PictureBox1.Width + 5 And PictureBox1.Location.X < (pan.Location.X + pan.Width - 5) Then
+
+
+                'Mi objetivo era reubicarlo en un punto por defecto del eje y pero no lo hace :v
+                PictureBox1.Location = New Point(PictureBox1.Location.X, pan.Location.Y - pan.Height - 22)
+
+                'Desactivo la animacion de bajada y el descenso. Además enciendo la animacion idle
+                moviVertical = vbNull
+
+
+                'Restablecemos las variables a los valores iniciales
+                caida2 = caida
+                acelcaida2 = acelcaida
+
+            End If
+
+            'Si el punto en donde quedaría el PictureBox al bajar sigue siendo menor a la del suelo
+            If (PictureBox1.Location.Y + caida2) <= 299 Then
+
+                'Descendemos el mismo segun la variable caida2
+                PictureBox1.Location = New Point(PictureBox1.Location.X, PictureBox1.Location.Y + caida2)
+
+                'Le sumamos a la caida2 la aceleracion, de esta forma acelera mientras cae
+                caida2 += acelcaida2
+
+                'De lo contrario, si la distancia del PictureBox sigue siendo inferior al suelo pero no lo suficiente para sumarle la caida
+            ElseIf PictureBox1.Location.Y <= 299 Then
+
+                'Descendemos el PictureBox al suelo
+                PictureBox1.Location = New Point(PictureBox1.Location.X, 299)
+
+                'Restablecemos las variables a los valores iniciales
+                caida2 = caida
+                acelcaida2 = acelcaida
+
+                'Desactivo la animacion de bajada y el descenso. Además enciendo la animacion idle
+                moviVertical = vbNull
+
+
+            End If
+
+
+        ElseIf moviVertical = 1 Then
+
+
+            'Utilizo un contador para ver si se hicieron los movimientos verticales suficientes
+            If cont <= salto2 Then
+
+                'El PictureBox se eleva la cantidad que esta en pixSubida2
+                PictureBox1.Location = New Point(PictureBox1.Location.X, PictureBox1.Location.Y - pixSubida2)
+
+                'Le sumo 1 al contador
+                cont += 1
+
+                'La subida debe ser cada vez mas lenta por la gravedad, por eso le resto
+                pixSubida2 -= desasubida2
+
+
+
+            Else
+                'Cuando el número de veces es alcanzado, se restablecen la variables al valor inicial
+                pixSubida2 = pixSubida
+                cont = 0
+
+                'Se detiene el ascenso y comienza el descenso con su animación
+                moviVertical = 0
+
+            End If
         End If
 
-    End Sub
-
-    Private Sub Timer3_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Movimiento_Descenso.Tick
-
-
-        'Si el PictureBox se encuentra sobre el Panel4 a una distancia menor a 55 pixeles?
-        If PictureBox1.Location.Y >= (pan.Location.Y - pan.Height) - 20 And PictureBox1.Location.Y <= (pan.Location.Y - pan.Height) And PictureBox1.Location.X > pan.Location.X - PictureBox1.Width + 5 And PictureBox1.Location.X < (pan.Location.X + pan.Width - 5) Then
-
-
-            'Mi objetivo era reubicarlo en un punto por defecto del eje y pero no lo hace :v
-            PictureBox1.Location = New Point(PictureBox1.Location.X, pan.Location.Y - pan.Height - 22)
-
-            'Desactivo la animacion de bajada y el descenso. Además enciendo la animacion idle
-            Anim_Descenso_Principal.Dispose()
-            Movimiento_Descenso.Dispose()
-            Anim_Idle_Principal.Start()
-
-            'Restablecemos las variables a los valores iniciales
-            caida2 = caida
-            acelcaida2 = acelcaida
-
-        End If
-
-        'Si el punto en donde quedaría el PictureBox al bajar sigue siendo menor a la del suelo
-        If (PictureBox1.Location.Y + caida2) <= 299 Then
-
-            'Descendemos el mismo segun la variable caida2
-            PictureBox1.Location = New Point(PictureBox1.Location.X, PictureBox1.Location.Y + caida2)
-
-            'Le sumamos a la caida2 la aceleracion, de esta forma acelera mientras cae
-            caida2 += acelcaida2
-
-            'De lo contrario, si la distancia del PictureBox sigue siendo inferior al suelo pero no lo suficiente para sumarle la caida
-        ElseIf PictureBox1.Location.Y <= 299 Then
-
-            'Descendemos el PictureBox al suelo
-            PictureBox1.Location = New Point(PictureBox1.Location.X, 299)
-
-            'Restablecemos las variables a los valores iniciales
-            caida2 = caida
-            acelcaida2 = acelcaida
-
-            'Desactivo la animacion de bajada y el descenso. Además enciendo la animacion idle
-            Movimiento_Descenso.Dispose()
-            Anim_Descenso_Principal.Dispose()
-            Anim_Idle_Principal.Start()
-
-        End If
-
-
 
 
 
     End Sub
 
-    Private Sub CorrerDelante_Disposed(ByVal sender As Object, ByVal e As System.EventArgs) Handles Anim_Correr_Derecha_Principal.Disposed
-        'Cuando se detenga este timer, la variable que utiliza vuelve al estado inicial
-        foto = 0
-    End Sub
 
 
-    Private Sub animacion_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Anim_Correr_Derecha_Principal.Tick
-
-        'Utilizando la variable foto como contador, recorremos el select case una vuelta por tick. Volteamos la imagen porque se mueve hacia adelante
-        Select Case foto
-
-            Case 0
-                PictureBox1.Image = My.Resources._17
-                PictureBox1.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-                foto += 1
-            Case 1
-                PictureBox1.Image = My.Resources._16
-                PictureBox1.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-                foto += 1
-            Case 2
-                PictureBox1.Image = My.Resources._15
-                PictureBox1.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-                foto += 1
-            Case 3
-                PictureBox1.Image = My.Resources._14
-                PictureBox1.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-                foto += 1
-            Case 4
-                PictureBox1.Image = My.Resources._13
-                PictureBox1.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-                foto = 0
-
-        End Select
-    End Sub
+    
 
 
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'Inicio la animación Idle y muestro el menu de configuraciones
-        Anim_Idle_Principal.Start()
         inicio.Show()
 
     End Sub
 
-    Private Sub ascenso_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Movimiento_Ascenso.Tick
 
-        'Utilizo un contador para ver si se hicieron los movimientos verticales suficientes
-        If cont <= salto2 Then
-
-            'El PictureBox se eleva la cantidad que esta en pixSubida2
-            PictureBox1.Location = New Point(PictureBox1.Location.X, PictureBox1.Location.Y - pixSubida2)
-
-            'Le sumo 1 al contador
-            cont += 1
-
-            'La subida debe ser cada vez mas lenta por la gravedad, por eso le resto
-            pixSubida2 -= desasubida2
+    
 
 
+    Private Sub correr_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Anim_Correr_Lateral_Principal.Tick
+        If a = 1 And d = 0 And moviVertical = vbNull And animMovimiento = 0 Then
 
-        Else
-            'Cuando el número de veces es alcanzado, se restablecen la variables al valor inicial
-            pixSubida2 = pixSubida
-            cont = 0
+            'Utilizando la variable foto como contador, recorremos el select case una vuelta por tick.
+            Select Case foto
 
-            'Se detiene el ascenso y comienza el descenso con su animación
-            Movimiento_Ascenso.Dispose()
-            Anim_Ascenso_Principal.Dispose()
-            Movimiento_Descenso.Start()
-            Anim_Descenso_Principal.Start()
+                Case 0
+                    PictureBox1.Image = My.Resources._17
+                    foto += 1
+                Case 1
+                    PictureBox1.Image = My.Resources._16
+                    foto += 1
+                Case 2
+                    PictureBox1.Image = My.Resources._15
+                    foto += 1
+                Case 3
+                    PictureBox1.Image = My.Resources._14
+                    foto += 1
+                Case 4
+                    PictureBox1.Image = My.Resources._13
+                    foto = 0
 
+            End Select
+        ElseIf d = 1 And a = 0 And moviVertical = vbNull And animMovimiento = 1 Then
+
+            'Utilizando la variable foto como contador, recorremos el select case una vuelta por tick. Volteamos la imagen porque se mueve hacia adelante
+            Select Case foto
+
+                Case 0
+                    PictureBox1.Image = My.Resources._17
+                    PictureBox1.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                    foto += 1
+                Case 1
+                    PictureBox1.Image = My.Resources._16
+                    PictureBox1.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                    foto += 1
+                Case 2
+                    PictureBox1.Image = My.Resources._15
+                    PictureBox1.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                    foto += 1
+                Case 3
+                    PictureBox1.Image = My.Resources._14
+                    PictureBox1.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                    foto += 1
+                Case 4
+                    PictureBox1.Image = My.Resources._13
+                    PictureBox1.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                    foto = 0
+
+            End Select
         End If
 
-    End Sub
-
-    Private Sub CorrerAtras_Disposed(ByVal sender As Object, ByVal e As System.EventArgs) Handles Anim_Correr_Izquierda_Principal.Disposed
-
-        'Cuando se detenga este timer, la variable que utiliza vuelve al estado inicial
-        foto = 0
-    End Sub
 
 
-    Private Sub correr_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Anim_Correr_Izquierda_Principal.Tick
-
-        'Utilizando la variable foto como contador, recorremos el select case una vuelta por tick.
-        Select Case foto
-
-            Case 0
-                PictureBox1.Image = My.Resources._17
-                foto += 1
-            Case 1
-                PictureBox1.Image = My.Resources._16
-                foto += 1
-            Case 2
-                PictureBox1.Image = My.Resources._15
-                foto += 1
-            Case 3
-                PictureBox1.Image = My.Resources._14
-                foto += 1
-            Case 4
-                PictureBox1.Image = My.Resources._13
-                foto = 0
-
-        End Select
 
     End Sub
 
-    Private Sub Idle_Disposed(ByVal sender As Object, ByVal e As System.EventArgs) Handles Anim_Idle_Principal.Disposed
-
-        'Cuando se detenga este timer, la variable que utiliza vuelve al estado inicial
-        stand = 0
-    End Sub
+    
 
     Private Sub Idle_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Anim_Idle_Principal.Tick
+        If a = 0 And d = 0 And moviVertical = vbNull Then
+            'En la variable lado se indica a que lado debe ver el PictureBox, 0 = izquierda,  1 = derecha
+            If lado = 0 Then
 
-        'En la variable lado se indica a que lado debe ver el PictureBox, 0 = izquierda,  1 = derecha
-        If lado = 0 Then
+                'Utilizando la variable stand como contador, recorremos el select case una vuelta por tick.
+                Select Case stand
+                    Case 0
+                        PictureBox1.Image = My.Resources._0
+                        stand += 1
+                    Case 1
+                        PictureBox1.Image = My.Resources._1
+                        stand += 1
+                    Case 2
+                        PictureBox1.Image = My.Resources._2
+                        stand += 1
+                    Case 3
+                        PictureBox1.Image = My.Resources._3
+                        stand += 1
+                    Case 4
+                        PictureBox1.Image = My.Resources._4
+                        stand = 0
+                End Select
 
-            'Utilizando la variable stand como contador, recorremos el select case una vuelta por tick.
-            Select Case stand
-                Case 0
-                    PictureBox1.Image = My.Resources._0
-                    stand += 1
-                Case 1
-                    PictureBox1.Image = My.Resources._1
-                    stand += 1
-                Case 2
-                    PictureBox1.Image = My.Resources._2
-                    stand += 1
-                Case 3
-                    PictureBox1.Image = My.Resources._3
-                    stand += 1
-                Case 4
-                    PictureBox1.Image = My.Resources._4
-                    stand = 0
-            End Select
+            ElseIf lado = 1 Then
 
-        ElseIf lado = 1 Then
+                'Utilizando la variable stand como contador, recorremos el select case una vuelta por tick.
+                Select Case stand
+                    Case 0
+                        PictureBox1.Image = My.Resources._0
+                        PictureBox1.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                        stand += 1
+                    Case 1
+                        PictureBox1.Image = My.Resources._1
+                        PictureBox1.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                        stand += 1
+                    Case 2
+                        PictureBox1.Image = My.Resources._2
+                        PictureBox1.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                        stand += 1
+                    Case 3
+                        PictureBox1.Image = My.Resources._3
+                        PictureBox1.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                        stand += 1
+                    Case 4
+                        PictureBox1.Image = My.Resources._4
+                        PictureBox1.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                        stand = 0
+                End Select
+            End If
 
-            'Utilizando la variable stand como contador, recorremos el select case una vuelta por tick.
-            Select Case stand
-                Case 0
-                    PictureBox1.Image = My.Resources._0
-                    PictureBox1.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-                    stand += 1
-                Case 1
-                    PictureBox1.Image = My.Resources._1
-                    PictureBox1.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-                    stand += 1
-                Case 2
-                    PictureBox1.Image = My.Resources._2
-                    PictureBox1.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-                    stand += 1
-                Case 3
-                    PictureBox1.Image = My.Resources._3
-                    PictureBox1.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-                    stand += 1
-                Case 4
-                    PictureBox1.Image = My.Resources._4
-                    PictureBox1.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-                    stand = 0
-            End Select
         End If
-
+       
     End Sub
 
 
 
-    Private Sub SaltoAnima_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Anim_Ascenso_Principal.Tick
+    Private Sub SaltoAnima_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Anim_Vertical_Principal.Tick
 
-        'En la variable lado se indica a que lado debe ver el PictureBox, 0 = izquierda,  1 = derecha
-        If lado = 0 Then
+        If moviVertical = 1 Then
 
-            PictureBox1.Image = My.Resources.a
+            'En la variable lado se indica a que lado debe ver el PictureBox, 0 = izquierda,  1 = derecha
+            If lado = 0 Then
 
-        ElseIf lado = 1 Then
+                PictureBox1.Image = My.Resources.a
 
-            PictureBox1.Image = My.Resources.a
-            PictureBox1.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+            ElseIf lado = 1 Then
 
+                PictureBox1.Image = My.Resources.a
+                PictureBox1.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+
+            End If
+
+
+        ElseIf moviVertical = 0 Then
+
+            'En la variable lado se indica a que lado debe ver el PictureBox, 0 = izquierda,  1 = derecha
+            If lado = 0 Then
+
+                PictureBox1.Image = My.Resources.c
+
+            ElseIf lado = 1 Then
+
+                PictureBox1.Image = My.Resources.c
+                PictureBox1.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+
+            End If
         End If
-
-    End Sub
-
-
-
-    Private Sub BajoAnima_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Anim_Descenso_Principal.Tick
-
-        'En la variable lado se indica a que lado debe ver el PictureBox, 0 = izquierda,  1 = derecha
-        If lado = 0 Then
-
-            PictureBox1.Image = My.Resources.c
-
-        ElseIf lado = 1 Then
-
-            PictureBox1.Image = My.Resources.c
-            PictureBox1.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-
-        End If
-
 
 
     End Sub
@@ -568,4 +546,5 @@
     End Sub
 
     
+   
 End Class

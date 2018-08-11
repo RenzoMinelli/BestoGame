@@ -23,46 +23,37 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Me.Anim_Correr_Izquierda_Principal = New System.Windows.Forms.Timer(Me.components)
-        Me.Anim_Correr_Derecha_Principal = New System.Windows.Forms.Timer(Me.components)
+        Me.Anim_Correr_Lateral_Principal = New System.Windows.Forms.Timer(Me.components)
         Me.Movimiento_Lateral = New System.Windows.Forms.Timer(Me.components)
-        Me.Movimiento_Descenso = New System.Windows.Forms.Timer(Me.components)
-        Me.Movimiento_Ascenso = New System.Windows.Forms.Timer(Me.components)
+        Me.Movimiento_Vertical = New System.Windows.Forms.Timer(Me.components)
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Anim_Idle_Principal = New System.Windows.Forms.Timer(Me.components)
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.Anim_Ascenso_Principal = New System.Windows.Forms.Timer(Me.components)
-        Me.Anim_Descenso_Principal = New System.Windows.Forms.Timer(Me.components)
+        Me.Anim_Vertical_Principal = New System.Windows.Forms.Timer(Me.components)
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.Encontrar_Suelo = New System.Windows.Forms.Timer(Me.components)
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Panel6 = New System.Windows.Forms.Panel()
         Me.enemigo = New System.Windows.Forms.PictureBox()
-        Me.Anim_Idle_Enemigo = New System.Windows.Forms.Timer(Me.components)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.enemigo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'Anim_Correr_Izquierda_Principal
+        'Anim_Correr_Lateral_Principal
         '
-        '
-        'Anim_Correr_Derecha_Principal
-        '
-        Me.Anim_Correr_Derecha_Principal.Interval = 90
+        Me.Anim_Correr_Lateral_Principal.Enabled = True
         '
         'Movimiento_Lateral
         '
+        Me.Movimiento_Lateral.Enabled = True
         Me.Movimiento_Lateral.Interval = 1
         '
-        'Movimiento_Descenso
+        'Movimiento_Vertical
         '
-        Me.Movimiento_Descenso.Interval = 5
-        '
-        'Movimiento_Ascenso
-        '
-        Me.Movimiento_Ascenso.Interval = 5
+        Me.Movimiento_Vertical.Enabled = True
+        Me.Movimiento_Vertical.Interval = 5
         '
         'Panel1
         '
@@ -90,26 +81,24 @@ Partial Class Form1
         '
         'Anim_Idle_Principal
         '
+        Me.Anim_Idle_Principal.Enabled = True
         Me.Anim_Idle_Principal.Interval = 200
         '
         'PictureBox1
         '
         Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox1.Image = Global.ya_ni_se.My.Resources.Resources._01
-        Me.PictureBox1.Location = New System.Drawing.Point(509, 300)
+        Me.PictureBox1.Location = New System.Drawing.Point(279, 126)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(47, 54)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
         '
-        'Anim_Ascenso_Principal
+        'Anim_Vertical_Principal
         '
-        Me.Anim_Ascenso_Principal.Interval = 1
-        '
-        'Anim_Descenso_Principal
-        '
-        Me.Anim_Descenso_Principal.Interval = 1
+        Me.Anim_Vertical_Principal.Enabled = True
+        Me.Anim_Vertical_Principal.Interval = 1
         '
         'Panel5
         '
@@ -149,10 +138,6 @@ Partial Class Form1
         Me.enemigo.TabIndex = 9
         Me.enemigo.TabStop = False
         '
-        'Anim_Idle_Enemigo
-        '
-        Me.Anim_Idle_Enemigo.Interval = 200
-        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -173,22 +158,18 @@ Partial Class Form1
 
     End Sub
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
-    Friend WithEvents Anim_Correr_Izquierda_Principal As System.Windows.Forms.Timer
-    Friend WithEvents Anim_Correr_Derecha_Principal As System.Windows.Forms.Timer
+    Friend WithEvents Anim_Correr_Lateral_Principal As System.Windows.Forms.Timer
     Friend WithEvents Movimiento_Lateral As System.Windows.Forms.Timer
-    Friend WithEvents Movimiento_Descenso As System.Windows.Forms.Timer
-    Friend WithEvents Movimiento_Ascenso As System.Windows.Forms.Timer
+    Friend WithEvents Movimiento_Vertical As System.Windows.Forms.Timer
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
     Friend WithEvents Panel3 As System.Windows.Forms.Panel
     Friend WithEvents Anim_Idle_Principal As System.Windows.Forms.Timer
-    Friend WithEvents Anim_Ascenso_Principal As System.Windows.Forms.Timer
-    Friend WithEvents Anim_Descenso_Principal As System.Windows.Forms.Timer
+    Friend WithEvents Anim_Vertical_Principal As System.Windows.Forms.Timer
     Friend WithEvents Panel5 As System.Windows.Forms.Panel
     Friend WithEvents Encontrar_Suelo As System.Windows.Forms.Timer
     Friend WithEvents Panel4 As System.Windows.Forms.Panel
     Friend WithEvents Panel6 As System.Windows.Forms.Panel
     Friend WithEvents enemigo As System.Windows.Forms.PictureBox
-    Friend WithEvents Anim_Idle_Enemigo As System.Windows.Forms.Timer
 
 End Class
