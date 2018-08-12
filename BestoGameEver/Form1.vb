@@ -4,8 +4,8 @@
     Public avanzar As Double = 5
     Public acelereacion As Double = 0
     Public limvel As Double = 5
-    Public salto As Double = 20
-    Public pixSubida As Double = 8
+    Public salto As Double = 15
+    Public pixSubida As Double = 5
     Public desasubida As Double = 0.01
     Public caida As Double = 5
     Public acelcaida As Double = 0.01
@@ -168,8 +168,95 @@
     End Sub
 
 
-    Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Movimiento_Lateral.Tick
+    Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs)
 
+
+
+    End Sub
+
+    Private Sub Timer3_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Movimiento_Principal.Tick
+
+        '/////////////////////////////////////////////////////////// Movimiento Vertical /////////////////////////////////////////////////////////////////////////
+        If moviVertical <> "" Then
+
+            '////////////////////// Descenso /////////////////////////////////
+            If moviVertical = "0" Then
+
+                'Si el PictureBox se encuentra sobre el Panel a una distancia menor a 20 pixeles
+                If PictureBox1.Location.Y >= (pan.Location.Y - pan.Height) - 20 And PictureBox1.Location.Y <= (pan.Location.Y - pan.Height) And PictureBox1.Location.X > pan.Location.X - PictureBox1.Width + 5 And PictureBox1.Location.X < (pan.Location.X + pan.Width - 5) Then
+
+
+                    'Mi objetivo es reubicarlo en un punto por defecto del eje 
+                    PictureBox1.Location = New Point(PictureBox1.Location.X, pan.Location.Y - pan.Height - 24)
+
+                    'Desactivo la animacion de bajada y el descenso. Además enciendo la animacion idle
+                    moviVertical = ""
+
+
+                    'Restablecemos las variables a los valores iniciales
+                    caida2 = caida
+                    acelcaida2 = acelcaida
+
+                End If
+
+                'Si el punto en donde quedaría el PictureBox al bajar sigue siendo menor a la del suelo
+                If (PictureBox1.Location.Y + caida2) <= 299 Then
+
+                    'Descendemos el mismo segun la variable caida2
+                    PictureBox1.Location = New Point(PictureBox1.Location.X, PictureBox1.Location.Y + caida2)
+
+                    'Le sumamos a la caida2 la aceleracion, de esta forma acelera mientras cae
+                    caida2 += acelcaida2
+
+                    'De lo contrario, si la distancia del PictureBox sigue siendo inferior al suelo pero no lo suficiente para sumarle la caida
+                ElseIf PictureBox1.Location.Y <= 299 Then
+
+                    'Descendemos el PictureBox al suelo
+                    PictureBox1.Location = New Point(PictureBox1.Location.X, 299)
+
+                    'Restablecemos las variables a los valores iniciales
+                    caida2 = caida
+                    acelcaida2 = acelcaida
+
+                    'Desactivo la animacion de bajada y el descenso. Además enciendo la animacion idle
+
+                    moviVertical = ""
+
+
+
+                End If
+
+                '////////////////////// Ascenso /////////////////////////////////
+            ElseIf moviVertical = "1" Then
+
+
+                'Utilizo un contador para ver si se hicieron los movimientos verticales suficientes
+                If cont <= salto2 Then
+
+                    'El PictureBox se eleva la cantidad que esta en pixSubida2
+                    PictureBox1.Location = New Point(PictureBox1.Location.X, PictureBox1.Location.Y - pixSubida2)
+
+                    'Le sumo 1 al contador
+                    cont += 1
+
+                    'La subida debe ser cada vez mas lenta por la gravedad, por eso le resto
+                    pixSubida2 -= desasubida2
+
+
+
+                Else
+                    'Cuando el número de veces es alcanzado, se restablecen la variables al valor inicial
+                    pixSubida2 = pixSubida
+                    cont = 0
+
+                    'Se detiene el ascenso y comienza el descenso con su animación
+                    moviVertical = "0"
+
+                End If
+            End If
+        End If
+
+        '/////////////////////////////////////////////////////////// Movimiento Lateral /////////////////////////////////////////////////////////////////////////
         If d = 1 Or a = 1 Then
             'Si el PictureBox llega al borde de la sala, que lo mueva hacia atrás
             If PictureBox1.Location.X >= 722 Then
@@ -232,7 +319,7 @@
                 'Que no se genere ningun movimiento 
                 animMovimiento = ""
 
-               
+
 
             End If
 
@@ -253,88 +340,6 @@
 
                 End If
 
-            End If
-        End If
-
-
-    End Sub
-
-    Private Sub Timer3_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Movimiento_Vertical.Tick
-        If moviVertical <> "" Then
-
-            If moviVertical = "0" Then
-
-                'Si el PictureBox se encuentra sobre el Panel a una distancia menor a 20 pixeles
-                If PictureBox1.Location.Y >= (pan.Location.Y - pan.Height) - 20 And PictureBox1.Location.Y <= (pan.Location.Y - pan.Height) And PictureBox1.Location.X > pan.Location.X - PictureBox1.Width + 5 And PictureBox1.Location.X < (pan.Location.X + pan.Width - 5) Then
-
-
-                    'Mi objetivo es reubicarlo en un punto por defecto del eje 
-                    PictureBox1.Location = New Point(PictureBox1.Location.X, pan.Location.Y - pan.Height - 22)
-
-                    'Desactivo la animacion de bajada y el descenso. Además enciendo la animacion idle
-                    moviVertical = ""
-
-
-                    'Restablecemos las variables a los valores iniciales
-                    caida2 = caida
-                    acelcaida2 = acelcaida
-
-                End If
-
-                'Si el punto en donde quedaría el PictureBox al bajar sigue siendo menor a la del suelo
-                If (PictureBox1.Location.Y + caida2) <= 299 Then
-
-                    'Descendemos el mismo segun la variable caida2
-                    PictureBox1.Location = New Point(PictureBox1.Location.X, PictureBox1.Location.Y + caida2)
-
-                    'Le sumamos a la caida2 la aceleracion, de esta forma acelera mientras cae
-                    caida2 += acelcaida2
-
-                    'De lo contrario, si la distancia del PictureBox sigue siendo inferior al suelo pero no lo suficiente para sumarle la caida
-                ElseIf PictureBox1.Location.Y <= 299 Then
-
-                    'Descendemos el PictureBox al suelo
-                    PictureBox1.Location = New Point(PictureBox1.Location.X, 299)
-
-                    'Restablecemos las variables a los valores iniciales
-                    caida2 = caida
-                    acelcaida2 = acelcaida
-
-                    'Desactivo la animacion de bajada y el descenso. Además enciendo la animacion idle
-
-                    moviVertical = ""
-                    
-
-
-                End If
-
-
-            ElseIf moviVertical = "1" Then
-
-
-                'Utilizo un contador para ver si se hicieron los movimientos verticales suficientes
-                If cont <= salto2 Then
-
-                    'El PictureBox se eleva la cantidad que esta en pixSubida2
-                    PictureBox1.Location = New Point(PictureBox1.Location.X, PictureBox1.Location.Y - pixSubida2)
-
-                    'Le sumo 1 al contador
-                    cont += 1
-
-                    'La subida debe ser cada vez mas lenta por la gravedad, por eso le resto
-                    pixSubida2 -= desasubida2
-
-
-
-                Else
-                    'Cuando el número de veces es alcanzado, se restablecen la variables al valor inicial
-                    pixSubida2 = pixSubida
-                    cont = 0
-
-                    'Se detiene el ascenso y comienza el descenso con su animación
-                    moviVertical = "0"
-
-                End If
             End If
         End If
 

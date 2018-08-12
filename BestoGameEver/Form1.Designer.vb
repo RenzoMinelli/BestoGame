@@ -23,8 +23,7 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Me.Movimiento_Lateral = New System.Windows.Forms.Timer(Me.components)
-        Me.Movimiento_Vertical = New System.Windows.Forms.Timer(Me.components)
+        Me.Movimiento_Principal = New System.Windows.Forms.Timer(Me.components)
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Panel3 = New System.Windows.Forms.Panel()
@@ -38,15 +37,10 @@ Partial Class Form1
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'Movimiento_Lateral
+        'Movimiento_Principal
         '
-        Me.Movimiento_Lateral.Enabled = True
-        Me.Movimiento_Lateral.Interval = 1
-        '
-        'Movimiento_Vertical
-        '
-        Me.Movimiento_Vertical.Enabled = True
-        Me.Movimiento_Vertical.Interval = 5
+        Me.Movimiento_Principal.Enabled = True
+        Me.Movimiento_Principal.Interval = 1
         '
         'Panel1
         '
@@ -95,7 +89,7 @@ Partial Class Form1
         'Panel5
         '
         Me.Panel5.BackColor = System.Drawing.Color.SaddleBrown
-        Me.Panel5.Location = New System.Drawing.Point(259, 198)
+        Me.Panel5.Location = New System.Drawing.Point(260, 259)
         Me.Panel5.Name = "Panel5"
         Me.Panel5.Size = New System.Drawing.Size(101, 34)
         Me.Panel5.TabIndex = 6
@@ -108,7 +102,7 @@ Partial Class Form1
         'Panel4
         '
         Me.Panel4.BackColor = System.Drawing.Color.SaddleBrown
-        Me.Panel4.Location = New System.Drawing.Point(509, 111)
+        Me.Panel4.Location = New System.Drawing.Point(578, 207)
         Me.Panel4.Name = "Panel4"
         Me.Panel4.Size = New System.Drawing.Size(108, 34)
         Me.Panel4.TabIndex = 7
@@ -116,7 +110,7 @@ Partial Class Form1
         'Panel6
         '
         Me.Panel6.BackColor = System.Drawing.Color.SaddleBrown
-        Me.Panel6.Location = New System.Drawing.Point(411, 198)
+        Me.Panel6.Location = New System.Drawing.Point(412, 259)
         Me.Panel6.Name = "Panel6"
         Me.Panel6.Size = New System.Drawing.Size(108, 34)
         Me.Panel6.TabIndex = 8
@@ -139,8 +133,7 @@ Partial Class Form1
 
     End Sub
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
-    Friend WithEvents Movimiento_Lateral As System.Windows.Forms.Timer
-    Friend WithEvents Movimiento_Vertical As System.Windows.Forms.Timer
+    Friend WithEvents Movimiento_Principal As System.Windows.Forms.Timer
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
     Friend WithEvents Panel3 As System.Windows.Forms.Panel

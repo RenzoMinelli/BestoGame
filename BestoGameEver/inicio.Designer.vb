@@ -161,9 +161,9 @@ Partial Class inicio
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.Location = New System.Drawing.Point(11, 200)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(155, 20)
+        Me.Label4.Size = New System.Drawing.Size(196, 20)
         Me.Label4.TabIndex = 20
-        Me.Label4.Text = "Velocidad de Subida"
+        Me.Label4.Text = "Velocidad de Subida Inical"
         '
         'Label3
         '
@@ -171,9 +171,9 @@ Partial Class inicio
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(11, 159)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(138, 20)
+        Me.Label3.Size = New System.Drawing.Size(144, 20)
         Me.Label3.TabIndex = 19
-        Me.Label3.Text = "Distancia de Salto"
+        Me.Label3.Text = "Cantidad de Saltos"
         '
         'Label2
         '

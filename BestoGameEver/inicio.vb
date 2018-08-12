@@ -4,6 +4,10 @@
 
     End Sub
 
+    Private Sub inicio_Disposed(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Disposed
+        Form1.Dispose()
+    End Sub
+
     Private Sub inicio_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         TextBox1.Text = Form1.avanzar.ToString
         TextBox2.Text = Form1.acelereacion.ToString
