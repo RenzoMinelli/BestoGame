@@ -169,7 +169,7 @@
 
 
     Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Movimiento_Lateral.Tick
-        Label2.Text = "a: " + a.ToString + " d: " + d.ToString
+
         If d = 1 Or a = 1 Then
             'Si el PictureBox llega al borde de la sala, que lo mueva hacia atrás
             If PictureBox1.Location.X >= 722 Then
@@ -348,70 +348,8 @@
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'Inicio la animación Idle y muestro el menu de configuraciones
         inicio.Show()
-
+        moviVertical = "0"
     End Sub
-
-
-    
-
-
-    Private Sub correr_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Anim_Correr_Lateral_Principal.Tick
-        If a = 1 And d = 0 And moviVertical = "" And animMovimiento = "0" Then
-
-            'Utilizando la variable foto como contador, recorremos el select case una vuelta por tick.
-            Select Case foto
-
-                Case 0
-                    PictureBox1.Image = My.Resources._17
-                    foto += 1
-                Case 1
-                    PictureBox1.Image = My.Resources._16
-                    foto += 1
-                Case 2
-                    PictureBox1.Image = My.Resources._15
-                    foto += 1
-                Case 3
-                    PictureBox1.Image = My.Resources._14
-                    foto += 1
-                Case 4
-                    PictureBox1.Image = My.Resources._13
-                    foto = 0
-
-            End Select
-        ElseIf d = 1 And a = 0 And moviVertical = "" And animMovimiento = "1" Then
-
-            'Utilizando la variable foto como contador, recorremos el select case una vuelta por tick. Volteamos la imagen porque se mueve hacia adelante
-            Select Case foto
-
-                Case 0
-                    PictureBox1.Image = My.Resources._17
-                    PictureBox1.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-                    foto += 1
-                Case 1
-                    PictureBox1.Image = My.Resources._16
-                    PictureBox1.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-                    foto += 1
-                Case 2
-                    PictureBox1.Image = My.Resources._15
-                    PictureBox1.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-                    foto += 1
-                Case 3
-                    PictureBox1.Image = My.Resources._14
-                    PictureBox1.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-                    foto += 1
-                Case 4
-                    PictureBox1.Image = My.Resources._13
-                    PictureBox1.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-                    foto = 0
-
-            End Select
-        End If
-
-
-
-
-    End Sub
-
     
 
     Private Sub Idle_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Anim_Idle_Principal.Tick
@@ -471,7 +409,58 @@
 
 
 
-    Private Sub SaltoAnima_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Anim_Vertical_Principal.Tick
+    Private Sub SaltoAnima_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Anim_Movimiento_Principal.Tick
+        If a = 1 And d = 0 And moviVertical = "" And animMovimiento = "0" Then
+
+            'Utilizando la variable foto como contador, recorremos el select case una vuelta por tick.
+            Select Case foto
+
+                Case 0
+                    PictureBox1.Image = My.Resources._17
+                    foto += 1
+                Case 1
+                    PictureBox1.Image = My.Resources._16
+                    foto += 1
+                Case 2
+                    PictureBox1.Image = My.Resources._15
+                    foto += 1
+                Case 3
+                    PictureBox1.Image = My.Resources._14
+                    foto += 1
+                Case 4
+                    PictureBox1.Image = My.Resources._13
+                    foto = 0
+
+            End Select
+        ElseIf d = 1 And a = 0 And moviVertical = "" And animMovimiento = "1" Then
+
+            'Utilizando la variable foto como contador, recorremos el select case una vuelta por tick. Volteamos la imagen porque se mueve hacia adelante
+            Select Case foto
+
+                Case 0
+                    PictureBox1.Image = My.Resources._17
+                    PictureBox1.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                    foto += 1
+                Case 1
+                    PictureBox1.Image = My.Resources._16
+                    PictureBox1.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                    foto += 1
+                Case 2
+                    PictureBox1.Image = My.Resources._15
+                    PictureBox1.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                    foto += 1
+                Case 3
+                    PictureBox1.Image = My.Resources._14
+                    PictureBox1.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                    foto += 1
+                Case 4
+                    PictureBox1.Image = My.Resources._13
+                    PictureBox1.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                    foto = 0
+
+            End Select
+        End If
+
 
         If moviVertical <> "" Then
 
@@ -505,15 +494,15 @@
                 End If
             End If
         End If
-        
+
 
 
     End Sub
 
   
    
-    Private Sub Timer1_Tick_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Encontrar_Suelo.Tick
-        Label1.Text = pan.Name + vbNewLine + moviVertical
+    Private Sub Timer1_Tick_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Encontrar_Suelo_Principal.Tick
+
         Dim panelfinal As Control = PictureBox1
         Dim dy As Integer = 1000
 

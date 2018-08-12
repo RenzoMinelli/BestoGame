@@ -23,7 +23,6 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Me.Anim_Correr_Lateral_Principal = New System.Windows.Forms.Timer(Me.components)
         Me.Movimiento_Lateral = New System.Windows.Forms.Timer(Me.components)
         Me.Movimiento_Vertical = New System.Windows.Forms.Timer(Me.components)
         Me.Panel1 = New System.Windows.Forms.Panel()
@@ -31,19 +30,13 @@ Partial Class Form1
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Anim_Idle_Principal = New System.Windows.Forms.Timer(Me.components)
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.Anim_Vertical_Principal = New System.Windows.Forms.Timer(Me.components)
+        Me.Anim_Movimiento_Principal = New System.Windows.Forms.Timer(Me.components)
         Me.Panel5 = New System.Windows.Forms.Panel()
-        Me.Encontrar_Suelo = New System.Windows.Forms.Timer(Me.components)
+        Me.Encontrar_Suelo_Principal = New System.Windows.Forms.Timer(Me.components)
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Panel6 = New System.Windows.Forms.Panel()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'Anim_Correr_Lateral_Principal
-        '
-        Me.Anim_Correr_Lateral_Principal.Enabled = True
         '
         'Movimiento_Lateral
         '
@@ -82,7 +75,7 @@ Partial Class Form1
         'Anim_Idle_Principal
         '
         Me.Anim_Idle_Principal.Enabled = True
-        Me.Anim_Idle_Principal.Interval = 200
+        Me.Anim_Idle_Principal.Interval = 180
         '
         'PictureBox1
         '
@@ -95,10 +88,9 @@ Partial Class Form1
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
         '
-        'Anim_Vertical_Principal
+        'Anim_Movimiento_Principal
         '
-        Me.Anim_Vertical_Principal.Enabled = True
-        Me.Anim_Vertical_Principal.Interval = 1
+        Me.Anim_Movimiento_Principal.Enabled = True
         '
         'Panel5
         '
@@ -108,10 +100,10 @@ Partial Class Form1
         Me.Panel5.Size = New System.Drawing.Size(101, 34)
         Me.Panel5.TabIndex = 6
         '
-        'Encontrar_Suelo
+        'Encontrar_Suelo_Principal
         '
-        Me.Encontrar_Suelo.Enabled = True
-        Me.Encontrar_Suelo.Interval = 1
+        Me.Encontrar_Suelo_Principal.Enabled = True
+        Me.Encontrar_Suelo_Principal.Interval = 1
         '
         'Panel4
         '
@@ -129,31 +121,11 @@ Partial Class Form1
         Me.Panel6.Size = New System.Drawing.Size(108, 34)
         Me.Panel6.TabIndex = 8
         '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(94, 58)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(39, 13)
-        Me.Label1.TabIndex = 9
-        Me.Label1.Text = "Label1"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(175, 58)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(39, 13)
-        Me.Label2.TabIndex = 10
-        Me.Label2.Text = "Label2"
-        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(827, 417)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Panel6)
         Me.Controls.Add(Me.Panel4)
         Me.Controls.Add(Me.Panel5)
@@ -164,23 +136,19 @@ Partial Class Form1
         Me.Name = "Form1"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
-    Friend WithEvents Anim_Correr_Lateral_Principal As System.Windows.Forms.Timer
     Friend WithEvents Movimiento_Lateral As System.Windows.Forms.Timer
     Friend WithEvents Movimiento_Vertical As System.Windows.Forms.Timer
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
     Friend WithEvents Panel3 As System.Windows.Forms.Panel
     Friend WithEvents Anim_Idle_Principal As System.Windows.Forms.Timer
-    Friend WithEvents Anim_Vertical_Principal As System.Windows.Forms.Timer
+    Friend WithEvents Anim_Movimiento_Principal As System.Windows.Forms.Timer
     Friend WithEvents Panel5 As System.Windows.Forms.Panel
-    Friend WithEvents Encontrar_Suelo As System.Windows.Forms.Timer
+    Friend WithEvents Encontrar_Suelo_Principal As System.Windows.Forms.Timer
     Friend WithEvents Panel4 As System.Windows.Forms.Panel
     Friend WithEvents Panel6 As System.Windows.Forms.Panel
-    Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents Label2 As System.Windows.Forms.Label
 
 End Class
