@@ -31,9 +31,9 @@
     Dim a As Integer = 0
 
     '0 equivale a caer y 1 a subir
-    Dim moviVertical As Integer = 0
+    Dim moviVertical As String = ""
 
-    Dim animMovimiento As Integer = vbNull
+    Dim animMovimiento As String = ""
 
 
 
@@ -84,10 +84,10 @@
         If e.KeyCode = Keys.W Or e.KeyCode = Keys.Up Then
 
             'Verifico que no este descendiedo para que asi no salta en el aire
-            If moviVertical = vbNull Then
+            If moviVertical = "" Then
 
                 'Inicio el ascenso y la animación del mismo
-                'moviVertical = 1
+                moviVertical = "1"
 
             End If
 
@@ -97,11 +97,11 @@
         If e.KeyCode = Keys.S Or e.KeyCode = Keys.Down Then
 
             'Verifico que no estoy ascendiendo ni descendiendo además de que debe estar por ensima del panel4 (plataforma)
-            If moviVertical = vbNull And PictureBox1.Location.Y < pan.Location.Y Then
+            If moviVertical = "" And PictureBox1.Location.Y < pan.Location.Y Then
 
                 'Muevo el PictureBox un poco mas abajo para que de esta forma no este dentro del margen de control para frenar e inicio el descenso con animación
                 PictureBox1.Location = New Point(PictureBox1.Location.X, PictureBox1.Location.Y + pan.Height)
-                moviVertical = 0
+                moviVertical = "0"
 
             End If
         End If
@@ -120,8 +120,6 @@
                 'Se apaga la animacion de idle, se indica el lado y se enciende la animacion de correr a la derecha
 
                 lado = 1
-
-
 
                 'Sino, que se detenga y que se encienda la animacion idle
             Else
@@ -171,6 +169,7 @@
 
 
     Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Movimiento_Lateral.Tick
+        Label2.Text = "a: " + a.ToString + " d: " + d.ToString
         If d = 1 Or a = 1 Then
             'Si el PictureBox llega al borde de la sala, que lo mueva hacia atrás
             If PictureBox1.Location.X >= 722 Then
@@ -187,9 +186,9 @@
             If d = 1 And a = 0 Then
 
                 'Se activa la animación de correr si aún no lo está
-                If Not animMovimiento = 1 Then
+                If Not animMovimiento = "1" Then
 
-                    animMovimiento = 1
+                    animMovimiento = "1"
 
                 End If
 
@@ -197,7 +196,7 @@
                 PictureBox1.Location = New Point(PictureBox1.Location.X + avanzar2, PictureBox1.Location.Y)
 
                 'Solo en el caso que el PictureBox no esté descendiendo, se acelerará el movimiento. Sino, solo será la inicial
-                If moviVertical = vbNull And avanzar2 <= limvel2 Then
+                If moviVertical = "" And avanzar2 <= limvel2 Then
 
                     avanzar2 += acelereacion2
 
@@ -208,9 +207,9 @@
             ElseIf a = 1 And d = 0 Then
 
                 'Se activa la animación de correr si aún no lo está
-                If Not animMovimiento = 0 Then
+                If Not animMovimiento = "0" Then
 
-                    animMovimiento = 0
+                    animMovimiento = "0"
 
                 End If
 
@@ -219,7 +218,7 @@
                 PictureBox1.Location = New Point(PictureBox1.Location.X - avanzar2, PictureBox1.Location.Y)
 
                 'Solo en el caso que el PictureBox no esté descendiendo, se acelerará el movimiento. Sino, solo será la inicial
-                If moviVertical = vbNull And avanzar2 <= limvel2 Then
+                If moviVertical = "" And avanzar2 <= limvel2 Then
 
                     avanzar2 += acelereacion2
 
@@ -231,15 +230,14 @@
             ElseIf a = 1 And d = 1 Then
 
                 'Que no se genere ningun movimiento 
-                animMovimiento = vbNull
+                animMovimiento = ""
 
-                a = 0
-                d = 0
+               
 
             End If
 
             'Si el PictureBox no está ascendiendo ni bajando
-            If moviVertical = vbNull Then
+            If moviVertical = "" Then
 
                 'Si el PictureBox esta a la izquierda o la derecha del Panel (Plataforma)
                 If PictureBox1.Location.X < (pan.Location.X - PictureBox1.Width + 5) Or PictureBox1.Location.X > pan.Location.X + pan.Width - 10 Then
@@ -248,7 +246,7 @@
                     If PictureBox1.Location.Y < pan.Location.Y Then
 
                         'Que inicie el descenso y la animación del mismo
-                        moviVertical = 0
+                        moviVertical = "0"
 
 
                     End If
@@ -257,87 +255,88 @@
 
             End If
         End If
-      
+
 
     End Sub
 
     Private Sub Timer3_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Movimiento_Vertical.Tick
+        If moviVertical <> "" Then
 
-        If moviVertical = 0 Then
+            If moviVertical = "0" Then
 
-            'Si el PictureBox se encuentra sobre el Panel4 a una distancia menor a 55 pixeles?
-            If PictureBox1.Location.Y >= (pan.Location.Y - pan.Height) - 20 And PictureBox1.Location.Y <= (pan.Location.Y - pan.Height) And PictureBox1.Location.X > pan.Location.X - PictureBox1.Width + 5 And PictureBox1.Location.X < (pan.Location.X + pan.Width - 5) Then
-
-
-                'Mi objetivo era reubicarlo en un punto por defecto del eje y pero no lo hace :v
-                PictureBox1.Location = New Point(PictureBox1.Location.X, pan.Location.Y - pan.Height - 22)
-
-                'Desactivo la animacion de bajada y el descenso. Además enciendo la animacion idle
-                moviVertical = vbNull
+                'Si el PictureBox se encuentra sobre el Panel a una distancia menor a 20 pixeles
+                If PictureBox1.Location.Y >= (pan.Location.Y - pan.Height) - 20 And PictureBox1.Location.Y <= (pan.Location.Y - pan.Height) And PictureBox1.Location.X > pan.Location.X - PictureBox1.Width + 5 And PictureBox1.Location.X < (pan.Location.X + pan.Width - 5) Then
 
 
-                'Restablecemos las variables a los valores iniciales
-                caida2 = caida
-                acelcaida2 = acelcaida
+                    'Mi objetivo es reubicarlo en un punto por defecto del eje 
+                    PictureBox1.Location = New Point(PictureBox1.Location.X, pan.Location.Y - pan.Height - 22)
 
-            End If
-
-            'Si el punto en donde quedaría el PictureBox al bajar sigue siendo menor a la del suelo
-            If (PictureBox1.Location.Y + caida2) <= 299 Then
-
-                'Descendemos el mismo segun la variable caida2
-                PictureBox1.Location = New Point(PictureBox1.Location.X, PictureBox1.Location.Y + caida2)
-
-                'Le sumamos a la caida2 la aceleracion, de esta forma acelera mientras cae
-                caida2 += acelcaida2
-
-                'De lo contrario, si la distancia del PictureBox sigue siendo inferior al suelo pero no lo suficiente para sumarle la caida
-            ElseIf PictureBox1.Location.Y <= 299 Then
-
-                'Descendemos el PictureBox al suelo
-                PictureBox1.Location = New Point(PictureBox1.Location.X, 299)
-
-                'Restablecemos las variables a los valores iniciales
-                caida2 = caida
-                acelcaida2 = acelcaida
-
-                'Desactivo la animacion de bajada y el descenso. Además enciendo la animacion idle
-                moviVertical = vbNull
+                    'Desactivo la animacion de bajada y el descenso. Además enciendo la animacion idle
+                    moviVertical = ""
 
 
-            End If
+                    'Restablecemos las variables a los valores iniciales
+                    caida2 = caida
+                    acelcaida2 = acelcaida
+
+                End If
+
+                'Si el punto en donde quedaría el PictureBox al bajar sigue siendo menor a la del suelo
+                If (PictureBox1.Location.Y + caida2) <= 299 Then
+
+                    'Descendemos el mismo segun la variable caida2
+                    PictureBox1.Location = New Point(PictureBox1.Location.X, PictureBox1.Location.Y + caida2)
+
+                    'Le sumamos a la caida2 la aceleracion, de esta forma acelera mientras cae
+                    caida2 += acelcaida2
+
+                    'De lo contrario, si la distancia del PictureBox sigue siendo inferior al suelo pero no lo suficiente para sumarle la caida
+                ElseIf PictureBox1.Location.Y <= 299 Then
+
+                    'Descendemos el PictureBox al suelo
+                    PictureBox1.Location = New Point(PictureBox1.Location.X, 299)
+
+                    'Restablecemos las variables a los valores iniciales
+                    caida2 = caida
+                    acelcaida2 = acelcaida
+
+                    'Desactivo la animacion de bajada y el descenso. Además enciendo la animacion idle
+
+                    moviVertical = ""
+                    
 
 
-        ElseIf moviVertical = 1 Then
+                End If
 
 
-            'Utilizo un contador para ver si se hicieron los movimientos verticales suficientes
-            If cont <= salto2 Then
-
-                'El PictureBox se eleva la cantidad que esta en pixSubida2
-                PictureBox1.Location = New Point(PictureBox1.Location.X, PictureBox1.Location.Y - pixSubida2)
-
-                'Le sumo 1 al contador
-                cont += 1
-
-                'La subida debe ser cada vez mas lenta por la gravedad, por eso le resto
-                pixSubida2 -= desasubida2
+            ElseIf moviVertical = "1" Then
 
 
+                'Utilizo un contador para ver si se hicieron los movimientos verticales suficientes
+                If cont <= salto2 Then
 
-            Else
-                'Cuando el número de veces es alcanzado, se restablecen la variables al valor inicial
-                pixSubida2 = pixSubida
-                cont = 0
+                    'El PictureBox se eleva la cantidad que esta en pixSubida2
+                    PictureBox1.Location = New Point(PictureBox1.Location.X, PictureBox1.Location.Y - pixSubida2)
 
-                'Se detiene el ascenso y comienza el descenso con su animación
-                moviVertical = 0
+                    'Le sumo 1 al contador
+                    cont += 1
 
+                    'La subida debe ser cada vez mas lenta por la gravedad, por eso le resto
+                    pixSubida2 -= desasubida2
+
+
+
+                Else
+                    'Cuando el número de veces es alcanzado, se restablecen la variables al valor inicial
+                    pixSubida2 = pixSubida
+                    cont = 0
+
+                    'Se detiene el ascenso y comienza el descenso con su animación
+                    moviVertical = "0"
+
+                End If
             End If
         End If
-
-
-
 
     End Sub
 
@@ -357,7 +356,7 @@
 
 
     Private Sub correr_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Anim_Correr_Lateral_Principal.Tick
-        If a = 1 And d = 0 And moviVertical = vbNull And animMovimiento = 0 Then
+        If a = 1 And d = 0 And moviVertical = "" And animMovimiento = "0" Then
 
             'Utilizando la variable foto como contador, recorremos el select case una vuelta por tick.
             Select Case foto
@@ -379,7 +378,7 @@
                     foto = 0
 
             End Select
-        ElseIf d = 1 And a = 0 And moviVertical = vbNull And animMovimiento = 1 Then
+        ElseIf d = 1 And a = 0 And moviVertical = "" And animMovimiento = "1" Then
 
             'Utilizando la variable foto como contador, recorremos el select case una vuelta por tick. Volteamos la imagen porque se mueve hacia adelante
             Select Case foto
@@ -416,7 +415,7 @@
     
 
     Private Sub Idle_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Anim_Idle_Principal.Tick
-        If a = 0 And d = 0 And moviVertical = vbNull Then
+        If ((a = 1 And d = 1) Or (a = 0 And d = 0)) And moviVertical = "" Then
             'En la variable lado se indica a que lado debe ver el PictureBox, 0 = izquierda,  1 = derecha
             If lado = 0 Then
 
@@ -474,35 +473,39 @@
 
     Private Sub SaltoAnima_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Anim_Vertical_Principal.Tick
 
-        If moviVertical = 1 Then
+        If moviVertical <> "" Then
 
-            'En la variable lado se indica a que lado debe ver el PictureBox, 0 = izquierda,  1 = derecha
-            If lado = 0 Then
+            If moviVertical = "1" Then
 
-                PictureBox1.Image = My.Resources.a
+                'En la variable lado se indica a que lado debe ver el PictureBox, 0 = izquierda,  1 = derecha
+                If lado = 0 Then
 
-            ElseIf lado = 1 Then
+                    PictureBox1.Image = My.Resources.a
 
-                PictureBox1.Image = My.Resources.a
-                PictureBox1.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                ElseIf lado = 1 Then
 
-            End If
+                    PictureBox1.Image = My.Resources.a
+                    PictureBox1.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+
+                End If
 
 
-        ElseIf moviVertical = 0 Then
+            ElseIf moviVertical = "0" Then
 
-            'En la variable lado se indica a que lado debe ver el PictureBox, 0 = izquierda,  1 = derecha
-            If lado = 0 Then
+                'En la variable lado se indica a que lado debe ver el PictureBox, 0 = izquierda,  1 = derecha
+                If lado = 0 Then
 
-                PictureBox1.Image = My.Resources.c
+                    PictureBox1.Image = My.Resources.c
 
-            ElseIf lado = 1 Then
+                ElseIf lado = 1 Then
 
-                PictureBox1.Image = My.Resources.c
-                PictureBox1.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                    PictureBox1.Image = My.Resources.c
+                    PictureBox1.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
 
+                End If
             End If
         End If
+        
 
 
     End Sub
@@ -510,6 +513,7 @@
   
    
     Private Sub Timer1_Tick_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Encontrar_Suelo.Tick
+        Label1.Text = pan.Name + vbNewLine + moviVertical
         Dim panelfinal As Control = PictureBox1
         Dim dy As Integer = 1000
 
