@@ -33,7 +33,7 @@
     '0 equivale a caer y 1 a subir
     Dim moviVertical As String = ""
 
-    Dim animMovimiento As String = ""
+
 
 
 
@@ -272,12 +272,6 @@
             'Si solo la tecla D está presionada
             If d = 1 And a = 0 Then
 
-                'Se activa la animación de correr si aún no lo está
-                If Not animMovimiento = "1" Then
-
-                    animMovimiento = "1"
-
-                End If
 
                 'El PictureBox avanza lo que esta en la variable avanzar2
                 PictureBox1.Location = New Point(PictureBox1.Location.X + avanzar2, PictureBox1.Location.Y)
@@ -293,13 +287,6 @@
                 'Si solo la tecla A está presionada
             ElseIf a = 1 And d = 0 Then
 
-                'Se activa la animación de correr si aún no lo está
-                If Not animMovimiento = "0" Then
-
-                    animMovimiento = "0"
-
-                End If
-
 
                 'El PictureBox avanza lo que esta en la variable avanzar2
                 PictureBox1.Location = New Point(PictureBox1.Location.X - avanzar2, PictureBox1.Location.Y)
@@ -310,15 +297,6 @@
                     avanzar2 += acelereacion2
 
                 End If
-
-
-
-                'Si ambas teclas A y D estás presionadas
-            ElseIf a = 1 And d = 1 Then
-
-                'Que no se genere ningun movimiento 
-                animMovimiento = ""
-
 
 
             End If
@@ -415,7 +393,9 @@
 
 
     Private Sub SaltoAnima_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Anim_Movimiento_Principal.Tick
-        If a = 1 And d = 0 And moviVertical = "" And animMovimiento = "0" Then
+
+
+        If a = 1 And d = 0 And moviVertical = "" Then
 
             'Utilizando la variable foto como contador, recorremos el select case una vuelta por tick.
             Select Case foto
@@ -437,7 +417,7 @@
                     foto = 0
 
             End Select
-        ElseIf d = 1 And a = 0 And moviVertical = "" And animMovimiento = "1" Then
+        ElseIf d = 1 And a = 0 And moviVertical = "" Then
 
             'Utilizando la variable foto como contador, recorremos el select case una vuelta por tick. Volteamos la imagen porque se mueve hacia adelante
             Select Case foto
@@ -466,9 +446,10 @@
             End Select
         End If
 
-
+        'Sin esta condicion, el personaje no dejaba de saltar
         If moviVertical <> "" Then
 
+            '1 se utiliza para indicar ascenso
             If moviVertical = "1" Then
 
                 'En la variable lado se indica a que lado debe ver el PictureBox, 0 = izquierda,  1 = derecha
@@ -483,7 +464,7 @@
 
                 End If
 
-
+                '0 se utiliza para indicar descenso
             ElseIf moviVertical = "0" Then
 
                 'En la variable lado se indica a que lado debe ver el PictureBox, 0 = izquierda,  1 = derecha
