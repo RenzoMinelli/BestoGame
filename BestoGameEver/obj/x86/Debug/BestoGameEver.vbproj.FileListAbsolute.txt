@@ -41,3 +41,6 @@ C:\Users\nicol\Documents\GitHub\BestoGame\BestoGameEver\obj\x86\Debug\ya_ni_se.F
 C:\Users\nicol\Documents\GitHub\BestoGame\BestoGameEver\obj\x86\Debug\ya_ni_se.inicio.resources
 C:\Users\nicol\Documents\GitHub\BestoGame\BestoGameEver\obj\x86\Debug\ya_ni_se.Resources.resources
 C:\Users\nicol\Documents\GitHub\BestoGame\BestoGameEver\obj\x86\Debug\BestoGameEver.vbproj.GenerateResource.Cache
+C:\Users\Matias\Documents\GitHub\BestoGame\BestoGameEver\obj\x86\Debug\BestoGameEver.exe
+C:\Users\Matias\Documents\GitHub\BestoGame\BestoGameEver\obj\x86\Debug\BestoGameEver.xml
+C:\Users\Matias\Documents\GitHub\BestoGame\BestoGameEver\obj\x86\Debug\BestoGameEver.pdb

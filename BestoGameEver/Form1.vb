@@ -508,19 +508,21 @@
    
     Private Sub Timer1_Tick_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Encontrar_Suelo_Principal.Tick
 
-        Dim panelfinal As Control = PictureBox1
+        Dim panelfinal As Control = PictureBox1 'el panelfinal es el personaje
         Dim dy As Integer = 1000
 
         For Each ctrl As Control In Me.Controls
 
-
+            '   si el valor de la resta de la ubicacion (Y) del objeto y del personaje es menor a dy  y si el objeto esta debajo del eprsonaje(picturebox1) y si el objeto no es el personaje(picturebox1) y si el objeto no es el piso(panel1)
             If (ctrl.Location.Y - PictureBox1.Location.Y) < dy And ctrl.Location.Y >= PictureBox1.Location.Y And ctrl.Name <> PictureBox1.Name And ctrl.Name <> Panel1.Name Then
 
-
+                '                si el personaje esta adentro del piso(si el picturebox1 esta adentro del limite del objeto que esta de bajo)
                 If PictureBox1.Location.X >= ctrl.Location.X - PictureBox1.Width + 5 And PictureBox1.Location.X < (ctrl.Location.X + ctrl.Width - 5) Then
 
-
+                    ' si se verifica lo anterior el panel final es el objeto donde esta el personaje
                     panelfinal = ctrl
+
+                    ' y el dy es la ubicacion donde esta el picturebox
                     dy = ctrl.Location.Y - PictureBox1.Location.Y
 
 
