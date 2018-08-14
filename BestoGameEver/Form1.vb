@@ -1,9 +1,9 @@
 ﻿Public Class Form1
 
     '////////////////////////////////////PERSONALIZACION///////////////////////
-    Public avanzar As Double = 5
+    Public avanzar As Double = 7
     Public acelereacion As Double = 0
-    Public limvel As Double = 5
+    Public limvel As Double = 7
     Public salto As Double = 15
     Public pixSubida As Double = 5
     Public desasubida As Double = 0.01
@@ -26,6 +26,7 @@
     Dim stand As Integer = 0
     Dim foto As Integer = 0
     Dim cont As Integer = 0
+    Dim idleE As Integer = 0
 
     Dim d As Integer = 0
     Dim a As Integer = 0
@@ -528,4 +529,175 @@
 
     
    
+    Private Sub Movimiento_Enemigo_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Movimiento_Enemigo.Tick
+        Dim pb As PictureBox = Nothing
+
+        For Each ctrl As Control In Me.Controls
+
+            Try
+                pb = ctrl
+
+                If pb.Name <> PictureBox1.Name Then
+                    If Math.Abs(PictureBox1.Location.X - pb.Location.X) < 250 And Math.Abs(PictureBox1.Location.Y - pb.Location.Y) <= 5 And Math.Abs(PictureBox1.Location.X - pb.Location.X) > 50 Then
+                        If pb.Location.X < PictureBox1.Location.X Then
+
+                            pb.Location = New Point(pb.Location.X + 7, pb.Location.Y)
+                           
+                           
+                        ElseIf pb.Location.X > PictureBox1.Location.X Then
+
+                            pb.Location = New Point(pb.Location.X - 7, pb.Location.Y)
+                          
+                        End If
+
+                    End If
+                End If
+                
+
+
+            Catch ex As Exception
+
+            End Try
+        Next
+    End Sub
+
+    Private Sub Anim_Movimiento_Enemigo_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Anim_Movimiento_Enemigo.Tick
+        Dim pb As PictureBox = Nothing
+
+        For Each ctrl As Control In Me.Controls
+
+            Try
+                pb = ctrl
+
+                If pb.Name <> PictureBox1.Name Then
+                    If Math.Abs(PictureBox1.Location.X - pb.Location.X) < 250 And Math.Abs(PictureBox1.Location.Y - pb.Location.Y) <= 5 And Math.Abs(PictureBox1.Location.X - pb.Location.X) > 50 Then
+                        If pb.Location.X < PictureBox1.Location.X Then
+
+                            Select Case foto
+
+                                Case 0
+                                    pb.Image = My.Resources._17
+                                    pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                    foto += 1
+                                Case 1
+                                    pb.Image = My.Resources._16
+                                    pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                    foto += 1
+                                Case 2
+                                    pb.Image = My.Resources._15
+                                    pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                    foto += 1
+                                Case 3
+                                    pb.Image = My.Resources._14
+                                    pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                    foto += 1
+                                Case 4
+                                    pb.Image = My.Resources._13
+                                    pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                    foto = 0
+
+                            End Select
+
+                        ElseIf pb.Location.X > PictureBox1.Location.X Then
+
+
+                            Select Case foto
+
+                                Case 0
+                                    pb.Image = My.Resources._17
+                                    foto += 1
+                                Case 1
+                                    pb.Image = My.Resources._16
+                                    foto += 1
+                                Case 2
+                                    pb.Image = My.Resources._15
+                                    foto += 1
+                                Case 3
+                                    pb.Image = My.Resources._14
+                                    foto += 1
+                                Case 4
+                                    pb.Image = My.Resources._13
+                                    foto = 0
+
+                            End Select
+                        End If
+                    
+                    End If
+                End If
+
+
+
+            Catch ex As Exception
+
+            End Try
+        Next
+    End Sub
+
+    Private Sub Anim_Idle_Enemigo_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Anim_Idle_Enemigo.Tick
+        Dim pb As PictureBox = Nothing
+
+        For Each ctrl As Control In Me.Controls
+
+            Try
+                pb = ctrl
+
+                If pb.Name <> PictureBox1.Name Then
+                    If Math.Abs(PictureBox1.Location.Y - pb.Location.Y) <= 5 And (Math.Abs(pb.Location.X - PictureBox1.Location.X) <= 50 Or Math.Abs(PictureBox1.Location.X - pb.Location.X) > 250) Then
+                        If pb.Location.X < PictureBox1.Location.X Then
+
+                            Select Case idleE
+                                Case 0
+                                    pb.Image = My.Resources._0
+                                    pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                    idleE += 1
+                                Case 1
+                                    pb.Image = My.Resources._1
+                                    pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                    idleE += 1
+                                Case 2
+                                    pb.Image = My.Resources._2
+                                    pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                    idleE += 1
+                                Case 3
+                                    pb.Image = My.Resources._3
+                                    pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                    idleE += 1
+                                Case 4
+                                    pb.Image = My.Resources._4
+                                    pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                    idleE = 0
+                            End Select
+
+                        ElseIf pb.Location.X > PictureBox1.Location.X Then
+
+                            Select Case idleE
+                                Case 0
+                                    pb.Image = My.Resources._0
+                                    idleE += 1
+                                Case 1
+                                    pb.Image = My.Resources._1
+                                    idleE += 1
+                                Case 2
+                                    pb.Image = My.Resources._2
+                                    idleE += 1
+                                Case 3
+                                    pb.Image = My.Resources._3
+                                    idleE += 1
+                                Case 4
+                                    pb.Image = My.Resources._4
+                                    idleE = 0
+                            End Select
+
+                        End If
+
+                    End If
+                End If
+
+
+
+            Catch ex As Exception
+
+            End Try
+        Next
+    End Sub
 End Class

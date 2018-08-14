@@ -129,4 +129,13 @@
   <metadata name="Encontrar_Suelo_Principal.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>13, 50</value>
   </metadata>
+  <metadata name="Movimiento_Enemigo.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>386, 15</value>
+  </metadata>
+  <metadata name="Anim_Movimiento_Enemigo.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>395, 52</value>
+  </metadata>
+  <metadata name="Anim_Idle_Enemigo.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>564, 12</value>
+  </metadata>
 </root>

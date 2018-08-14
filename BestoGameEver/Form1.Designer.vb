@@ -34,7 +34,14 @@ Partial Class Form1
         Me.Encontrar_Suelo_Principal = New System.Windows.Forms.Timer(Me.components)
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Panel6 = New System.Windows.Forms.Panel()
+        Me.Movimiento_Enemigo = New System.Windows.Forms.Timer(Me.components)
+        Me.Anim_Movimiento_Enemigo = New System.Windows.Forms.Timer(Me.components)
+        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.Anim_Idle_Enemigo = New System.Windows.Forms.Timer(Me.components)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Movimiento_Principal
@@ -75,7 +82,7 @@ Partial Class Form1
         '
         Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox1.Image = Global.ya_ni_se.My.Resources.Resources._01
-        Me.PictureBox1.Location = New System.Drawing.Point(285, 138)
+        Me.PictureBox1.Location = New System.Drawing.Point(127, 259)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(47, 54)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -115,11 +122,49 @@ Partial Class Form1
         Me.Panel6.Size = New System.Drawing.Size(108, 34)
         Me.Panel6.TabIndex = 8
         '
+        'Movimiento_Enemigo
+        '
+        Me.Movimiento_Enemigo.Enabled = True
+        Me.Movimiento_Enemigo.Interval = 50
+        '
+        'Anim_Movimiento_Enemigo
+        '
+        Me.Anim_Movimiento_Enemigo.Enabled = True
+        '
+        'PictureBox4
+        '
+        Me.PictureBox4.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox4.Image = Global.ya_ni_se.My.Resources.Resources._01
+        Me.PictureBox4.Location = New System.Drawing.Point(506, 299)
+        Me.PictureBox4.Name = "PictureBox4"
+        Me.PictureBox4.Size = New System.Drawing.Size(47, 54)
+        Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox4.TabIndex = 11
+        Me.PictureBox4.TabStop = False
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox2.Image = Global.ya_ni_se.My.Resources.Resources._01
+        Me.PictureBox2.Location = New System.Drawing.Point(596, 299)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(47, 54)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox2.TabIndex = 12
+        Me.PictureBox2.TabStop = False
+        '
+        'Anim_Idle_Enemigo
+        '
+        Me.Anim_Idle_Enemigo.Enabled = True
+        Me.Anim_Idle_Enemigo.Interval = 180
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(827, 417)
+        Me.Controls.Add(Me.PictureBox2)
+        Me.Controls.Add(Me.PictureBox4)
         Me.Controls.Add(Me.Panel6)
         Me.Controls.Add(Me.Panel4)
         Me.Controls.Add(Me.Panel5)
@@ -129,6 +174,8 @@ Partial Class Form1
         Me.Controls.Add(Me.PictureBox1)
         Me.Name = "Form1"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -143,5 +190,10 @@ Partial Class Form1
     Friend WithEvents Encontrar_Suelo_Principal As System.Windows.Forms.Timer
     Friend WithEvents Panel4 As System.Windows.Forms.Panel
     Friend WithEvents Panel6 As System.Windows.Forms.Panel
+    Friend WithEvents Movimiento_Enemigo As System.Windows.Forms.Timer
+    Friend WithEvents Anim_Movimiento_Enemigo As System.Windows.Forms.Timer
+    Friend WithEvents PictureBox4 As System.Windows.Forms.PictureBox
+    Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
+    Friend WithEvents Anim_Idle_Enemigo As System.Windows.Forms.Timer
 
 End Class
