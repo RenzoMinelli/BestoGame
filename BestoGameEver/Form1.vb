@@ -23,10 +23,13 @@
 
     Dim pan As New Panel
     Dim lado As Integer = 0
+    Dim cont As Integer = 0
+
     Dim stand As Integer = 0
     Dim foto As Integer = 0
-    Dim cont As Integer = 0
-    Dim idleE As Integer = 0
+
+    Dim standE As Integer = 0
+    Dim fotoE As Integer = 0
 
     Dim d As Integer = 0
     Dim a As Integer = 0
@@ -573,51 +576,51 @@
                     If Math.Abs(PictureBox1.Location.X - pb.Location.X) < 250 And Math.Abs(PictureBox1.Location.Y - pb.Location.Y) <= 5 And Math.Abs(PictureBox1.Location.X - pb.Location.X) > 50 Then
                         If pb.Location.X < PictureBox1.Location.X Then
 
-                            Select Case foto
+                            Select Case fotoE
 
                                 Case 0
                                     pb.Image = My.Resources._17
                                     pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-                                    foto += 1
+                                    fotoE += 1
                                 Case 1
                                     pb.Image = My.Resources._16
                                     pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-                                    foto += 1
+                                    fotoE += 1
                                 Case 2
                                     pb.Image = My.Resources._15
                                     pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-                                    foto += 1
+                                    fotoE += 1
                                 Case 3
                                     pb.Image = My.Resources._14
                                     pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-                                    foto += 1
+                                    fotoE += 1
                                 Case 4
                                     pb.Image = My.Resources._13
                                     pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-                                    foto = 0
+                                    fotoE = 0
 
                             End Select
 
                         ElseIf pb.Location.X > PictureBox1.Location.X Then
 
 
-                            Select Case foto
+                            Select Case fotoE
 
                                 Case 0
                                     pb.Image = My.Resources._17
-                                    foto += 1
+                                    fotoE += 1
                                 Case 1
                                     pb.Image = My.Resources._16
-                                    foto += 1
+                                    fotoE += 1
                                 Case 2
                                     pb.Image = My.Resources._15
-                                    foto += 1
+                                    fotoE += 1
                                 Case 3
                                     pb.Image = My.Resources._14
-                                    foto += 1
+                                    fotoE += 1
                                 Case 4
                                     pb.Image = My.Resources._13
-                                    foto = 0
+                                    fotoE = 0
 
                             End Select
                         End If
@@ -645,47 +648,47 @@
                     If Math.Abs(PictureBox1.Location.Y - pb.Location.Y) <= 5 And (Math.Abs(pb.Location.X - PictureBox1.Location.X) <= 50 Or Math.Abs(PictureBox1.Location.X - pb.Location.X) > 250) Then
                         If pb.Location.X < PictureBox1.Location.X Then
 
-                            Select Case idleE
+                            Select Case standE
                                 Case 0
                                     pb.Image = My.Resources._0
                                     pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-                                    idleE += 1
+                                    standE += 1
                                 Case 1
                                     pb.Image = My.Resources._1
                                     pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-                                    idleE += 1
+                                    standE += 1
                                 Case 2
                                     pb.Image = My.Resources._2
                                     pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-                                    idleE += 1
+                                    standE += 1
                                 Case 3
                                     pb.Image = My.Resources._3
                                     pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-                                    idleE += 1
+                                    standE += 1
                                 Case 4
                                     pb.Image = My.Resources._4
                                     pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-                                    idleE = 0
+                                    standE = 0
                             End Select
 
                         ElseIf pb.Location.X > PictureBox1.Location.X Then
 
-                            Select Case idleE
+                            Select Case standE
                                 Case 0
                                     pb.Image = My.Resources._0
-                                    idleE += 1
+                                    standE += 1
                                 Case 1
                                     pb.Image = My.Resources._1
-                                    idleE += 1
+                                    standE += 1
                                 Case 2
                                     pb.Image = My.Resources._2
-                                    idleE += 1
+                                    standE += 1
                                 Case 3
                                     pb.Image = My.Resources._3
-                                    idleE += 1
+                                    standE += 1
                                 Case 4
                                     pb.Image = My.Resources._4
-                                    idleE = 0
+                                    standE = 0
                             End Select
 
                         End If
