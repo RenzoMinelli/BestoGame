@@ -38,7 +38,7 @@
     '0 equivale a caer y 1 a subir
     Dim moviVertical As String = ""
 
-    Dim vida As Double = 100
+    Dim vida As Double = 200
 
     Dim listaPB As List(Of PictureBox) = New List(Of PictureBox)
 
@@ -586,7 +586,7 @@
 
                 If pb.Name <> PictureBox1.Name Then
 
-                    If pb.Location.X > 0 And pb.Location.X < 725 Then
+                    If pb.Location.X > Panel3.Location.X + Panel3.Width And pb.Location.X < 725 Then
 
 
                         If Math.Abs(PictureBox1.Location.X - pb.Location.X) < 400 And Math.Abs(PictureBox1.Location.Y - pb.Location.Y) <= 10 And Math.Abs(PictureBox1.Location.X - pb.Location.X) > 50 Then
@@ -624,7 +624,7 @@
 
                         pb.Location = New Point(pb.Location.X - 15, pb.Location.Y)
 
-                    ElseIf pb.Location.X <= 0 Then
+                    ElseIf pb.Location.X <= Panel3.Location.X + Panel3.Width Then
 
                         pb.Location = New Point(pb.Location.X + 15, pb.Location.Y)
 
