@@ -1,14 +1,14 @@
 ﻿Public Class Form1
 
     '////////////////////////////////////PERSONALIZACION///////////////////////
-    Public avanzar As Double = 7
+    Public avanzar As Double = 5
     Public acelereacion As Double = 0
-    Public limvel As Double = 7
+    Public limvel As Double = 5
     Public salto As Double = 15
-    Public pixSubida As Double = 7
+    Public pixSubida As Double = 5
     Public desasubida As Double = 0.01
-    Public caida As Double = 10
-    Public acelcaida As Double = 0.04
+    Public caida As Double = 5
+    Public acelcaida As Double = 0.01
     '//////////////////////////////////////////////////////////////////////////
 
     'Utilizo una copia de las variables para luego devolverlas al valor inicial
@@ -39,6 +39,8 @@
     Dim moviVertical As String = ""
 
     Dim vida As Double = 100
+
+    Dim listaPB As List(Of PictureBox) = New List(Of PictureBox)
 
 
 
@@ -197,7 +199,7 @@
 
 
                     'Mi objetivo es reubicarlo en un punto por defecto del eje 
-                    PictureBox1.Location = New Point(PictureBox1.Location.X, pan.Location.Y - PictureBox1.Height - 10)
+                    PictureBox1.Location = New Point(PictureBox1.Location.X, pan.Location.Y - PictureBox1.Height - 5)
 
                     'Desactivo la animacion de bajada y el descenso. Además enciendo la animacion idle
                     moviVertical = ""
@@ -354,6 +356,27 @@
         inicio.Show()
         ActVida(vida)
         moviVertical = "0"
+
+
+        For Each ctrl As Control In Me.Controls
+            Dim pb As PictureBox = Nothing
+            Try
+                pb = ctrl
+
+                If pb.Name <> PictureBox1.Name Then
+
+                    listaPB.Add(pb)
+
+                End If
+
+
+            Catch ex As Exception
+
+            End Try
+
+        Next
+       
+        
     End Sub
     
 
@@ -542,7 +565,7 @@
 
         Try
             pan = panelfinal
-            Label1.Text = pan.Name
+
         Catch ex As Exception
 
         End Try
@@ -554,12 +577,13 @@
     
    
     Private Sub Movimiento_Enemigo_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Movimiento_Enemigo.Tick
-        Dim pb As PictureBox = Nothing
 
-        For Each ctrl As Control In Me.Controls
+
+        For Each pb As PictureBox In listaPB
 
             Try
-                pb = ctrl
+
+
                 If pb.Name <> PictureBox1.Name Then
 
                     If pb.Location.X > 0 And pb.Location.X < 725 Then
@@ -607,7 +631,7 @@
                     End If
 
                 End If
-                
+
 
 
 
@@ -620,12 +644,11 @@
     End Sub
 
     Private Sub Anim_Movimiento_Enemigo_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Anim_Movimiento_Enemigo.Tick
-        Dim pb As PictureBox = Nothing
-
-        For Each ctrl As Control In Me.Controls
+       
+        For Each pb As PictureBox In listaPB
 
             Try
-                pb = ctrl
+
                 If pb.Name <> PictureBox1.Name Then
 
                     If pb.Location.X > 0 And pb.Location.X < 725 Then
@@ -840,7 +863,7 @@
                     End If
 
                 End If
-                
+
 
             Catch ex As Exception
 
