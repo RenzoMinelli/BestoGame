@@ -708,13 +708,9 @@
                             End If
                         ElseIf Math.Abs(PictureBox1.Location.Y - pb.Location.Y) <= 10 And Math.Abs(PictureBox1.Location.X - pb.Location.X) <= 50 Then
 
-                            If vida <= 1 Then
-                                vida = 0
-                            Else
-                                vida -= 5
-                            End If
+                           
 
-                            ActVida(vida)
+
                             If Not vida = 0 Then
 
                                 If pb.Location.X < PictureBox1.Location.X Then
@@ -745,6 +741,12 @@
                                             pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
                                             fotoE = 0
 
+                                            If vida <= 1 Then
+                                                vida = 0
+                                            Else
+                                                vida -= 5
+                                            End If
+                                            ActVida(vida)
                                     End Select
 
 
@@ -770,6 +772,13 @@
                                         Case 5
                                             pb.Image = My.Resources._29
                                             fotoE = 0
+
+                                            If vida <= 1 Then
+                                                vida = 0
+                                            Else
+                                                vida -= 5
+                                            End If
+                                            ActVida(vida)
 
                                     End Select
 
