@@ -54,3 +54,10 @@ C:\Users\Renzo\Desktop\BestoGamepruebaAI\BestoGameEver\obj\x86\Debug\ya_ni_se.Fo
 C:\Users\Renzo\Desktop\BestoGamepruebaAI\BestoGameEver\obj\x86\Debug\ya_ni_se.inicio.resources
 C:\Users\Renzo\Desktop\BestoGamepruebaAI\BestoGameEver\obj\x86\Debug\ya_ni_se.Resources.resources
 C:\Users\Renzo\Desktop\BestoGamepruebaAI\BestoGameEver\obj\x86\Debug\BestoGameEver.vbproj.GenerateResource.Cache
+C:\Users\Matias\Documents\GitHub\BestoGame\BestoGameEver\bin\Debug\BestoGameEver.exe
+C:\Users\Matias\Documents\GitHub\BestoGame\BestoGameEver\bin\Debug\BestoGameEver.pdb
+C:\Users\Matias\Documents\GitHub\BestoGame\BestoGameEver\bin\Debug\BestoGameEver.xml
+C:\Users\Matias\Documents\GitHub\BestoGame\BestoGameEver\obj\x86\Debug\ya_ni_se.Form1.resources
+C:\Users\Matias\Documents\GitHub\BestoGame\BestoGameEver\obj\x86\Debug\ya_ni_se.inicio.resources
+C:\Users\Matias\Documents\GitHub\BestoGame\BestoGameEver\obj\x86\Debug\ya_ni_se.Resources.resources
+C:\Users\Matias\Documents\GitHub\BestoGame\BestoGameEver\obj\x86\Debug\BestoGameEver.vbproj.GenerateResource.Cache
