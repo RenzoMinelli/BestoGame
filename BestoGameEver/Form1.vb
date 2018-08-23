@@ -47,6 +47,8 @@
 
     Dim principal As PictureBox
 
+    Dim final As Integer = 0
+
 
 
 
@@ -291,9 +293,12 @@
 
             ElseIf principal.Location.X >= Panel2.Location.X + Panel2.Width Then
 
-
-                Movimiento_Enemigo.Dispose()
-                Anim_Movimiento_Enemigo.Dispose()
+                For Each ctrl As Control In Me.Controls
+                    ctrl.Visible = False
+                Next
+                lblFinal.Visible = True
+                lblFinal.Text = "Nivel Superado!!!"
+                Movimiento_Principal.Dispose()
 
             End If
 

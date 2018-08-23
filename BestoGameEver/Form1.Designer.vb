@@ -42,6 +42,7 @@ Partial Class Form1
         Me.enemigo2 = New ya_ni_se.TransPicBox()
         Me.enemigo1 = New ya_ni_se.TransPicBox()
         Me.TransPicBox1 = New ya_ni_se.TransPicBox()
+        Me.lblFinal = New System.Windows.Forms.Label()
         CType(Me.TransPicBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.enemigo2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.enemigo1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -205,11 +206,22 @@ Partial Class Form1
         Me.TransPicBox1.TabIndex = 24
         Me.TransPicBox1.TabStop = False
         '
+        'lblFinal
+        '
+        Me.lblFinal.AutoSize = True
+        Me.lblFinal.Font = New System.Drawing.Font("Microsoft Sans Serif", 48.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblFinal.Location = New System.Drawing.Point(301, 147)
+        Me.lblFinal.Name = "lblFinal"
+        Me.lblFinal.Size = New System.Drawing.Size(0, 73)
+        Me.lblFinal.TabIndex = 28
+        Me.lblFinal.Visible = False
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1133, 460)
+        Me.Controls.Add(Me.lblFinal)
         Me.Controls.Add(Me.TransPicBox2)
         Me.Controls.Add(Me.enemigo2)
         Me.Controls.Add(Me.enemigo1)
@@ -252,5 +264,6 @@ Partial Class Form1
     Friend WithEvents enemigo1 As ya_ni_se.TransPicBox
     Friend WithEvents enemigo2 As ya_ni_se.TransPicBox
     Friend WithEvents TransPicBox2 As ya_ni_se.TransPicBox
+    Friend WithEvents lblFinal As System.Windows.Forms.Label
 
 End Class
