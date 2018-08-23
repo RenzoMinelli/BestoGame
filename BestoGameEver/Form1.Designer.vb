@@ -28,7 +28,6 @@ Partial Class Form1
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Anim_Idle_Principal = New System.Windows.Forms.Timer(Me.components)
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Anim_Movimiento_Principal = New System.Windows.Forms.Timer(Me.components)
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.Encontrar_Suelo_Principal = New System.Windows.Forms.Timer(Me.components)
@@ -39,9 +38,14 @@ Partial Class Form1
         Me.Panel7 = New System.Windows.Forms.Panel()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.PictureBox6 = New System.Windows.Forms.PictureBox()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TransPicBox2 = New ya_ni_se.TransPicBox()
+        Me.enemigo2 = New ya_ni_se.TransPicBox()
+        Me.enemigo1 = New ya_ni_se.TransPicBox()
+        Me.TransPicBox1 = New ya_ni_se.TransPicBox()
+        CType(Me.TransPicBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.enemigo2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.enemigo1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TransPicBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Movimiento_Principal
@@ -78,17 +82,6 @@ Partial Class Form1
         Me.Anim_Idle_Principal.Enabled = True
         Me.Anim_Idle_Principal.Interval = 180
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox1.Image = Global.ya_ni_se.My.Resources.Resources._01
-        Me.PictureBox1.Location = New System.Drawing.Point(433, 218)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(47, 54)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 0
-        Me.PictureBox1.TabStop = False
-        '
         'Anim_Movimiento_Principal
         '
         Me.Anim_Movimiento_Principal.Enabled = True
@@ -103,6 +96,7 @@ Partial Class Form1
         '
         'Encontrar_Suelo_Principal
         '
+        Me.Encontrar_Suelo_Principal.Enabled = True
         Me.Encontrar_Suelo_Principal.Interval = 1
         '
         'Panel4
@@ -129,7 +123,7 @@ Partial Class Form1
         'Anim_Movimiento_Enemigo
         '
         Me.Anim_Movimiento_Enemigo.Enabled = True
-        Me.Anim_Movimiento_Enemigo.Interval = 150
+        Me.Anim_Movimiento_Enemigo.Interval = 120
         '
         'Panel7
         '
@@ -159,25 +153,68 @@ Partial Class Form1
         Me.Label1.TabIndex = 17
         Me.Label1.Text = "Vida:"
         '
-        'PictureBox6
+        'TransPicBox2
         '
-        Me.PictureBox6.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox6.Image = Global.ya_ni_se.My.Resources.Resources._29
-        Me.PictureBox6.Location = New System.Drawing.Point(659, 299)
-        Me.PictureBox6.Name = "PictureBox6"
-        Me.PictureBox6.Size = New System.Drawing.Size(48, 54)
-        Me.PictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox6.TabIndex = 23
-        Me.PictureBox6.TabStop = False
+        Me.TransPicBox2.BackColor = System.Drawing.Color.Transparent
+        Me.TransPicBox2.ErrorImage = Nothing
+        Me.TransPicBox2.Image = Nothing
+        Me.TransPicBox2.InitialImage = Nothing
+        Me.TransPicBox2.Location = New System.Drawing.Point(284, 294)
+        Me.TransPicBox2.Name = "TransPicBox2"
+        Me.TransPicBox2.Size = New System.Drawing.Size(49, 53)
+        Me.TransPicBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.TransPicBox2.TabIndex = 27
+        Me.TransPicBox2.TabStop = False
+        '
+        'enemigo2
+        '
+        Me.enemigo2.BackColor = System.Drawing.Color.Transparent
+        Me.enemigo2.ErrorImage = Nothing
+        Me.enemigo2.Image = Nothing
+        Me.enemigo2.InitialImage = Nothing
+        Me.enemigo2.Location = New System.Drawing.Point(222, 294)
+        Me.enemigo2.Name = "enemigo2"
+        Me.enemigo2.Size = New System.Drawing.Size(49, 53)
+        Me.enemigo2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.enemigo2.TabIndex = 26
+        Me.enemigo2.TabStop = False
+        '
+        'enemigo1
+        '
+        Me.enemigo1.BackColor = System.Drawing.Color.Transparent
+        Me.enemigo1.ErrorImage = Nothing
+        Me.enemigo1.Image = Nothing
+        Me.enemigo1.InitialImage = Nothing
+        Me.enemigo1.Location = New System.Drawing.Point(669, 294)
+        Me.enemigo1.Name = "enemigo1"
+        Me.enemigo1.Size = New System.Drawing.Size(49, 53)
+        Me.enemigo1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.enemigo1.TabIndex = 25
+        Me.enemigo1.TabStop = False
+        '
+        'TransPicBox1
+        '
+        Me.TransPicBox1.BackColor = System.Drawing.Color.Transparent
+        Me.TransPicBox1.ErrorImage = Nothing
+        Me.TransPicBox1.Image = Nothing
+        Me.TransPicBox1.InitialImage = Nothing
+        Me.TransPicBox1.Location = New System.Drawing.Point(425, 105)
+        Me.TransPicBox1.Name = "TransPicBox1"
+        Me.TransPicBox1.Size = New System.Drawing.Size(49, 53)
+        Me.TransPicBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.TransPicBox1.TabIndex = 24
+        Me.TransPicBox1.TabStop = False
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1133, 460)
-        Me.Controls.Add(Me.PictureBox6)
+        Me.Controls.Add(Me.TransPicBox2)
+        Me.Controls.Add(Me.enemigo2)
+        Me.Controls.Add(Me.enemigo1)
+        Me.Controls.Add(Me.TransPicBox1)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Panel7)
         Me.Controls.Add(Me.Panel6)
@@ -187,13 +224,15 @@ Partial Class Form1
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
         Me.Name = "Form1"
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TransparencyKey = System.Drawing.Color.Gray
+        CType(Me.TransPicBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.enemigo2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.enemigo1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TransPicBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents Movimiento_Principal As System.Windows.Forms.Timer
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
@@ -209,6 +248,9 @@ Partial Class Form1
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Movimiento_Enemigo As System.Windows.Forms.Timer
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents PictureBox6 As System.Windows.Forms.PictureBox
+    Friend WithEvents TransPicBox1 As ya_ni_se.TransPicBox
+    Friend WithEvents enemigo1 As ya_ni_se.TransPicBox
+    Friend WithEvents enemigo2 As ya_ni_se.TransPicBox
+    Friend WithEvents TransPicBox2 As ya_ni_se.TransPicBox
 
 End Class
