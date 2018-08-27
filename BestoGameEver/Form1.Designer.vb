@@ -38,14 +38,11 @@ Partial Class Form1
         Me.Panel7 = New System.Windows.Forms.Panel()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.TransPicBox2 = New ya_ni_se.TransPicBox()
-        Me.enemigo2 = New ya_ni_se.TransPicBox()
-        Me.enemigo1 = New ya_ni_se.TransPicBox()
-        Me.TransPicBox1 = New ya_ni_se.TransPicBox()
         Me.lblFinal = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.TransPicBox2 = New ya_ni_se.TransPicBox()
+        Me.TransPicBox1 = New ya_ni_se.TransPicBox()
         CType(Me.TransPicBox2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.enemigo2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.enemigo1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TransPicBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -65,9 +62,9 @@ Partial Class Form1
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.DarkOrange
-        Me.Panel2.Location = New System.Drawing.Point(773, 169)
+        Me.Panel2.Location = New System.Drawing.Point(828, 169)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(56, 184)
+        Me.Panel2.Size = New System.Drawing.Size(56, 178)
         Me.Panel2.TabIndex = 2
         '
         'Panel3
@@ -154,44 +151,38 @@ Partial Class Form1
         Me.Label1.TabIndex = 17
         Me.Label1.Text = "Vida:"
         '
+        'lblFinal
+        '
+        Me.lblFinal.AutoSize = True
+        Me.lblFinal.Font = New System.Drawing.Font("Microsoft Sans Serif", 48.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblFinal.Location = New System.Drawing.Point(301, 147)
+        Me.lblFinal.Name = "lblFinal"
+        Me.lblFinal.Size = New System.Drawing.Size(0, 73)
+        Me.lblFinal.TabIndex = 28
+        Me.lblFinal.Visible = False
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(532, 30)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(244, 48)
+        Me.Label3.TabIndex = 29
+        Me.Label3.Text = "Supera muralla naranja a tu " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "derecha para ganar el nivel"
+        '
         'TransPicBox2
         '
         Me.TransPicBox2.BackColor = System.Drawing.Color.Transparent
         Me.TransPicBox2.ErrorImage = Nothing
         Me.TransPicBox2.Image = Nothing
         Me.TransPicBox2.InitialImage = Nothing
-        Me.TransPicBox2.Location = New System.Drawing.Point(284, 294)
+        Me.TransPicBox2.Location = New System.Drawing.Point(284, 300)
         Me.TransPicBox2.Name = "TransPicBox2"
         Me.TransPicBox2.Size = New System.Drawing.Size(49, 53)
         Me.TransPicBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.TransPicBox2.TabIndex = 27
         Me.TransPicBox2.TabStop = False
-        '
-        'enemigo2
-        '
-        Me.enemigo2.BackColor = System.Drawing.Color.Transparent
-        Me.enemigo2.ErrorImage = Nothing
-        Me.enemigo2.Image = Nothing
-        Me.enemigo2.InitialImage = Nothing
-        Me.enemigo2.Location = New System.Drawing.Point(222, 294)
-        Me.enemigo2.Name = "enemigo2"
-        Me.enemigo2.Size = New System.Drawing.Size(49, 53)
-        Me.enemigo2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.enemigo2.TabIndex = 26
-        Me.enemigo2.TabStop = False
-        '
-        'enemigo1
-        '
-        Me.enemigo1.BackColor = System.Drawing.Color.Transparent
-        Me.enemigo1.ErrorImage = Nothing
-        Me.enemigo1.Image = Nothing
-        Me.enemigo1.InitialImage = Nothing
-        Me.enemigo1.Location = New System.Drawing.Point(669, 294)
-        Me.enemigo1.Name = "enemigo1"
-        Me.enemigo1.Size = New System.Drawing.Size(49, 53)
-        Me.enemigo1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.enemigo1.TabIndex = 25
-        Me.enemigo1.TabStop = False
         '
         'TransPicBox1
         '
@@ -206,25 +197,14 @@ Partial Class Form1
         Me.TransPicBox1.TabIndex = 24
         Me.TransPicBox1.TabStop = False
         '
-        'lblFinal
-        '
-        Me.lblFinal.AutoSize = True
-        Me.lblFinal.Font = New System.Drawing.Font("Microsoft Sans Serif", 48.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblFinal.Location = New System.Drawing.Point(301, 147)
-        Me.lblFinal.Name = "lblFinal"
-        Me.lblFinal.Size = New System.Drawing.Size(0, 73)
-        Me.lblFinal.TabIndex = 28
-        Me.lblFinal.Visible = False
-        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1133, 460)
+        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.lblFinal)
         Me.Controls.Add(Me.TransPicBox2)
-        Me.Controls.Add(Me.enemigo2)
-        Me.Controls.Add(Me.enemigo1)
         Me.Controls.Add(Me.TransPicBox1)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Label2)
@@ -238,8 +218,6 @@ Partial Class Form1
         Me.Name = "Form1"
         Me.TransparencyKey = System.Drawing.Color.Gray
         CType(Me.TransPicBox2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.enemigo2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.enemigo1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TransPicBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -261,9 +239,8 @@ Partial Class Form1
     Friend WithEvents Movimiento_Enemigo As System.Windows.Forms.Timer
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents TransPicBox1 As ya_ni_se.TransPicBox
-    Friend WithEvents enemigo1 As ya_ni_se.TransPicBox
-    Friend WithEvents enemigo2 As ya_ni_se.TransPicBox
     Friend WithEvents TransPicBox2 As ya_ni_se.TransPicBox
     Friend WithEvents lblFinal As System.Windows.Forms.Label
+    Friend WithEvents Label3 As System.Windows.Forms.Label
 
 End Class

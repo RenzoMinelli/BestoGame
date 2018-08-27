@@ -39,7 +39,7 @@
     '0 equivale a caer y 1 a subir
     Dim moviVertical As String = ""
 
-    Dim vida As Double = 200
+    Dim vida As Double = 100
 
     Dim listaPB As List(Of PictureBox) = New List(Of PictureBox)
 
@@ -49,138 +49,141 @@
 
     Dim final As Integer = 0
 
-
-
-
-
-
     Private Sub Form1_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyDown
 
-        'Al presionar la tecla A
-        If e.KeyCode = Keys.A Or e.KeyCode = Keys.Left Then
+        If vida <> 0 Then
+
+            'Al presionar la tecla A
+            If e.KeyCode = Keys.A Or e.KeyCode = Keys.Left Then
 
 
-            'Le cambio la imagen a la primera en movimineto para que al menos se muestre un cambio al precionar la tecla la primera vez
-            If a = 0 And d = 0 Then
+                'Le cambio la imagen a la primera en movimineto para que al menos se muestre un cambio al precionar la tecla la primera vez
+                If a = 0 And d = 0 Then
 
-                principal.Image = My.Resources._17
+                    principal.Image = My.Resources._17
+
+                End If
+
+                'Indico de que lado debe estar la animacion de correr (izquierda)
+                lado = 0
+
+                'Levanto la bandera de movimiento a la izquierda e inicio el timer movimiento
+                a = 1
+
 
             End If
 
-            'Indico de que lado debe estar la animacion de correr (izquierda)
-            lado = 0
+            'Al presionar la tecla D
+            If e.KeyCode = Keys.D Or e.KeyCode = Keys.Right Then
 
-            'Levanto la bandera de movimiento a la izquierda e inicio el timer movimiento
-            a = 1
+                'Le cambio la imagen a la primera en movimineto para que al menos se muestre un cambio al precionar la tecla
+                If d = 0 And a = 0 And vida <> 0 Then
+
+                    principal.Image = My.Resources._17
+                    principal.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+
+                End If
+
+                'Indico de que lado debe estar la animacion de correr (derecha)
+                lado = 1
 
 
-        End If
+                'Levanto la bandera de movimiento a la izquierda e inicio el timer movimiento
+                d = 1
 
-        'Al presionar la tecla D
-        If e.KeyCode = Keys.D Or e.KeyCode = Keys.Right Then
-
-            'Le cambio la imagen a la primera en movimineto para que al menos se muestre un cambio al precionar la tecla
-            If d = 0 And a = 0 Then
-
-                principal.Image = My.Resources._17
-                principal.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
 
             End If
 
-            'Indico de que lado debe estar la animacion de correr (derecha)
-            lado = 1
+            'Al presionar la tecla W o la barra
+            If e.KeyCode = Keys.W Or e.KeyCode = Keys.Up Then
 
+                'Verifico que no este descendiedo para que asi no salta en el aire
+                If moviVertical = "" Then
 
-            'Levanto la bandera de movimiento a la izquierda e inicio el timer movimiento
-            d = 1
+                    'Inicio el ascenso y la animación del mismo
+                    moviVertical = "1"
 
-
-        End If
-
-        'Al presionar la tecla W o la barra
-        If e.KeyCode = Keys.W Or e.KeyCode = Keys.Up Then
-
-            'Verifico que no este descendiedo para que asi no salta en el aire
-            If moviVertical = "" Then
-
-                'Inicio el ascenso y la animación del mismo
-                moviVertical = "1"
+                End If
 
             End If
 
-        End If
+            'Al presionar la tecla S
+            If e.KeyCode = Keys.S Or e.KeyCode = Keys.Down Then
 
-        'Al presionar la tecla S
-        If e.KeyCode = Keys.S Or e.KeyCode = Keys.Down Then
+                'Verifico que no estoy ascendiendo ni descendiendo además de que debe estar por ensima del panel4 (plataforma)
+                If moviVertical = "" And principal.Location.Y < pan.Location.Y Then
 
-            'Verifico que no estoy ascendiendo ni descendiendo además de que debe estar por ensima del panel4 (plataforma)
-            If moviVertical = "" And principal.Location.Y < pan.Location.Y Then
+                    'Muevo el PictureBox un poco mas abajo para que de esta forma no este dentro del margen de control para frenar e inicio el descenso con animación
+                    principal.Location = New Point(principal.Location.X, principal.Location.Y + pan.Height)
+                    moviVertical = "0"
 
-                'Muevo el PictureBox un poco mas abajo para que de esta forma no este dentro del margen de control para frenar e inicio el descenso con animación
-                principal.Location = New Point(principal.Location.X, principal.Location.Y + pan.Height)
-                moviVertical = "0"
-
+                End If
             End If
         End If
+
 
     End Sub
 
 
     Private Sub Form1_KeyUp(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyUp
 
-        'Al soltar la tecla A
-        If e.KeyCode = Keys.A Or e.KeyCode = Keys.Left Then
+        If vida <> 0 Then
 
-            'Si la tecla D sigue presionada,  entonces se debe mover a la derecha
-            If d = 1 Then
+            'Al soltar la tecla A
+            If e.KeyCode = Keys.A Or e.KeyCode = Keys.Left Then
 
-                'Se apaga la animacion de idle, se indica el lado y se enciende la animacion de correr a la derecha
+                'Si la tecla D sigue presionada,  entonces se debe mover a la derecha
+                If d = 1 Then
 
-                lado = 1
+                    'Se apaga la animacion de idle, se indica el lado y se enciende la animacion de correr a la derecha
 
-                'Sino, que se detenga y que se encienda la animacion idle
-            Else
+                    lado = 1
 
-                'Determino esta imagen para mostrar como al soltar, se detiene el caminar
-                principal.Image = My.Resources._0
+                    'Sino, que se detenga y que se encienda la animacion idle
+                Else
 
-            End If
+                    'Determino esta imagen para mostrar como al soltar, se detiene el caminar
+                    principal.Image = My.Resources._0
 
-            'Se restaura la aceleracion a la inicial
-            avanzar2 = avanzar
+                End If
 
-            'Se indica que la tecla A ya no está presionada
-            a = 0
+                'Se restaura la aceleracion a la inicial
+                avanzar2 = avanzar
 
-        End If
-
-        'Al soltar la tecla D
-        If e.KeyCode = Keys.D Or e.KeyCode = Keys.Right Then
-
-            'Si la tecla A sigue presionada,  entonces se debe mover a la izquierda
-            If a = 1 Then
-
-                'Se apaga la animacion de idle, se indica el lado y se enciende la animacion de correr a la izquierda
-
-                lado = 0
-
-                'Sino, que se detenga y que se encienda la animacion idle
-            Else
-
-                'Determino esta imagen para mostrar como al soltar, se detiene el caminar
-                principal.Image = My.Resources._0
-                principal.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-
+                'Se indica que la tecla A ya no está presionada
+                a = 0
 
             End If
 
-            'Se restaura la aceleracion a la inicial
-            avanzar2 = avanzar
+            'Al soltar la tecla D
+            If e.KeyCode = Keys.D Or e.KeyCode = Keys.Right Then
 
-            'Se indica que la tecla D ya no está presionada
-            d = 0
+                'Si la tecla A sigue presionada,  entonces se debe mover a la izquierda
+                If a = 1 Then
 
+                    'Se apaga la animacion de idle, se indica el lado y se enciende la animacion de correr a la izquierda
+
+                    lado = 0
+
+                    'Sino, que se detenga y que se encienda la animacion idle
+                Else
+
+                    'Determino esta imagen para mostrar como al soltar, se detiene el caminar
+                    principal.Image = My.Resources._0
+                    principal.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+
+
+                End If
+
+                'Se restaura la aceleracion a la inicial
+                avanzar2 = avanzar
+
+                'Se indica que la tecla D ya no está presionada
+                d = 0
+
+            End If
         End If
+        
 
 
     End Sub
@@ -776,7 +779,7 @@
                                             If vida <= 1 Then
                                                 vida = 0
                                             Else
-                                                vida -= 5
+                                                vida -= 10
                                             End If
                                             ActVida(vida)
                                     End Select
@@ -808,7 +811,7 @@
                                             If vida <= 1 Then
                                                 vida = 0
                                             Else
-                                                vida -= 5
+                                                vida -= 10
                                             End If
                                             ActVida(vida)
 
@@ -821,6 +824,13 @@
                                 moviVertical = "dead"
                                 Movimiento_Principal.Dispose()
                                 Anim_Movimiento_Principal.Dispose()
+
+                                For Each ctrl As Control In Me.Controls
+                                    ctrl.Visible = False
+                                Next
+                                lblFinal.Visible = True
+                                lblFinal.Text = "Game Over"
+                                Anim_Movimiento_Enemigo.Dispose()
                             End If
 
 
