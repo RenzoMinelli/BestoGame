@@ -42,8 +42,12 @@ Partial Class Form1
         Me.Label3 = New System.Windows.Forms.Label()
         Me.TransPicBox2 = New ya_ni_se.TransPicBox()
         Me.TransPicBox1 = New ya_ni_se.TransPicBox()
+        Me.TransPicBox4 = New ya_ni_se.TransPicBox()
+        Me.TransPicBox3 = New ya_ni_se.TransPicBox()
         CType(Me.TransPicBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TransPicBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TransPicBox4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TransPicBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Movimiento_Principal
@@ -87,7 +91,7 @@ Partial Class Form1
         'Panel5
         '
         Me.Panel5.BackColor = System.Drawing.Color.SaddleBrown
-        Me.Panel5.Location = New System.Drawing.Point(412, 278)
+        Me.Panel5.Location = New System.Drawing.Point(413, 266)
         Me.Panel5.Name = "Panel5"
         Me.Panel5.Size = New System.Drawing.Size(101, 28)
         Me.Panel5.TabIndex = 6
@@ -177,11 +181,11 @@ Partial Class Form1
         Me.TransPicBox2.ErrorImage = Nothing
         Me.TransPicBox2.Image = Nothing
         Me.TransPicBox2.InitialImage = Nothing
-        Me.TransPicBox2.Location = New System.Drawing.Point(284, 300)
+        Me.TransPicBox2.Location = New System.Drawing.Point(345, 137)
         Me.TransPicBox2.Name = "TransPicBox2"
         Me.TransPicBox2.Size = New System.Drawing.Size(49, 53)
         Me.TransPicBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.TransPicBox2.TabIndex = 27
+        Me.TransPicBox2.TabIndex = 30
         Me.TransPicBox2.TabStop = False
         '
         'TransPicBox1
@@ -190,35 +194,65 @@ Partial Class Form1
         Me.TransPicBox1.ErrorImage = Nothing
         Me.TransPicBox1.Image = Nothing
         Me.TransPicBox1.InitialImage = Nothing
-        Me.TransPicBox1.Location = New System.Drawing.Point(425, 105)
+        Me.TransPicBox1.Location = New System.Drawing.Point(271, 303)
         Me.TransPicBox1.Name = "TransPicBox1"
         Me.TransPicBox1.Size = New System.Drawing.Size(49, 53)
         Me.TransPicBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.TransPicBox1.TabIndex = 24
         Me.TransPicBox1.TabStop = False
         '
+        'TransPicBox4
+        '
+        Me.TransPicBox4.BackColor = System.Drawing.Color.Transparent
+        Me.TransPicBox4.ErrorImage = Nothing
+        Me.TransPicBox4.Image = Nothing
+        Me.TransPicBox4.InitialImage = Nothing
+        Me.TransPicBox4.Location = New System.Drawing.Point(536, 303)
+        Me.TransPicBox4.Name = "TransPicBox4"
+        Me.TransPicBox4.Size = New System.Drawing.Size(49, 53)
+        Me.TransPicBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.TransPicBox4.TabIndex = 32
+        Me.TransPicBox4.TabStop = False
+        '
+        'TransPicBox3
+        '
+        Me.TransPicBox3.BackColor = System.Drawing.Color.Transparent
+        Me.TransPicBox3.ErrorImage = Nothing
+        Me.TransPicBox3.Image = Nothing
+        Me.TransPicBox3.InitialImage = Nothing
+        Me.TransPicBox3.Location = New System.Drawing.Point(736, 303)
+        Me.TransPicBox3.Name = "TransPicBox3"
+        Me.TransPicBox3.Size = New System.Drawing.Size(49, 53)
+        Me.TransPicBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.TransPicBox3.TabIndex = 31
+        Me.TransPicBox3.TabStop = False
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1133, 460)
+        Me.Controls.Add(Me.TransPicBox2)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.lblFinal)
-        Me.Controls.Add(Me.TransPicBox2)
-        Me.Controls.Add(Me.TransPicBox1)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Panel7)
-        Me.Controls.Add(Me.Panel6)
-        Me.Controls.Add(Me.Panel4)
-        Me.Controls.Add(Me.Panel5)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.TransPicBox1)
+        Me.Controls.Add(Me.TransPicBox4)
+        Me.Controls.Add(Me.TransPicBox3)
+        Me.Controls.Add(Me.Panel5)
+        Me.Controls.Add(Me.Panel6)
+        Me.Controls.Add(Me.Panel4)
         Me.Name = "Form1"
         Me.TransparencyKey = System.Drawing.Color.Gray
         CType(Me.TransPicBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TransPicBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TransPicBox4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TransPicBox3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -239,8 +273,10 @@ Partial Class Form1
     Friend WithEvents Movimiento_Enemigo As System.Windows.Forms.Timer
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents TransPicBox1 As ya_ni_se.TransPicBox
-    Friend WithEvents TransPicBox2 As ya_ni_se.TransPicBox
     Friend WithEvents lblFinal As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents TransPicBox2 As ya_ni_se.TransPicBox
+    Friend WithEvents TransPicBox3 As ya_ni_se.TransPicBox
+    Friend WithEvents TransPicBox4 As ya_ni_se.TransPicBox
 
 End Class

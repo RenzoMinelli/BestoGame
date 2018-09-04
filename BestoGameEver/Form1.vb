@@ -366,7 +366,7 @@
 
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
-        principal = TransPicBox1
+        principal = TransPicBox2
 
 
         'Inicio la animación Idle y muestro el menu de configuraciones

@@ -143,7 +143,7 @@ Public Class TransPicBox
                 End If
             Next
         Else
-            ' not sure how this could happen
+            'not sure how this could happen
             Using br As New SolidBrush(MyBase.BackColor)
                 e.Graphics.FillRectangle(br, ClientRectangle)
             End Using
