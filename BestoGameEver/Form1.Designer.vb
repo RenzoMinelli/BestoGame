@@ -65,10 +65,12 @@ Partial Class Form1
         '
         'Panel2
         '
-        Me.Panel2.BackColor = System.Drawing.Color.DarkOrange
-        Me.Panel2.Location = New System.Drawing.Point(828, 169)
+        Me.Panel2.BackColor = System.Drawing.Color.Transparent
+        Me.Panel2.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.arbolprueba1
+        Me.Panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Panel2.Location = New System.Drawing.Point(828, 93)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(56, 178)
+        Me.Panel2.Size = New System.Drawing.Size(178, 254)
         Me.Panel2.TabIndex = 2
         '
         'Panel3
@@ -91,7 +93,7 @@ Partial Class Form1
         'Panel5
         '
         Me.Panel5.BackColor = System.Drawing.Color.SaddleBrown
-        Me.Panel5.Location = New System.Drawing.Point(413, 266)
+        Me.Panel5.Location = New System.Drawing.Point(405, 289)
         Me.Panel5.Name = "Panel5"
         Me.Panel5.Size = New System.Drawing.Size(101, 28)
         Me.Panel5.TabIndex = 6
@@ -112,7 +114,7 @@ Partial Class Form1
         'Panel6
         '
         Me.Panel6.BackColor = System.Drawing.Color.SaddleBrown
-        Me.Panel6.Location = New System.Drawing.Point(560, 233)
+        Me.Panel6.Location = New System.Drawing.Point(536, 243)
         Me.Panel6.Name = "Panel6"
         Me.Panel6.Size = New System.Drawing.Size(108, 34)
         Me.Panel6.TabIndex = 8
@@ -129,7 +131,7 @@ Partial Class Form1
         '
         'Panel7
         '
-        Me.Panel7.BackColor = System.Drawing.Color.Chartreuse
+        Me.Panel7.BackColor = System.Drawing.Color.Lime
         Me.Panel7.Location = New System.Drawing.Point(138, 30)
         Me.Panel7.Name = "Panel7"
         Me.Panel7.Size = New System.Drawing.Size(195, 24)
@@ -138,6 +140,7 @@ Partial Class Form1
         'Label2
         '
         Me.Label2.AutoSize = True
+        Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(87, 64)
         Me.Label2.Name = "Label2"
@@ -148,6 +151,7 @@ Partial Class Form1
         'Label1
         '
         Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(71, 30)
         Me.Label1.Name = "Label1"
@@ -158,6 +162,7 @@ Partial Class Form1
         'lblFinal
         '
         Me.lblFinal.AutoSize = True
+        Me.lblFinal.BackColor = System.Drawing.Color.Transparent
         Me.lblFinal.Font = New System.Drawing.Font("Microsoft Sans Serif", 48.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblFinal.Location = New System.Drawing.Point(301, 147)
         Me.lblFinal.Name = "lblFinal"
@@ -168,6 +173,7 @@ Partial Class Form1
         'Label3
         '
         Me.Label3.AutoSize = True
+        Me.Label3.BackColor = System.Drawing.Color.Transparent
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(532, 30)
         Me.Label3.Name = "Label3"
@@ -231,6 +237,7 @@ Partial Class Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.fondito
         Me.ClientSize = New System.Drawing.Size(1133, 460)
         Me.Controls.Add(Me.TransPicBox2)
         Me.Controls.Add(Me.Label3)
