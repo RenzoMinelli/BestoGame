@@ -303,6 +303,51 @@
   <ItemGroup>
     <None Include="Resources\arbolprueba.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\9956736f393016a.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kisspng-platform-game-two-dimensional-space-tile-2d-comput-platform-5ac036eb3e40a6.592029961522546411255.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kisspng-platform-game-two-dimensional-space-tile-2d-comput-platform-5ac036eb3e40a6.5920299615225464112551.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ave %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ave %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ave %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ave %284%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ave %281%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ave %282%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ave %283%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ave %284%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ave %285%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ave %286%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ave %287%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ave %288%29.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
