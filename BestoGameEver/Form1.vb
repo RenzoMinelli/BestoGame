@@ -939,4 +939,6 @@
     Private Sub Panel5_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles Panel5.Paint
 
     End Sub
+
+    
 End Class
