@@ -51,7 +51,7 @@
 
     Dim pnlFinal As Panel
 
-    ' Dim estrella As PictureBox = pbEstrella
+    Dim puntos As Integer = 0
 
 
     Private Sub Form1_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyDown
@@ -987,7 +987,7 @@
                 ctrl.Visible = False
             Next
             lblFinal.Visible = True
-            lblFinal.Text = "Game Over"
+            lblFinal.Text = "Game Over" + vbNewLine + "Puntos conseguidos: " + puntos.ToString
             Anim_Movimiento_Enemigo.Dispose()
 
         End If
@@ -1005,7 +1005,7 @@
         Randomize()
         y = Int(((pnlPiso.Location.Y - estrella.Height) * Rnd()) + 1)
 
-        ' lblNumero.Text = "x: " + x.ToString + "y: " + y.ToString
+        ' lblNumero.Text = "x: " + x.ToString + " y: " + y.ToString
 
         estrella.Location = New Point(x, y)
 
@@ -1014,7 +1014,7 @@
         For Each ctrl As Control In Me.Controls
 
 
-            If ctrl.Bounds.IntersectsWith(estrella.Bounds) Then
+            If ctrl.Bounds.IntersectsWith(estrella.Bounds) And TypeOf ctrl Is Panel Then
 
 
                 control = 1
@@ -1028,9 +1028,19 @@
 
         Else
 
-            'ubicarEstrella()
+            ubicarEstrella()
             'lblVida.Text = "choco"
 
+        End If
+
+    End Sub
+
+    Private Sub mover_estrella_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mover_estrella.Tick
+
+        If estrella.Location.X + estrella.Width - 10 > principal.Location.X And estrella.Location.X + 10 < principal.Location.X + principal.Width And estrella.Location.Y + estrella.Height - 10 > principal.Location.Y And estrella.Location.Y < principal.Location.Y + principal.Height - 10 Then
+            ubicarEstrella()
+            puntos += 1
+            lblPuntos.Text = "Puntos: " + puntos.ToString
         End If
 
     End Sub

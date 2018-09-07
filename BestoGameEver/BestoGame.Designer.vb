@@ -47,6 +47,7 @@ Partial Class BestoGame
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.Panel8 = New System.Windows.Forms.Panel()
         Me.Panel11 = New System.Windows.Forms.Panel()
+        Me.mover_estrella = New System.Windows.Forms.Timer(Me.components)
         Me.estrella = New ya_ni_se.TransPicBox()
         Me.TransPicBox2 = New ya_ni_se.TransPicBox()
         Me.TransPicBox7 = New ya_ni_se.TransPicBox()
@@ -55,6 +56,7 @@ Partial Class BestoGame
         Me.TransPicBox3 = New ya_ni_se.TransPicBox()
         Me.TransPicBox6 = New ya_ni_se.TransPicBox()
         Me.TransPicBox1 = New ya_ni_se.TransPicBox()
+        Me.lblPuntos = New System.Windows.Forms.Label()
         CType(Me.estrella, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TransPicBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TransPicBox7, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -264,6 +266,10 @@ Partial Class BestoGame
         Me.Panel11.Size = New System.Drawing.Size(108, 30)
         Me.Panel11.TabIndex = 13
         '
+        'mover_estrella
+        '
+        Me.mover_estrella.Enabled = True
+        '
         'estrella
         '
         Me.estrella.BackColor = System.Drawing.Color.Transparent
@@ -368,12 +374,24 @@ Partial Class BestoGame
         Me.TransPicBox1.TabIndex = 24
         Me.TransPicBox1.TabStop = False
         '
+        'lblPuntos
+        '
+        Me.lblPuntos.AutoSize = True
+        Me.lblPuntos.BackColor = System.Drawing.Color.Transparent
+        Me.lblPuntos.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPuntos.Location = New System.Drawing.Point(690, 30)
+        Me.lblPuntos.Name = "lblPuntos"
+        Me.lblPuntos.Size = New System.Drawing.Size(88, 24)
+        Me.lblPuntos.TabIndex = 37
+        Me.lblPuntos.Text = "Puntos: 0"
+        '
         'BestoGame
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.fondo_try1
+        Me.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.fondito
         Me.ClientSize = New System.Drawing.Size(1203, 565)
+        Me.Controls.Add(Me.lblPuntos)
         Me.Controls.Add(Me.estrella)
         Me.Controls.Add(Me.TransPicBox2)
         Me.Controls.Add(Me.TransPicBox7)
@@ -448,5 +466,7 @@ Partial Class BestoGame
     Friend WithEvents TransPicBox6 As ya_ni_se.TransPicBox
     Friend WithEvents TransPicBox7 As ya_ni_se.TransPicBox
     Friend WithEvents estrella As ya_ni_se.TransPicBox
+    Friend WithEvents mover_estrella As System.Windows.Forms.Timer
+    Friend WithEvents lblPuntos As System.Windows.Forms.Label
 
 End Class
