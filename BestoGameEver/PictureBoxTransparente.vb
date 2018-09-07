@@ -99,11 +99,8 @@ Public Class TransPicBox
             ' Get Parent to paint the part behind us:
             ' we cant know if thats been done or not
             Using pea As New PaintEventArgs(e.Graphics, e.ClipRectangle)
-
                 InvokePaintBackground(Parent, pea)
                 InvokePaint(Parent, pea)
-
-
             End Using
 
             ' shift back
@@ -116,11 +113,7 @@ Public Class TransPicBox
             ' Controls are in z-Order, so loop 
             ' thru the controls "behind" me
             For n As Int32 = Parent.Controls.Count - 1 To startAt + 1 Step -1
-
                 ctl = Parent.Controls(n)
-                If ctl.BackgroundImage Is Form1.BackgroundImage Then
-                    MsgBox("d")
-                End If
 
                 ' skip if they are invisible, too small or do not overlap me
                 If (ctl.Visible = False OrElse
@@ -148,9 +141,6 @@ Public Class TransPicBox
 
                     End Using
                 End If
-
-
-
             Next
         Else
             'not sure how this could happen
