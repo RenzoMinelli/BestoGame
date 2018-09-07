@@ -305,7 +305,7 @@
                     ctrl.Visible = False
                 Next
                 lblFinal.Visible = True
-                lblFinal.Text = "Nivel Superado!!!"
+                lblFinal.Text = "Hey, no se suponía que vieras eso!!!"
                 Movimiento_Principal.Dispose()
 
             End If

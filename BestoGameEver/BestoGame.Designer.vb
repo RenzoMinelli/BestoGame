@@ -156,7 +156,7 @@ Partial Class BestoGame
         Me.lblFinal.AutoSize = True
         Me.lblFinal.BackColor = System.Drawing.Color.Transparent
         Me.lblFinal.Font = New System.Drawing.Font("Microsoft Sans Serif", 48.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblFinal.Location = New System.Drawing.Point(390, 182)
+        Me.lblFinal.Location = New System.Drawing.Point(134, 180)
         Me.lblFinal.Name = "lblFinal"
         Me.lblFinal.Size = New System.Drawing.Size(0, 73)
         Me.lblFinal.TabIndex = 28
@@ -166,9 +166,9 @@ Partial Class BestoGame
         '
         Me.Panel9.BackColor = System.Drawing.Color.DarkOrange
         Me.Panel9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.Panel9.Location = New System.Drawing.Point(1174, 64)
+        Me.Panel9.Location = New System.Drawing.Point(1174, 42)
         Me.Panel9.Name = "Panel9"
-        Me.Panel9.Size = New System.Drawing.Size(32, 386)
+        Me.Panel9.Size = New System.Drawing.Size(32, 408)
         Me.Panel9.TabIndex = 8
         Me.Panel9.Visible = False
         '
@@ -372,7 +372,7 @@ Partial Class BestoGame
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.fondo_try_21
+        Me.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.fondo_try1
         Me.ClientSize = New System.Drawing.Size(1203, 565)
         Me.Controls.Add(Me.estrella)
         Me.Controls.Add(Me.TransPicBox2)
