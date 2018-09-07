@@ -27,19 +27,7 @@ BestoGameEver
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:ya_ni_se.My.Resources.Resources._10">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:ya_ni_se.My.Resources.Resources._11">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
 </member><member name="P:ya_ni_se.My.Resources.Resources._110">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:ya_ni_se.My.Resources.Resources._12">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -123,30 +111,6 @@ BestoGameEver
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:ya_ni_se.My.Resources.Resources._31">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:ya_ni_se.My.Resources.Resources._32">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:ya_ni_se.My.Resources.Resources._33">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:ya_ni_se.My.Resources.Resources._34">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:ya_ni_se.My.Resources.Resources._35">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:ya_ni_se.My.Resources.Resources._36">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
 </member><member name="P:ya_ni_se.My.Resources.Resources._37">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -227,14 +191,6 @@ BestoGameEver
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:ya_ni_se.My.Resources.Resources.arbolprueba">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:ya_ni_se.My.Resources.Resources.arbolprueba1">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
 </member><member name="P:ya_ni_se.My.Resources.Resources.ave__1_">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -275,7 +231,19 @@ BestoGameEver
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
+</member><member name="P:ya_ni_se.My.Resources.Resources.Estrella">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
 </member><member name="P:ya_ni_se.My.Resources.Resources.fondito">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ya_ni_se.My.Resources.Resources.fondo_try_2">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ya_ni_se.My.Resources.Resources.fondo_try_21">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>

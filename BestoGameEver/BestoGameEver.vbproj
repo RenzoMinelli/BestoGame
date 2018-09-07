@@ -72,11 +72,11 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.vb">
+    <Compile Include="BestoGame.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <Compile Include="BestoGame.Designer.vb">
+      <DependentUpon>BestoGame.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="inicio.Designer.vb">
@@ -105,8 +105,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <EmbeddedResource Include="BestoGame.resx">
+      <DependentUpon>BestoGame.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="inicio.resx">
       <DependentUpon>inicio.vb</DependentUpon>
@@ -347,6 +347,177 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ave %288%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fondo try 2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fondo try1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fondo try1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fondo try 2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\311.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\331.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\371.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\381.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\391.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\401.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\411.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\421.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\431.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\441.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\451.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\461.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\471.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\481.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\491.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\51.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\61.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\71.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\81.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\91.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arbolprueba1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fondo try11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fondo try11.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ave %287%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3111.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3211.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3311.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3711.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3811.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3911.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4011.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4111.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4211.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4311.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4411.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4511.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4611.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4711.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4811.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4911.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\511.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\611.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\711.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\811.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\911.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arbolprueba11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fondo try111.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fondo try111.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\392.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\402.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\412.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Estrella.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

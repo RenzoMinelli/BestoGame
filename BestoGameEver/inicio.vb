@@ -5,32 +5,32 @@
     End Sub
 
     Private Sub inicio_Disposed(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Disposed
-        Form1.Dispose()
+        BestoGame.Dispose()
     End Sub
 
     Private Sub inicio_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        TextBox1.Text = Form1.avanzar.ToString
-        TextBox2.Text = Form1.acelereacion.ToString
-        TextBox3.Text = Form1.salto.ToString
-        TextBox4.Text = Form1.pixSubida.ToString
-        TextBox5.Text = Form1.desasubida.ToString
-        TextBox6.Text = Form1.caida.ToString
-        TextBox7.Text = Form1.acelcaida.ToString
-        TextBox8.Text = Form1.limvel.ToString
+        TextBox1.Text = BestoGame.avanzar.ToString
+        TextBox2.Text = BestoGame.acelereacion.ToString
+        TextBox3.Text = BestoGame.salto.ToString
+        TextBox4.Text = BestoGame.pixSubida.ToString
+        TextBox5.Text = BestoGame.desasubida.ToString
+        TextBox6.Text = BestoGame.caida.ToString
+        TextBox7.Text = BestoGame.acelcaida.ToString
+        TextBox8.Text = BestoGame.limvel.ToString
 
     End Sub
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
 
 
-        Form1.limvel = TextBox8.Text
-        Form1.avanzar = TextBox1.Text
-        Form1.acelereacion = TextBox2.Text
-        Form1.salto = TextBox3.Text
-        Form1.pixSubida = TextBox4.Text
-        Form1.desasubida = TextBox5.Text
-        Form1.caida = TextBox6.Text
-        Form1.acelcaida = TextBox7.Text
+        BestoGame.limvel = TextBox8.Text
+        BestoGame.avanzar = TextBox1.Text
+        BestoGame.acelereacion = TextBox2.Text
+        BestoGame.salto = TextBox3.Text
+        BestoGame.pixSubida = TextBox4.Text
+        BestoGame.desasubida = TextBox5.Text
+        BestoGame.caida = TextBox6.Text
+        BestoGame.acelcaida = TextBox7.Text
 
     End Sub
 End Class
