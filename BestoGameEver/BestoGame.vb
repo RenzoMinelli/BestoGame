@@ -383,7 +383,7 @@
             Try
                 pb = ctrl
 
-                If pb.Name <> principal.Name And pb.Name <> pnlVida.Name And pb.Name <> estrella.Name Then
+                If pb.Name <> principal.Name And pb.Name <> pnlVida.Name And pb.Name <> estrella.Name And pb.Name <> pbNumeroEstrellas.Name Then
 
                     listaPB.Add(pb)
                     ReDim listaVariables(cont, 3)
@@ -983,18 +983,40 @@
             moviVertical = "dead"
             Movimiento_Principal.Dispose()
             Anim_Movimiento_Principal.Dispose()
+            Anim_Movimiento_Enemigo.Dispose()
             For Each ctrl As Control In Me.Controls
                 ctrl.Visible = False
             Next
             lblFinal.Visible = True
             lblFinal.Text = "Game Over" + vbNewLine + "Puntos conseguidos: " + puntos.ToString
-            Anim_Movimiento_Enemigo.Dispose()
 
+            Try
+
+                Dim nombre As String = InputBox("Ingrese su nombre", "Registro")
+
+                Dim regDate As Date = Date.Now()
+
+                Dim fecha As String = regDate.ToString("yyyy-mm-dd")
+                Dim hora As String = regDate.ToString("hh:mm:ss")
+
+                MsgBox(fecha.ToString + " " + hora.ToString)
+
+                Consulta = "insert into resultados (nombre, fecha, hora, resultado) values ('" + nombre + "', '" + fecha + "', '" + hora + "','" + puntos.ToString + "');"
+                consultar()
+
+                MsgBox("Guardado", MsgBoxStyle.Information)
+
+            Catch ex As Exception
+                MsgBox("Error al guardar", MsgBoxStyle.Exclamation)
+            End Try
+           
         End If
     End Sub
 
 
     Private Sub ubicarEstrella()
+
+        estrella.Visible = False
 
         Dim x
         Dim y
@@ -1025,7 +1047,7 @@
         If control = 0 Then
 
             estrella.Image = My.Resources.Estrella
-
+            estrella.Visible = True
         Else
 
             ubicarEstrella()
@@ -1040,8 +1062,10 @@
         If estrella.Location.X + estrella.Width - 10 > principal.Location.X And estrella.Location.X + 10 < principal.Location.X + principal.Width And estrella.Location.Y + estrella.Height - 10 > principal.Location.Y And estrella.Location.Y < principal.Location.Y + principal.Height - 10 Then
             ubicarEstrella()
             puntos += 1
-            lblPuntos.Text = "Puntos: " + puntos.ToString
+            lblPuntos.Text = ": " + puntos.ToString
         End If
 
     End Sub
+
+
 End Class

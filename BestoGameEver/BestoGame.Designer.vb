@@ -39,7 +39,6 @@ Partial Class BestoGame
         Me.Panel9 = New System.Windows.Forms.Panel()
         Me.Panel10 = New System.Windows.Forms.Panel()
         Me.pnlInicio = New System.Windows.Forms.Panel()
-        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Panel13 = New System.Windows.Forms.Panel()
@@ -48,7 +47,7 @@ Partial Class BestoGame
         Me.Panel8 = New System.Windows.Forms.Panel()
         Me.Panel11 = New System.Windows.Forms.Panel()
         Me.mover_estrella = New System.Windows.Forms.Timer(Me.components)
-        Me.estrella = New ya_ni_se.TransPicBox()
+        Me.lblPuntos = New System.Windows.Forms.Label()
         Me.TransPicBox2 = New ya_ni_se.TransPicBox()
         Me.TransPicBox7 = New ya_ni_se.TransPicBox()
         Me.TransPicBox4 = New ya_ni_se.TransPicBox()
@@ -56,8 +55,8 @@ Partial Class BestoGame
         Me.TransPicBox3 = New ya_ni_se.TransPicBox()
         Me.TransPicBox6 = New ya_ni_se.TransPicBox()
         Me.TransPicBox1 = New ya_ni_se.TransPicBox()
-        Me.lblPuntos = New System.Windows.Forms.Label()
-        CType(Me.estrella, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.estrella = New ya_ni_se.TransPicBox()
+        Me.pbNumeroEstrellas = New ya_ni_se.TransPicBox()
         CType(Me.TransPicBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TransPicBox7, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TransPicBox4, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -65,6 +64,8 @@ Partial Class BestoGame
         CType(Me.TransPicBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TransPicBox6, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TransPicBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.estrella, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pbNumeroEstrellas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Movimiento_Principal
@@ -168,9 +169,9 @@ Partial Class BestoGame
         '
         Me.Panel9.BackColor = System.Drawing.Color.DarkOrange
         Me.Panel9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.Panel9.Location = New System.Drawing.Point(1174, 42)
+        Me.Panel9.Location = New System.Drawing.Point(1193, 30)
         Me.Panel9.Name = "Panel9"
-        Me.Panel9.Size = New System.Drawing.Size(32, 408)
+        Me.Panel9.Size = New System.Drawing.Size(13, 420)
         Me.Panel9.TabIndex = 8
         Me.Panel9.Visible = False
         '
@@ -192,16 +193,6 @@ Partial Class BestoGame
         Me.pnlInicio.Size = New System.Drawing.Size(10, 449)
         Me.pnlInicio.TabIndex = 3
         Me.pnlInicio.Visible = False
-        '
-        'Panel1
-        '
-        Me.Panel1.BackColor = System.Drawing.Color.SaddleBrown
-        Me.Panel1.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.kisspng_platform_game_two_dimensional_space_tile_2d_comput_platform_5ac036eb3e40a61
-        Me.Panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.Panel1.Location = New System.Drawing.Point(26, 110)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(108, 28)
-        Me.Panel1.TabIndex = 10
         '
         'Panel2
         '
@@ -270,18 +261,16 @@ Partial Class BestoGame
         '
         Me.mover_estrella.Enabled = True
         '
-        'estrella
+        'lblPuntos
         '
-        Me.estrella.BackColor = System.Drawing.Color.Transparent
-        Me.estrella.ErrorImage = Nothing
-        Me.estrella.Image = Global.ya_ni_se.My.Resources.Resources.Estrella
-        Me.estrella.InitialImage = Nothing
-        Me.estrella.Location = New System.Drawing.Point(578, 284)
-        Me.estrella.Name = "estrella"
-        Me.estrella.Size = New System.Drawing.Size(55, 53)
-        Me.estrella.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.estrella.TabIndex = 36
-        Me.estrella.TabStop = False
+        Me.lblPuntos.AutoSize = True
+        Me.lblPuntos.BackColor = System.Drawing.Color.Transparent
+        Me.lblPuntos.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPuntos.Location = New System.Drawing.Point(696, 30)
+        Me.lblPuntos.Name = "lblPuntos"
+        Me.lblPuntos.Size = New System.Drawing.Size(30, 24)
+        Me.lblPuntos.TabIndex = 37
+        Me.lblPuntos.Text = ": 0"
         '
         'TransPicBox2
         '
@@ -374,16 +363,31 @@ Partial Class BestoGame
         Me.TransPicBox1.TabIndex = 24
         Me.TransPicBox1.TabStop = False
         '
-        'lblPuntos
+        'estrella
         '
-        Me.lblPuntos.AutoSize = True
-        Me.lblPuntos.BackColor = System.Drawing.Color.Transparent
-        Me.lblPuntos.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPuntos.Location = New System.Drawing.Point(690, 30)
-        Me.lblPuntos.Name = "lblPuntos"
-        Me.lblPuntos.Size = New System.Drawing.Size(88, 24)
-        Me.lblPuntos.TabIndex = 37
-        Me.lblPuntos.Text = "Puntos: 0"
+        Me.estrella.BackColor = System.Drawing.Color.Transparent
+        Me.estrella.ErrorImage = Nothing
+        Me.estrella.Image = Global.ya_ni_se.My.Resources.Resources.Estrella
+        Me.estrella.InitialImage = Nothing
+        Me.estrella.Location = New System.Drawing.Point(578, 284)
+        Me.estrella.Name = "estrella"
+        Me.estrella.Size = New System.Drawing.Size(55, 53)
+        Me.estrella.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.estrella.TabIndex = 36
+        Me.estrella.TabStop = False
+        '
+        'pbNumeroEstrellas
+        '
+        Me.pbNumeroEstrellas.BackColor = System.Drawing.Color.Transparent
+        Me.pbNumeroEstrellas.ErrorImage = Nothing
+        Me.pbNumeroEstrellas.Image = Global.ya_ni_se.My.Resources.Resources.Estrella
+        Me.pbNumeroEstrellas.InitialImage = Nothing
+        Me.pbNumeroEstrellas.Location = New System.Drawing.Point(663, 18)
+        Me.pbNumeroEstrellas.Name = "pbNumeroEstrellas"
+        Me.pbNumeroEstrellas.Size = New System.Drawing.Size(33, 36)
+        Me.pbNumeroEstrellas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.pbNumeroEstrellas.TabIndex = 38
+        Me.pbNumeroEstrellas.TabStop = False
         '
         'BestoGame
         '
@@ -392,7 +396,6 @@ Partial Class BestoGame
         Me.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.fondito
         Me.ClientSize = New System.Drawing.Size(1203, 565)
         Me.Controls.Add(Me.lblPuntos)
-        Me.Controls.Add(Me.estrella)
         Me.Controls.Add(Me.TransPicBox2)
         Me.Controls.Add(Me.TransPicBox7)
         Me.Controls.Add(Me.TransPicBox4)
@@ -407,22 +410,22 @@ Partial Class BestoGame
         Me.Controls.Add(Me.pnlVida)
         Me.Controls.Add(Me.pnlInicio)
         Me.Controls.Add(Me.pnlPiso)
-        Me.Controls.Add(Me.Panel8)
-        Me.Controls.Add(Me.Panel11)
-        Me.Controls.Add(Me.Panel5)
-        Me.Controls.Add(Me.Panel14)
-        Me.Controls.Add(Me.Panel3)
-        Me.Controls.Add(Me.Panel13)
-        Me.Controls.Add(Me.Panel2)
+        Me.Controls.Add(Me.estrella)
         Me.Controls.Add(Me.Panel4)
-        Me.Controls.Add(Me.Panel6)
-        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Panel10)
+        Me.Controls.Add(Me.Panel14)
+        Me.Controls.Add(Me.Panel8)
+        Me.Controls.Add(Me.Panel5)
+        Me.Controls.Add(Me.Panel13)
+        Me.Controls.Add(Me.Panel6)
+        Me.Controls.Add(Me.Panel11)
+        Me.Controls.Add(Me.Panel3)
+        Me.Controls.Add(Me.Panel2)
+        Me.Controls.Add(Me.pbNumeroEstrellas)
         Me.DoubleBuffered = True
         Me.Name = "BestoGame"
         Me.Text = "BestoGame"
         Me.TransparencyKey = System.Drawing.Color.Gray
-        CType(Me.estrella, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TransPicBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TransPicBox7, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TransPicBox4, System.ComponentModel.ISupportInitialize).EndInit()
@@ -430,6 +433,8 @@ Partial Class BestoGame
         CType(Me.TransPicBox3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TransPicBox6, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TransPicBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.estrella, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pbNumeroEstrellas, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -454,7 +459,6 @@ Partial Class BestoGame
     Friend WithEvents Panel9 As System.Windows.Forms.Panel
     Friend WithEvents Panel10 As System.Windows.Forms.Panel
     Friend WithEvents pnlInicio As System.Windows.Forms.Panel
-    Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
     Friend WithEvents Panel3 As System.Windows.Forms.Panel
     Friend WithEvents Panel13 As System.Windows.Forms.Panel
@@ -468,5 +472,5 @@ Partial Class BestoGame
     Friend WithEvents estrella As ya_ni_se.TransPicBox
     Friend WithEvents mover_estrella As System.Windows.Forms.Timer
     Friend WithEvents lblPuntos As System.Windows.Forms.Label
-
+    Friend WithEvents pbNumeroEstrellas As ya_ni_se.TransPicBox
 End Class
