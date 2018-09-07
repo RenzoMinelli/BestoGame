@@ -630,7 +630,17 @@
 
                             End If
 
+                        ElseIf Math.Abs(principal.Location.X - pb.Location.X) < 80 And Math.Abs(principal.Location.Y - pb.Location.Y) <= 20 Then
 
+                            If pb.Location.X < principal.Location.X Then
+
+                                pb.Location = New Point(pb.Location.X + 7, principal.Location.Y)
+
+                            ElseIf pb.Location.X > principal.Location.X Then
+
+                                pb.Location = New Point(pb.Location.X - 7, principal.Location.Y)
+
+                            End If
 
                         ElseIf Math.Abs(principal.Location.X - pb.Location.X) > 400 Or Math.Abs(principal.Location.Y - pb.Location.Y) > 10 Then
 
