@@ -53,6 +53,11 @@
 
     Dim puntos As Integer = 0
 
+    Dim x As Integer
+    Dim y As Integer
+
+    Dim direc As Integer = 0
+
 
     Private Sub Form1_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyDown
 
@@ -299,14 +304,7 @@
 
                 principal.Location = New Point(principal.Location.X + 10, principal.Location.Y)
 
-            ElseIf principal.Location.X >= pnlFinal.Location.X + pnlFinal.Width Then
-
-                For Each ctrl As Control In Me.Controls
-                    ctrl.Visible = False
-                Next
-                lblFinal.Visible = True
-                lblFinal.Text = "Hey, no se suponía que vieras eso!!!"
-                Movimiento_Principal.Dispose()
+           
 
             End If
 
@@ -366,12 +364,17 @@
 
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
+        pbBala.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
         pnlFinal = Panel9
         principal = TransPicBox2
-
+        x = principal.Location.X
+        y = principal.Location.Y
 
         'Inicio la animación Idle y muestro el menu de configuraciones
-        inicio.Show()
+        'inicio.Show()
+        resultados.Show()
+        resultados.Location = New Point(Me.Location.X + Me.Width, Me.Location.Y)
+        resultados.actTabla()
         ActVida(vida)
         moviVertical = "0"
 
@@ -383,7 +386,7 @@
             Try
                 pb = ctrl
 
-                If pb.Name <> principal.Name And pb.Name <> pnlVida.Name And pb.Name <> estrella.Name And pb.Name <> pbNumeroEstrellas.Name Then
+                If pb.Name <> principal.Name And pb.Name <> pnlVida.Name And pb.Name <> estrella.Name And pb.Name <> pbNumeroEstrellas.Name And pb.Name <> pbBala.Name Then
 
                     listaPB.Add(pb)
                     ReDim listaVariables(cont, 3)
@@ -692,7 +695,7 @@
 
             Try
 
-                If pb.Name <> principal.Name Then
+                If pb.Name <> principal.Name And pb.Name <> pbBala.Name Then
 
                     If pb.Location.X > 0 And pb.Location.X < pnlFinal.Location.X Then
 
@@ -784,6 +787,7 @@
                                         pb.Image = My.Resources.ave__1_
                                         pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
                                         listaVariables(indice, 1) += 1
+
                                     Case 1
                                         pb.Image = My.Resources.ave__2_
                                         pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
@@ -796,6 +800,14 @@
                                         pb.Image = My.Resources.ave__4_
                                         pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
                                         listaVariables(indice, 1) += 1
+
+                                        If vida <= 1 Then
+                                            vida = 0
+                                        Else
+                                            vida -= 10
+                                        End If
+                                        ActVida(vida)
+
                                     Case 4
                                         pb.Image = My.Resources.ave__5_
                                         pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
@@ -819,6 +831,7 @@
                                             vida -= 10
                                         End If
                                         ActVida(vida)
+
                                 End Select
 
 
@@ -830,6 +843,7 @@
                                     Case 0
                                         pb.Image = My.Resources.ave__1_
                                         listaVariables(indice, 1) += 1
+
                                     Case 1
                                         pb.Image = My.Resources.ave__2_
                                         listaVariables(indice, 1) += 1
@@ -839,6 +853,14 @@
                                     Case 3
                                         pb.Image = My.Resources.ave__4_
                                         listaVariables(indice, 1) += 1
+
+                                        If vida <= 1 Then
+                                            vida = 0
+                                        Else
+                                            vida -= 10
+                                        End If
+                                        ActVida(vida)
+
                                     Case 4
                                         pb.Image = My.Resources.ave__5_
                                         listaVariables(indice, 1) += 1
@@ -860,6 +882,7 @@
                                             vida -= 10
                                         End If
                                         ActVida(vida)
+
 
                                 End Select
 
@@ -960,7 +983,12 @@
 
                     End If
 
+                 
+
                 End If
+
+
+                
 
 
             Catch ex As Exception
@@ -973,9 +1001,7 @@
         Encontrar_Suelo_Principal.Start()
     End Sub
     Private Sub ActVida(ByVal v As Double)
-
-        pnlVida.Width = v
-        lblNumero.Text = v.ToString
+       
 
         If v = 0 Then
 
@@ -984,6 +1010,8 @@
             Movimiento_Principal.Dispose()
             Anim_Movimiento_Principal.Dispose()
             Anim_Movimiento_Enemigo.Dispose()
+            Anim_Bala.Dispose()
+
             For Each ctrl As Control In Me.Controls
                 ctrl.Visible = False
             Next
@@ -991,26 +1019,39 @@
             lblFinal.Text = "Game Over" + vbNewLine + "Puntos conseguidos: " + puntos.ToString
 
             Try
+                Dim nombre As String = ""
+                Do
 
-                Dim nombre As String = InputBox("Ingrese su nombre", "Registro")
+                    nombre = InputBox("Ingrese su nombre", "Registro")
+
+                Loop While nombre = ""
+
 
                 Dim regDate As Date = Date.Now()
 
-                Dim fecha As String = regDate.ToString("yyyy-mm-dd")
+                Dim fecha As String = regDate.ToString("yyyy-MM-dd")
                 Dim hora As String = regDate.ToString("hh:mm:ss")
 
-                MsgBox(fecha.ToString + " " + hora.ToString)
+
 
                 Consulta = "insert into resultados (nombre, fecha, hora, resultado) values ('" + nombre + "', '" + fecha + "', '" + hora + "','" + puntos.ToString + "');"
                 consultar()
 
                 MsgBox("Guardado", MsgBoxStyle.Information)
 
+                resultados.actTabla()
+
             Catch ex As Exception
                 MsgBox("Error al guardar", MsgBoxStyle.Exclamation)
             End Try
-           
+        Else
+            Anim_Idle_Principal.Dispose()
+            principal.Image = My.Resources.hurt
+            pnlVida.Width = v
+            lblNumero.Text = v.ToString
+            Anim_Idle_Principal.Start()
         End If
+
     End Sub
 
 
@@ -1027,7 +1068,6 @@
         Randomize()
         y = Int(((pnlPiso.Location.Y - estrella.Height) * Rnd()) + 1)
 
-        ' lblNumero.Text = "x: " + x.ToString + " y: " + y.ToString
 
         estrella.Location = New Point(x, y)
 
@@ -1051,7 +1091,6 @@
         Else
 
             ubicarEstrella()
-            'lblVida.Text = "choco"
 
         End If
 
@@ -1068,4 +1107,36 @@
     End Sub
 
 
+    Private Sub BestoGame_Move(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Move
+        resultados.Location = New Point(Me.Location.X + Me.Width, Me.Location.Y)
+    End Sub
+
+    Private Sub Timer1_Tick_2(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Anim_Bala.Tick
+
+        If pbBala.Location.X < pnlInicio.Location.X + pnlInicio.Width Then
+
+            pbBala.Location = New Point(pbBala.Location.X + 5, pbBala.Location.Y)
+            pbBala.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+            direc = 0
+
+        ElseIf pbBala.Location.X + pbBala.Width > pnlFinal.Location.X Then
+
+            pbBala.Location = New Point(pbBala.Location.X - 5, pbBala.Location.Y)
+            pbBala.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+            direc = 1
+
+        End If
+
+        If direc = 0 Then
+            pbBala.Location = New Point(pbBala.Location.X + 5, pbBala.Location.Y)
+        ElseIf direc = 1 Then
+            pbBala.Location = New Point(pbBala.Location.X - 5, pbBala.Location.Y)
+        End If
+
+        If pbBala.Bounds.IntersectsWith(principal.Bounds) Then
+
+            ActVida(0)
+
+        End If
+    End Sub
 End Class

@@ -108,6 +108,12 @@
     <Compile Include="PictureBoxTransparente.vb">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="resultados.Designer.vb">
+      <DependentUpon>resultados.vb</DependentUpon>
+    </Compile>
+    <Compile Include="resultados.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="BestoGame.resx">
@@ -121,6 +127,9 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resultados.resx">
+      <DependentUpon>resultados.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -523,6 +532,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Estrella.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hurt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bullet.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

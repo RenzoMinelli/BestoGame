@@ -62,3 +62,4 @@ C:\Users\Matias\Documents\GitHub\BestoGame\BestoGameEver\obj\x86\Debug\BestoGame
 C:\Users\Renzo\Documents\GitHub\proyecto\BestoGame\BestoGameEver\obj\x86\Debug\ya_ni_se.BestoGame.resources
 C:\Users\nicol\Documents\GitHub\BestoGame\BestoGameEver\obj\x86\Debug\ya_ni_se.BestoGame.resources
 C:\Users\Renzo\Documents\GitHub\proyecto\BestoGame\BestoGameEver\obj\x86\Debug\BestoGameEver.vbprojResolveAssemblyReference.cache
+C:\Users\Renzo\Documents\GitHub\proyecto\BestoGame\BestoGameEver\obj\x86\Debug\ya_ni_se.resultados.resources
