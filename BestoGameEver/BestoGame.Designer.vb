@@ -48,7 +48,8 @@ Partial Class BestoGame
         Me.Panel11 = New System.Windows.Forms.Panel()
         Me.mover_estrella = New System.Windows.Forms.Timer(Me.components)
         Me.lblPuntos = New System.Windows.Forms.Label()
-        Me.Anim_Bala = New System.Windows.Forms.Timer(Me.components)
+        Me.Movimiento_Bala = New System.Windows.Forms.Timer(Me.components)
+        Me.TransPicBox8 = New ya_ni_se.TransPicBox()
         Me.TransPicBox5 = New ya_ni_se.TransPicBox()
         Me.pbBala = New ya_ni_se.TransPicBox()
         Me.TransPicBox2 = New ya_ni_se.TransPicBox()
@@ -59,6 +60,7 @@ Partial Class BestoGame
         Me.TransPicBox1 = New ya_ni_se.TransPicBox()
         Me.estrella = New ya_ni_se.TransPicBox()
         Me.pbNumeroEstrellas = New ya_ni_se.TransPicBox()
+        CType(Me.TransPicBox8, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TransPicBox5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pbBala, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TransPicBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -174,7 +176,7 @@ Partial Class BestoGame
         Me.Panel9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.Panel9.Location = New System.Drawing.Point(1193, -139)
         Me.Panel9.Name = "Panel9"
-        Me.Panel9.Size = New System.Drawing.Size(10, 589)
+        Me.Panel9.Size = New System.Drawing.Size(10, 603)
         Me.Panel9.TabIndex = 8
         Me.Panel9.Visible = False
         '
@@ -193,7 +195,7 @@ Partial Class BestoGame
         Me.pnlInicio.BackColor = System.Drawing.Color.DarkOrange
         Me.pnlInicio.Location = New System.Drawing.Point(0, -139)
         Me.pnlInicio.Name = "pnlInicio"
-        Me.pnlInicio.Size = New System.Drawing.Size(10, 589)
+        Me.pnlInicio.Size = New System.Drawing.Size(10, 603)
         Me.pnlInicio.TabIndex = 3
         Me.pnlInicio.Visible = False
         '
@@ -275,10 +277,23 @@ Partial Class BestoGame
         Me.lblPuntos.TabIndex = 37
         Me.lblPuntos.Text = ": 0"
         '
-        'Anim_Bala
+        'Movimiento_Bala
         '
-        Me.Anim_Bala.Enabled = True
-        Me.Anim_Bala.Interval = 1
+        Me.Movimiento_Bala.Enabled = True
+        Me.Movimiento_Bala.Interval = 1
+        '
+        'TransPicBox8
+        '
+        Me.TransPicBox8.BackColor = System.Drawing.Color.Transparent
+        Me.TransPicBox8.ErrorImage = Nothing
+        Me.TransPicBox8.Image = Global.ya_ni_se.My.Resources.Resources.ave__1_
+        Me.TransPicBox8.InitialImage = Nothing
+        Me.TransPicBox8.Location = New System.Drawing.Point(544, 397)
+        Me.TransPicBox8.Name = "TransPicBox8"
+        Me.TransPicBox8.Size = New System.Drawing.Size(56, 53)
+        Me.TransPicBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.TransPicBox8.TabIndex = 41
+        Me.TransPicBox8.TabStop = False
         '
         'TransPicBox5
         '
@@ -286,7 +301,7 @@ Partial Class BestoGame
         Me.TransPicBox5.ErrorImage = Nothing
         Me.TransPicBox5.Image = Global.ya_ni_se.My.Resources.Resources.ave__8_
         Me.TransPicBox5.InitialImage = Nothing
-        Me.TransPicBox5.Location = New System.Drawing.Point(960, 272)
+        Me.TransPicBox5.Location = New System.Drawing.Point(1091, 269)
         Me.TransPicBox5.Name = "TransPicBox5"
         Me.TransPicBox5.Size = New System.Drawing.Size(55, 53)
         Me.TransPicBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -310,9 +325,9 @@ Partial Class BestoGame
         '
         Me.TransPicBox2.BackColor = System.Drawing.Color.Transparent
         Me.TransPicBox2.ErrorImage = Nothing
-        Me.TransPicBox2.Image = Global.ya_ni_se.My.Resources.Resources.hurt
+        Me.TransPicBox2.Image = Global.ya_ni_se.My.Resources.Resources._01
         Me.TransPicBox2.InitialImage = Nothing
-        Me.TransPicBox2.Location = New System.Drawing.Point(663, 365)
+        Me.TransPicBox2.Location = New System.Drawing.Point(1060, 397)
         Me.TransPicBox2.Name = "TransPicBox2"
         Me.TransPicBox2.Size = New System.Drawing.Size(49, 53)
         Me.TransPicBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -336,7 +351,7 @@ Partial Class BestoGame
         '
         Me.TransPicBox4.BackColor = System.Drawing.Color.Transparent
         Me.TransPicBox4.ErrorImage = Nothing
-        Me.TransPicBox4.Image = Nothing
+        Me.TransPicBox4.Image = Global.ya_ni_se.My.Resources.Resources.ave__1_
         Me.TransPicBox4.InitialImage = Nothing
         Me.TransPicBox4.Location = New System.Drawing.Point(544, 53)
         Me.TransPicBox4.Name = "TransPicBox4"
@@ -351,7 +366,7 @@ Partial Class BestoGame
         Me.TransPicBox3.ErrorImage = Nothing
         Me.TransPicBox3.Image = Global.ya_ni_se.My.Resources.Resources.ave__8_
         Me.TransPicBox3.InitialImage = Nothing
-        Me.TransPicBox3.Location = New System.Drawing.Point(482, 272)
+        Me.TransPicBox3.Location = New System.Drawing.Point(482, 269)
         Me.TransPicBox3.Name = "TransPicBox3"
         Me.TransPicBox3.Size = New System.Drawing.Size(55, 53)
         Me.TransPicBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -364,7 +379,7 @@ Partial Class BestoGame
         Me.TransPicBox6.ErrorImage = Nothing
         Me.TransPicBox6.Image = Global.ya_ni_se.My.Resources.Resources.ave__8_
         Me.TransPicBox6.InitialImage = Nothing
-        Me.TransPicBox6.Location = New System.Drawing.Point(52, 272)
+        Me.TransPicBox6.Location = New System.Drawing.Point(69, 269)
         Me.TransPicBox6.Name = "TransPicBox6"
         Me.TransPicBox6.Size = New System.Drawing.Size(55, 53)
         Me.TransPicBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -375,7 +390,7 @@ Partial Class BestoGame
         '
         Me.TransPicBox1.BackColor = System.Drawing.Color.Transparent
         Me.TransPicBox1.ErrorImage = Nothing
-        Me.TransPicBox1.Image = Nothing
+        Me.TransPicBox1.Image = Global.ya_ni_se.My.Resources.Resources.ave__1_
         Me.TransPicBox1.InitialImage = Nothing
         Me.TransPicBox1.Location = New System.Drawing.Point(91, 397)
         Me.TransPicBox1.Name = "TransPicBox1"
@@ -416,6 +431,7 @@ Partial Class BestoGame
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.fondito
         Me.ClientSize = New System.Drawing.Size(1203, 565)
+        Me.Controls.Add(Me.TransPicBox8)
         Me.Controls.Add(Me.TransPicBox5)
         Me.Controls.Add(Me.pbBala)
         Me.Controls.Add(Me.lblPuntos)
@@ -449,6 +465,7 @@ Partial Class BestoGame
         Me.Name = "BestoGame"
         Me.Text = "BestoGame"
         Me.TransparencyKey = System.Drawing.Color.Gray
+        CType(Me.TransPicBox8, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TransPicBox5, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.pbBala, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TransPicBox2, System.ComponentModel.ISupportInitialize).EndInit()
@@ -497,6 +514,7 @@ Partial Class BestoGame
     Friend WithEvents lblPuntos As System.Windows.Forms.Label
     Friend WithEvents pbNumeroEstrellas As ya_ni_se.TransPicBox
     Friend WithEvents pbBala As ya_ni_se.TransPicBox
-    Friend WithEvents Anim_Bala As System.Windows.Forms.Timer
+    Friend WithEvents Movimiento_Bala As System.Windows.Forms.Timer
     Friend WithEvents TransPicBox5 As ya_ni_se.TransPicBox
+    Friend WithEvents TransPicBox8 As ya_ni_se.TransPicBox
 End Class

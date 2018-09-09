@@ -58,6 +58,8 @@
 
     Dim direc As Integer = 0
 
+    
+
 
     Private Sub Form1_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyDown
 
@@ -304,7 +306,7 @@
 
                 principal.Location = New Point(principal.Location.X + 10, principal.Location.Y)
 
-           
+
 
             End If
 
@@ -1010,7 +1012,7 @@
             Movimiento_Principal.Dispose()
             Anim_Movimiento_Principal.Dispose()
             Anim_Movimiento_Enemigo.Dispose()
-            Anim_Bala.Dispose()
+            Movimiento_Bala.Dispose()
 
             For Each ctrl As Control In Me.Controls
                 ctrl.Visible = False
@@ -1111,7 +1113,7 @@
         resultados.Location = New Point(Me.Location.X + Me.Width, Me.Location.Y)
     End Sub
 
-    Private Sub Timer1_Tick_2(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Anim_Bala.Tick
+    Private Sub Timer1_Tick_2(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Movimiento_Bala.Tick
 
         If pbBala.Location.X < pnlInicio.Location.X + pnlInicio.Width Then
 
