@@ -59,7 +59,9 @@ C:\Users\Matias\Documents\GitHub\BestoGame\BestoGameEver\obj\x86\Debug\ya_ni_se.
 C:\Users\Matias\Documents\GitHub\BestoGame\BestoGameEver\obj\x86\Debug\ya_ni_se.inicio.resources
 C:\Users\Matias\Documents\GitHub\BestoGame\BestoGameEver\obj\x86\Debug\ya_ni_se.Resources.resources
 C:\Users\Matias\Documents\GitHub\BestoGame\BestoGameEver\obj\x86\Debug\BestoGameEver.vbproj.GenerateResource.Cache
-C:\Users\Renzo\Documents\GitHub\proyecto\BestoGame\BestoGameEver\obj\x86\Debug\ya_ni_se.BestoGame.resources
 C:\Users\nicol\Documents\GitHub\BestoGame\BestoGameEver\obj\x86\Debug\ya_ni_se.BestoGame.resources
 C:\Users\Renzo\Documents\GitHub\proyecto\BestoGame\BestoGameEver\obj\x86\Debug\BestoGameEver.vbprojResolveAssemblyReference.cache
 C:\Users\Renzo\Documents\GitHub\proyecto\BestoGame\BestoGameEver\obj\x86\Debug\ya_ni_se.resultados.resources
+C:\Users\Renzo\Documents\GitHub\proyecto\BestoGame\BestoGameEver\obj\x86\Debug\ya_ni_se.MenuInicio.resources
+C:\Users\Renzo\Documents\GitHub\proyecto\BestoGame\BestoGameEver\obj\x86\Debug\ya_ni_se.MultiPlayerMode.resources
+C:\Users\Renzo\Documents\GitHub\proyecto\BestoGame\BestoGameEver\obj\x86\Debug\ya_ni_se.SinglePlayerMode.resources

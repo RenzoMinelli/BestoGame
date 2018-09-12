@@ -5,32 +5,32 @@
     End Sub
 
     Private Sub inicio_Disposed(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Disposed
-        BestoGame.Dispose()
+        SinglePlayerMode.Dispose()
     End Sub
 
     Private Sub inicio_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        TextBox1.Text = BestoGame.avanzar.ToString
-        TextBox2.Text = BestoGame.acelereacion.ToString
-        TextBox3.Text = BestoGame.salto.ToString
-        TextBox4.Text = BestoGame.pixSubida.ToString
-        TextBox5.Text = BestoGame.desasubida.ToString
-        TextBox6.Text = BestoGame.caida.ToString
-        TextBox7.Text = BestoGame.acelcaida.ToString
-        TextBox8.Text = BestoGame.limvel.ToString
+        TextBox1.Text = SinglePlayerMode.avanzar.ToString
+        TextBox2.Text = SinglePlayerMode.acelereacion.ToString
+        TextBox3.Text = SinglePlayerMode.salto.ToString
+        TextBox4.Text = SinglePlayerMode.pixSubida.ToString
+        TextBox5.Text = SinglePlayerMode.desasubida.ToString
+        TextBox6.Text = SinglePlayerMode.caida.ToString
+        TextBox7.Text = SinglePlayerMode.acelcaida.ToString
+        TextBox8.Text = SinglePlayerMode.limvel.ToString
 
     End Sub
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
 
 
-        BestoGame.limvel = TextBox8.Text
-        BestoGame.avanzar = TextBox1.Text
-        BestoGame.acelereacion = TextBox2.Text
-        BestoGame.salto = TextBox3.Text
-        BestoGame.pixSubida = TextBox4.Text
-        BestoGame.desasubida = TextBox5.Text
-        BestoGame.caida = TextBox6.Text
-        BestoGame.acelcaida = TextBox7.Text
+        SinglePlayerMode.limvel = TextBox8.Text
+        SinglePlayerMode.avanzar = TextBox1.Text
+        SinglePlayerMode.acelereacion = TextBox2.Text
+        SinglePlayerMode.salto = TextBox3.Text
+        SinglePlayerMode.pixSubida = TextBox4.Text
+        SinglePlayerMode.desasubida = TextBox5.Text
+        SinglePlayerMode.caida = TextBox6.Text
+        SinglePlayerMode.acelcaida = TextBox7.Text
 
     End Sub
 End Class

@@ -5,9 +5,10 @@
     End Sub
     Public Sub actTabla()
         Try
-            Consulta = "select nombre as 'Nombre', resultado as 'Puntaje', fecha as 'Fecha', hora as 'Hora' from resultados;"
+            Consulta = "select nombre as 'Nombre', resultado as 'Puntaje' from resultados order by 2 desc;"
             consultar()
             dgvResultados.DataSource = Tabla
+
         Catch ex As Exception
 
         End Try

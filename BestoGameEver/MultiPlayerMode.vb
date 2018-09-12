@@ -1,0 +1,1741 @@
+﻿
+Public Class MultiPlayerMode
+
+
+    '////////////////////////////////////PERSONALIZACION///////////////////////
+    Public avanzar As Double = 5
+    Public acelereacion As Double = 0
+    Public limvel As Double = 5
+    Public salto As Double = 20
+    Public pixSubida As Double = 7
+    Public desasubida As Double = 0.01
+    Public caida As Double = 5
+    Public acelcaida As Double = 0.01
+    '//////////////////////////////////////////////////////////////////////////
+
+    'Utilizo una copia de las variables para luego devolverlas al valor inicial
+
+
+    Dim pb As PictureBox
+
+    '//////////////////////////////////////////////////Principal1/////////////////////////////////////////////////////////////////
+
+    Dim avanzar2 As Double = avanzar
+    Dim acelereacion2 As Double = acelereacion
+    Dim limvel2 As Double = limvel
+    Dim salto2 As Double = salto
+    Dim pixSubida2 As Double = pixSubida
+    Dim desasubida2 As Double = desasubida
+    Dim caida2 As Double = caida
+    Dim acelcaida2 As Double = acelcaida
+
+    Dim d As Integer = 0
+    Dim a As Integer = 0
+
+    Dim lado As Integer = 0
+
+    Dim pan As New Panel
+
+    Dim cont As Integer = 0
+
+    Dim stand As Integer = 0
+    Dim foto As Integer = 0
+
+    Dim idle As Integer = 0
+
+    '0 equivale a caer y 1 a subir
+    Dim moviVertical As String = ""
+
+    Dim vida As Double = 100
+
+    Dim puntos As Integer = 0
+
+    '////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    '///////////////////////////////////////////////Principal2////////////////////////////////////////////////////////////
+
+    Dim avanzar3 As Double = avanzar
+    Dim acelereacion3 As Double = acelereacion
+    Dim limvel3 As Double = limvel
+    Dim salto3 As Double = salto
+    Dim pixSubida3 As Double = pixSubida
+    Dim desasubida3 As Double = desasubida
+    Dim caida3 As Double = caida
+    Dim acelcaida3 As Double = acelcaida
+
+    Dim d2 As Integer = 0
+    Dim a2 As Integer = 0
+
+    Dim lado2 As Integer = 0
+
+    Dim cont2 As Integer = 0
+
+    Dim stand2 As Integer = 0
+    Dim foto2 As Integer = 0
+
+    Dim idle2 As Integer = 0
+
+    Dim pan2 As New Panel
+
+    '0 equivale a caer y 1 a subir
+    Dim moviVertical2 As String = ""
+
+    Dim vida2 As Double = 100
+
+    Dim puntos2 As Integer = 0
+
+    '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    Dim listaPB As List(Of PictureBox) = New List(Of PictureBox)
+
+    Dim listaVariables(,) As Integer
+
+    Dim principal As PictureBox
+
+    Dim pnlFinal As Panel
+
+
+    Dim direc As Integer = 0
+
+    Dim x As Integer
+    Dim y As Integer
+
+
+
+    Private Sub BestoGame_Disposed(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Disposed
+        MenuInicio.Dispose()
+    End Sub
+
+
+
+
+    Private Sub Form1_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyDown
+
+        If vida <> 0 Then
+
+            'Al presionar la tecla A
+            If e.KeyCode = Keys.Left Then
+
+
+                'Le cambio la imagen a la primera en movimineto para que al menos se muestre un cambio al precionar la tecla la primera vez
+                If a = 0 And d = 0 Then
+
+                    principal.Image = My.Resources._17
+
+                End If
+
+                'Indico de que lado2 debe estar la animacion de correr (izquierda)
+                lado = 0
+
+                'Levanto la bandera de movimiento a la izquierda e inicio el timer movimiento
+                a = 1
+
+
+            End If
+
+            'Al presionar la tecla D
+            If e.KeyCode = Keys.Right Then
+
+                'Le cambio la imagen a la primera en movimineto para que al menos se muestre un cambio al precionar la tecla
+                If d = 0 And a = 0 And vida <> 0 Then
+
+                    principal.Image = My.Resources._17
+                    principal.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+
+                End If
+
+                'Indico de que lado2 debe estar la animacion de correr (derecha)
+                lado = 1
+
+
+                'Levanto la bandera de movimiento a la izquierda e inicio el timer movimiento
+                d = 1
+
+
+            End If
+
+            'Al presionar la tecla W o la barra
+            If e.KeyCode = Keys.Up Then
+
+                'Verifico que no este descendiedo para que asi no salta en el aire
+                If moviVertical = "" Then
+
+                    'Inicio el ascenso y la animación del mismo
+                    moviVertical = "1"
+
+                End If
+
+            End If
+
+            'Al presionar la tecla S
+            If e.KeyCode = Keys.Down Then
+
+                'Verifico que no estoy ascendiendo ni descendiendo además de que debe estar por ensima del panel4 (plataforma)
+                If moviVertical = "" And principal.Location.Y < pan.Location.Y Then
+
+                    'Muevo el PictureBox un poco mas abajo para que de esta forma no este dentro del margen de control para frenar e inicio el descenso con animación
+                    principal.Location = New Point(principal.Location.X, principal.Location.Y + pan.Height)
+                    moviVertical = "0"
+
+                End If
+            End If
+        End If
+
+        If vida2 <> 0 Then
+
+            'Al presionar la tecla A
+            If e.KeyCode = Keys.A Then
+
+
+                'Le cambio la imagen a la primera en movimineto para que al menos se muestre un cambio al precionar la tecla la primera vez
+                If a2 = 0 And d2 = 0 Then
+
+                    principal2.Image = My.Resources._17
+
+                End If
+
+                'Indico de que lado2 debe estar la animacion de correr (izquierda)
+                lado2 = 0
+
+                'Levanto la bandera de movimiento a la izquierda e inicio el timer movimiento
+                a2 = 1
+
+
+            End If
+
+            'Al presionar la tecla D
+            If e.KeyCode = Keys.D Then
+
+                'Le cambio la imagen a la primera en movimineto para que al menos se muestre un cambio al precionar la tecla
+                If d2 = 0 And a2 = 0 And vida2 <> 0 Then
+
+                    principal2.Image = My.Resources._17
+                    principal2.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+
+                End If
+
+                'Indico de que lado2 debe estar la animacion de correr (derecha)
+                lado2 = 1
+
+
+                'Levanto la bandera de movimiento a la izquierda e inicio el timer movimiento
+                d2 = 1
+
+
+            End If
+
+            'Al presionar la tecla W o la barra
+            If e.KeyCode = Keys.W Then
+
+                'Verifico que no este descendiedo para que asi no salta en el aire
+                If moviVertical2 = "" Then
+
+                    'Inicio el ascenso y la animación del mismo
+                    moviVertical2 = "1"
+
+                End If
+
+            End If
+
+            'Al presionar la tecla S
+            If e.KeyCode = Keys.S Then
+
+                'Verifico que no estoy ascendiendo ni descendiendo además de que debe estar por ensima del panel4 (plataforma)
+                If moviVertical2 = "" And principal2.Location.Y < pan2.Location.Y Then
+
+                    'Muevo el PictureBox un poco mas abajo para que de esta forma no este dentro del margen de control para frenar e inicio el descenso con animación
+                    principal2.Location = New Point(principal2.Location.X, principal2.Location.Y + pan2.Height)
+                    moviVertical2 = "0"
+
+                End If
+            End If
+        End If
+
+
+    End Sub
+
+
+    Private Sub Form1_KeyUp(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyUp
+
+        If vida <> 0 Then
+
+            'Al soltar la tecla A
+            If e.KeyCode = Keys.Left Then
+
+                'Si la tecla D sigue presionada,  entonces se debe mover a la derecha
+                If d = 1 Then
+
+                    'Se apaga la animacion de idle, se indica el lado2 y se enciende la animacion de correr a la derecha
+
+                    lado = 1
+
+                    'Sino, que se detenga y que se encienda la animacion idle
+                Else
+
+                    'Determino esta imagen para mostrar como al soltar, se detiene el caminar
+                    principal.Image = My.Resources._0
+
+                End If
+
+                'Se restaura la aceleracion a la inicial
+                avanzar2 = avanzar
+
+                'Se indica que la tecla A ya no está presionada
+                a = 0
+
+            End If
+
+            'Al soltar la tecla D
+            If e.KeyCode = Keys.Right Then
+
+                'Si la tecla A sigue presionada,  entonces se debe mover a la izquierda
+                If a = 1 Then
+
+                    'Se apaga la animacion de idle, se indica el lado2 y se enciende la animacion de correr a la izquierda
+
+                    lado = 0
+
+                    'Sino, que se detenga y que se encienda la animacion idle
+                Else
+
+                    'Determino esta imagen para mostrar como al soltar, se detiene el caminar
+                    principal.Image = My.Resources._0
+                    principal.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+
+
+                End If
+
+                'Se restaura la aceleracion a la inicial
+                avanzar2 = avanzar
+
+                'Se indica que la tecla D ya no está presionada
+                d = 0
+
+            End If
+        End If
+        If vida2 <> 0 Then
+
+            'Al soltar la tecla A
+            If e.KeyCode = Keys.A Then
+
+                'Si la tecla D sigue presionada,  entonces se debe mover a la derecha
+                If d2 = 1 Then
+
+                    'Se apaga la animacion de idle, se indica el lado2 y se enciende la animacion de correr a la derecha
+
+                    lado2 = 1
+
+                    'Sino, que se detenga y que se encienda la animacion idle
+                Else
+
+                    'Determino esta imagen para mostrar como al soltar, se detiene el caminar
+                    principal2.Image = My.Resources._0
+
+                End If
+
+                'Se restaura la aceleracion a la inicial
+                avanzar3 = avanzar
+
+                'Se indica que la tecla A ya no está presionada
+                a2 = 0
+
+            End If
+
+            'Al soltar la tecla D
+            If e.KeyCode = Keys.D Then
+
+                'Si la tecla A sigue presionada,  entonces se debe mover a la izquierda
+                If a2 = 1 Then
+
+                    'Se apaga la animacion de idle, se indica el lado2 y se enciende la animacion de correr a la izquierda
+
+                    lado2 = 0
+
+                    'Sino, que se detenga y que se encienda la animacion idle
+                Else
+
+                    'Determino esta imagen para mostrar como al soltar, se detiene el caminar
+                    principal2.Image = My.Resources._0
+                    principal2.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+
+
+                End If
+
+                'Se restaura la aceleracion a la inicial
+                avanzar3 = avanzar
+
+                'Se indica que la tecla D ya no está presionada
+                d2 = 0
+
+            End If
+        End If
+
+
+
+    End Sub
+
+
+    Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs)
+
+
+
+    End Sub
+
+    Private Sub Timer3_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Movimiento_Principal.Tick
+
+
+        '/////////////////////////////////////////////////////////// Movimiento Vertical /////////////////////////////////////////////////////////////////////////
+        If moviVertical <> "" Then
+
+            '////////////////////// Descenso /////////////////////////////////
+            If moviVertical = "0" Then
+
+                'Si el PictureBox se encuentra sobre el Panel a una distancia menor a 20 pixeles
+                If principal.Location.Y + principal.Height >= (pan.Location.Y - 20) And principal.Location.Y + principal.Height <= pan.Location.Y And principal.Location.X > pan.Location.X - principal.Width + 5 And principal.Location.X < (pan.Location.X + pan.Width - 5) Then
+
+
+                    'Mi objetivo es reubicarlo en un punto por defecto del eje 
+                    principal.Location = New Point(principal.Location.X, pan.Location.Y - principal.Height - 5)
+
+                    'Desactivo la animacion de bajada y el descenso. Además enciendo la animacion idle
+                    moviVertical = ""
+
+
+                    'Restablecemos las variables a los valores iniciales
+                    caida2 = caida
+                    acelcaida2 = acelcaida
+
+                End If
+
+                'Si el punto en donde quedaría el PictureBox al bajar sigue siendo menor a la del suelo
+                If (principal.Location.Y + principal.Height + caida2) <= pnlPiso.Location.Y Then
+
+                    'Descendemos el mismo segun la variable caida2
+                    principal.Location = New Point(principal.Location.X, principal.Location.Y + caida2)
+
+                    'Le sumamos a la caida2 la aceleracion, de esta forma acelera mientras cae
+                    caida2 += acelcaida2
+
+                    'De lo contrario, si la distancia del PictureBox sigue siendo inferior al suelo pero no lo suficiente para sumarle la caida
+                ElseIf principal.Location.Y + principal.Height <= pnlPiso.Location.Y Then
+
+                    'Descendemos el PictureBox al suelo
+                    principal.Location = New Point(principal.Location.X, pnlPiso.Location.Y - principal.Height)
+
+                    'Restablecemos las variables a los valores iniciales
+                    caida2 = caida
+                    acelcaida2 = acelcaida
+
+                    'Desactivo la animacion de bajada y el descenso. Además enciendo la animacion idle
+
+                    moviVertical = ""
+
+
+
+                End If
+
+                '////////////////////// Ascenso /////////////////////////////////
+            ElseIf moviVertical = "1" Then
+
+
+                'Utilizo un contador para ver si se hicieron los movimientos verticales suficientes
+                If cont <= salto2 Then
+
+                    'El PictureBox se eleva la cantidad que esta en pixSubida2
+                    principal.Location = New Point(principal.Location.X, principal.Location.Y - pixSubida2)
+
+                    'Le sumo 1 al contador
+                    cont += 1
+
+                    'La subida debe ser cada vez mas lenta por la gravedad, por eso le resto
+                    pixSubida2 -= desasubida2
+
+
+
+                Else
+                    'Cuando el número de veces es alcanzado, se restablecen la variables al valor inicial
+                    pixSubida2 = pixSubida
+                    cont = 0
+
+                    'Se detiene el ascenso y comienza el descenso con su animación
+                    moviVertical = "0"
+
+                End If
+            End If
+        End If
+
+        '/////////////////////////////////////////////////////////// Movimiento Lateral /////////////////////////////////////////////////////////////////////////
+        If d = 1 Or a = 1 Then
+            'Si el PictureBox llega al borde de la sala, que lo mueva hacia atrás
+
+            If principal.Location.X >= pnlFinal.Location.X - principal.Width And principal.Location.Y + principal.Height > pnlFinal.Location.Y And principal.Location.X < pnlFinal.Location.X + (pnlFinal.Width / 2) Then
+
+                principal.Location = New Point(principal.Location.X - 10, principal.Location.Y)
+
+            ElseIf principal.Location.X <= pnlFinal.Location.X + pnlFinal.Width And principal.Location.Y + principal.Height > pnlFinal.Location.Y And principal.Location.X > pnlFinal.Location.X + (pnlFinal.Width / 2) Then
+
+                principal.Location = New Point(principal.Location.X + 10, principal.Location.Y)
+
+            ElseIf principal.Location.X <= pnlInicio.Location.X + pnlInicio.Width Then
+
+                principal.Location = New Point(principal.Location.X + 10, principal.Location.Y)
+
+
+
+            End If
+
+            'Si solo la tecla D está presionada
+            If d = 1 And a = 0 Then
+
+
+                'El PictureBox avanza lo que esta en la variable avanzar2
+                principal.Location = New Point(principal.Location.X + avanzar2, principal.Location.Y)
+
+                'Solo en el caso que el PictureBox no esté descendiendo, se acelerará el movimiento. Sino, solo será la inicial
+                If moviVertical = "" And avanzar2 <= limvel2 Then
+
+                    avanzar2 += acelereacion2
+
+                End If
+
+
+                'Si solo la tecla A está presionada
+            ElseIf a = 1 And d = 0 Then
+
+
+                'El PictureBox avanza lo que esta en la variable avanzar2
+                principal.Location = New Point(principal.Location.X - avanzar2, principal.Location.Y)
+
+                'Solo en el caso que el PictureBox no esté descendiendo, se acelerará el movimiento. Sino, solo será la inicial
+                If moviVertical = "" And avanzar2 <= limvel2 Then
+
+                    avanzar2 += acelereacion2
+
+                End If
+
+
+            End If
+
+            'Si el PictureBox no está ascendiendo ni bajando
+            If moviVertical = "" Then
+
+                'Si el PictureBox esta a la izquierda o la derecha del Panel (Plataforma)
+                If principal.Location.X < (pan.Location.X - principal.Width + 5) Or principal.Location.X > pan.Location.X + pan.Width - 10 Then
+
+                    'Si el PictureBox esta por ensima del Panel4 (Plataforma)
+                    If principal.Location.Y + principal.Height < pan.Location.Y + 1 Then
+
+                        'Que inicie el descenso y la animación del mismo
+                        moviVertical = "0"
+
+
+                    End If
+
+                End If
+
+            End If
+        End If
+
+    End Sub
+
+    Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+
+        pbBala.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+        pnlFinal = Panel9
+        principal = principal1
+        x = principal.Location.X
+        y = principal.Location.Y
+
+        'Inicio la animación Idle y muestro el menu de configuraciones
+        'inicio.Show()
+        resultados.Show()
+        resultados.Location = New Point(Me.Location.X + Me.Width, Me.Location.Y)
+        resultados.actTabla()
+        ActVida(vida, 0)
+        moviVertical = "0"
+
+        Dim cont As Integer = 0
+
+        For Each ctrl As Control In Me.Controls
+
+            Dim pb As PictureBox = Nothing
+            Try
+                pb = ctrl
+
+                If pb.Name <> principal.Name And pb.Name <> pnlVida.Name And pb.Name <> estrella.Name And pb.Name <> pbNumeroEstrellas.Name And pb.Name <> pbBala.Name And pb.Name <> principal2.Name And pb.Name <> pbNumeroEstrella2.Name Then
+
+                    listaPB.Add(pb)
+                    ReDim listaVariables(cont, 3)
+
+                    listaVariables(cont, 0) = 0
+                    listaVariables(cont, 1) = 0
+                    listaVariables(cont, 2) = 0
+                    listaVariables(cont, 3) = 0
+
+                    cont += 1
+                End If
+
+
+            Catch ex As Exception
+
+            End Try
+
+        Next
+
+        ubicarEstrella()
+    End Sub
+
+
+    Private Sub Idle_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Anim_Idle_Principal.Tick
+        If ((a = 1 And d = 1) Or (a = 0 And d = 0)) And moviVertical = "" Then
+            'En la variable lado2 se indica a que lado2 debe ver el PictureBox, 0 = izquierda,  1 = derecha
+            If lado = 0 Then
+
+                'Utilizando la variable stand como contador, recorremos el select case una vuelta por tick.
+                Select Case stand
+                    Case 0
+                        principal.Image = My.Resources._0
+                        stand += 1
+                    Case 1
+                        principal.Image = My.Resources._1
+                        stand += 1
+                    Case 2
+                        principal.Image = My.Resources._2
+                        stand += 1
+                    Case 3
+                        principal.Image = My.Resources._3
+                        stand += 1
+                    Case 4
+                        principal.Image = My.Resources._4
+                        stand = 0
+                End Select
+
+            ElseIf lado = 1 Then
+
+                'Utilizando la variable stand como contador, recorremos el select case una vuelta por tick.
+                Select Case stand
+                    Case 0
+                        principal.Image = My.Resources._0
+                        principal.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                        stand += 1
+                    Case 1
+                        principal.Image = My.Resources._1
+                        principal.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                        stand += 1
+                    Case 2
+                        principal.Image = My.Resources._2
+                        principal.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                        stand += 1
+                    Case 3
+                        principal.Image = My.Resources._3
+                        principal.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                        stand += 1
+                    Case 4
+                        principal.Image = My.Resources._4
+                        principal.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                        stand = 0
+                End Select
+            End If
+
+        End If
+
+    End Sub
+
+
+
+    Private Sub SaltoAnima_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Anim_Movimiento_Principal.Tick
+
+
+        If a = 1 And d = 0 And moviVertical = "" Then
+
+            'Utilizando la variable foto como contador, recorremos el select case una vuelta por tick.
+            Select Case foto
+
+                Case 0
+                    principal.Image = My.Resources._17
+                    foto += 1
+                Case 1
+                    principal.Image = My.Resources._16
+                    foto += 1
+                Case 2
+                    principal.Image = My.Resources._15
+                    foto += 1
+                Case 3
+                    principal.Image = My.Resources._14
+                    foto += 1
+                Case 4
+                    principal.Image = My.Resources._13
+                    foto = 0
+
+            End Select
+        ElseIf d = 1 And a = 0 And moviVertical = "" Then
+
+            'Utilizando la variable foto como contador, recorremos el select case una vuelta por tick. Volteamos la imagen porque se mueve hacia adelante
+            Select Case foto
+
+                Case 0
+                    principal.Image = My.Resources._17
+                    principal.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                    foto += 1
+                Case 1
+                    principal.Image = My.Resources._16
+                    principal.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                    foto += 1
+                Case 2
+                    principal.Image = My.Resources._15
+                    principal.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                    foto += 1
+                Case 3
+                    principal.Image = My.Resources._14
+                    principal.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                    foto += 1
+                Case 4
+                    principal.Image = My.Resources._13
+                    principal.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                    foto = 0
+
+            End Select
+        End If
+
+        'Sin esta condicion, el personaje no dejaba de saltar
+        If moviVertical <> "" Then
+
+            '1 se utiliza para indicar ascenso
+            If moviVertical = "1" Then
+
+                'En la variable lado2 se indica a que lado2 debe ver el PictureBox, 0 = izquierda,  1 = derecha
+                If lado = 0 Then
+
+                    principal.Image = My.Resources.a
+
+                ElseIf lado = 1 Then
+
+                    principal.Image = My.Resources.a
+                    principal.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+
+                End If
+
+                '0 se utiliza para indicar descenso
+            ElseIf moviVertical = "0" Then
+
+                'En la variable lado2 se indica a que lado2 debe ver el PictureBox, 0 = izquierda,  1 = derecha
+                If lado = 0 Then
+
+                    principal.Image = My.Resources.c
+
+                ElseIf lado = 1 Then
+
+                    principal.Image = My.Resources.c
+                    principal.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+
+                End If
+            End If
+        End If
+
+
+
+    End Sub
+
+
+
+    Private Sub Timer1_Tick_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Encontrar_Suelo_Principal.Tick
+
+        Dim panelfinal As Control = principal 'el panelfinal es el personaje
+        Dim dy As Integer = 1000
+
+        For Each ctrl As Control In Me.Controls
+
+            '   si el valor de la resta de la ubicacion (Y) del objeto y del personaje es menor a dy  y si el objeto esta debajo del personaje(picturebox1) y si el objeto no es el personaje(picturebox1) y si el objeto no es el piso(panel1)
+            If ((ctrl.Location.Y + ctrl.Height) - (principal.Location.Y + principal.Height)) < dy And ctrl.Location.Y >= (principal.Location.Y + principal.Height) And ctrl.Name <> principal.Name And ctrl.Name <> pnlPiso.Name And ctrl.Name <> pnlVida.Name And ctrl.Name <> principal2.Name And ctrl.Name <> pbNumeroEstrella2.Name Then
+
+                '                si el personaje esta adentro del piso (si el picturebox1 esta adentro del limite del objeto que esta de bajo (eje x))
+                If principal.Location.X >= ctrl.Location.X - principal.Width + 5 And principal.Location.X < (ctrl.Location.X + ctrl.Width - 5) Then
+
+                    ' si se verifica lo anterior el panel final es el objeto donde esta el personaje
+                    panelfinal = ctrl
+
+                    ' y el dy es la distancia entre el picturebox y el suelo
+                    dy = ctrl.Location.Y - principal.Location.Y
+
+
+                End If
+
+
+            End If
+
+
+
+        Next
+
+        Try
+            pan = panelfinal
+
+        Catch ex As Exception
+
+        End Try
+
+
+
+    End Sub
+
+
+
+    Private Sub Movimiento_Enemigo_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Movimiento_Enemigo.Tick
+
+
+        For indice = 0 To listaPB.Count - 1
+
+            pb = listaPB(indice)
+
+            Try
+
+
+                If pb.Name <> principal.Name Then
+
+                    If pb.Location.X > pnlInicio.Location.X + pnlInicio.Width And pb.Location.X + pb.Width < pnlFinal.Location.X Then
+
+
+                        If Math.Abs(principal.Location.X - pb.Location.X) < 400 And Math.Abs(principal.Location.Y - pb.Location.Y) <= 10 And Math.Abs(principal.Location.X - pb.Location.X) > 60 Then
+
+                            If pb.Location.X < principal.Location.X Then
+
+                                pb.Location = New Point(pb.Location.X + 7, pb.Location.Y)
+
+                            ElseIf pb.Location.X > principal.Location.X Then
+
+                                pb.Location = New Point(pb.Location.X - 7, pb.Location.Y)
+
+                            End If
+
+                            'ElseIf Math.Abs(principal.Location.X - pb.Location.X) < 80 And Math.Abs(principal.Location.Y - pb.Location.Y) <= 20 Then
+
+                            '    If pb.Location.X < principal.Location.X Then
+
+                            '        pb.Location = New Point(pb.Location.X + 7, principal.Location.Y)
+
+                            '    ElseIf pb.Location.X > principal.Location.X Then
+
+                            '        pb.Location = New Point(pb.Location.X - 7, principal.Location.Y)
+
+                            '    End If
+
+                        ElseIf Math.Abs(principal.Location.X - pb.Location.X) > 400 Or Math.Abs(principal.Location.Y - pb.Location.Y) > 10 Then
+
+
+                            If listaVariables(indice, 2) <= 7 Then
+
+                                pb.Location = New Point(pb.Location.X + 7, pb.Location.Y)
+
+                            Else
+
+                                pb.Location = New Point(pb.Location.X - 7, pb.Location.Y)
+
+                            End If
+
+
+
+
+                        End If
+
+                    ElseIf pb.Location.X + pb.Width >= pnlFinal.Location.X Then
+
+
+                        pb.Location = New Point(pb.Location.X - 15, pb.Location.Y)
+
+                    ElseIf pb.Location.X <= pnlInicio.Location.X + pnlInicio.Width Then
+
+                        pb.Location = New Point(pb.Location.X + 15, pb.Location.Y)
+
+                    End If
+
+                End If
+
+
+
+
+
+
+            Catch ex As Exception
+
+            End Try
+        Next
+    End Sub
+
+    Private Sub Anim_Movimiento_Enemigo_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Anim_Movimiento_Enemigo.Tick
+        For indice = 0 To listaPB.Count - 1
+
+            pb = listaPB(indice)
+
+
+            Try
+
+                If pb.Name <> principal.Name And pb.Name <> pbBala.Name Then
+
+                    If pb.Location.X > 0 And pb.Location.X < pnlFinal.Location.X Then
+
+                        If Math.Abs(principal.Location.X - pb.Location.X) < 400 And Math.Abs(principal.Location.Y - pb.Location.Y) <= 10 And Math.Abs(principal.Location.X - pb.Location.X) > 60 Then
+
+                            If pb.Location.X < principal.Location.X Then
+
+
+                                Select Case listaVariables(indice, 0)
+
+                                    Case 0
+                                        pb.Image = My.Resources.ave__1_
+                                        pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                        listaVariables(indice, 0) += 1
+                                    Case 1
+                                        pb.Image = My.Resources.ave__2_
+                                        pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                        listaVariables(indice, 0) += 1
+                                    Case 2
+                                        pb.Image = My.Resources.ave__3_
+                                        pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                        listaVariables(indice, 0) += 1
+                                    Case 3
+                                        pb.Image = My.Resources.ave__4_
+                                        pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                        listaVariables(indice, 0) += 1
+                                    Case 4
+                                        pb.Image = My.Resources.ave__5_
+                                        pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                        listaVariables(indice, 0) += 1
+                                    Case 5
+                                        pb.Image = My.Resources.ave__6_
+                                        pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                        listaVariables(indice, 0) += 1
+                                    Case 6
+                                        pb.Image = My.Resources.ave__7_
+                                        pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                        listaVariables(indice, 0) += 1
+                                    Case 7
+                                        pb.Image = My.Resources.ave__8_
+                                        pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                        listaVariables(indice, 0) = 0
+
+                                End Select
+
+
+                            ElseIf pb.Location.X > principal.Location.X Then
+
+
+                                Select Case listaVariables(indice, 0)
+
+                                    Case 0
+                                        pb.Image = My.Resources.ave__1_
+                                        listaVariables(indice, 0) += 1
+                                    Case 1
+                                        pb.Image = My.Resources.ave__2_
+                                        listaVariables(indice, 0) += 1
+                                    Case 2
+                                        pb.Image = My.Resources.ave__3_
+                                        listaVariables(indice, 0) += 1
+                                    Case 3
+                                        pb.Image = My.Resources.ave__4_
+                                        listaVariables(indice, 0) += 1
+                                    Case 4
+                                        pb.Image = My.Resources.ave__5_
+                                        listaVariables(indice, 0) += 1
+                                    Case 5
+                                        pb.Image = My.Resources.ave__6_
+                                        listaVariables(indice, 0) += 1
+                                    Case 6
+                                        pb.Image = My.Resources.ave__7_
+                                        listaVariables(indice, 0) += 1
+                                    Case 7
+                                        pb.Image = My.Resources.ave__8_
+                                        listaVariables(indice, 0) = 0
+
+                                End Select
+
+                            End If
+                        ElseIf Math.Abs(principal.Location.Y - pb.Location.Y) <= 10 And Math.Abs(principal.Location.X - pb.Location.X) <= 60 Then
+
+
+
+
+                            If pb.Location.X < principal.Location.X Then
+
+                                Select Case listaVariables(indice, 1)
+                                    Case 0
+                                        pb.Image = My.Resources.ave__1_
+                                        pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                        listaVariables(indice, 1) += 1
+
+                                    Case 1
+                                        pb.Image = My.Resources.ave__2_
+                                        pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                        listaVariables(indice, 1) += 1
+                                    Case 2
+                                        pb.Image = My.Resources.ave__3_
+                                        pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                        listaVariables(indice, 1) += 1
+                                    Case 3
+                                        pb.Image = My.Resources.ave__4_
+                                        pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                        listaVariables(indice, 1) += 1
+
+                                        If vida <= 1 Then
+                                            vida = 0
+                                        Else
+                                            vida -= 10
+                                        End If
+                                        ActVida(vida, 0)
+
+                                    Case 4
+                                        pb.Image = My.Resources.ave__5_
+                                        pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                        listaVariables(indice, 1) += 1
+                                    Case 5
+                                        pb.Image = My.Resources.ave__6_
+                                        pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                        listaVariables(indice, 1) += 1
+                                    Case 6
+                                        pb.Image = My.Resources.ave__7_
+                                        pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                        listaVariables(indice, 1) += 1
+                                    Case 7
+                                        pb.Image = My.Resources.ave__8_
+                                        pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                        listaVariables(indice, 1) = 0
+
+                                        If vida <= 1 Then
+                                            vida = 0
+                                        Else
+                                            vida -= 10
+                                        End If
+                                        ActVida(vida, 0)
+
+                                End Select
+
+
+
+                            Else
+
+                                Select Case listaVariables(indice, 1)
+
+                                    Case 0
+                                        pb.Image = My.Resources.ave__1_
+                                        listaVariables(indice, 1) += 1
+
+                                    Case 1
+                                        pb.Image = My.Resources.ave__2_
+                                        listaVariables(indice, 1) += 1
+                                    Case 2
+                                        pb.Image = My.Resources.ave__3_
+                                        listaVariables(indice, 1) += 1
+                                    Case 3
+                                        pb.Image = My.Resources.ave__4_
+                                        listaVariables(indice, 1) += 1
+
+                                        If vida <= 1 Then
+                                            vida = 0
+                                        Else
+                                            vida -= 10
+                                        End If
+                                        ActVida(vida, 1)
+
+                                    Case 4
+                                        pb.Image = My.Resources.ave__5_
+                                        listaVariables(indice, 1) += 1
+                                    Case 5
+                                        pb.Image = My.Resources.ave__6_
+                                        listaVariables(indice, 1) += 1
+                                    Case 6
+                                        pb.Image = My.Resources.ave__7_
+                                        listaVariables(indice, 1) += 1
+                                    Case 7
+                                        pb.Image = My.Resources.ave__8_
+                                        listaVariables(indice, 1) = 0
+
+
+
+                                        If vida <= 1 Then
+                                            vida = 0
+                                        Else
+                                            vida -= 10
+                                        End If
+                                        ActVida(vida, 1)
+
+
+                                End Select
+
+                            End If
+
+
+
+                        ElseIf pb.Location.X > pnlInicio.Location.X + pnlInicio.Width And pb.Location.X + pb.Width < pnlFinal.Location.X Then
+
+
+                            Select Case listaVariables(indice, 2)
+
+                                Case 0
+                                    pb.Image = My.Resources.ave__1_
+                                    pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                    listaVariables(indice, 2) += 1
+                                Case 1
+                                    pb.Image = My.Resources.ave__2_
+                                    pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                    listaVariables(indice, 2) += 1
+                                Case 2
+                                    pb.Image = My.Resources.ave__3_
+                                    pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                    listaVariables(indice, 2) += 1
+                                Case 3
+                                    pb.Image = My.Resources.ave__4_
+                                    pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                    listaVariables(indice, 2) += 1
+                                Case 4
+                                    pb.Image = My.Resources.ave__5_
+                                    pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                    listaVariables(indice, 2) += 1
+                                Case 5
+                                    pb.Image = My.Resources.ave__6_
+                                    pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                    listaVariables(indice, 2) += 1
+                                Case 6
+                                    pb.Image = My.Resources.ave__7_
+                                    pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                    listaVariables(indice, 2) += 1
+                                Case 7
+                                    pb.Image = My.Resources.ave__8_
+                                    pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                    listaVariables(indice, 2) += 1
+
+
+                                Case 8
+                                    pb.Image = My.Resources.ave__1_
+                                    listaVariables(indice, 2) += 1
+                                Case 9
+                                    pb.Image = My.Resources.ave__2_
+                                    listaVariables(indice, 2) += 1
+                                Case 10
+                                    pb.Image = My.Resources.ave__3_
+                                    listaVariables(indice, 2) += 1
+                                Case 11
+                                    pb.Image = My.Resources.ave__4_
+                                    listaVariables(indice, 2) += 1
+                                Case 12
+                                    pb.Image = My.Resources.ave__5_
+                                    listaVariables(indice, 2) += 1
+                                Case 13
+                                    pb.Image = My.Resources.ave__6_
+                                    listaVariables(indice, 2) += 1
+                                Case 14
+                                    pb.Image = My.Resources.ave__7_
+                                    listaVariables(indice, 2) += 1
+                                Case 15
+                                    pb.Image = My.Resources.ave__8_
+                                    listaVariables(indice, 2) = 0
+
+
+                            End Select
+
+                        End If
+
+                    ElseIf pb.Location.X >= 725 Then
+
+                        Select Case listaVariables(indice, 3)
+
+                            Case 0
+                                pb.Image = My.Resources.ave__1_
+                                listaVariables(indice, 3) += 1
+                            Case 1
+                                pb.Image = My.Resources.ave__2_
+                                listaVariables(indice, 3) += 1
+                            Case 2
+                                pb.Image = My.Resources.ave__3_
+                                listaVariables(indice, 3) += 1
+                            Case 3
+                                pb.Image = My.Resources.ave__4_
+                                listaVariables(indice, 3) += 1
+                            Case 4
+                                pb.Image = My.Resources.ave__1_
+                                listaVariables(indice, 3) = 0
+
+                        End Select
+
+                    End If
+
+
+
+                End If
+
+
+
+
+
+            Catch ex As Exception
+
+            End Try
+        Next
+    End Sub
+
+    Private Sub PictureBox1_Move(ByVal sender As Object, ByVal e As System.EventArgs)
+        Encontrar_Suelo_Principal.Start()
+    End Sub
+    Private Sub ActVida2(ByVal v As Double, ByVal dire As Integer)
+
+
+        If v = 0 Then
+
+            principal2.Image = My.Resources._43
+            moviVertical2 = "dead"
+            Movimiento_Principal_2.Dispose()
+            Anim_Movimiento_Principal_2.Dispose()
+            Anim_Movimiento_Enemigo.Dispose()
+            Movimiento_Bala.Dispose()
+
+            For Each ctrl As Control In Me.Controls
+                ctrl.Visible = False
+            Next
+            'lblFinal.Visible = True
+            'lblFinal.Text = "Game Over" + vbNewLine + vbNewLine + "Puntos conseguidos: " + puntos2.ToString
+
+            Try
+                Dim nombre As String = ""
+                Do
+
+                    nombre = InputBox("Ingrese su nombre", "Registro")
+
+                Loop While nombre = ""
+
+
+                Dim regDate As Date = Date.Now()
+
+                Dim fecha As String = regDate.ToString("yyyy-MM-dd")
+                Dim hora As String = regDate.ToString("hh:mm:ss")
+
+
+
+                Consulta = "insert into resultados (nombre, fecha, hora, resultado) values ('" + nombre + "', '" + fecha + "', '" + hora + "','" + puntos2.ToString + "');"
+                consultar()
+
+                resultados.actTabla()
+
+                MsgBox("Guardado", MsgBoxStyle.Information)
+
+            Catch ex As Exception
+                MsgBox("Error al guardar", MsgBoxStyle.Exclamation)
+            End Try
+        ElseIf v = 100 Then
+
+            pnlVida2.Width = v
+            lblNumero2.Text = v.ToString
+            Anim_Idle_Principal_2.Start()
+
+        Else
+            Anim_Idle_Principal_2.Dispose()
+
+            If dire = 0 Then
+                principal2.Image = My.Resources.hurt
+            Else
+                principal2.Image = My.Resources.hurt
+                principal2.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+            End If
+
+            pnlVida2.Width = v
+            lblNumero2.Text = v.ToString
+            Anim_Idle_Principal_2.Start()
+        End If
+
+
+    End Sub
+    Private Sub ActVida(ByVal v As Double, ByVal dire As Integer)
+
+
+        If v = 0 Then
+
+            principal.Image = My.Resources._43
+            moviVertical = "dead"
+            Movimiento_Principal.Dispose()
+            Anim_Movimiento_Principal.Dispose()
+            Anim_Movimiento_Enemigo.Dispose()
+            Movimiento_Bala.Dispose()
+
+            For Each ctrl As Control In Me.Controls
+                ctrl.Visible = False
+            Next
+            lblFinal.Visible = True
+            lblFinal.Text = "Game Over" + vbNewLine + vbNewLine + "Puntos conseguidos: " + puntos.ToString
+
+            Try
+                Dim nombre As String = ""
+                Do
+
+                    nombre = InputBox("Ingrese su nombre", "Registro")
+
+                Loop While nombre = ""
+
+
+                Dim regDate As Date = Date.Now()
+
+                Dim fecha As String = regDate.ToString("yyyy-MM-dd")
+                Dim hora As String = regDate.ToString("hh:mm:ss")
+
+
+
+                Consulta = "insert into resultados (nombre, fecha, hora, resultado) values ('" + nombre + "', '" + fecha + "', '" + hora + "','" + puntos.ToString + "');"
+                consultar()
+
+                resultados.actTabla()
+
+                MsgBox("Guardado", MsgBoxStyle.Information)
+
+                Application.Restart()
+
+            Catch ex As Exception
+                MsgBox("Error al guardar", MsgBoxStyle.Exclamation)
+            End Try
+        ElseIf v = 100 Then
+
+            pnlVida.Width = v
+            lblNumero.Text = v.ToString
+            Anim_Idle_Principal.Start()
+
+        Else
+            Anim_Idle_Principal.Dispose()
+
+            If dire = 0 Then
+                principal.Image = My.Resources.hurt
+            Else
+                principal.Image = My.Resources.hurt
+                principal.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+            End If
+
+            pnlVida.Width = v
+            lblNumero.Text = v.ToString
+            Anim_Idle_Principal.Start()
+        End If
+
+
+    End Sub
+
+
+
+    Private Sub ubicarEstrella()
+
+        estrella.Visible = False
+
+        Dim x
+        Dim y
+
+        Randomize()
+        x = Int(((pnlFinal.Location.X - estrella.Width) * Rnd()) + (pnlInicio.Location.X + pnlInicio.Width))
+
+        Randomize()
+        y = Int(((pnlPiso.Location.Y - estrella.Height) * Rnd()) + 1)
+
+
+        estrella.Location = New Point(x, y)
+
+        Dim control As Integer = 0
+
+        For Each ctrl As Control In Me.Controls
+
+
+            If ctrl.Bounds.IntersectsWith(estrella.Bounds) And TypeOf ctrl Is Panel Then
+
+
+                control = 1
+
+            End If
+        Next
+
+        If control = 0 Then
+
+            estrella.Image = My.Resources.Estrella
+            estrella.Visible = True
+        Else
+
+            ubicarEstrella()
+
+        End If
+
+    End Sub
+
+    Private Sub mover_estrella_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mover_estrella.Tick
+
+        If estrella.Location.X + estrella.Width - 10 > principal.Location.X And estrella.Location.X + 10 < principal.Location.X + principal.Width And estrella.Location.Y + estrella.Height - 10 > principal.Location.Y And estrella.Location.Y < principal.Location.Y + principal.Height - 10 Then
+            ubicarEstrella()
+            puntos += 1
+            lblPuntos.Text = ": " + puntos.ToString
+
+        ElseIf estrella.Location.X + estrella.Width - 10 > principal2.Location.X And estrella.Location.X + 10 < principal2.Location.X + principal2.Width And estrella.Location.Y + estrella.Height - 10 > principal2.Location.Y And estrella.Location.Y < principal2.Location.Y + principal2.Height - 10 Then
+            ubicarEstrella()
+            puntos2 += 1
+            lblPuntos.Text = ": " + puntos.ToString
+        End If
+
+
+    End Sub
+
+
+    Private Sub BestoGame_Move(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Move
+        resultados.Location = New Point(Me.Location.X + Me.Width, Me.Location.Y)
+    End Sub
+
+    Private Sub Timer1_Tick_2(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Movimiento_Bala.Tick
+
+        If pbBala.Location.X < pnlInicio.Location.X + pnlInicio.Width Then
+
+            pbBala.Location = New Point(pbBala.Location.X + 5, pbBala.Location.Y)
+            pbBala.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+            direc = 0
+
+        ElseIf pbBala.Location.X + pbBala.Width > pnlFinal.Location.X Then
+
+            pbBala.Location = New Point(pbBala.Location.X - 5, pbBala.Location.Y)
+            pbBala.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+            direc = 1
+
+        End If
+
+        If direc = 0 Then
+            pbBala.Location = New Point(pbBala.Location.X + 5, pbBala.Location.Y)
+        ElseIf direc = 1 Then
+            pbBala.Location = New Point(pbBala.Location.X - 5, pbBala.Location.Y)
+        End If
+
+        If pbBala.Bounds.IntersectsWith(principal.Bounds) Then
+
+            ActVida(0, 0)
+
+        End If
+    End Sub
+
+    Private Sub Encontrar_Suelo_Principal_2_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Encontrar_Suelo_Principal_2.Tick
+        Dim panelfinal As Control = principal2 'el panelfinal es el personaje
+        Dim dy As Integer = 1000
+
+        For Each ctrl As Control In Me.Controls
+
+            '   si el valor de la resta de la ubicacion (Y) del objeto y del personaje es menor a dy  y si el objeto esta debajo del personaje(picturebox1) y si el objeto no es el personaje(picturebox1) y si el objeto no es el piso(panel1)
+            If ((ctrl.Location.Y + ctrl.Height) - (principal2.Location.Y + principal2.Height)) < dy And ctrl.Location.Y >= (principal2.Location.Y + principal2.Height) And ctrl.Name <> principal2.Name And ctrl.Name <> pnlPiso.Name And ctrl.Name <> pnlVida.Name And ctrl.Name <> principal.Name And ctrl.Name <> pbNumeroEstrella2.Name Then
+
+                '                si el personaje esta adentro del piso (si el picturebox1 esta adentro del limite del objeto que esta de bajo (eje x))
+                If principal2.Location.X >= ctrl.Location.X - principal2.Width + 5 And principal2.Location.X < (ctrl.Location.X + ctrl.Width - 5) Then
+
+                    ' si se verifica lo anterior el panel final es el objeto donde esta el personaje
+                    panelfinal = ctrl
+
+                    ' y el dy es la distancia entre el picturebox y el suelo
+                    dy = ctrl.Location.Y - principal2.Location.Y
+
+
+                End If
+
+
+            End If
+
+
+
+        Next
+
+        Try
+            pan2 = panelfinal
+
+        Catch ex As Exception
+
+        End Try
+
+
+    End Sub
+
+    Private Sub Anim_Movimiento_Principal_2_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Anim_Movimiento_Principal_2.Tick
+        If a2 = 1 And d2 = 0 And moviVertical2 = "" Then
+
+            'Utilizando la variable foto2 como contador, recorremos el select case una vuelta por tick.
+            Select Case foto2
+
+                Case 0
+                    principal2.Image = My.Resources._17
+                    foto2 += 1
+                Case 1
+                    principal2.Image = My.Resources._16
+                    foto2 += 1
+                Case 2
+                    principal2.Image = My.Resources._15
+                    foto2 += 1
+                Case 3
+                    principal2.Image = My.Resources._14
+                    foto2 += 1
+                Case 4
+                    principal2.Image = My.Resources._13
+                    foto2 = 0
+
+            End Select
+        ElseIf d2 = 1 And a2 = 0 And moviVertical2 = "" Then
+
+            'Utilizando la variable foto2 como contador, recorremos el select case una vuelta por tick. Volteamos la imagen porque se mueve hacia adelante
+            Select Case foto2
+
+                Case 0
+                    principal2.Image = My.Resources._17
+                    principal2.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                    foto2 += 1
+                Case 1
+                    principal2.Image = My.Resources._16
+                    principal2.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                    foto2 += 1
+                Case 2
+                    principal2.Image = My.Resources._15
+                    principal2.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                    foto2 += 1
+                Case 3
+                    principal2.Image = My.Resources._14
+                    principal2.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                    foto2 += 1
+                Case 4
+                    principal2.Image = My.Resources._13
+                    principal2.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                    foto2 = 0
+
+            End Select
+        End If
+
+        'Sin esta condicion, el personaje no dejaba de saltar
+        If moviVertical2 <> "" Then
+
+            '1 se utiliza para indicar ascenso
+            If moviVertical2 = "1" Then
+
+                'En la variable lado22 se indica a2 que lado22 debe ver el PictureBox, 0 = izquierda,  1 = derecha
+                If lado2 = 0 Then
+
+                    principal2.Image = My.Resources.a
+
+                ElseIf lado2 = 1 Then
+
+                    principal2.Image = My.Resources.a
+                    principal2.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+
+                End If
+
+                '0 se utiliza para indicar descenso
+            ElseIf moviVertical2 = "0" Then
+
+                'En la variable lado22 se indica a2 que lado22 debe ver el PictureBox, 0 = izquierda,  1 = derecha
+                If lado2 = 0 Then
+
+                    principal2.Image = My.Resources.c
+
+                ElseIf lado2 = 1 Then
+
+                    principal2.Image = My.Resources.c
+                    principal2.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+
+                End If
+            End If
+        End If
+
+    End Sub
+
+    Private Sub Movimiento_principal2_2_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Movimiento_Principal_2.Tick
+        '/////////////////////////////////////////////////////////// Movimiento Vertical /////////////////////////////////////////////////////////////////////////
+        If moviVertical2 <> "" Then
+
+            '////////////////////// Descenso /////////////////////////////////
+            If moviVertical2 = "0" Then
+
+                'Si el PictureBox se encuentra sobre el Panel a2 una distancia menor a2 20 pixeles
+                If principal2.Location.Y + principal2.Height >= (pan.Location.Y - 20) And principal2.Location.Y + principal2.Height <= pan.Location.Y And principal2.Location.X > pan.Location.X - principal2.Width + 5 And principal2.Location.X < (pan.Location.X + pan.Width - 5) Then
+
+
+                    'Mi objetivo es reubicarlo en un punto por defecto del eje 
+                    principal2.Location = New Point(principal2.Location.X, pan.Location.Y - principal2.Height - 5)
+
+                    'Desactivo la animacion de bajada y el descenso. Además enciendo la animacion idle
+                    moviVertical2 = ""
+
+
+                    'Restablecemos las variables a2 los valores iniciales
+                    caida3 = caida
+                    acelcaida3 = acelcaida
+
+                End If
+
+                'Si el punto en donde quedaría el PictureBox al bajar sigue siendo menor a2 la del suelo
+                If (principal2.Location.Y + principal2.Height + caida3) <= pnlPiso.Location.Y Then
+
+                    'Descendemos el mismo segun la variable caida2
+                    principal2.Location = New Point(principal2.Location.X, principal2.Location.Y + caida3)
+
+                    'Le sumamos a2 la caida2 la aceleracion, de esta forma acelera mientras cae
+                    caida3 += acelcaida3
+
+                    'De lo contrario, si la distancia del PictureBox sigue siendo inferior al suelo pero no lo suficiente para sumarle la caida
+                ElseIf principal2.Location.Y + principal2.Height <= pnlPiso.Location.Y Then
+
+                    'Descendemos el PictureBox al suelo
+                    principal2.Location = New Point(principal2.Location.X, pnlPiso.Location.Y - principal2.Height)
+
+                    'Restablecemos las variables a2 los valores iniciales
+                    caida3 = caida
+                    acelcaida3 = acelcaida
+
+                    'Desactivo la animacion de bajada y el descenso. Además enciendo la animacion idle
+
+                    moviVertical2 = ""
+
+
+
+                End If
+
+                '////////////////////// Ascenso /////////////////////////////////
+            ElseIf moviVertical2 = "1" Then
+
+
+                'Utilizo un contador para ver si se hicieron los movimientos verticales suficientes
+                If cont2 <= salto3 Then
+
+                    'El PictureBox se eleva la cantidad que esta en pixSubida2
+                    principal2.Location = New Point(principal2.Location.X, principal2.Location.Y - pixSubida2)
+
+                    'Le sumo 1 al contador
+                    cont2 += 1
+
+                    'La subida debe ser cada vez mas lenta por la gravedad, por eso le resto
+                    pixSubida3 -= desasubida3
+
+
+
+                Else
+                    'Cuando el número de veces es alcanzado, se restablecen la variables al valor inicial
+                    pixSubida3 = pixSubida
+                    cont2 = 0
+
+                    'Se detiene el ascenso y comienza el descenso con su animación
+                    moviVertical2 = "0"
+
+                End If
+            End If
+        End If
+
+        '/////////////////////////////////////////////////////////// Movimiento Lateral /////////////////////////////////////////////////////////////////////////
+        If d2 = 1 Or a2 = 1 Then
+            'Si el PictureBox llega al borde de la sala, que lo mueva hacia atrás
+
+            If principal2.Location.X >= pnlFinal.Location.X - principal2.Width And principal2.Location.Y + principal2.Height > pnlFinal.Location.Y And principal2.Location.X < pnlFinal.Location.X + (pnlFinal.Width / 2) Then
+
+                principal2.Location = New Point(principal2.Location.X - 10, principal2.Location.Y)
+
+            ElseIf principal2.Location.X <= pnlFinal.Location.X + pnlFinal.Width And principal2.Location.Y + principal2.Height > pnlFinal.Location.Y And principal2.Location.X > pnlFinal.Location.X + (pnlFinal.Width / 2) Then
+
+                principal2.Location = New Point(principal2.Location.X + 10, principal2.Location.Y)
+
+            ElseIf principal2.Location.X <= pnlInicio.Location.X + pnlInicio.Width Then
+
+                principal2.Location = New Point(principal2.Location.X + 10, principal2.Location.Y)
+
+
+
+            End If
+
+            'Si solo la tecla d2 está presionada
+            If d2 = 1 And a2 = 0 Then
+
+
+                'El PictureBox avanza lo que esta en la variable avanzar2
+                principal2.Location = New Point(principal2.Location.X + avanzar2, principal2.Location.Y)
+
+                'Solo en el caso que el PictureBox no esté descendiendo, se acelerará el movimiento. Sino, solo será la inicial
+                If moviVertical2 = "" And avanzar3 <= limvel2 Then
+
+                    avanzar3 += acelereacion3
+
+                End If
+
+
+                'Si solo la tecla a2 está presionada
+            ElseIf a2 = 1 And d2 = 0 Then
+
+
+                'El PictureBox avanza lo que esta en la variable avanzar2
+                principal2.Location = New Point(principal2.Location.X - avanzar2, principal2.Location.Y)
+
+                'Solo en el caso que el PictureBox no esté descendiendo, se acelerará el movimiento. Sino, solo será la inicial
+                If moviVertical2 = "" And avanzar2 <= limvel2 Then
+
+                    avanzar3 += acelereacion3
+
+                End If
+
+
+            End If
+
+            'Si el PictureBox no está ascendiendo ni bajando
+            If moviVertical2 = "" Then
+
+                'Si el PictureBox esta a2 la izquierda o la derecha del Panel (Plataforma)
+                If principal2.Location.X < (pan.Location.X - principal2.Width + 5) Or principal2.Location.X > pan.Location.X + pan.Width - 10 Then
+
+                    'Si el PictureBox esta por ensima del Panel4 (Plataforma)
+                    If principal2.Location.Y + principal2.Height < pan.Location.Y + 1 Then
+
+                        'Que inicie el descenso y la animación del mismo
+                        moviVertical2 = "0"
+
+
+                    End If
+
+                End If
+
+            End If
+        End If
+    End Sub
+
+    Private Sub Anim_Idle_Principal_2_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Anim_Idle_Principal_2.Tick
+        If ((a2 = 1 And d2 = 1) Or (a2 = 0 And d2 = 0)) And moviVertical2 = "" Then
+            'En la variable lado2 se indica a que lado2 debe ver el PictureBox, 0 = izquierda,  1 = derecha
+            If lado2 = 0 Then
+
+                'Utilizando la variable stand como contador, recorremos el select case una vuelta por tick.
+                Select Case stand2
+                    Case 0
+                        principal2.Image = My.Resources._0
+                        stand2 += 1
+                    Case 1
+                        principal2.Image = My.Resources._1
+                        stand2 += 1
+                    Case 2
+                        principal2.Image = My.Resources._2
+                        stand2 += 1
+                    Case 3
+                        principal2.Image = My.Resources._3
+                        stand2 += 1
+                    Case 4
+                        principal2.Image = My.Resources._4
+                        stand2 = 0
+                End Select
+
+            ElseIf lado2 = 1 Then
+
+                'Utilizando la variable stand como contador, recorremos el select case una vuelta por tick.
+                Select Case stand2
+                    Case 0
+                        principal2.Image = My.Resources._0
+                        principal2.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                        stand2 += 1
+                    Case 1
+                        principal2.Image = My.Resources._1
+                        principal2.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                        stand2 += 1
+                    Case 2
+                        principal2.Image = My.Resources._2
+                        principal2.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                        stand2 += 1
+                    Case 3
+                        principal2.Image = My.Resources._3
+                        principal2.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                        stand2 += 1
+                    Case 4
+                        principal2.Image = My.Resources._4
+                        principal2.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                        stand2 = 0
+                End Select
+            End If
+
+        End If
+    End Sub
+End Class

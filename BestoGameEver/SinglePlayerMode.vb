@@ -1,4 +1,4 @@
-﻿Public Class BestoGame
+﻿Public Class SinglePlayerMode
 
     '////////////////////////////////////PERSONALIZACION///////////////////////
     Public avanzar As Double = 5
@@ -58,7 +58,11 @@
 
     Dim direc As Integer = 0
 
-    
+    Private Sub BestoGame_Disposed(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Disposed
+        MenuInicio.Dispose()
+    End Sub
+
+
 
 
     Private Sub Form1_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyDown
@@ -377,7 +381,7 @@
         resultados.Show()
         resultados.Location = New Point(Me.Location.X + Me.Width, Me.Location.Y)
         resultados.actTabla()
-        ActVida(vida)
+        ActVida(vida, 0)
         moviVertical = "0"
 
         Dim cont As Integer = 0
@@ -388,7 +392,7 @@
             Try
                 pb = ctrl
 
-                If pb.Name <> principal.Name And pb.Name <> pnlVida.Name And pb.Name <> estrella.Name And pb.Name <> pbNumeroEstrellas.Name And pb.Name <> pbBala.Name Then
+                If pb.Name <> principal.Name And pb.Name <> pnlVida.Name And pb.Name <> estrella.Name And pb.Name <> pbNumeroEstrellas.Name And pb.Name <> pbBala.Name And pb.Name <> pbCosaR.Name Then
 
                     listaPB.Add(pb)
                     ReDim listaVariables(cont, 3)
@@ -565,16 +569,56 @@
 
 
     Private Sub Timer1_Tick_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Encontrar_Suelo_Principal.Tick
+        If principal.Bounds.IntersectsWith(pbCosaR.Bounds) Then
 
+            pbCosaR.Visible = False
+            ubicarRandom()
+            pbCosaR.Visible = False
+
+            Randomize()
+            Dim cosa = Int((9 * Rnd()) + 1)
+
+
+            Select Case cosa
+
+                Case 9
+                    vida += 10
+                    ActVida(vida, 2)
+                Case 1
+                    Movimiento_Enemigo.Interval -= 10
+                Case 2
+                    Movimiento_Enemigo.Interval += 10
+
+                Case 3
+                    Movimiento_Principal.Interval += 10
+
+                Case 4
+                    Movimiento_Enemigo.Dispose()
+                    Anim_Movimiento_Enemigo.Dispose()
+                Case 5
+                    Movimiento_Enemigo.Start()
+                    Anim_Movimiento_Enemigo.Start()
+                Case 6
+                    If Movimiento_Principal.Interval >= 5 Then
+                        Movimiento_Principal.Interval -= 4
+                    End If
+                Case 7
+                    Movimiento_Bala.Interval += 5
+                Case 8
+                    If Movimiento_Bala.Interval >= 5 Then
+                        Movimiento_Bala.Interval -= 4
+                    End If
+            End Select
+        End If
 
 
         Dim panelfinal As Control = principal 'el panelfinal es el personaje
         Dim dy As Integer = 1000
 
         For Each ctrl As Control In Me.Controls
-           
+
             '   si el valor de la resta de la ubicacion (Y) del objeto y del personaje es menor a dy  y si el objeto esta debajo del personaje(picturebox1) y si el objeto no es el personaje(picturebox1) y si el objeto no es el piso(panel1)
-            If ((ctrl.Location.Y + ctrl.Height) - (principal.Location.Y + principal.Height)) < dy And ctrl.Location.Y >= (principal.Location.Y + principal.Height) And ctrl.Name <> principal.Name And ctrl.Name <> pnlPiso.Name And ctrl.Name <> pnlVida.Name Then
+            If ((ctrl.Location.Y + ctrl.Height) - (principal.Location.Y + principal.Height)) < dy And ctrl.Location.Y >= (principal.Location.Y + principal.Height) And ctrl.Name <> principal.Name And ctrl.Name <> pnlPiso.Name And ctrl.Name <> pnlVida.Name And ctrl.Name <> pbCosaR.Name Then
 
                 '                si el personaje esta adentro del piso (si el picturebox1 esta adentro del limite del objeto que esta de bajo (eje x))
                 If principal.Location.X >= ctrl.Location.X - principal.Width + 5 And principal.Location.X < (ctrl.Location.X + ctrl.Width - 5) Then
@@ -808,7 +852,7 @@
                                         Else
                                             vida -= 10
                                         End If
-                                        ActVida(vida)
+                                        ActVida(vida, 0)
 
                                     Case 4
                                         pb.Image = My.Resources.ave__5_
@@ -832,7 +876,7 @@
                                         Else
                                             vida -= 10
                                         End If
-                                        ActVida(vida)
+                                        ActVida(vida, 0)
 
                                 End Select
 
@@ -861,7 +905,7 @@
                                         Else
                                             vida -= 10
                                         End If
-                                        ActVida(vida)
+                                        ActVida(vida, 1)
 
                                     Case 4
                                         pb.Image = My.Resources.ave__5_
@@ -883,7 +927,7 @@
                                         Else
                                             vida -= 10
                                         End If
-                                        ActVida(vida)
+                                        ActVida(vida, 1)
 
 
                                 End Select
@@ -985,12 +1029,12 @@
 
                     End If
 
-                 
+
 
                 End If
 
 
-                
+
 
 
             Catch ex As Exception
@@ -1002,8 +1046,8 @@
     Private Sub PictureBox1_Move(ByVal sender As Object, ByVal e As System.EventArgs)
         Encontrar_Suelo_Principal.Start()
     End Sub
-    Private Sub ActVida(ByVal v As Double)
-       
+    Private Sub ActVida(ByVal v As Double, ByVal dire As Integer)
+
 
         If v = 0 Then
 
@@ -1018,7 +1062,7 @@
                 ctrl.Visible = False
             Next
             lblFinal.Visible = True
-            lblFinal.Text = "Game Over" + vbNewLine + "Puntos conseguidos: " + puntos.ToString
+            lblFinal.Text = "Game Over" + vbNewLine + vbNewLine + "Puntos conseguidos: " + puntos.ToString
 
             Try
                 Dim nombre As String = ""
@@ -1039,16 +1083,31 @@
                 Consulta = "insert into resultados (nombre, fecha, hora, resultado) values ('" + nombre + "', '" + fecha + "', '" + hora + "','" + puntos.ToString + "');"
                 consultar()
 
+                resultados.actTabla()
+
                 MsgBox("Guardado", MsgBoxStyle.Information)
 
-                resultados.actTabla()
+                Application.Restart()
 
             Catch ex As Exception
                 MsgBox("Error al guardar", MsgBoxStyle.Exclamation)
             End Try
+        ElseIf v = 100 Then
+
+            pnlVida.Width = v
+            lblNumero.Text = v.ToString
+            Anim_Idle_Principal.Start()
+
         Else
             Anim_Idle_Principal.Dispose()
-            principal.Image = My.Resources.hurt
+
+            If dire = 0 Then
+                principal.Image = My.Resources.hurt
+            ElseIf dire = 1 Then
+                principal.Image = My.Resources.hurt
+                principal.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+            End If
+
             pnlVida.Width = v
             lblNumero.Text = v.ToString
             Anim_Idle_Principal.Start()
@@ -1088,7 +1147,7 @@
 
         If control = 0 Then
 
-            estrella.Image = My.Resources.Estrella
+
             estrella.Visible = True
         Else
 
@@ -1137,7 +1196,47 @@
 
         If pbBala.Bounds.IntersectsWith(principal.Bounds) Then
 
-            ActVida(0)
+            ActVida(0, 2)
+
+        End If
+    End Sub
+
+    Private Sub cosaRandom_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cosaRandom.Tick
+        ubicarRandom()
+    End Sub
+    Private Sub ubicarRandom()
+        Dim x
+        Dim y
+
+        Randomize()
+        x = Int(((pnlFinal.Location.X - estrella.Width) * Rnd()) + (pnlInicio.Location.X + pnlInicio.Width))
+
+        Randomize()
+        y = Int(((pnlPiso.Location.Y - estrella.Height) * Rnd()) + 1)
+
+
+        pbCosaR.Location = New Point(x, y)
+
+        Dim control As Integer = 0
+
+        For Each ctrl As Control In Me.Controls
+
+
+            If ctrl.Bounds.IntersectsWith(pbCosaR.Bounds) And TypeOf ctrl Is Panel Then
+
+
+                control = 1
+
+            End If
+        Next
+
+        If control = 0 Then
+
+            pbCosaR.Visible = True
+
+        Else
+
+            ubicarRandom()
 
         End If
     End Sub
