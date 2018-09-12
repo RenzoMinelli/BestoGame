@@ -59,7 +59,8 @@
     Dim direc As Integer = 0
 
     Private Sub BestoGame_Disposed(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Disposed
-        MenuInicio.Dispose()
+        resultados.Dispose()
+        MenuInicio.Show()
     End Sub
 
 
@@ -212,7 +213,67 @@
     End Sub
 
     Private Sub Timer3_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Movimiento_Principal.Tick
+        If principal.Bounds.IntersectsWith(pbCosaR.Bounds) Then
 
+            pbCosaR.Visible = False
+            ubicarRandom()
+            pbCosaR.Visible = False
+
+            Randomize()
+            Dim cosa = Int((9 * Rnd()) + 1)
+
+
+            Select Case cosa
+
+                Case 9
+                    vida += 10
+                    ActVida(vida, 2)
+                    notificar("Vida +10")
+                Case 1
+                    If Movimiento_Enemigo.Interval > 10 Then
+                        Movimiento_Enemigo.Interval -= 10
+                        notificar("Velocidad Enemigos 10% mas rápido")
+                    Else
+                        notificar("Nada")
+                    End If
+                   
+                Case 2
+                    Movimiento_Enemigo.Interval += 10
+                    notificar("Velocidad Enemigos 10% mas lento")
+
+                Case 3
+
+                    Movimiento_Principal.Interval += 10
+                    notificar("Velocidad jugador enlentecido 10%")
+
+                Case 4
+                    Movimiento_Enemigo.Dispose()
+                    Anim_Movimiento_Enemigo.Dispose()
+                    notificar("Enemigos congelados")
+                Case 5
+                    Movimiento_Enemigo.Start()
+                    Anim_Movimiento_Enemigo.Start()
+                    notificar("Enemigos descongelados")
+                Case 6
+                    If Movimiento_Principal.Interval >= 5 Then
+                        Movimiento_Principal.Interval -= 4
+                        notificar("Velocidad jugador aumento 4%")
+                    Else
+                        notificar("Nada")
+                    End If
+                Case 7
+                    Movimiento_Bala.Interval += 5
+                    notificar(" Velocidad Bala 10% mas lento")
+                Case 8
+                    If Movimiento_Bala.Interval >= 5 Then
+                        Movimiento_Bala.Interval -= 4
+                        notificar("Velocidad Bala 4 mas rapido")
+                    Else
+                        notificar("Nada")
+                    End If
+
+            End Select
+        End If
 
         '/////////////////////////////////////////////////////////// Movimiento Vertical /////////////////////////////////////////////////////////////////////////
         If moviVertical <> "" Then
@@ -369,7 +430,7 @@
     End Sub
 
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-
+        Me.Location = New Point(0, 0)
         pbBala.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
         pnlFinal = Panel9
         principal = TransPicBox2
@@ -569,59 +630,7 @@
 
 
     Private Sub Timer1_Tick_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Encontrar_Suelo_Principal.Tick
-        If principal.Bounds.IntersectsWith(pbCosaR.Bounds) Then
-
-            pbCosaR.Visible = False
-            ubicarRandom()
-            pbCosaR.Visible = False
-
-            Randomize()
-            Dim cosa = Int((9 * Rnd()) + 1)
-
-
-            Select Case cosa
-
-                Case 9
-                    vida += 10
-                    ActVida(vida, 2)
-                    lblPowerUps.Text += vbNewLine + "Vida +10"
-                Case 1
-                    Movimiento_Enemigo.Interval -= 10
-                    lblPowerUps.Text += vbNewLine + "Velocidad Enemigos 10 mas rápido"
-                Case 2
-                    Movimiento_Enemigo.Interval += 10
-                    lblPowerUps.Text += vbNewLine + "Velocidad Enemigos 10 mas lento"
-
-                Case 3
-                    Movimiento_Principal.Interval += 10
-                    lblPowerUps.Text += vbNewLine + "Jugador enlentecido 10"
-
-                Case 4
-                    Movimiento_Enemigo.Dispose()
-                    Anim_Movimiento_Enemigo.Dispose()
-                    lblPowerUps.Text += vbNewLine + "Enemigos congelados"
-                Case 5
-                    Movimiento_Enemigo.Start()
-                    Anim_Movimiento_Enemigo.Start()
-                    lblPowerUps.Text += vbNewLine + "Enemigos descongelados"
-                Case 6
-                    If Movimiento_Principal.Interval >= 5 Then
-                        Movimiento_Principal.Interval -= 4
-                        lblPowerUps.Text += vbNewLine + "Velocidad jugador aumento 4"
-                    End If
-                Case 7
-                    Movimiento_Bala.Interval += 5
-                    lblPowerUps.Text += vbNewLine + " Velocidad Bala 10 mas lento"
-                Case 8
-                    If Movimiento_Bala.Interval >= 5 Then
-                        Movimiento_Bala.Interval -= 4
-                        lblPowerUps.Text += vbNewLine + "Velocidad Bala 4 mas rapido"
-                    End If
-
-            End Select
-        End If
-
-
+        
         Dim panelfinal As Control = principal 'el panelfinal es el personaje
         Dim dy As Integer = 1000
 
@@ -1067,6 +1076,7 @@
             Anim_Movimiento_Principal.Dispose()
             Anim_Movimiento_Enemigo.Dispose()
             Movimiento_Bala.Dispose()
+            cosaRandom.Dispose()
 
             For Each ctrl As Control In Me.Controls
                 ctrl.Visible = False
@@ -1076,12 +1086,11 @@
 
             Try
                 Dim nombre As String = ""
-                Do
+                While nombre = ""
 
                     nombre = InputBox("Ingrese su nombre", "Registro")
 
-                Loop While nombre = ""
-
+                End While
 
                 Dim regDate As Date = Date.Now()
 
@@ -1097,7 +1106,9 @@
 
                 MsgBox("Guardado", MsgBoxStyle.Information)
 
-                Application.Restart()
+                Me.Dispose()
+                MenuInicio.Show()
+                MenuInicio.actTabla()
 
             Catch ex As Exception
                 MsgBox("Error al guardar", MsgBoxStyle.Exclamation)
@@ -1251,7 +1262,11 @@
         End If
     End Sub
 
-    Private Sub lblPowerUps_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lblPowerUps.Click
+    Private Sub notificar(ByVal texto As String)
+
+        lblPowerUp.Text = texto
 
     End Sub
+
+
 End Class

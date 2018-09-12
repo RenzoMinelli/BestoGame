@@ -382,7 +382,157 @@ Public Class MultiPlayerMode
     End Sub
 
     Private Sub Timer3_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Movimiento_Principal.Tick
+        '/////////////////////////////////////////////////////////// Movimiento Vertical /////////////////////////////////////////////////////////////////////////
+        If moviVertical2 <> "" Then
 
+            '////////////////////// Descenso /////////////////////////////////
+            If moviVertical2 = "0" Then
+
+                'Si el PictureBox se encuentra sobre el Panel a2 una distancia menor a2 20 pixeles
+                If principal2.Location.Y + principal2.Height >= (pan.Location.Y - 20) And principal2.Location.Y + principal2.Height <= pan.Location.Y And principal2.Location.X > pan.Location.X - principal2.Width + 5 And principal2.Location.X < (pan.Location.X + pan.Width - 5) Then
+
+
+                    'Mi objetivo es reubicarlo en un punto por defecto del eje 
+                    principal2.Location = New Point(principal2.Location.X, pan.Location.Y - principal2.Height - 5)
+
+                    'Desactivo la animacion de bajada y el descenso. Además enciendo la animacion idle
+                    moviVertical2 = ""
+
+
+                    'Restablecemos las variables a2 los valores iniciales
+                    caida3 = caida
+                    acelcaida3 = acelcaida
+
+                End If
+
+                'Si el punto en donde quedaría el PictureBox al bajar sigue siendo menor a2 la del suelo
+                If (principal2.Location.Y + principal2.Height + caida3) <= pnlPiso.Location.Y Then
+
+                    'Descendemos el mismo segun la variable caida2
+                    principal2.Location = New Point(principal2.Location.X, principal2.Location.Y + caida3)
+
+                    'Le sumamos a2 la caida2 la aceleracion, de esta forma acelera mientras cae
+                    caida3 += acelcaida3
+
+                    'De lo contrario, si la distancia del PictureBox sigue siendo inferior al suelo pero no lo suficiente para sumarle la caida
+                ElseIf principal2.Location.Y + principal2.Height <= pnlPiso.Location.Y Then
+
+                    'Descendemos el PictureBox al suelo
+                    principal2.Location = New Point(principal2.Location.X, pnlPiso.Location.Y - principal2.Height)
+
+                    'Restablecemos las variables a2 los valores iniciales
+                    caida3 = caida
+                    acelcaida3 = acelcaida
+
+                    'Desactivo la animacion de bajada y el descenso. Además enciendo la animacion idle
+
+                    moviVertical2 = ""
+
+
+
+                End If
+
+                '////////////////////// Ascenso /////////////////////////////////
+            ElseIf moviVertical2 = "1" Then
+
+
+                'Utilizo un contador para ver si se hicieron los movimientos verticales suficientes
+                If cont2 <= salto3 Then
+
+                    'El PictureBox se eleva la cantidad que esta en pixSubida2
+                    principal2.Location = New Point(principal2.Location.X, principal2.Location.Y - pixSubida2)
+
+                    'Le sumo 1 al contador
+                    cont2 += 1
+
+                    'La subida debe ser cada vez mas lenta por la gravedad, por eso le resto
+                    pixSubida3 -= desasubida3
+
+
+
+                Else
+                    'Cuando el número de veces es alcanzado, se restablecen la variables al valor inicial
+                    pixSubida3 = pixSubida
+                    cont2 = 0
+
+                    'Se detiene el ascenso y comienza el descenso con su animación
+                    moviVertical2 = "0"
+
+                End If
+            End If
+        End If
+
+        '/////////////////////////////////////////////////////////// Movimiento Lateral /////////////////////////////////////////////////////////////////////////
+        If d2 = 1 Or a2 = 1 Then
+            'Si el PictureBox llega al borde de la sala, que lo mueva hacia atrás
+
+            If principal2.Location.X >= pnlFinal.Location.X - principal2.Width And principal2.Location.Y + principal2.Height > pnlFinal.Location.Y And principal2.Location.X < pnlFinal.Location.X + (pnlFinal.Width / 2) Then
+
+                principal2.Location = New Point(principal2.Location.X - 10, principal2.Location.Y)
+
+            ElseIf principal2.Location.X <= pnlFinal.Location.X + pnlFinal.Width And principal2.Location.Y + principal2.Height > pnlFinal.Location.Y And principal2.Location.X > pnlFinal.Location.X + (pnlFinal.Width / 2) Then
+
+                principal2.Location = New Point(principal2.Location.X + 10, principal2.Location.Y)
+
+            ElseIf principal2.Location.X <= pnlInicio.Location.X + pnlInicio.Width Then
+
+                principal2.Location = New Point(principal2.Location.X + 10, principal2.Location.Y)
+
+
+
+            End If
+
+            'Si solo la tecla d2 está presionada
+            If d2 = 1 And a2 = 0 Then
+
+
+                'El PictureBox avanza lo que esta en la variable avanzar2
+                principal2.Location = New Point(principal2.Location.X + avanzar2, principal2.Location.Y)
+
+                'Solo en el caso que el PictureBox no esté descendiendo, se acelerará el movimiento. Sino, solo será la inicial
+                If moviVertical2 = "" And avanzar3 <= limvel2 Then
+
+                    avanzar3 += acelereacion3
+
+                End If
+
+
+                'Si solo la tecla a2 está presionada
+            ElseIf a2 = 1 And d2 = 0 Then
+
+
+                'El PictureBox avanza lo que esta en la variable avanzar2
+                principal2.Location = New Point(principal2.Location.X - avanzar2, principal2.Location.Y)
+
+                'Solo en el caso que el PictureBox no esté descendiendo, se acelerará el movimiento. Sino, solo será la inicial
+                If moviVertical2 = "" And avanzar2 <= limvel2 Then
+
+                    avanzar3 += acelereacion3
+
+                End If
+
+
+            End If
+
+            'Si el PictureBox no está ascendiendo ni bajando
+            If moviVertical2 = "" Then
+
+                'Si el PictureBox esta a2 la izquierda o la derecha del Panel (Plataforma)
+                If principal2.Location.X < (pan.Location.X - principal2.Width + 5) Or principal2.Location.X > pan.Location.X + pan.Width - 10 Then
+
+                    'Si el PictureBox esta por ensima del Panel4 (Plataforma)
+                    If principal2.Location.Y + principal2.Height < pan.Location.Y + 1 Then
+
+                        'Que inicie el descenso y la animación del mismo
+                        moviVertical2 = "0"
+
+
+                    End If
+
+                End If
+
+            End If
+        End If
 
         '/////////////////////////////////////////////////////////// Movimiento Vertical /////////////////////////////////////////////////////////////////////////
         If moviVertical <> "" Then
@@ -587,6 +737,57 @@ Public Class MultiPlayerMode
 
 
     Private Sub Idle_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Anim_Idle_Principal.Tick
+        If ((a2 = 1 And d2 = 1) Or (a2 = 0 And d2 = 0)) And moviVertical2 = "" Then
+            'En la variable lado2 se indica a que lado2 debe ver el PictureBox, 0 = izquierda,  1 = derecha
+            If lado2 = 0 Then
+
+                'Utilizando la variable stand como contador, recorremos el select case una vuelta por tick.
+                Select Case stand2
+                    Case 0
+                        principal2.Image = My.Resources._0
+                        stand2 += 1
+                    Case 1
+                        principal2.Image = My.Resources._1
+                        stand2 += 1
+                    Case 2
+                        principal2.Image = My.Resources._2
+                        stand2 += 1
+                    Case 3
+                        principal2.Image = My.Resources._3
+                        stand2 += 1
+                    Case 4
+                        principal2.Image = My.Resources._4
+                        stand2 = 0
+                End Select
+
+            ElseIf lado2 = 1 Then
+
+                'Utilizando la variable stand como contador, recorremos el select case una vuelta por tick.
+                Select Case stand2
+                    Case 0
+                        principal2.Image = My.Resources._0
+                        principal2.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                        stand2 += 1
+                    Case 1
+                        principal2.Image = My.Resources._1
+                        principal2.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                        stand2 += 1
+                    Case 2
+                        principal2.Image = My.Resources._2
+                        principal2.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                        stand2 += 1
+                    Case 3
+                        principal2.Image = My.Resources._3
+                        principal2.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                        stand2 += 1
+                    Case 4
+                        principal2.Image = My.Resources._4
+                        principal2.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                        stand2 = 0
+                End Select
+            End If
+
+        End If
         If ((a = 1 And d = 1) Or (a = 0 And d = 0)) And moviVertical = "" Then
             'En la variable lado2 se indica a que lado2 debe ver el PictureBox, 0 = izquierda,  1 = derecha
             If lado = 0 Then
@@ -644,7 +845,91 @@ Public Class MultiPlayerMode
 
 
     Private Sub SaltoAnima_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Anim_Movimiento_Principal.Tick
+        If a2 = 1 And d2 = 0 And moviVertical2 = "" Then
 
+            'Utilizando la variable foto2 como contador, recorremos el select case una vuelta por tick.
+            Select Case foto2
+
+                Case 0
+                    principal2.Image = My.Resources._17
+                    foto2 += 1
+                Case 1
+                    principal2.Image = My.Resources._16
+                    foto2 += 1
+                Case 2
+                    principal2.Image = My.Resources._15
+                    foto2 += 1
+                Case 3
+                    principal2.Image = My.Resources._14
+                    foto2 += 1
+                Case 4
+                    principal2.Image = My.Resources._13
+                    foto2 = 0
+
+            End Select
+        ElseIf d2 = 1 And a2 = 0 And moviVertical2 = "" Then
+
+            'Utilizando la variable foto2 como contador, recorremos el select case una vuelta por tick. Volteamos la imagen porque se mueve hacia adelante
+            Select Case foto2
+
+                Case 0
+                    principal2.Image = My.Resources._17
+                    principal2.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                    foto2 += 1
+                Case 1
+                    principal2.Image = My.Resources._16
+                    principal2.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                    foto2 += 1
+                Case 2
+                    principal2.Image = My.Resources._15
+                    principal2.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                    foto2 += 1
+                Case 3
+                    principal2.Image = My.Resources._14
+                    principal2.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                    foto2 += 1
+                Case 4
+                    principal2.Image = My.Resources._13
+                    principal2.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                    foto2 = 0
+
+            End Select
+        End If
+
+        'Sin esta condicion, el personaje no dejaba de saltar
+        If moviVertical2 <> "" Then
+
+            '1 se utiliza para indicar ascenso
+            If moviVertical2 = "1" Then
+
+                'En la variable lado22 se indica a2 que lado22 debe ver el PictureBox, 0 = izquierda,  1 = derecha
+                If lado2 = 0 Then
+
+                    principal2.Image = My.Resources.a
+
+                ElseIf lado2 = 1 Then
+
+                    principal2.Image = My.Resources.a
+                    principal2.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+
+                End If
+
+                '0 se utiliza para indicar descenso
+            ElseIf moviVertical2 = "0" Then
+
+                'En la variable lado22 se indica a2 que lado22 debe ver el PictureBox, 0 = izquierda,  1 = derecha
+                If lado2 = 0 Then
+
+                    principal2.Image = My.Resources.c
+
+                ElseIf lado2 = 1 Then
+
+                    principal2.Image = My.Resources.c
+                    principal2.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+
+                End If
+            End If
+        End If
 
         If a = 1 And d = 0 And moviVertical = "" Then
 
@@ -1181,8 +1466,8 @@ Public Class MultiPlayerMode
 
             principal2.Image = My.Resources._43
             moviVertical2 = "dead"
-            Movimiento_Principal_2.Dispose()
-            Anim_Movimiento_Principal_2.Dispose()
+            'Movimiento_Principal_2.Dispose()
+            'Anim_Movimiento_Principal_2.Dispose()
             Anim_Movimiento_Enemigo.Dispose()
             Movimiento_Bala.Dispose()
 
@@ -1222,10 +1507,10 @@ Public Class MultiPlayerMode
 
             pnlVida2.Width = v
             lblNumero2.Text = v.ToString
-            Anim_Idle_Principal_2.Start()
+            'Anim_Idle_Principal_2.Start()
 
         Else
-            Anim_Idle_Principal_2.Dispose()
+            'Anim_Idle_Principal_2.Dispose()
 
             If dire = 0 Then
                 principal2.Image = My.Resources.hurt
@@ -1236,7 +1521,7 @@ Public Class MultiPlayerMode
 
             pnlVida2.Width = v
             lblNumero2.Text = v.ToString
-            Anim_Idle_Principal_2.Start()
+            'Anim_Idle_Principal_2.Start()
         End If
 
 
@@ -1442,300 +1727,16 @@ Public Class MultiPlayerMode
 
     End Sub
 
-    Private Sub Anim_Movimiento_Principal_2_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Anim_Movimiento_Principal_2.Tick
-        If a2 = 1 And d2 = 0 And moviVertical2 = "" Then
+    Private Sub Anim_Movimiento_Principal_2_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs)
 
-            'Utilizando la variable foto2 como contador, recorremos el select case una vuelta por tick.
-            Select Case foto2
-
-                Case 0
-                    principal2.Image = My.Resources._17
-                    foto2 += 1
-                Case 1
-                    principal2.Image = My.Resources._16
-                    foto2 += 1
-                Case 2
-                    principal2.Image = My.Resources._15
-                    foto2 += 1
-                Case 3
-                    principal2.Image = My.Resources._14
-                    foto2 += 1
-                Case 4
-                    principal2.Image = My.Resources._13
-                    foto2 = 0
-
-            End Select
-        ElseIf d2 = 1 And a2 = 0 And moviVertical2 = "" Then
-
-            'Utilizando la variable foto2 como contador, recorremos el select case una vuelta por tick. Volteamos la imagen porque se mueve hacia adelante
-            Select Case foto2
-
-                Case 0
-                    principal2.Image = My.Resources._17
-                    principal2.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-                    foto2 += 1
-                Case 1
-                    principal2.Image = My.Resources._16
-                    principal2.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-                    foto2 += 1
-                Case 2
-                    principal2.Image = My.Resources._15
-                    principal2.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-                    foto2 += 1
-                Case 3
-                    principal2.Image = My.Resources._14
-                    principal2.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-                    foto2 += 1
-                Case 4
-                    principal2.Image = My.Resources._13
-                    principal2.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-                    foto2 = 0
-
-            End Select
-        End If
-
-        'Sin esta condicion, el personaje no dejaba de saltar
-        If moviVertical2 <> "" Then
-
-            '1 se utiliza para indicar ascenso
-            If moviVertical2 = "1" Then
-
-                'En la variable lado22 se indica a2 que lado22 debe ver el PictureBox, 0 = izquierda,  1 = derecha
-                If lado2 = 0 Then
-
-                    principal2.Image = My.Resources.a
-
-                ElseIf lado2 = 1 Then
-
-                    principal2.Image = My.Resources.a
-                    principal2.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-
-                End If
-
-                '0 se utiliza para indicar descenso
-            ElseIf moviVertical2 = "0" Then
-
-                'En la variable lado22 se indica a2 que lado22 debe ver el PictureBox, 0 = izquierda,  1 = derecha
-                If lado2 = 0 Then
-
-                    principal2.Image = My.Resources.c
-
-                ElseIf lado2 = 1 Then
-
-                    principal2.Image = My.Resources.c
-                    principal2.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-
-                End If
-            End If
-        End If
 
     End Sub
 
-    Private Sub Movimiento_principal2_2_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Movimiento_Principal_2.Tick
-        '/////////////////////////////////////////////////////////// Movimiento Vertical /////////////////////////////////////////////////////////////////////////
-        If moviVertical2 <> "" Then
+    Private Sub Movimiento_principal2_2_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs)
 
-            '////////////////////// Descenso /////////////////////////////////
-            If moviVertical2 = "0" Then
-
-                'Si el PictureBox se encuentra sobre el Panel a2 una distancia menor a2 20 pixeles
-                If principal2.Location.Y + principal2.Height >= (pan.Location.Y - 20) And principal2.Location.Y + principal2.Height <= pan.Location.Y And principal2.Location.X > pan.Location.X - principal2.Width + 5 And principal2.Location.X < (pan.Location.X + pan.Width - 5) Then
-
-
-                    'Mi objetivo es reubicarlo en un punto por defecto del eje 
-                    principal2.Location = New Point(principal2.Location.X, pan.Location.Y - principal2.Height - 5)
-
-                    'Desactivo la animacion de bajada y el descenso. Además enciendo la animacion idle
-                    moviVertical2 = ""
-
-
-                    'Restablecemos las variables a2 los valores iniciales
-                    caida3 = caida
-                    acelcaida3 = acelcaida
-
-                End If
-
-                'Si el punto en donde quedaría el PictureBox al bajar sigue siendo menor a2 la del suelo
-                If (principal2.Location.Y + principal2.Height + caida3) <= pnlPiso.Location.Y Then
-
-                    'Descendemos el mismo segun la variable caida2
-                    principal2.Location = New Point(principal2.Location.X, principal2.Location.Y + caida3)
-
-                    'Le sumamos a2 la caida2 la aceleracion, de esta forma acelera mientras cae
-                    caida3 += acelcaida3
-
-                    'De lo contrario, si la distancia del PictureBox sigue siendo inferior al suelo pero no lo suficiente para sumarle la caida
-                ElseIf principal2.Location.Y + principal2.Height <= pnlPiso.Location.Y Then
-
-                    'Descendemos el PictureBox al suelo
-                    principal2.Location = New Point(principal2.Location.X, pnlPiso.Location.Y - principal2.Height)
-
-                    'Restablecemos las variables a2 los valores iniciales
-                    caida3 = caida
-                    acelcaida3 = acelcaida
-
-                    'Desactivo la animacion de bajada y el descenso. Además enciendo la animacion idle
-
-                    moviVertical2 = ""
-
-
-
-                End If
-
-                '////////////////////// Ascenso /////////////////////////////////
-            ElseIf moviVertical2 = "1" Then
-
-
-                'Utilizo un contador para ver si se hicieron los movimientos verticales suficientes
-                If cont2 <= salto3 Then
-
-                    'El PictureBox se eleva la cantidad que esta en pixSubida2
-                    principal2.Location = New Point(principal2.Location.X, principal2.Location.Y - pixSubida2)
-
-                    'Le sumo 1 al contador
-                    cont2 += 1
-
-                    'La subida debe ser cada vez mas lenta por la gravedad, por eso le resto
-                    pixSubida3 -= desasubida3
-
-
-
-                Else
-                    'Cuando el número de veces es alcanzado, se restablecen la variables al valor inicial
-                    pixSubida3 = pixSubida
-                    cont2 = 0
-
-                    'Se detiene el ascenso y comienza el descenso con su animación
-                    moviVertical2 = "0"
-
-                End If
-            End If
-        End If
-
-        '/////////////////////////////////////////////////////////// Movimiento Lateral /////////////////////////////////////////////////////////////////////////
-        If d2 = 1 Or a2 = 1 Then
-            'Si el PictureBox llega al borde de la sala, que lo mueva hacia atrás
-
-            If principal2.Location.X >= pnlFinal.Location.X - principal2.Width And principal2.Location.Y + principal2.Height > pnlFinal.Location.Y And principal2.Location.X < pnlFinal.Location.X + (pnlFinal.Width / 2) Then
-
-                principal2.Location = New Point(principal2.Location.X - 10, principal2.Location.Y)
-
-            ElseIf principal2.Location.X <= pnlFinal.Location.X + pnlFinal.Width And principal2.Location.Y + principal2.Height > pnlFinal.Location.Y And principal2.Location.X > pnlFinal.Location.X + (pnlFinal.Width / 2) Then
-
-                principal2.Location = New Point(principal2.Location.X + 10, principal2.Location.Y)
-
-            ElseIf principal2.Location.X <= pnlInicio.Location.X + pnlInicio.Width Then
-
-                principal2.Location = New Point(principal2.Location.X + 10, principal2.Location.Y)
-
-
-
-            End If
-
-            'Si solo la tecla d2 está presionada
-            If d2 = 1 And a2 = 0 Then
-
-
-                'El PictureBox avanza lo que esta en la variable avanzar2
-                principal2.Location = New Point(principal2.Location.X + avanzar2, principal2.Location.Y)
-
-                'Solo en el caso que el PictureBox no esté descendiendo, se acelerará el movimiento. Sino, solo será la inicial
-                If moviVertical2 = "" And avanzar3 <= limvel2 Then
-
-                    avanzar3 += acelereacion3
-
-                End If
-
-
-                'Si solo la tecla a2 está presionada
-            ElseIf a2 = 1 And d2 = 0 Then
-
-
-                'El PictureBox avanza lo que esta en la variable avanzar2
-                principal2.Location = New Point(principal2.Location.X - avanzar2, principal2.Location.Y)
-
-                'Solo en el caso que el PictureBox no esté descendiendo, se acelerará el movimiento. Sino, solo será la inicial
-                If moviVertical2 = "" And avanzar2 <= limvel2 Then
-
-                    avanzar3 += acelereacion3
-
-                End If
-
-
-            End If
-
-            'Si el PictureBox no está ascendiendo ni bajando
-            If moviVertical2 = "" Then
-
-                'Si el PictureBox esta a2 la izquierda o la derecha del Panel (Plataforma)
-                If principal2.Location.X < (pan.Location.X - principal2.Width + 5) Or principal2.Location.X > pan.Location.X + pan.Width - 10 Then
-
-                    'Si el PictureBox esta por ensima del Panel4 (Plataforma)
-                    If principal2.Location.Y + principal2.Height < pan.Location.Y + 1 Then
-
-                        'Que inicie el descenso y la animación del mismo
-                        moviVertical2 = "0"
-
-
-                    End If
-
-                End If
-
-            End If
-        End If
     End Sub
 
-    Private Sub Anim_Idle_Principal_2_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Anim_Idle_Principal_2.Tick
-        If ((a2 = 1 And d2 = 1) Or (a2 = 0 And d2 = 0)) And moviVertical2 = "" Then
-            'En la variable lado2 se indica a que lado2 debe ver el PictureBox, 0 = izquierda,  1 = derecha
-            If lado2 = 0 Then
+    Private Sub Anim_Idle_Principal_2_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs)
 
-                'Utilizando la variable stand como contador, recorremos el select case una vuelta por tick.
-                Select Case stand2
-                    Case 0
-                        principal2.Image = My.Resources._0
-                        stand2 += 1
-                    Case 1
-                        principal2.Image = My.Resources._1
-                        stand2 += 1
-                    Case 2
-                        principal2.Image = My.Resources._2
-                        stand2 += 1
-                    Case 3
-                        principal2.Image = My.Resources._3
-                        stand2 += 1
-                    Case 4
-                        principal2.Image = My.Resources._4
-                        stand2 = 0
-                End Select
-
-            ElseIf lado2 = 1 Then
-
-                'Utilizando la variable stand como contador, recorremos el select case una vuelta por tick.
-                Select Case stand2
-                    Case 0
-                        principal2.Image = My.Resources._0
-                        principal2.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-                        stand2 += 1
-                    Case 1
-                        principal2.Image = My.Resources._1
-                        principal2.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-                        stand2 += 1
-                    Case 2
-                        principal2.Image = My.Resources._2
-                        principal2.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-                        stand2 += 1
-                    Case 3
-                        principal2.Image = My.Resources._3
-                        principal2.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-                        stand2 += 1
-                    Case 4
-                        principal2.Image = My.Resources._4
-                        principal2.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-                        stand2 = 0
-                End Select
-            End If
-
-        End If
     End Sub
 End Class
