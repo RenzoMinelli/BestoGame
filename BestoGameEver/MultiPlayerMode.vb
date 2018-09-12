@@ -18,6 +18,9 @@ Public Class MultiPlayerMode
 
     Dim pb As PictureBox
 
+    Dim verificarVida As Integer = 0
+    Dim verificarVida2 As Integer = 0
+
     '//////////////////////////////////////////////////Principal1/////////////////////////////////////////////////////////////////
 
     Dim avanzar2 As Double = avanzar
@@ -250,8 +253,7 @@ Public Class MultiPlayerMode
                 End If
             End If
         End If
-
-
+       
     End Sub
 
 
@@ -389,11 +391,11 @@ Public Class MultiPlayerMode
             If moviVertical2 = "0" Then
 
                 'Si el PictureBox se encuentra sobre el Panel a2 una distancia menor a2 20 pixeles
-                If principal2.Location.Y + principal2.Height >= (pan.Location.Y - 20) And principal2.Location.Y + principal2.Height <= pan.Location.Y And principal2.Location.X > pan.Location.X - principal2.Width + 5 And principal2.Location.X < (pan.Location.X + pan.Width - 5) Then
+                If principal2.Location.Y + principal2.Height >= (pan2.Location.Y - 20) And principal2.Location.Y + principal2.Height <= pan2.Location.Y And principal2.Location.X > pan2.Location.X - principal2.Width + 5 And principal2.Location.X < (pan2.Location.X + pan2.Width - 5) Then
 
 
                     'Mi objetivo es reubicarlo en un punto por defecto del eje 
-                    principal2.Location = New Point(principal2.Location.X, pan.Location.Y - principal2.Height - 5)
+                    principal2.Location = New Point(principal2.Location.X, pan2.Location.Y - principal2.Height - 5)
 
                     'Desactivo la animacion de bajada y el descenso. Además enciendo la animacion idle
                     moviVertical2 = ""
@@ -487,10 +489,10 @@ Public Class MultiPlayerMode
 
 
                 'El PictureBox avanza lo que esta en la variable avanzar2
-                principal2.Location = New Point(principal2.Location.X + avanzar2, principal2.Location.Y)
+                principal2.Location = New Point(principal2.Location.X + avanzar3, principal2.Location.Y)
 
                 'Solo en el caso que el PictureBox no esté descendiendo, se acelerará el movimiento. Sino, solo será la inicial
-                If moviVertical2 = "" And avanzar3 <= limvel2 Then
+                If moviVertical2 = "" And avanzar3 <= limvel3 Then
 
                     avanzar3 += acelereacion3
 
@@ -518,10 +520,10 @@ Public Class MultiPlayerMode
             If moviVertical2 = "" Then
 
                 'Si el PictureBox esta a2 la izquierda o la derecha del Panel (Plataforma)
-                If principal2.Location.X < (pan.Location.X - principal2.Width + 5) Or principal2.Location.X > pan.Location.X + pan.Width - 10 Then
+                If principal2.Location.X < (pan2.Location.X - principal2.Width + 5) Or principal2.Location.X > pan2.Location.X + pan2.Width - 10 Then
 
                     'Si el PictureBox esta por ensima del Panel4 (Plataforma)
-                    If principal2.Location.Y + principal2.Height < pan.Location.Y + 1 Then
+                    If principal2.Location.Y + principal2.Height < pan2.Location.Y + 1 Then
 
                         'Que inicie el descenso y la animación del mismo
                         moviVertical2 = "0"
@@ -689,6 +691,8 @@ Public Class MultiPlayerMode
     End Sub
 
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        verificarVida = 0
+        verificarVida2 = 0
 
         pbBala.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
         pnlFinal = Panel9
@@ -1075,7 +1079,7 @@ Public Class MultiPlayerMode
             Try
 
 
-                If pb.Name <> principal.Name Then
+                If Math.Abs(pb.Location.X - principal.Location.X) < Math.Abs(pb.Location.X - principal2.Location.X) Then
 
                     If pb.Location.X > pnlInicio.Location.X + pnlInicio.Width And pb.Location.X + pb.Width < pnlFinal.Location.X Then
 
@@ -1092,19 +1096,54 @@ Public Class MultiPlayerMode
 
                             End If
 
-                            'ElseIf Math.Abs(principal.Location.X - pb.Location.X) < 80 And Math.Abs(principal.Location.Y - pb.Location.Y) <= 20 Then
-
-                            '    If pb.Location.X < principal.Location.X Then
-
-                            '        pb.Location = New Point(pb.Location.X + 7, principal.Location.Y)
-
-                            '    ElseIf pb.Location.X > principal.Location.X Then
-
-                            '        pb.Location = New Point(pb.Location.X - 7, principal.Location.Y)
-
-                            '    End If
 
                         ElseIf Math.Abs(principal.Location.X - pb.Location.X) > 400 Or Math.Abs(principal.Location.Y - pb.Location.Y) > 10 Then
+
+
+                            If listaVariables(indice, 2) <= 7 Then
+
+                                pb.Location = New Point(pb.Location.X + 7, pb.Location.Y)
+
+                            Else
+
+                                pb.Location = New Point(pb.Location.X - 7, pb.Location.Y)
+
+                            End If
+
+
+
+
+                        End If
+
+                    ElseIf pb.Location.X + pb.Width >= pnlFinal.Location.X Then
+
+
+                        pb.Location = New Point(pb.Location.X - 15, pb.Location.Y)
+
+                    ElseIf pb.Location.X <= pnlInicio.Location.X + pnlInicio.Width Then
+
+                        pb.Location = New Point(pb.Location.X + 15, pb.Location.Y)
+
+                    End If
+                Else
+
+                    If pb.Location.X > pnlInicio.Location.X + pnlInicio.Width And pb.Location.X + pb.Width < pnlFinal.Location.X Then
+
+
+                        If Math.Abs(principal2.Location.X - pb.Location.X) < 400 And Math.Abs(principal2.Location.Y - pb.Location.Y) <= 10 And Math.Abs(principal2.Location.X - pb.Location.X) > 60 Then
+
+                            If pb.Location.X < principal2.Location.X Then
+
+                                pb.Location = New Point(pb.Location.X + 7, pb.Location.Y)
+
+                            ElseIf pb.Location.X > principal.Location.X Then
+
+                                pb.Location = New Point(pb.Location.X - 7, pb.Location.Y)
+
+                            End If
+
+
+                        ElseIf Math.Abs(principal2.Location.X - pb.Location.X) > 400 Or Math.Abs(principal2.Location.Y - pb.Location.Y) > 10 Then
 
 
                             If listaVariables(indice, 2) <= 7 Then
@@ -1135,11 +1174,7 @@ Public Class MultiPlayerMode
 
                 End If
 
-
-
-
-
-
+               
             Catch ex As Exception
 
             End Try
@@ -1154,295 +1189,591 @@ Public Class MultiPlayerMode
 
             Try
 
-                If pb.Name <> principal.Name And pb.Name <> pbBala.Name Then
+                If pb.Name <> pbBala.Name Then
 
-                    If pb.Location.X > 0 And pb.Location.X < pnlFinal.Location.X Then
-
-                        If Math.Abs(principal.Location.X - pb.Location.X) < 400 And Math.Abs(principal.Location.Y - pb.Location.Y) <= 10 And Math.Abs(principal.Location.X - pb.Location.X) > 60 Then
-
-                            If pb.Location.X < principal.Location.X Then
+                    If Math.Abs(pb.Location.X - principal.Location.X) < Math.Abs(pb.Location.X - principal2.Location.X) Then
 
 
-                                Select Case listaVariables(indice, 0)
+                        If pb.Location.X > 0 And pb.Location.X < pnlFinal.Location.X Then
+
+                            If Math.Abs(principal.Location.X - pb.Location.X) < 400 And Math.Abs(principal.Location.Y - pb.Location.Y) <= 10 And Math.Abs(principal.Location.X - pb.Location.X) > 60 Then
+
+                                If pb.Location.X < principal.Location.X Then
+
+
+                                    Select Case listaVariables(indice, 0)
+
+                                        Case 0
+                                            pb.Image = My.Resources.ave__1_
+                                            pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                            listaVariables(indice, 0) += 1
+                                        Case 1
+                                            pb.Image = My.Resources.ave__2_
+                                            pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                            listaVariables(indice, 0) += 1
+                                        Case 2
+                                            pb.Image = My.Resources.ave__3_
+                                            pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                            listaVariables(indice, 0) += 1
+                                        Case 3
+                                            pb.Image = My.Resources.ave__4_
+                                            pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                            listaVariables(indice, 0) += 1
+                                        Case 4
+                                            pb.Image = My.Resources.ave__5_
+                                            pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                            listaVariables(indice, 0) += 1
+                                        Case 5
+                                            pb.Image = My.Resources.ave__6_
+                                            pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                            listaVariables(indice, 0) += 1
+                                        Case 6
+                                            pb.Image = My.Resources.ave__7_
+                                            pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                            listaVariables(indice, 0) += 1
+                                        Case 7
+                                            pb.Image = My.Resources.ave__8_
+                                            pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                            listaVariables(indice, 0) = 0
+
+                                    End Select
+
+
+                                ElseIf pb.Location.X > principal.Location.X Then
+
+
+                                    Select Case listaVariables(indice, 0)
+
+                                        Case 0
+                                            pb.Image = My.Resources.ave__1_
+                                            listaVariables(indice, 0) += 1
+                                        Case 1
+                                            pb.Image = My.Resources.ave__2_
+                                            listaVariables(indice, 0) += 1
+                                        Case 2
+                                            pb.Image = My.Resources.ave__3_
+                                            listaVariables(indice, 0) += 1
+                                        Case 3
+                                            pb.Image = My.Resources.ave__4_
+                                            listaVariables(indice, 0) += 1
+                                        Case 4
+                                            pb.Image = My.Resources.ave__5_
+                                            listaVariables(indice, 0) += 1
+                                        Case 5
+                                            pb.Image = My.Resources.ave__6_
+                                            listaVariables(indice, 0) += 1
+                                        Case 6
+                                            pb.Image = My.Resources.ave__7_
+                                            listaVariables(indice, 0) += 1
+                                        Case 7
+                                            pb.Image = My.Resources.ave__8_
+                                            listaVariables(indice, 0) = 0
+
+                                    End Select
+
+                                End If
+                            ElseIf Math.Abs(principal.Location.Y - pb.Location.Y) <= 10 And Math.Abs(principal.Location.X - pb.Location.X) <= 60 Then
+
+
+
+
+                                If pb.Location.X < principal.Location.X Then
+
+                                    Select Case listaVariables(indice, 1)
+                                        Case 0
+                                            pb.Image = My.Resources.ave__1_
+                                            pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                            listaVariables(indice, 1) += 1
+
+                                        Case 1
+                                            pb.Image = My.Resources.ave__2_
+                                            pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                            listaVariables(indice, 1) += 1
+                                        Case 2
+                                            pb.Image = My.Resources.ave__3_
+                                            pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                            listaVariables(indice, 1) += 1
+                                        Case 3
+                                            pb.Image = My.Resources.ave__4_
+                                            pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                            listaVariables(indice, 1) += 1
+
+                                            If vida <= 1 Then
+                                                vida = 0
+                                            Else
+                                                vida -= 10
+                                            End If
+                                            ActVida(vida, 0)
+
+                                        Case 4
+                                            pb.Image = My.Resources.ave__5_
+                                            pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                            listaVariables(indice, 1) += 1
+                                        Case 5
+                                            pb.Image = My.Resources.ave__6_
+                                            pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                            listaVariables(indice, 1) += 1
+                                        Case 6
+                                            pb.Image = My.Resources.ave__7_
+                                            pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                            listaVariables(indice, 1) += 1
+                                        Case 7
+                                            pb.Image = My.Resources.ave__8_
+                                            pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                            listaVariables(indice, 1) = 0
+
+                                            If vida <= 1 Then
+                                                vida = 0
+                                            Else
+                                                vida -= 10
+                                            End If
+                                            ActVida(vida, 0)
+
+                                    End Select
+
+
+
+                                Else
+
+                                    Select Case listaVariables(indice, 1)
+
+                                        Case 0
+                                            pb.Image = My.Resources.ave__1_
+                                            listaVariables(indice, 1) += 1
+
+                                        Case 1
+                                            pb.Image = My.Resources.ave__2_
+                                            listaVariables(indice, 1) += 1
+                                        Case 2
+                                            pb.Image = My.Resources.ave__3_
+                                            listaVariables(indice, 1) += 1
+                                        Case 3
+                                            pb.Image = My.Resources.ave__4_
+                                            listaVariables(indice, 1) += 1
+
+                                            If vida <= 1 Then
+                                                vida = 0
+                                            Else
+                                                vida -= 10
+                                            End If
+                                            ActVida(vida, 1)
+
+                                        Case 4
+                                            pb.Image = My.Resources.ave__5_
+                                            listaVariables(indice, 1) += 1
+                                        Case 5
+                                            pb.Image = My.Resources.ave__6_
+                                            listaVariables(indice, 1) += 1
+                                        Case 6
+                                            pb.Image = My.Resources.ave__7_
+                                            listaVariables(indice, 1) += 1
+                                        Case 7
+                                            pb.Image = My.Resources.ave__8_
+                                            listaVariables(indice, 1) = 0
+
+
+
+                                            If vida <= 1 Then
+                                                vida = 0
+                                            Else
+                                                vida -= 10
+                                            End If
+                                            ActVida(vida, 1)
+
+
+                                    End Select
+
+                                End If
+
+
+
+                            ElseIf pb.Location.X > pnlInicio.Location.X + pnlInicio.Width And pb.Location.X + pb.Width < pnlFinal.Location.X Then
+
+
+                                Select Case listaVariables(indice, 2)
 
                                     Case 0
                                         pb.Image = My.Resources.ave__1_
                                         pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-                                        listaVariables(indice, 0) += 1
+                                        listaVariables(indice, 2) += 1
                                     Case 1
                                         pb.Image = My.Resources.ave__2_
                                         pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-                                        listaVariables(indice, 0) += 1
+                                        listaVariables(indice, 2) += 1
                                     Case 2
                                         pb.Image = My.Resources.ave__3_
                                         pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-                                        listaVariables(indice, 0) += 1
+                                        listaVariables(indice, 2) += 1
                                     Case 3
                                         pb.Image = My.Resources.ave__4_
                                         pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-                                        listaVariables(indice, 0) += 1
+                                        listaVariables(indice, 2) += 1
                                     Case 4
                                         pb.Image = My.Resources.ave__5_
                                         pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-                                        listaVariables(indice, 0) += 1
+                                        listaVariables(indice, 2) += 1
                                     Case 5
                                         pb.Image = My.Resources.ave__6_
                                         pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-                                        listaVariables(indice, 0) += 1
+                                        listaVariables(indice, 2) += 1
                                     Case 6
                                         pb.Image = My.Resources.ave__7_
                                         pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-                                        listaVariables(indice, 0) += 1
+                                        listaVariables(indice, 2) += 1
                                     Case 7
                                         pb.Image = My.Resources.ave__8_
                                         pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-                                        listaVariables(indice, 0) = 0
-
-                                End Select
+                                        listaVariables(indice, 2) += 1
 
 
-                            ElseIf pb.Location.X > principal.Location.X Then
-
-
-                                Select Case listaVariables(indice, 0)
-
-                                    Case 0
+                                    Case 8
                                         pb.Image = My.Resources.ave__1_
-                                        listaVariables(indice, 0) += 1
-                                    Case 1
+                                        listaVariables(indice, 2) += 1
+                                    Case 9
                                         pb.Image = My.Resources.ave__2_
-                                        listaVariables(indice, 0) += 1
-                                    Case 2
+                                        listaVariables(indice, 2) += 1
+                                    Case 10
                                         pb.Image = My.Resources.ave__3_
-                                        listaVariables(indice, 0) += 1
-                                    Case 3
+                                        listaVariables(indice, 2) += 1
+                                    Case 11
                                         pb.Image = My.Resources.ave__4_
-                                        listaVariables(indice, 0) += 1
-                                    Case 4
+                                        listaVariables(indice, 2) += 1
+                                    Case 12
                                         pb.Image = My.Resources.ave__5_
-                                        listaVariables(indice, 0) += 1
-                                    Case 5
+                                        listaVariables(indice, 2) += 1
+                                    Case 13
                                         pb.Image = My.Resources.ave__6_
-                                        listaVariables(indice, 0) += 1
-                                    Case 6
+                                        listaVariables(indice, 2) += 1
+                                    Case 14
                                         pb.Image = My.Resources.ave__7_
-                                        listaVariables(indice, 0) += 1
-                                    Case 7
+                                        listaVariables(indice, 2) += 1
+                                    Case 15
                                         pb.Image = My.Resources.ave__8_
-                                        listaVariables(indice, 0) = 0
+                                        listaVariables(indice, 2) = 0
+
 
                                 End Select
 
                             End If
-                        ElseIf Math.Abs(principal.Location.Y - pb.Location.Y) <= 10 And Math.Abs(principal.Location.X - pb.Location.X) <= 60 Then
 
+                        ElseIf pb.Location.X >= 725 Then
 
-
-
-                            If pb.Location.X < principal.Location.X Then
-
-                                Select Case listaVariables(indice, 1)
-                                    Case 0
-                                        pb.Image = My.Resources.ave__1_
-                                        pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-                                        listaVariables(indice, 1) += 1
-
-                                    Case 1
-                                        pb.Image = My.Resources.ave__2_
-                                        pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-                                        listaVariables(indice, 1) += 1
-                                    Case 2
-                                        pb.Image = My.Resources.ave__3_
-                                        pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-                                        listaVariables(indice, 1) += 1
-                                    Case 3
-                                        pb.Image = My.Resources.ave__4_
-                                        pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-                                        listaVariables(indice, 1) += 1
-
-                                        If vida <= 1 Then
-                                            vida = 0
-                                        Else
-                                            vida -= 10
-                                        End If
-                                        ActVida(vida, 0)
-
-                                    Case 4
-                                        pb.Image = My.Resources.ave__5_
-                                        pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-                                        listaVariables(indice, 1) += 1
-                                    Case 5
-                                        pb.Image = My.Resources.ave__6_
-                                        pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-                                        listaVariables(indice, 1) += 1
-                                    Case 6
-                                        pb.Image = My.Resources.ave__7_
-                                        pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-                                        listaVariables(indice, 1) += 1
-                                    Case 7
-                                        pb.Image = My.Resources.ave__8_
-                                        pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-                                        listaVariables(indice, 1) = 0
-
-                                        If vida <= 1 Then
-                                            vida = 0
-                                        Else
-                                            vida -= 10
-                                        End If
-                                        ActVida(vida, 0)
-
-                                End Select
-
-
-
-                            Else
-
-                                Select Case listaVariables(indice, 1)
-
-                                    Case 0
-                                        pb.Image = My.Resources.ave__1_
-                                        listaVariables(indice, 1) += 1
-
-                                    Case 1
-                                        pb.Image = My.Resources.ave__2_
-                                        listaVariables(indice, 1) += 1
-                                    Case 2
-                                        pb.Image = My.Resources.ave__3_
-                                        listaVariables(indice, 1) += 1
-                                    Case 3
-                                        pb.Image = My.Resources.ave__4_
-                                        listaVariables(indice, 1) += 1
-
-                                        If vida <= 1 Then
-                                            vida = 0
-                                        Else
-                                            vida -= 10
-                                        End If
-                                        ActVida(vida, 1)
-
-                                    Case 4
-                                        pb.Image = My.Resources.ave__5_
-                                        listaVariables(indice, 1) += 1
-                                    Case 5
-                                        pb.Image = My.Resources.ave__6_
-                                        listaVariables(indice, 1) += 1
-                                    Case 6
-                                        pb.Image = My.Resources.ave__7_
-                                        listaVariables(indice, 1) += 1
-                                    Case 7
-                                        pb.Image = My.Resources.ave__8_
-                                        listaVariables(indice, 1) = 0
-
-
-
-                                        If vida <= 1 Then
-                                            vida = 0
-                                        Else
-                                            vida -= 10
-                                        End If
-                                        ActVida(vida, 1)
-
-
-                                End Select
-
-                            End If
-
-
-
-                        ElseIf pb.Location.X > pnlInicio.Location.X + pnlInicio.Width And pb.Location.X + pb.Width < pnlFinal.Location.X Then
-
-
-                            Select Case listaVariables(indice, 2)
+                            Select Case listaVariables(indice, 3)
 
                                 Case 0
                                     pb.Image = My.Resources.ave__1_
-                                    pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-                                    listaVariables(indice, 2) += 1
+                                    listaVariables(indice, 3) += 1
                                 Case 1
                                     pb.Image = My.Resources.ave__2_
-                                    pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-                                    listaVariables(indice, 2) += 1
+                                    listaVariables(indice, 3) += 1
                                 Case 2
                                     pb.Image = My.Resources.ave__3_
-                                    pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-                                    listaVariables(indice, 2) += 1
+                                    listaVariables(indice, 3) += 1
                                 Case 3
                                     pb.Image = My.Resources.ave__4_
-                                    pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-                                    listaVariables(indice, 2) += 1
+                                    listaVariables(indice, 3) += 1
                                 Case 4
-                                    pb.Image = My.Resources.ave__5_
-                                    pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-                                    listaVariables(indice, 2) += 1
-                                Case 5
-                                    pb.Image = My.Resources.ave__6_
-                                    pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-                                    listaVariables(indice, 2) += 1
-                                Case 6
-                                    pb.Image = My.Resources.ave__7_
-                                    pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-                                    listaVariables(indice, 2) += 1
-                                Case 7
-                                    pb.Image = My.Resources.ave__8_
-                                    pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-                                    listaVariables(indice, 2) += 1
-
-
-                                Case 8
                                     pb.Image = My.Resources.ave__1_
-                                    listaVariables(indice, 2) += 1
-                                Case 9
-                                    pb.Image = My.Resources.ave__2_
-                                    listaVariables(indice, 2) += 1
-                                Case 10
-                                    pb.Image = My.Resources.ave__3_
-                                    listaVariables(indice, 2) += 1
-                                Case 11
-                                    pb.Image = My.Resources.ave__4_
-                                    listaVariables(indice, 2) += 1
-                                Case 12
-                                    pb.Image = My.Resources.ave__5_
-                                    listaVariables(indice, 2) += 1
-                                Case 13
-                                    pb.Image = My.Resources.ave__6_
-                                    listaVariables(indice, 2) += 1
-                                Case 14
-                                    pb.Image = My.Resources.ave__7_
-                                    listaVariables(indice, 2) += 1
-                                Case 15
-                                    pb.Image = My.Resources.ave__8_
-                                    listaVariables(indice, 2) = 0
-
+                                    listaVariables(indice, 3) = 0
 
                             End Select
 
                         End If
 
-                    ElseIf pb.Location.X >= 725 Then
 
-                        Select Case listaVariables(indice, 3)
+                    Else
 
-                            Case 0
-                                pb.Image = My.Resources.ave__1_
-                                listaVariables(indice, 3) += 1
-                            Case 1
-                                pb.Image = My.Resources.ave__2_
-                                listaVariables(indice, 3) += 1
-                            Case 2
-                                pb.Image = My.Resources.ave__3_
-                                listaVariables(indice, 3) += 1
-                            Case 3
-                                pb.Image = My.Resources.ave__4_
-                                listaVariables(indice, 3) += 1
-                            Case 4
-                                pb.Image = My.Resources.ave__1_
-                                listaVariables(indice, 3) = 0
+                        If pb.Location.X > 0 And pb.Location.X < pnlFinal.Location.X Then
 
-                        End Select
+                            If Math.Abs(principal2.Location.X - pb.Location.X) < 400 And Math.Abs(principal2.Location.Y - pb.Location.Y) <= 10 And Math.Abs(principal2.Location.X - pb.Location.X) > 60 Then
+
+                                If pb.Location.X < principal2.Location.X Then
+
+
+                                    Select Case listaVariables(indice, 0)
+
+                                        Case 0
+                                            pb.Image = My.Resources.ave__1_
+                                            pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                            listaVariables(indice, 0) += 1
+                                        Case 1
+                                            pb.Image = My.Resources.ave__2_
+                                            pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                            listaVariables(indice, 0) += 1
+                                        Case 2
+                                            pb.Image = My.Resources.ave__3_
+                                            pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                            listaVariables(indice, 0) += 1
+                                        Case 3
+                                            pb.Image = My.Resources.ave__4_
+                                            pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                            listaVariables(indice, 0) += 1
+                                        Case 4
+                                            pb.Image = My.Resources.ave__5_
+                                            pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                            listaVariables(indice, 0) += 1
+                                        Case 5
+                                            pb.Image = My.Resources.ave__6_
+                                            pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                            listaVariables(indice, 0) += 1
+                                        Case 6
+                                            pb.Image = My.Resources.ave__7_
+                                            pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                            listaVariables(indice, 0) += 1
+                                        Case 7
+                                            pb.Image = My.Resources.ave__8_
+                                            pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                            listaVariables(indice, 0) = 0
+
+                                    End Select
+
+
+                                ElseIf pb.Location.X > principal2.Location.X Then
+
+
+                                    Select Case listaVariables(indice, 0)
+
+                                        Case 0
+                                            pb.Image = My.Resources.ave__1_
+                                            listaVariables(indice, 0) += 1
+                                        Case 1
+                                            pb.Image = My.Resources.ave__2_
+                                            listaVariables(indice, 0) += 1
+                                        Case 2
+                                            pb.Image = My.Resources.ave__3_
+                                            listaVariables(indice, 0) += 1
+                                        Case 3
+                                            pb.Image = My.Resources.ave__4_
+                                            listaVariables(indice, 0) += 1
+                                        Case 4
+                                            pb.Image = My.Resources.ave__5_
+                                            listaVariables(indice, 0) += 1
+                                        Case 5
+                                            pb.Image = My.Resources.ave__6_
+                                            listaVariables(indice, 0) += 1
+                                        Case 6
+                                            pb.Image = My.Resources.ave__7_
+                                            listaVariables(indice, 0) += 1
+                                        Case 7
+                                            pb.Image = My.Resources.ave__8_
+                                            listaVariables(indice, 0) = 0
+
+                                    End Select
+
+                                End If
+                            ElseIf Math.Abs(principal2.Location.Y - pb.Location.Y) <= 10 And Math.Abs(principal2.Location.X - pb.Location.X) <= 60 Then
+
+
+
+
+                                If pb.Location.X < principal2.Location.X Then
+
+                                    Select Case listaVariables(indice, 1)
+                                        Case 0
+                                            pb.Image = My.Resources.ave__1_
+                                            pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                            listaVariables(indice, 1) += 1
+
+                                        Case 1
+                                            pb.Image = My.Resources.ave__2_
+                                            pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                            listaVariables(indice, 1) += 1
+                                        Case 2
+                                            pb.Image = My.Resources.ave__3_
+                                            pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                            listaVariables(indice, 1) += 1
+                                        Case 3
+                                            pb.Image = My.Resources.ave__4_
+                                            pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                            listaVariables(indice, 1) += 1
+
+                                            If vida2 <= 1 Then
+                                                vida2 = 0
+                                            Else
+                                                vida2 -= 10
+                                            End If
+                                            ActVida2(vida2, 0)
+
+                                        Case 4
+                                            pb.Image = My.Resources.ave__5_
+                                            pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                            listaVariables(indice, 1) += 1
+                                        Case 5
+                                            pb.Image = My.Resources.ave__6_
+                                            pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                            listaVariables(indice, 1) += 1
+                                        Case 6
+                                            pb.Image = My.Resources.ave__7_
+                                            pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                            listaVariables(indice, 1) += 1
+                                        Case 7
+                                            pb.Image = My.Resources.ave__8_
+                                            pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                            listaVariables(indice, 1) = 0
+
+                                            If vida2 <= 1 Then
+                                                vida2 = 0
+                                            Else
+                                                vida2 -= 10
+                                            End If
+                                            ActVida2(vida2, 0)
+
+                                    End Select
+
+
+
+                                Else
+
+                                    Select Case listaVariables(indice, 1)
+
+                                        Case 0
+                                            pb.Image = My.Resources.ave__1_
+                                            listaVariables(indice, 1) += 1
+
+                                        Case 1
+                                            pb.Image = My.Resources.ave__2_
+                                            listaVariables(indice, 1) += 1
+                                        Case 2
+                                            pb.Image = My.Resources.ave__3_
+                                            listaVariables(indice, 1) += 1
+                                        Case 3
+                                            pb.Image = My.Resources.ave__4_
+                                            listaVariables(indice, 1) += 1
+
+                                            If vida2 <= 1 Then
+                                                vida2 = 0
+                                            Else
+                                                vida2 -= 10
+                                            End If
+                                            ActVida2(vida2, 1)
+
+                                        Case 4
+                                            pb.Image = My.Resources.ave__5_
+                                            listaVariables(indice, 1) += 1
+                                        Case 5
+                                            pb.Image = My.Resources.ave__6_
+                                            listaVariables(indice, 1) += 1
+                                        Case 6
+                                            pb.Image = My.Resources.ave__7_
+                                            listaVariables(indice, 1) += 1
+                                        Case 7
+                                            pb.Image = My.Resources.ave__8_
+                                            listaVariables(indice, 1) = 0
+
+
+
+                                            If vida2 <= 1 Then
+                                                vida2 = 0
+                                            Else
+                                                vida2 -= 10
+                                            End If
+                                            ActVida2(vida, 1)
+
+
+                                    End Select
+
+                                End If
+
+
+
+                            ElseIf pb.Location.X > pnlInicio.Location.X + pnlInicio.Width And pb.Location.X + pb.Width < pnlFinal.Location.X Then
+
+
+                                Select Case listaVariables(indice, 2)
+
+                                    Case 0
+                                        pb.Image = My.Resources.ave__1_
+                                        pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                        listaVariables(indice, 2) += 1
+                                    Case 1
+                                        pb.Image = My.Resources.ave__2_
+                                        pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                        listaVariables(indice, 2) += 1
+                                    Case 2
+                                        pb.Image = My.Resources.ave__3_
+                                        pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                        listaVariables(indice, 2) += 1
+                                    Case 3
+                                        pb.Image = My.Resources.ave__4_
+                                        pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                        listaVariables(indice, 2) += 1
+                                    Case 4
+                                        pb.Image = My.Resources.ave__5_
+                                        pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                        listaVariables(indice, 2) += 1
+                                    Case 5
+                                        pb.Image = My.Resources.ave__6_
+                                        pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                        listaVariables(indice, 2) += 1
+                                    Case 6
+                                        pb.Image = My.Resources.ave__7_
+                                        pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                        listaVariables(indice, 2) += 1
+                                    Case 7
+                                        pb.Image = My.Resources.ave__8_
+                                        pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+                                        listaVariables(indice, 2) += 1
+
+
+                                    Case 8
+                                        pb.Image = My.Resources.ave__1_
+                                        listaVariables(indice, 2) += 1
+                                    Case 9
+                                        pb.Image = My.Resources.ave__2_
+                                        listaVariables(indice, 2) += 1
+                                    Case 10
+                                        pb.Image = My.Resources.ave__3_
+                                        listaVariables(indice, 2) += 1
+                                    Case 11
+                                        pb.Image = My.Resources.ave__4_
+                                        listaVariables(indice, 2) += 1
+                                    Case 12
+                                        pb.Image = My.Resources.ave__5_
+                                        listaVariables(indice, 2) += 1
+                                    Case 13
+                                        pb.Image = My.Resources.ave__6_
+                                        listaVariables(indice, 2) += 1
+                                    Case 14
+                                        pb.Image = My.Resources.ave__7_
+                                        listaVariables(indice, 2) += 1
+                                    Case 15
+                                        pb.Image = My.Resources.ave__8_
+                                        listaVariables(indice, 2) = 0
+
+
+                                End Select
+
+                            End If
+
+                        ElseIf pb.Location.X >= 725 Then
+
+                            Select Case listaVariables(indice, 3)
+
+                                Case 0
+                                    pb.Image = My.Resources.ave__1_
+                                    listaVariables(indice, 3) += 1
+                                Case 1
+                                    pb.Image = My.Resources.ave__2_
+                                    listaVariables(indice, 3) += 1
+                                Case 2
+                                    pb.Image = My.Resources.ave__3_
+                                    listaVariables(indice, 3) += 1
+                                Case 3
+                                    pb.Image = My.Resources.ave__4_
+                                    listaVariables(indice, 3) += 1
+                                Case 4
+                                    pb.Image = My.Resources.ave__1_
+                                    listaVariables(indice, 3) = 0
+
+                            End Select
+
+                        End If
+
+
 
                     End If
 
-
+                    
 
                 End If
 
@@ -1456,53 +1787,88 @@ Public Class MultiPlayerMode
         Next
     End Sub
 
-    Private Sub PictureBox1_Move(ByVal sender As Object, ByVal e As System.EventArgs)
-        Encontrar_Suelo_Principal.Start()
-    End Sub
     Private Sub ActVida2(ByVal v As Double, ByVal dire As Integer)
 
 
         If v = 0 Then
 
-            principal2.Image = My.Resources._43
-            moviVertical2 = "dead"
-            'Movimiento_Principal_2.Dispose()
-            'Anim_Movimiento_Principal_2.Dispose()
-            Anim_Movimiento_Enemigo.Dispose()
-            Movimiento_Bala.Dispose()
+            If verificarVida = 0 Then
 
-            For Each ctrl As Control In Me.Controls
-                ctrl.Visible = False
-            Next
-            'lblFinal.Visible = True
-            'lblFinal.Text = "Game Over" + vbNewLine + vbNewLine + "Puntos conseguidos: " + puntos2.ToString
+                principal2.Dispose()
+                moviVertical2 = "dead"
+                verificarVida2 = 1
 
-            Try
-                Dim nombre As String = ""
-                Do
+            ElseIf verificarVida = 1 Then
+                principal.Image = My.Resources._43
+                moviVertical = "dead"
+                Movimiento_Principal.Dispose()
+                Anim_Movimiento_Principal.Dispose()
+                Anim_Movimiento_Enemigo.Dispose()
+                Movimiento_Bala.Dispose()
 
-                    nombre = InputBox("Ingrese su nombre", "Registro")
+                For Each ctrl As Control In Me.Controls
+                    ctrl.Visible = False
+                Next
+                lblFinal.Visible = True
+                lblFinal.Text = "Game Over" + vbNewLine + vbNewLine + "Puntos conseguidos jugador1: " + puntos.ToString + vbNewLine + "Puntos conseguidos jugador2: " + puntos2.ToString
 
-                Loop While nombre = ""
+                Try
+                    Dim nombre As String = ""
+                    While nombre = ""
+
+                        nombre = InputBox("Ingrese su nombre Jugador 1", "Registro")
+
+                    End While
 
 
-                Dim regDate As Date = Date.Now()
+                    Dim regDate As Date = Date.Now()
 
-                Dim fecha As String = regDate.ToString("yyyy-MM-dd")
-                Dim hora As String = regDate.ToString("hh:mm:ss")
+                    Dim fecha As String = regDate.ToString("yyyy-MM-dd")
+                    Dim hora As String = regDate.ToString("hh:mm:ss")
 
 
 
-                Consulta = "insert into resultados (nombre, fecha, hora, resultado) values ('" + nombre + "', '" + fecha + "', '" + hora + "','" + puntos2.ToString + "');"
-                consultar()
+                    Consulta = "insert into resultados (nombre, fecha, hora, resultado) values ('" + nombre + "', '" + fecha + "', '" + hora + "','" + puntos.ToString + "');"
+                    consultar()
 
-                resultados.actTabla()
+                    resultados.actTabla()
 
-                MsgBox("Guardado", MsgBoxStyle.Information)
+                    Try
+                        Dim nombre2 As String = ""
+                        While nombre = ""
 
-            Catch ex As Exception
-                MsgBox("Error al guardar", MsgBoxStyle.Exclamation)
-            End Try
+                            nombre2 = InputBox("Ingrese su nombre (Jugador 2)", "Registro")
+
+                        End While
+
+
+                        Dim regDate2 As Date = Date.Now()
+
+                        Dim fecha2 As String = regDate.ToString("yyyy-MM-dd")
+                        Dim hora2 As String = regDate.ToString("hh:mm:ss")
+
+
+
+                        Consulta = "insert into resultados (nombre, fecha, hora, resultado) values ('" + nombre2 + "', '" + fecha2 + "', '" + hora2 + "','" + puntos2.ToString + "');"
+                        consultar()
+
+                        resultados.actTabla()
+
+                        MsgBox("Guardado", MsgBoxStyle.Information)
+
+                        MenuInicio.Show()
+
+                    Catch ex As Exception
+                        MsgBox("Error al guardar", MsgBoxStyle.Exclamation)
+                    End Try
+
+
+                Catch ex As Exception
+                    MsgBox("Error al guardar", MsgBoxStyle.Exclamation)
+                End Try
+
+            End If
+
         ElseIf v = 100 Then
 
             pnlVida2.Width = v
@@ -1531,47 +1897,83 @@ Public Class MultiPlayerMode
 
         If v = 0 Then
 
-            principal.Image = My.Resources._43
-            moviVertical = "dead"
-            Movimiento_Principal.Dispose()
-            Anim_Movimiento_Principal.Dispose()
-            Anim_Movimiento_Enemigo.Dispose()
-            Movimiento_Bala.Dispose()
+            If verificarVida2 = 0 Then
+                principal1.Dispose()
+                verificarVida = 1
+                moviVertical = "dead"
 
-            For Each ctrl As Control In Me.Controls
-                ctrl.Visible = False
-            Next
-            lblFinal.Visible = True
-            lblFinal.Text = "Game Over" + vbNewLine + vbNewLine + "Puntos conseguidos: " + puntos.ToString
+            ElseIf verificarVida2 = 1 Then
 
-            Try
-                Dim nombre As String = ""
-                Do
+                principal.Dispose()
+                moviVertical = "dead"
+                Movimiento_Principal.Dispose()
+                Anim_Movimiento_Principal.Dispose()
+                Anim_Movimiento_Enemigo.Dispose()
+                Movimiento_Bala.Dispose()
 
-                    nombre = InputBox("Ingrese su nombre", "Registro")
+                For Each ctrl As Control In Me.Controls
+                    ctrl.Visible = False
+                Next
+                lblFinal.Visible = True
+                lblFinal.Text = "Game Over" + vbNewLine + vbNewLine + "Puntos conseguidos jugador1: " + puntos.ToString + vbNewLine + "Puntos conseguidos jugador2: " + puntos2.ToString
 
-                Loop While nombre = ""
+                Try
+                    Dim nombre As String = ""
+                    While nombre = ""
+
+                        nombre = InputBox("Ingrese su nombre Jugador 1", "Registro")
+
+                    End While
 
 
-                Dim regDate As Date = Date.Now()
+                    Dim regDate As Date = Date.Now()
 
-                Dim fecha As String = regDate.ToString("yyyy-MM-dd")
-                Dim hora As String = regDate.ToString("hh:mm:ss")
+                    Dim fecha As String = regDate.ToString("yyyy-MM-dd")
+                    Dim hora As String = regDate.ToString("hh:mm:ss")
 
 
 
-                Consulta = "insert into resultados (nombre, fecha, hora, resultado) values ('" + nombre + "', '" + fecha + "', '" + hora + "','" + puntos.ToString + "');"
-                consultar()
+                    Consulta = "insert into resultados (nombre, fecha, hora, resultado) values ('" + nombre + "', '" + fecha + "', '" + hora + "','" + puntos.ToString + "');"
+                    consultar()
 
-                resultados.actTabla()
+                    resultados.actTabla()
 
-                MsgBox("Guardado", MsgBoxStyle.Information)
+                    Try
+                        Dim nombre2 As String = ""
+                        Do
 
-                Application.Restart()
+                            nombre2 = InputBox("Ingrese su nombre (Jugador 2)", "Registro")
 
-            Catch ex As Exception
-                MsgBox("Error al guardar", MsgBoxStyle.Exclamation)
-            End Try
+                        Loop While nombre2 = ""
+
+
+                        Dim regDate2 As Date = Date.Now()
+
+                        Dim fecha2 As String = regDate.ToString("yyyy-MM-dd")
+                        Dim hora2 As String = regDate.ToString("hh:mm:ss")
+
+
+
+                        Consulta = "insert into resultados (nombre, fecha, hora, resultado) values ('" + nombre2 + "', '" + fecha2 + "', '" + hora2 + "','" + puntos2.ToString + "');"
+                        consultar()
+
+                        resultados.actTabla()
+
+                        MsgBox("Guardado", MsgBoxStyle.Information)
+
+                        MenuInicio.Show()
+
+                    Catch ex As Exception
+                        MsgBox("Error al guardar", MsgBoxStyle.Exclamation)
+                    End Try
+
+
+                Catch ex As Exception
+                    MsgBox("Error al guardar", MsgBoxStyle.Exclamation)
+                End Try
+
+            End If
+
         ElseIf v = 100 Then
 
             pnlVida.Width = v
@@ -1649,7 +2051,7 @@ Public Class MultiPlayerMode
         ElseIf estrella.Location.X + estrella.Width - 10 > principal2.Location.X And estrella.Location.X + 10 < principal2.Location.X + principal2.Width And estrella.Location.Y + estrella.Height - 10 > principal2.Location.Y And estrella.Location.Y < principal2.Location.Y + principal2.Height - 10 Then
             ubicarEstrella()
             puntos2 += 1
-            lblPuntos.Text = ": " + puntos.ToString
+            lblNumeroEstrella2.Text = ": " + puntos2.ToString
         End If
 
 
