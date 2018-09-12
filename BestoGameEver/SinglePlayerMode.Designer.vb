@@ -54,6 +54,7 @@ Partial Class SinglePlayerMode
         Me.Panel12 = New System.Windows.Forms.Panel()
         Me.Panel15 = New System.Windows.Forms.Panel()
         Me.cosaRandom = New System.Windows.Forms.Timer(Me.components)
+        Me.lblPowerUps = New System.Windows.Forms.Label()
         Me.pbCosaR = New ya_ni_se.TransPicBox()
         Me.TransPicBox11 = New ya_ni_se.TransPicBox()
         Me.TransPicBox10 = New ya_ni_se.TransPicBox()
@@ -96,9 +97,9 @@ Partial Class SinglePlayerMode
         Me.pnlPiso.BackColor = System.Drawing.Color.Transparent
         Me.pnlPiso.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.kisspng_platform_game_two_dimensional_space_tile_2d_comput_platform_5ac036eb3e40a61
         Me.pnlPiso.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.pnlPiso.Location = New System.Drawing.Point(0, 560)
+        Me.pnlPiso.Location = New System.Drawing.Point(0, 562)
         Me.pnlPiso.Name = "pnlPiso"
-        Me.pnlPiso.Size = New System.Drawing.Size(1203, 62)
+        Me.pnlPiso.Size = New System.Drawing.Size(1426, 62)
         Me.pnlPiso.TabIndex = 1
         '
         'Anim_Idle_Principal
@@ -337,6 +338,17 @@ Partial Class SinglePlayerMode
         Me.cosaRandom.Enabled = True
         Me.cosaRandom.Interval = 10000
         '
+        'lblPowerUps
+        '
+        Me.lblPowerUps.AutoSize = True
+        Me.lblPowerUps.BackColor = System.Drawing.Color.Transparent
+        Me.lblPowerUps.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPowerUps.Location = New System.Drawing.Point(1157, 9)
+        Me.lblPowerUps.Name = "lblPowerUps"
+        Me.lblPowerUps.Size = New System.Drawing.Size(78, 24)
+        Me.lblPowerUps.TabIndex = 46
+        Me.lblPowerUps.Text = "Powers:"
+        '
         'pbCosaR
         '
         Me.pbCosaR.BackColor = System.Drawing.Color.Transparent
@@ -538,7 +550,8 @@ Partial Class SinglePlayerMode
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.fondito
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1203, 622)
+        Me.ClientSize = New System.Drawing.Size(1426, 624)
+        Me.Controls.Add(Me.lblPowerUps)
         Me.Controls.Add(Me.pbCosaR)
         Me.Controls.Add(Me.TransPicBox11)
         Me.Controls.Add(Me.TransPicBox10)
@@ -646,4 +659,5 @@ Partial Class SinglePlayerMode
     Friend WithEvents TransPicBox11 As ya_ni_se.TransPicBox
     Friend WithEvents cosaRandom As System.Windows.Forms.Timer
     Friend WithEvents pbCosaR As ya_ni_se.TransPicBox
+    Friend WithEvents lblPowerUps As System.Windows.Forms.Label
 End Class

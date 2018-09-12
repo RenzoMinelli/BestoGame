@@ -584,30 +584,40 @@
                 Case 9
                     vida += 10
                     ActVida(vida, 2)
+                    lblPowerUps.Text += vbNewLine + "Vida +10"
                 Case 1
                     Movimiento_Enemigo.Interval -= 10
+                    lblPowerUps.Text += vbNewLine + "Velocidad Enemigos 10 mas rápido"
                 Case 2
                     Movimiento_Enemigo.Interval += 10
+                    lblPowerUps.Text += vbNewLine + "Velocidad Enemigos 10 mas lento"
 
                 Case 3
                     Movimiento_Principal.Interval += 10
+                    lblPowerUps.Text += vbNewLine + "Jugador enlentecido 10"
 
                 Case 4
                     Movimiento_Enemigo.Dispose()
                     Anim_Movimiento_Enemigo.Dispose()
+                    lblPowerUps.Text += vbNewLine + "Enemigos congelados"
                 Case 5
                     Movimiento_Enemigo.Start()
                     Anim_Movimiento_Enemigo.Start()
+                    lblPowerUps.Text += vbNewLine + "Enemigos descongelados"
                 Case 6
                     If Movimiento_Principal.Interval >= 5 Then
                         Movimiento_Principal.Interval -= 4
+                        lblPowerUps.Text += vbNewLine + "Velocidad jugador aumento 4"
                     End If
                 Case 7
                     Movimiento_Bala.Interval += 5
+                    lblPowerUps.Text += vbNewLine + " Velocidad Bala 10 mas lento"
                 Case 8
                     If Movimiento_Bala.Interval >= 5 Then
                         Movimiento_Bala.Interval -= 4
+                        lblPowerUps.Text += vbNewLine + "Velocidad Bala 4 mas rapido"
                     End If
+
             End Select
         End If
 
@@ -1239,5 +1249,9 @@
             ubicarRandom()
 
         End If
+    End Sub
+
+    Private Sub lblPowerUps_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lblPowerUps.Click
+
     End Sub
 End Class
