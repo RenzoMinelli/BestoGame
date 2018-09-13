@@ -101,10 +101,10 @@
     <Compile Include="MenuInicio.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="inicio.Designer.vb">
-      <DependentUpon>inicio.vb</DependentUpon>
+    <Compile Include="Cambios.Designer.vb">
+      <DependentUpon>Cambios.vb</DependentUpon>
     </Compile>
-    <Compile Include="inicio.vb">
+    <Compile Include="Cambios.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Module1.vb" />
@@ -143,8 +143,8 @@
     <EmbeddedResource Include="SinglePlayerMode.resx">
       <DependentUpon>SinglePlayerMode.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="inicio.resx">
-      <DependentUpon>inicio.vb</DependentUpon>
+    <EmbeddedResource Include="Cambios.resx">
+      <DependentUpon>Cambios.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MenuInicio.resx">
       <DependentUpon>MenuInicio.vb</DependentUpon>

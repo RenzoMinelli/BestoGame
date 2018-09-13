@@ -58,6 +58,8 @@ Partial Class MultiPlayerMode
         Me.lblVida2 = New System.Windows.Forms.Label()
         Me.lblNumero2 = New System.Windows.Forms.Label()
         Me.pnlVida2 = New System.Windows.Forms.Panel()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.pbNumeroEstrella2 = New ya_ni_se.TransPicBox()
         Me.principal2 = New ya_ni_se.TransPicBox()
         Me.TransPicBox9 = New ya_ni_se.TransPicBox()
@@ -120,7 +122,6 @@ Partial Class MultiPlayerMode
         '
         'Movimiento_Bala
         '
-        Me.Movimiento_Bala.Enabled = True
         Me.Movimiento_Bala.Interval = 1
         '
         'lblPuntos
@@ -128,7 +129,7 @@ Partial Class MultiPlayerMode
         Me.lblPuntos.AutoSize = True
         Me.lblPuntos.BackColor = System.Drawing.Color.Transparent
         Me.lblPuntos.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPuntos.Location = New System.Drawing.Point(62, 110)
+        Me.lblPuntos.Location = New System.Drawing.Point(130, 78)
         Me.lblPuntos.Name = "lblPuntos"
         Me.lblPuntos.Size = New System.Drawing.Size(30, 24)
         Me.lblPuntos.TabIndex = 73
@@ -160,7 +161,7 @@ Partial Class MultiPlayerMode
         Me.lblVida.AutoSize = True
         Me.lblVida.BackColor = System.Drawing.Color.Transparent
         Me.lblVida.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblVida.Location = New System.Drawing.Point(32, 33)
+        Me.lblVida.Location = New System.Drawing.Point(32, 36)
         Me.lblVida.Name = "lblVida"
         Me.lblVida.Size = New System.Drawing.Size(53, 24)
         Me.lblVida.TabIndex = 64
@@ -171,7 +172,7 @@ Partial Class MultiPlayerMode
         Me.lblNumero.AutoSize = True
         Me.lblNumero.BackColor = System.Drawing.Color.Transparent
         Me.lblNumero.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNumero.Location = New System.Drawing.Point(32, 71)
+        Me.lblNumero.Location = New System.Drawing.Point(32, 60)
         Me.lblNumero.Name = "lblNumero"
         Me.lblNumero.Size = New System.Drawing.Size(30, 24)
         Me.lblNumero.TabIndex = 63
@@ -180,9 +181,9 @@ Partial Class MultiPlayerMode
         'pnlVida
         '
         Me.pnlVida.BackColor = System.Drawing.Color.Lime
-        Me.pnlVida.Location = New System.Drawing.Point(91, 33)
+        Me.pnlVida.Location = New System.Drawing.Point(91, 36)
         Me.pnlVida.Name = "pnlVida"
-        Me.pnlVida.Size = New System.Drawing.Size(195, 24)
+        Me.pnlVida.Size = New System.Drawing.Size(100, 24)
         Me.pnlVida.TabIndex = 60
         '
         'pnlInicio
@@ -196,15 +197,12 @@ Partial Class MultiPlayerMode
         '
         'Anim_Movimiento_Principal
         '
-        Me.Anim_Movimiento_Principal.Enabled = True
         '
         'mover_estrella
         '
-        Me.mover_estrella.Enabled = True
         '
         'Encontrar_Suelo_Principal
         '
-        Me.Encontrar_Suelo_Principal.Enabled = True
         Me.Encontrar_Suelo_Principal.Interval = 1
         '
         'Panel4
@@ -227,17 +225,14 @@ Partial Class MultiPlayerMode
         '
         'Movimiento_Principal
         '
-        Me.Movimiento_Principal.Enabled = True
         Me.Movimiento_Principal.Interval = 1
         '
         'Anim_Idle_Principal
         '
-        Me.Anim_Idle_Principal.Enabled = True
         Me.Anim_Idle_Principal.Interval = 180
         '
         'Movimiento_Enemigo
         '
-        Me.Movimiento_Enemigo.Enabled = True
         Me.Movimiento_Enemigo.Interval = 50
         '
         'pnlPiso
@@ -270,7 +265,6 @@ Partial Class MultiPlayerMode
         '
         'Anim_Movimiento_Enemigo
         '
-        Me.Anim_Movimiento_Enemigo.Enabled = True
         Me.Anim_Movimiento_Enemigo.Interval = 120
         '
         'Panel10
@@ -330,7 +324,6 @@ Partial Class MultiPlayerMode
         '
         'Encontrar_Suelo_Principal_2
         '
-        Me.Encontrar_Suelo_Principal_2.Enabled = True
         Me.Encontrar_Suelo_Principal_2.Interval = 1
         '
         'lblNumeroEstrella2
@@ -338,7 +331,7 @@ Partial Class MultiPlayerMode
         Me.lblNumeroEstrella2.AutoSize = True
         Me.lblNumeroEstrella2.BackColor = System.Drawing.Color.Transparent
         Me.lblNumeroEstrella2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNumeroEstrella2.Location = New System.Drawing.Point(774, 96)
+        Me.lblNumeroEstrella2.Location = New System.Drawing.Point(1110, 78)
         Me.lblNumeroEstrella2.Name = "lblNumeroEstrella2"
         Me.lblNumeroEstrella2.Size = New System.Drawing.Size(30, 24)
         Me.lblNumeroEstrella2.TabIndex = 85
@@ -349,7 +342,7 @@ Partial Class MultiPlayerMode
         Me.lblVida2.AutoSize = True
         Me.lblVida2.BackColor = System.Drawing.Color.Transparent
         Me.lblVida2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblVida2.Location = New System.Drawing.Point(744, 19)
+        Me.lblVida2.Location = New System.Drawing.Point(1012, 36)
         Me.lblVida2.Name = "lblVida2"
         Me.lblVida2.Size = New System.Drawing.Size(53, 24)
         Me.lblVida2.TabIndex = 84
@@ -360,7 +353,7 @@ Partial Class MultiPlayerMode
         Me.lblNumero2.AutoSize = True
         Me.lblNumero2.BackColor = System.Drawing.Color.Transparent
         Me.lblNumero2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNumero2.Location = New System.Drawing.Point(744, 57)
+        Me.lblNumero2.Location = New System.Drawing.Point(1012, 60)
         Me.lblNumero2.Name = "lblNumero2"
         Me.lblNumero2.Size = New System.Drawing.Size(30, 24)
         Me.lblNumero2.TabIndex = 83
@@ -369,10 +362,32 @@ Partial Class MultiPlayerMode
         'pnlVida2
         '
         Me.pnlVida2.BackColor = System.Drawing.Color.Lime
-        Me.pnlVida2.Location = New System.Drawing.Point(803, 19)
+        Me.pnlVida2.Location = New System.Drawing.Point(1071, 36)
         Me.pnlVida2.Name = "pnlVida2"
-        Me.pnlVida2.Size = New System.Drawing.Size(195, 24)
+        Me.pnlVida2.Size = New System.Drawing.Size(100, 24)
         Me.pnlVida2.TabIndex = 82
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(12, 9)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(115, 24)
+        Me.Label1.TabIndex = 87
+        Me.Label1.Text = "JUGADOR 1"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.BackColor = System.Drawing.Color.Transparent
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(981, 9)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(115, 24)
+        Me.Label2.TabIndex = 88
+        Me.Label2.Text = "JUGADOR 2"
         '
         'pbNumeroEstrella2
         '
@@ -380,7 +395,7 @@ Partial Class MultiPlayerMode
         Me.pbNumeroEstrella2.ErrorImage = Nothing
         Me.pbNumeroEstrella2.Image = Global.ya_ni_se.My.Resources.Resources.Estrella
         Me.pbNumeroEstrella2.InitialImage = Nothing
-        Me.pbNumeroEstrella2.Location = New System.Drawing.Point(741, 84)
+        Me.pbNumeroEstrella2.Location = New System.Drawing.Point(1071, 66)
         Me.pbNumeroEstrella2.Name = "pbNumeroEstrella2"
         Me.pbNumeroEstrella2.Size = New System.Drawing.Size(33, 36)
         Me.pbNumeroEstrella2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -510,7 +525,7 @@ Partial Class MultiPlayerMode
         Me.pbNumeroEstrellas.ErrorImage = Nothing
         Me.pbNumeroEstrellas.Image = Global.ya_ni_se.My.Resources.Resources.Estrella
         Me.pbNumeroEstrellas.InitialImage = Nothing
-        Me.pbNumeroEstrellas.Location = New System.Drawing.Point(29, 98)
+        Me.pbNumeroEstrellas.Location = New System.Drawing.Point(91, 66)
         Me.pbNumeroEstrellas.Name = "pbNumeroEstrellas"
         Me.pbNumeroEstrellas.Size = New System.Drawing.Size(33, 36)
         Me.pbNumeroEstrellas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -521,7 +536,11 @@ Partial Class MultiPlayerMode
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1213, 669)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.lblNumeroEstrella2)
         Me.Controls.Add(Me.lblVida2)
         Me.Controls.Add(Me.lblNumero2)
@@ -622,4 +641,6 @@ Partial Class MultiPlayerMode
     Friend WithEvents lblNumero2 As System.Windows.Forms.Label
     Friend WithEvents pnlVida2 As System.Windows.Forms.Panel
     Friend WithEvents pbNumeroEstrella2 As ya_ni_se.TransPicBox
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents Label2 As System.Windows.Forms.Label
 End Class

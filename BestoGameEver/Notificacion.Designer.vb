@@ -22,14 +22,9 @@ Partial Class Notificacion
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
-        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.lblCambio = New System.Windows.Forms.Label()
+        Me.btnContinuar = New System.Windows.Forms.Button()
         Me.SuspendLayout()
-        '
-        'Timer1
-        '
-        Me.Timer1.Interval = 500
         '
         'lblCambio
         '
@@ -41,11 +36,22 @@ Partial Class Notificacion
         Me.lblCambio.TabIndex = 0
         Me.lblCambio.Text = "Label1"
         '
+        'btnContinuar
+        '
+        Me.btnContinuar.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnContinuar.Location = New System.Drawing.Point(96, 132)
+        Me.btnContinuar.Name = "btnContinuar"
+        Me.btnContinuar.Size = New System.Drawing.Size(113, 38)
+        Me.btnContinuar.TabIndex = 1
+        Me.btnContinuar.Text = "Continuar"
+        Me.btnContinuar.UseVisualStyleBackColor = True
+        '
         'Notificacion
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(333, 119)
+        Me.ClientSize = New System.Drawing.Size(333, 182)
+        Me.Controls.Add(Me.btnContinuar)
         Me.Controls.Add(Me.lblCambio)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Notificacion"
@@ -55,6 +61,6 @@ Partial Class Notificacion
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents Timer1 As System.Windows.Forms.Timer
     Friend WithEvents lblCambio As System.Windows.Forms.Label
+    Friend WithEvents btnContinuar As System.Windows.Forms.Button
 End Class

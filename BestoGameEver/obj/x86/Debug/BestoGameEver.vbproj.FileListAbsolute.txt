@@ -14,7 +14,6 @@ C:\Users\Renzo\Documents\GitHub\proyecto\BestoGame\BestoGameEver\obj\x86\Debug\B
 C:\Users\Renzo\Documents\GitHub\proyecto\BestoGame\BestoGameEver\bin\Debug\BestoGameEver.exe
 C:\Users\Renzo\Documents\GitHub\proyecto\BestoGame\BestoGameEver\bin\Debug\BestoGameEver.pdb
 C:\Users\Renzo\Documents\GitHub\proyecto\BestoGame\BestoGameEver\bin\Debug\BestoGameEver.xml
-C:\Users\Renzo\Documents\GitHub\proyecto\BestoGame\BestoGameEver\obj\x86\Debug\ya_ni_se.inicio.resources
 C:\Users\Renzo\Documents\GitHub\proyecto\BestoGame\BestoGameEver\obj\x86\Debug\ya_ni_se.Resources.resources
 C:\Users\Renzo\Documents\GitHub\proyecto\BestoGame\BestoGameEver\obj\x86\Debug\BestoGameEver.vbproj.GenerateResource.Cache
 C:\Users\Renzo\Documents\Visual Studio 2010\Projects\BestoGame\BestoGameEver\obj\x86\Debug\BestoGameEver.exe
@@ -82,3 +81,5 @@ C:\Users\Renzo\Documents\GitHub\BestoGame\BestoGameEver\bin\Debug\BestoGameEver.
 C:\Users\Renzo\Documents\GitHub\BestoGame\BestoGameEver\bin\Debug\BestoGameEver.xml
 C:\Users\Renzo\Documents\GitHub\BestoGame\BestoGameEver\bin\Debug\MySql.Data.dll
 C:\Users\Renzo\Documents\GitHub\BestoGame\BestoGameEver\bin\Debug\MySql.Data.xml
+C:\Users\Renzo\Documents\GitHub\proyecto\BestoGame\BestoGameEver\obj\x86\Debug\ya_ni_se.Notificacion.resources
+C:\Users\Renzo\Documents\GitHub\proyecto\BestoGame\BestoGameEver\obj\x86\Debug\ya_ni_se.Cambios.resources
