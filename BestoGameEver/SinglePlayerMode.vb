@@ -1224,6 +1224,7 @@
 
     Private Sub cosaRandom_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cosaRandom.Tick
         ubicarRandom()
+        lblPowerUp.Hide()
     End Sub
     Private Sub ubicarRandom()
         Dim x
@@ -1264,6 +1265,7 @@
 
     Private Sub notificar(ByVal texto As String)
 
+        lblPowerUp.Show()
         lblPowerUp.Text = texto
 
     End Sub
