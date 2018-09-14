@@ -83,3 +83,7 @@ C:\Users\Renzo\Documents\GitHub\proyecto\BestoGame\BestoGameEver\obj\x86\Debug\y
 C:\Users\Renzo\Documents\GitHub\proyecto\BestoGame\BestoGameEver\obj\x86\Debug\ya_ni_se.frmModificables.resources
 C:\Users\Renzo\Documents\GitHub\proyecto\BestoGame\BestoGameEver\obj\x86\Debug\ya_ni_se.frmMenuInicio.resources
 C:\Users\Renzo\Documents\GitHub\proyecto\BestoGame\BestoGameEver\obj\x86\Debug\ya_ni_se.frmRanking.resources
+C:\Users\Renzo\Documents\GitHub\proyecto\BestoGame\BestoGameEver\bin\Debug\BestoGameEver.exe.manifest
+C:\Users\Renzo\Documents\GitHub\proyecto\BestoGame\BestoGameEver\bin\Debug\BestoGameEver.application
+C:\Users\Renzo\Documents\GitHub\proyecto\BestoGame\BestoGameEver\obj\x86\Debug\BestoGameEver.exe.manifest
+C:\Users\Renzo\Documents\GitHub\proyecto\BestoGame\BestoGameEver\obj\x86\Debug\BestoGameEver.application

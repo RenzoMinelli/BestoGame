@@ -23,6 +23,7 @@ Partial Class frmMultiPlayerMode
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMultiPlayerMode))
         Me.Panel15 = New System.Windows.Forms.Panel()
         Me.Panel12 = New System.Windows.Forms.Panel()
         Me.Panel7 = New System.Windows.Forms.Panel()
@@ -141,7 +142,7 @@ Partial Class frmMultiPlayerMode
         '
         Me.Panel9.BackColor = System.Drawing.Color.DarkOrange
         Me.Panel9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.Panel9.Location = New System.Drawing.Point(1198, -136)
+        Me.Panel9.Location = New System.Drawing.Point(1203, -136)
         Me.Panel9.Name = "Panel9"
         Me.Panel9.Size = New System.Drawing.Size(10, 705)
         Me.Panel9.TabIndex = 49
@@ -191,9 +192,9 @@ Partial Class frmMultiPlayerMode
         'pnlInicio
         '
         Me.pnlInicio.BackColor = System.Drawing.Color.DarkOrange
-        Me.pnlInicio.Location = New System.Drawing.Point(5, -136)
+        Me.pnlInicio.Location = New System.Drawing.Point(-7, -136)
         Me.pnlInicio.Name = "pnlInicio"
-        Me.pnlInicio.Size = New System.Drawing.Size(10, 708)
+        Me.pnlInicio.Size = New System.Drawing.Size(13, 708)
         Me.pnlInicio.TabIndex = 46
         Me.pnlInicio.Visible = False
         '
@@ -594,6 +595,8 @@ Partial Class frmMultiPlayerMode
         Me.Controls.Add(Me.Panel11)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel2)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmMultiPlayerMode"
         Me.Text = "MultiPlayerMode"
         CType(Me.TransPicBox2, System.ComponentModel.ISupportInitialize).EndInit()

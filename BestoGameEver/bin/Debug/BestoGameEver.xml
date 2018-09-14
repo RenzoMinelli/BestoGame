@@ -255,10 +255,6 @@ BestoGameEver
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:ya_ni_se.My.Resources.Resources.fondo_try1">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
 </member><member name="P:ya_ni_se.My.Resources.Resources.hurt">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.

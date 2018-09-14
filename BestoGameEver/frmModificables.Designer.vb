@@ -22,6 +22,7 @@ Partial Class frmModificables
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmModificables))
         Me.TextBox8 = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.TextBox7 = New System.Windows.Forms.TextBox()
@@ -195,7 +196,7 @@ Partial Class frmModificables
         Me.Label1.TabIndex = 17
         Me.Label1.Text = "Velocidad Inicial"
         '
-        'Modificables
+        'frmModificables
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -217,7 +218,8 @@ Partial Class frmModificables
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
-        Me.Name = "Modificables"
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Name = "frmModificables"
         Me.Text = "Modificables"
         Me.ResumeLayout(False)
         Me.PerformLayout()

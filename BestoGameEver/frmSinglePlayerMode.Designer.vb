@@ -23,6 +23,7 @@ Partial Class frmSinglePlayerMode
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmSinglePlayerMode))
         Me.Movimiento_Principal = New System.Windows.Forms.Timer(Me.components)
         Me.pnlPiso = New System.Windows.Forms.Panel()
         Me.Anim_Idle_Principal = New System.Windows.Forms.Timer(Me.components)
@@ -591,6 +592,7 @@ Partial Class frmSinglePlayerMode
         Me.Controls.Add(Me.pbNumeroEstrellas)
         Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmSinglePlayerMode"
         Me.Text = "SinglePlayerMode"
         Me.TransparencyKey = System.Drawing.Color.Gray
