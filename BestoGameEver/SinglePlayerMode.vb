@@ -247,13 +247,23 @@
                     notificar("Velocidad jugador enlentecido 10%")
 
                 Case 4
-                    Movimiento_Enemigo.Dispose()
-                    Anim_Movimiento_Enemigo.Dispose()
-                    notificar("Enemigos congelados")
+                    If Movimiento_Enemigo.Enabled = True Then
+                        Movimiento_Enemigo.Dispose()
+                        Anim_Movimiento_Enemigo.Dispose()
+                        notificar("Enemigos congelados")
+                    Else
+                        notificar("Nada")
+                    End If
+
                 Case 5
-                    Movimiento_Enemigo.Start()
-                    Anim_Movimiento_Enemigo.Start()
-                    notificar("Enemigos descongelados")
+                    If Movimiento_Enemigo.Enabled = False Then
+                        Movimiento_Enemigo.Start()
+                        Anim_Movimiento_Enemigo.Start()
+                        notificar("Enemigos descongelados")
+                    Else
+                        notificar("Nada")
+                    End If
+                    
                 Case 6
                     If Movimiento_Principal.Interval >= 5 Then
                         Movimiento_Principal.Interval -= 4
@@ -267,7 +277,7 @@
                 Case 8
                     If Movimiento_Bala.Interval >= 5 Then
                         Movimiento_Bala.Interval -= 4
-                        notificar("Velocidad Bala 4 mas rapido")
+                        notificar("Velocidad Bala 4% mas rápido")
                     Else
                         notificar("Nada")
                     End If

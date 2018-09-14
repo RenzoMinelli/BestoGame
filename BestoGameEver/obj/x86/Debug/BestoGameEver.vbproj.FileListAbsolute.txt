@@ -70,7 +70,6 @@ C:\Users\Renzo\Documents\GitHub\BestoGame\BestoGameEver\obj\x86\Debug\BestoGameE
 C:\Users\Renzo\Documents\GitHub\BestoGame\BestoGameEver\obj\x86\Debug\BestoGameEver.vbprojResolveAssemblyReference.cache
 C:\Users\Renzo\Documents\GitHub\BestoGame\BestoGameEver\obj\x86\Debug\ya_ni_se.MultiPlayerMode.resources
 C:\Users\Renzo\Documents\GitHub\BestoGame\BestoGameEver\obj\x86\Debug\ya_ni_se.SinglePlayerMode.resources
-C:\Users\Renzo\Documents\GitHub\BestoGame\BestoGameEver\obj\x86\Debug\ya_ni_se.inicio.resources
 C:\Users\Renzo\Documents\GitHub\BestoGame\BestoGameEver\obj\x86\Debug\ya_ni_se.MenuInicio.resources
 C:\Users\Renzo\Documents\GitHub\BestoGame\BestoGameEver\obj\x86\Debug\ya_ni_se.Resources.resources
 C:\Users\Renzo\Documents\GitHub\BestoGame\BestoGameEver\obj\x86\Debug\ya_ni_se.resultados.resources
@@ -83,3 +82,4 @@ C:\Users\Renzo\Documents\GitHub\BestoGame\BestoGameEver\bin\Debug\MySql.Data.dll
 C:\Users\Renzo\Documents\GitHub\BestoGame\BestoGameEver\bin\Debug\MySql.Data.xml
 C:\Users\Renzo\Documents\GitHub\proyecto\BestoGame\BestoGameEver\obj\x86\Debug\ya_ni_se.Notificacion.resources
 C:\Users\Renzo\Documents\GitHub\proyecto\BestoGame\BestoGameEver\obj\x86\Debug\ya_ni_se.Cambios.resources
+C:\Users\Renzo\Documents\GitHub\BestoGame\BestoGameEver\obj\x86\Debug\ya_ni_se.Cambios.resources

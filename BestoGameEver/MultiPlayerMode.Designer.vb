@@ -237,7 +237,7 @@ Partial Class MultiPlayerMode
         '
         'pnlPiso
         '
-        Me.pnlPiso.BackColor = System.Drawing.Color.Transparent
+        Me.pnlPiso.BackColor = System.Drawing.Color.Black
         Me.pnlPiso.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.kisspng_platform_game_two_dimensional_space_tile_2d_comput_platform_5ac036eb3e40a61
         Me.pnlPiso.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.pnlPiso.Location = New System.Drawing.Point(0, 560)

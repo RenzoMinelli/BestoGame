@@ -698,6 +698,7 @@ Public Class MultiPlayerMode
         noti.lblCambio.Text = "Jugador1: Flechas" + vbNewLine + "Jugador2: ASWD"
         noti.ShowDialog()
 
+        Me.Location = New Point(0, 0)
 
         Encontrar_Suelo_Principal.Start()
         Encontrar_Suelo_Principal_2.Start()
@@ -2332,8 +2333,8 @@ Public Class MultiPlayerMode
             If verificarVida = 0 Then
 
                 principal2.Location = New Point(-50, -50)
-                principal2.Dispose()
 
+                principal2.Dispose()
 
                 moviVertical2 = "dead"
                 verificarVida2 = 1
@@ -2437,7 +2438,10 @@ Public Class MultiPlayerMode
         If v = 0 Then
 
             If verificarVida2 = 0 Then
+
+                principal.Location = New Point(-50, -50)
                 principal1.Dispose()
+
                 verificarVida = 1
                 moviVertical = "dead"
 
