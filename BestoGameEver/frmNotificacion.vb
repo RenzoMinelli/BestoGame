@@ -1,4 +1,4 @@
-﻿Public Class Notificacion
+﻿Public Class frmNotificacion
 
 
     Private Sub btnContinuar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnContinuar.Click

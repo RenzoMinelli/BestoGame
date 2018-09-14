@@ -1,4 +1,4 @@
-﻿Public Class SinglePlayerMode
+﻿Public Class frmSinglePlayerMode
 
     '////////////////////////////////////PERSONALIZACION///////////////////////
     Public avanzar As Double = 5
@@ -45,7 +45,6 @@
 
     Dim listaVariables(,) As Integer
 
-    Dim principal As PictureBox
 
     Dim final As Integer = 0
 
@@ -53,14 +52,11 @@
 
     Dim puntos As Integer = 0
 
-    Dim x As Integer
-    Dim y As Integer
-
     Dim direc As Integer = 0
 
     Private Sub BestoGame_Disposed(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Disposed
-        resultados.Dispose()
-        MenuInicio.Show()
+        frmRanking.Dispose()
+        frmMenuInicio.Show()
     End Sub
 
 
@@ -213,11 +209,11 @@
     End Sub
 
     Private Sub Timer3_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Movimiento_Principal.Tick
-        If principal.Bounds.IntersectsWith(pbCosaR.Bounds) Then
 
-            pbCosaR.Visible = False
-            ubicarRandom()
-            pbCosaR.Visible = False
+        If principal.Location.X + principal.Width > pbCosaR.Location.X And principal.Location.X < pbCosaR.Location.X + pbCosaR.Width And principal.Location.Y + principal.Height > pbCosaR.Location.Y And principal.Location.Y < pbCosaR.Location.Y + pbCosaR.Height Then
+
+            pbCosaR.Location = New Point(-50, -50)
+            
 
             Randomize()
             Dim cosa = Int((9 * Rnd()) + 1)
@@ -236,7 +232,7 @@
                     Else
                         notificar("Nada")
                     End If
-                   
+
                 Case 2
                     Movimiento_Enemigo.Interval += 10
                     notificar("Velocidad Enemigos 10% mas lento")
@@ -263,7 +259,7 @@
                     Else
                         notificar("Nada")
                     End If
-                    
+
                 Case 6
                     If Movimiento_Principal.Interval >= 5 Then
                         Movimiento_Principal.Interval -= 4
@@ -272,7 +268,7 @@
                         notificar("Nada")
                     End If
                 Case 7
-                    Movimiento_Bala.Interval += 5
+                    Movimiento_Bala.Interval += 10
                     notificar(" Velocidad Bala 10% mas lento")
                 Case 8
                     If Movimiento_Bala.Interval >= 5 Then
@@ -442,16 +438,15 @@
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Me.Location = New Point(0, 0)
         pbBala.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-        pnlFinal = Panel9
-        principal = TransPicBox2
-        x = principal.Location.X
-        y = principal.Location.Y
 
+        pnlFinal = Panel9
+
+        
         'Inicio la animación Idle y muestro el menu de configuraciones
         'inicio.Show()
-        resultados.Show()
-        resultados.Location = New Point(Me.Location.X + Me.Width, Me.Location.Y)
-        resultados.actTabla()
+        frmRanking.Show()
+        frmRanking.Location = New Point(Me.Location.X + Me.Width, Me.Location.Y)
+        frmRanking.actTabla()
         ActVida(vida, 0)
         moviVertical = "0"
 
@@ -640,7 +635,7 @@
 
 
     Private Sub Timer1_Tick_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Encontrar_Suelo_Principal.Tick
-        
+
         Dim panelfinal As Control = principal 'el panelfinal es el personaje
         Dim dy As Integer = 1000
 
@@ -1112,13 +1107,13 @@
                 Consulta = "insert into resultados (nombre, fecha, hora, resultado) values ('" + nombre + "', '" + fecha + "', '" + hora + "','" + puntos.ToString + "');"
                 consultar()
 
-                resultados.actTabla()
+                frmRanking.actTabla()
 
                 MsgBox("Guardado", MsgBoxStyle.Information)
 
                 Me.Dispose()
-                MenuInicio.Show()
-                MenuInicio.actTabla()
+                frmMenuInicio.Show()
+                frmMenuInicio.actTabla()
 
             Catch ex As Exception
                 MsgBox("Error al guardar", MsgBoxStyle.Exclamation)
@@ -1200,7 +1195,7 @@
 
 
     Private Sub BestoGame_Move(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Move
-        resultados.Location = New Point(Me.Location.X + Me.Width, Me.Location.Y)
+        frmRanking.Location = New Point(Me.Location.X + Me.Width, Me.Location.Y)
     End Sub
 
     Private Sub Timer1_Tick_2(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Movimiento_Bala.Tick

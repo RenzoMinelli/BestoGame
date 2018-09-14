@@ -76,35 +76,35 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MultiPlayerMode.Designer.vb">
-      <DependentUpon>MultiPlayerMode.vb</DependentUpon>
+    <Compile Include="frmMultiPlayerMode.Designer.vb">
+      <DependentUpon>frmMultiPlayerMode.vb</DependentUpon>
     </Compile>
-    <Compile Include="MultiPlayerMode.vb">
+    <Compile Include="frmMultiPlayerMode.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Notificacion.Designer.vb">
-      <DependentUpon>Notificacion.vb</DependentUpon>
+    <Compile Include="frmNotificacion.Designer.vb">
+      <DependentUpon>frmNotificacion.vb</DependentUpon>
     </Compile>
-    <Compile Include="Notificacion.vb">
+    <Compile Include="frmNotificacion.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SinglePlayerMode.vb">
+    <Compile Include="frmSinglePlayerMode.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SinglePlayerMode.Designer.vb">
-      <DependentUpon>SinglePlayerMode.vb</DependentUpon>
+    <Compile Include="frmSinglePlayerMode.Designer.vb">
+      <DependentUpon>frmSinglePlayerMode.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MenuInicio.Designer.vb">
-      <DependentUpon>MenuInicio.vb</DependentUpon>
+    <Compile Include="frmMenuInicio.Designer.vb">
+      <DependentUpon>frmMenuInicio.vb</DependentUpon>
     </Compile>
-    <Compile Include="MenuInicio.vb">
+    <Compile Include="frmMenuInicio.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Cambios.Designer.vb">
-      <DependentUpon>Cambios.vb</DependentUpon>
+    <Compile Include="frmModificables.Designer.vb">
+      <DependentUpon>frmModificables.vb</DependentUpon>
     </Compile>
-    <Compile Include="Cambios.vb">
+    <Compile Include="frmModificables.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Module1.vb" />
@@ -126,28 +126,28 @@
     <Compile Include="PictureBoxTransparente.vb">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="resultados.Designer.vb">
-      <DependentUpon>resultados.vb</DependentUpon>
+    <Compile Include="frmRanking.Designer.vb">
+      <DependentUpon>frmRanking.vb</DependentUpon>
     </Compile>
-    <Compile Include="resultados.vb">
+    <Compile Include="frmRanking.vb">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="MultiPlayerMode.resx">
-      <DependentUpon>MultiPlayerMode.vb</DependentUpon>
+    <EmbeddedResource Include="frmMultiPlayerMode.resx">
+      <DependentUpon>frmMultiPlayerMode.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Notificacion.resx">
-      <DependentUpon>Notificacion.vb</DependentUpon>
+    <EmbeddedResource Include="frmNotificacion.resx">
+      <DependentUpon>frmNotificacion.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SinglePlayerMode.resx">
-      <DependentUpon>SinglePlayerMode.vb</DependentUpon>
+    <EmbeddedResource Include="frmSinglePlayerMode.resx">
+      <DependentUpon>frmSinglePlayerMode.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Cambios.resx">
-      <DependentUpon>Cambios.vb</DependentUpon>
+    <EmbeddedResource Include="frmModificables.resx">
+      <DependentUpon>frmModificables.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MenuInicio.resx">
-      <DependentUpon>MenuInicio.vb</DependentUpon>
+    <EmbeddedResource Include="frmMenuInicio.resx">
+      <DependentUpon>frmMenuInicio.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -155,8 +155,8 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="resultados.resx">
-      <DependentUpon>resultados.vb</DependentUpon>
+    <EmbeddedResource Include="frmRanking.resx">
+      <DependentUpon>frmRanking.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

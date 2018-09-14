@@ -60,10 +60,6 @@ C:\Users\Matias\Documents\GitHub\BestoGame\BestoGameEver\obj\x86\Debug\ya_ni_se.
 C:\Users\Matias\Documents\GitHub\BestoGame\BestoGameEver\obj\x86\Debug\BestoGameEver.vbproj.GenerateResource.Cache
 C:\Users\nicol\Documents\GitHub\BestoGame\BestoGameEver\obj\x86\Debug\ya_ni_se.BestoGame.resources
 C:\Users\Renzo\Documents\GitHub\proyecto\BestoGame\BestoGameEver\obj\x86\Debug\BestoGameEver.vbprojResolveAssemblyReference.cache
-C:\Users\Renzo\Documents\GitHub\proyecto\BestoGame\BestoGameEver\obj\x86\Debug\ya_ni_se.resultados.resources
-C:\Users\Renzo\Documents\GitHub\proyecto\BestoGame\BestoGameEver\obj\x86\Debug\ya_ni_se.MenuInicio.resources
-C:\Users\Renzo\Documents\GitHub\proyecto\BestoGame\BestoGameEver\obj\x86\Debug\ya_ni_se.MultiPlayerMode.resources
-C:\Users\Renzo\Documents\GitHub\proyecto\BestoGame\BestoGameEver\obj\x86\Debug\ya_ni_se.SinglePlayerMode.resources
 C:\Users\Renzo\Documents\GitHub\BestoGame\BestoGameEver\obj\x86\Debug\BestoGameEver.exe
 C:\Users\Renzo\Documents\GitHub\BestoGame\BestoGameEver\obj\x86\Debug\BestoGameEver.xml
 C:\Users\Renzo\Documents\GitHub\BestoGame\BestoGameEver\obj\x86\Debug\BestoGameEver.pdb
@@ -80,6 +76,10 @@ C:\Users\Renzo\Documents\GitHub\BestoGame\BestoGameEver\bin\Debug\BestoGameEver.
 C:\Users\Renzo\Documents\GitHub\BestoGame\BestoGameEver\bin\Debug\BestoGameEver.xml
 C:\Users\Renzo\Documents\GitHub\BestoGame\BestoGameEver\bin\Debug\MySql.Data.dll
 C:\Users\Renzo\Documents\GitHub\BestoGame\BestoGameEver\bin\Debug\MySql.Data.xml
-C:\Users\Renzo\Documents\GitHub\proyecto\BestoGame\BestoGameEver\obj\x86\Debug\ya_ni_se.Notificacion.resources
-C:\Users\Renzo\Documents\GitHub\proyecto\BestoGame\BestoGameEver\obj\x86\Debug\ya_ni_se.Cambios.resources
 C:\Users\Renzo\Documents\GitHub\BestoGame\BestoGameEver\obj\x86\Debug\ya_ni_se.Cambios.resources
+C:\Users\Renzo\Documents\GitHub\proyecto\BestoGame\BestoGameEver\obj\x86\Debug\ya_ni_se.frmMultiPlayerMode.resources
+C:\Users\Renzo\Documents\GitHub\proyecto\BestoGame\BestoGameEver\obj\x86\Debug\ya_ni_se.frmNotificacion.resources
+C:\Users\Renzo\Documents\GitHub\proyecto\BestoGame\BestoGameEver\obj\x86\Debug\ya_ni_se.frmSinglePlayerMode.resources
+C:\Users\Renzo\Documents\GitHub\proyecto\BestoGame\BestoGameEver\obj\x86\Debug\ya_ni_se.frmModificables.resources
+C:\Users\Renzo\Documents\GitHub\proyecto\BestoGame\BestoGameEver\obj\x86\Debug\ya_ni_se.frmMenuInicio.resources
+C:\Users\Renzo\Documents\GitHub\proyecto\BestoGame\BestoGameEver\obj\x86\Debug\ya_ni_se.frmRanking.resources

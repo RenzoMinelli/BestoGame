@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class MultiPlayerMode
+Partial Class frmMultiPlayerMode
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -60,6 +60,7 @@ Partial Class MultiPlayerMode
         Me.pnlVida2 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.TransPicBox2 = New ya_ni_se.TransPicBox()
         Me.pbNumeroEstrella2 = New ya_ni_se.TransPicBox()
         Me.principal2 = New ya_ni_se.TransPicBox()
         Me.TransPicBox9 = New ya_ni_se.TransPicBox()
@@ -71,6 +72,7 @@ Partial Class MultiPlayerMode
         Me.TransPicBox1 = New ya_ni_se.TransPicBox()
         Me.estrella = New ya_ni_se.TransPicBox()
         Me.pbNumeroEstrellas = New ya_ni_se.TransPicBox()
+        CType(Me.TransPicBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pbNumeroEstrella2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.principal2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TransPicBox9, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -389,6 +391,19 @@ Partial Class MultiPlayerMode
         Me.Label2.TabIndex = 88
         Me.Label2.Text = "JUGADOR 2"
         '
+        'TransPicBox2
+        '
+        Me.TransPicBox2.BackColor = System.Drawing.Color.Transparent
+        Me.TransPicBox2.ErrorImage = Nothing
+        Me.TransPicBox2.Image = Global.ya_ni_se.My.Resources.Resources.ave__8_
+        Me.TransPicBox2.InitialImage = Nothing
+        Me.TransPicBox2.Location = New System.Drawing.Point(580, 55)
+        Me.TransPicBox2.Name = "TransPicBox2"
+        Me.TransPicBox2.Size = New System.Drawing.Size(55, 53)
+        Me.TransPicBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.TransPicBox2.TabIndex = 89
+        Me.TransPicBox2.TabStop = False
+        '
         'pbNumeroEstrella2
         '
         Me.pbNumeroEstrella2.BackColor = System.Drawing.Color.Transparent
@@ -421,7 +436,7 @@ Partial Class MultiPlayerMode
         Me.TransPicBox9.ErrorImage = Nothing
         Me.TransPicBox9.Image = Global.ya_ni_se.My.Resources.Resources.ave__8_
         Me.TransPicBox9.InitialImage = Nothing
-        Me.TransPicBox9.Location = New System.Drawing.Point(724, 170)
+        Me.TransPicBox9.Location = New System.Drawing.Point(402, 170)
         Me.TransPicBox9.Name = "TransPicBox9"
         Me.TransPicBox9.Size = New System.Drawing.Size(55, 53)
         Me.TransPicBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -434,7 +449,7 @@ Partial Class MultiPlayerMode
         Me.TransPicBox5.ErrorImage = Nothing
         Me.TransPicBox5.Image = Global.ya_ni_se.My.Resources.Resources.ave__8_
         Me.TransPicBox5.InitialImage = Nothing
-        Me.TransPicBox5.Location = New System.Drawing.Point(1092, 386)
+        Me.TransPicBox5.Location = New System.Drawing.Point(1052, 386)
         Me.TransPicBox5.Name = "TransPicBox5"
         Me.TransPicBox5.Size = New System.Drawing.Size(55, 53)
         Me.TransPicBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -473,7 +488,7 @@ Partial Class MultiPlayerMode
         Me.TransPicBox7.ErrorImage = Nothing
         Me.TransPicBox7.Image = Nothing
         Me.TransPicBox7.InitialImage = Nothing
-        Me.TransPicBox7.Location = New System.Drawing.Point(1068, 170)
+        Me.TransPicBox7.Location = New System.Drawing.Point(1047, 171)
         Me.TransPicBox7.Name = "TransPicBox7"
         Me.TransPicBox7.Size = New System.Drawing.Size(55, 53)
         Me.TransPicBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -499,7 +514,7 @@ Partial Class MultiPlayerMode
         Me.TransPicBox1.ErrorImage = Nothing
         Me.TransPicBox1.Image = Global.ya_ni_se.My.Resources.Resources.ave__1_
         Me.TransPicBox1.InitialImage = Nothing
-        Me.TransPicBox1.Location = New System.Drawing.Point(117, 507)
+        Me.TransPicBox1.Location = New System.Drawing.Point(117, 506)
         Me.TransPicBox1.Name = "TransPicBox1"
         Me.TransPicBox1.Size = New System.Drawing.Size(56, 53)
         Me.TransPicBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -532,13 +547,14 @@ Partial Class MultiPlayerMode
         Me.pbNumeroEstrellas.TabIndex = 74
         Me.pbNumeroEstrellas.TabStop = False
         '
-        'MultiPlayerMode
+        'frmMultiPlayerMode
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1213, 669)
+        Me.Controls.Add(Me.TransPicBox2)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.lblNumeroEstrella2)
@@ -578,8 +594,9 @@ Partial Class MultiPlayerMode
         Me.Controls.Add(Me.Panel11)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel2)
-        Me.Name = "MultiPlayerMode"
+        Me.Name = "frmMultiPlayerMode"
         Me.Text = "MultiPlayerMode"
+        CType(Me.TransPicBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.pbNumeroEstrella2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.principal2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TransPicBox9, System.ComponentModel.ISupportInitialize).EndInit()
@@ -643,4 +660,5 @@ Partial Class MultiPlayerMode
     Friend WithEvents pbNumeroEstrella2 As ya_ni_se.TransPicBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents TransPicBox2 As ya_ni_se.TransPicBox
 End Class

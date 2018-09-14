@@ -1,5 +1,5 @@
 ﻿
-Public Class MultiPlayerMode
+Public Class frmMultiPlayerMode
 
 
     '////////////////////////////////////PERSONALIZACION///////////////////////
@@ -107,8 +107,8 @@ Public Class MultiPlayerMode
 
     Private Sub BestoGame_Disposed(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Disposed
         Me.Dispose()
-        resultados.Dispose()
-        MenuInicio.Show()
+        frmRanking.Dispose()
+        frmMenuInicio.Show()
     End Sub
 
 
@@ -255,7 +255,7 @@ Public Class MultiPlayerMode
                 End If
             End If
         End If
-       
+
     End Sub
 
 
@@ -694,8 +694,10 @@ Public Class MultiPlayerMode
 
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
-        Dim noti As New Notificacion
+        Dim noti As New frmNotificacion
         noti.lblCambio.Text = "Jugador1: Flechas" + vbNewLine + "Jugador2: ASWD"
+        noti.lblTitulo.Visible = True
+        noti.lblTitulo.Text = "Controles:"
         noti.ShowDialog()
 
         Me.Location = New Point(0, 0)
@@ -721,9 +723,9 @@ Public Class MultiPlayerMode
 
         'Inicio la animación Idle y muestro el menu de configuraciones
         'inicio.Show()
-        resultados.Show()
-        resultados.Location = New Point(Me.Location.X + Me.Width, Me.Location.Y)
-        resultados.actTabla()
+        frmRanking.Show()
+        frmRanking.Location = New Point(Me.Location.X + Me.Width, Me.Location.Y)
+        frmRanking.actTabla()
 
         ActVida(vida, 2)
         ActVida2(vida2, 2)
@@ -1198,7 +1200,8 @@ Public Class MultiPlayerMode
 
                         End If
 
-                    Else
+                    ElseIf Math.Abs(pb.Location.Y - principal.Location.Y) > 10 And Math.Abs(pb.Location.Y - principal2.Location.Y) > 10 Then
+
 
                         If listaVariables(indice, 2) <= 7 Then
 
@@ -1223,7 +1226,7 @@ Public Class MultiPlayerMode
 
                 End If
 
-                
+
 
             Catch ex As Exception
 
@@ -1238,7 +1241,7 @@ Public Class MultiPlayerMode
 
 
             Try
-                
+
 
                 If pb.Location.X > pnlInicio.Location.X + pnlInicio.Width And pb.Location.X + pb.Width < pnlFinal.Location.X Then
 
@@ -1458,7 +1461,7 @@ Public Class MultiPlayerMode
 
                             End Select
 
-                       
+
                         ElseIf Math.Abs(pb.Location.X - principal.Location.X) < 60 Or Math.Abs(pb.Location.X - principal2.Location.X) < 60 Then
 
                             If (Math.Abs(pb.Location.X - principal.Location.X)) < 60 Then
@@ -1872,7 +1875,7 @@ Public Class MultiPlayerMode
                                 End Select
 
                             End If
-                        ElseIf Math.Abs(pb.Location.X - principal.Location.X) < 400 Then
+                        ElseIf Math.Abs(pb.Location.X - principal.Location.X) > 400 Then
 
                             Select Case listaVariables(indice, 2)
 
@@ -2372,7 +2375,7 @@ Public Class MultiPlayerMode
                     Consulta = "insert into resultados (nombre, fecha, hora, resultado) values ('" + nombre + "', '" + fecha + "', '" + hora + "','" + puntos.ToString + "');"
                     consultar()
 
-                    resultados.actTabla()
+                    frmRanking.actTabla()
 
                     Try
                         Dim nombre2 As String = ""
@@ -2393,7 +2396,7 @@ Public Class MultiPlayerMode
                         Consulta = "insert into resultados (nombre, fecha, hora, resultado) values ('" + nombre2 + "', '" + fecha2 + "', '" + hora2 + "','" + puntos2.ToString + "');"
                         consultar()
 
-                        resultados.actTabla()
+                        frmRanking.actTabla()
 
                         MsgBox("Guardado", MsgBoxStyle.Information)
 
@@ -2423,7 +2426,7 @@ Public Class MultiPlayerMode
                 principal2.Image = My.Resources.hurt
                 principal2.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
             End If
-           
+
             Anim_Idle_Principal.Start()
 
         End If
@@ -2482,7 +2485,7 @@ Public Class MultiPlayerMode
                     Consulta = "insert into resultados (nombre, fecha, hora, resultado) values ('" + nombre + "', '" + fecha + "', '" + hora + "','" + puntos.ToString + "');"
                     consultar()
 
-                    resultados.actTabla()
+                    frmRanking.actTabla()
 
                     Try
                         Dim nombre2 As String = ""
@@ -2503,7 +2506,7 @@ Public Class MultiPlayerMode
                         Consulta = "insert into resultados (nombre, fecha, hora, resultado) values ('" + nombre2 + "', '" + fecha2 + "', '" + hora2 + "','" + puntos2.ToString + "');"
                         consultar()
 
-                        resultados.actTabla()
+                        frmRanking.actTabla()
 
                         MsgBox("Guardado", MsgBoxStyle.Information)
 
@@ -2522,7 +2525,7 @@ Public Class MultiPlayerMode
 
         ElseIf v = 100 Then
 
-           
+
             Anim_Idle_Principal.Start()
 
         Else
@@ -2535,7 +2538,7 @@ Public Class MultiPlayerMode
                 principal.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
             End If
 
-           
+
             Anim_Idle_Principal.Start()
         End If
 
@@ -2603,7 +2606,7 @@ Public Class MultiPlayerMode
 
 
     Private Sub BestoGame_Move(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Move
-        resultados.Location = New Point(Me.Location.X + Me.Width, Me.Location.Y)
+        frmRanking.Location = New Point(Me.Location.X + Me.Width, Me.Location.Y)
     End Sub
 
     Private Sub Timer1_Tick_2(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Movimiento_Bala.Tick

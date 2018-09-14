@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class SinglePlayerMode
+Partial Class frmSinglePlayerMode
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -61,7 +61,7 @@ Partial Class SinglePlayerMode
         Me.TransPicBox8 = New ya_ni_se.TransPicBox()
         Me.TransPicBox5 = New ya_ni_se.TransPicBox()
         Me.pbBala = New ya_ni_se.TransPicBox()
-        Me.TransPicBox2 = New ya_ni_se.TransPicBox()
+        Me.principal = New ya_ni_se.TransPicBox()
         Me.TransPicBox7 = New ya_ni_se.TransPicBox()
         Me.TransPicBox4 = New ya_ni_se.TransPicBox()
         Me.TransPicBox3 = New ya_ni_se.TransPicBox()
@@ -77,7 +77,7 @@ Partial Class SinglePlayerMode
         CType(Me.TransPicBox8, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TransPicBox5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pbBala, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TransPicBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.principal, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TransPicBox7, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TransPicBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TransPicBox3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -94,12 +94,12 @@ Partial Class SinglePlayerMode
         '
         'pnlPiso
         '
-        Me.pnlPiso.BackColor = System.Drawing.Color.Transparent
+        Me.pnlPiso.BackColor = System.Drawing.Color.Black
         Me.pnlPiso.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.kisspng_platform_game_two_dimensional_space_tile_2d_comput_platform_5ac036eb3e40a61
         Me.pnlPiso.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.pnlPiso.Location = New System.Drawing.Point(0, 562)
+        Me.pnlPiso.Location = New System.Drawing.Point(0, 570)
         Me.pnlPiso.Name = "pnlPiso"
-        Me.pnlPiso.Size = New System.Drawing.Size(1200, 62)
+        Me.pnlPiso.Size = New System.Drawing.Size(1223, 109)
         Me.pnlPiso.TabIndex = 1
         '
         'Anim_Idle_Principal
@@ -189,9 +189,9 @@ Partial Class SinglePlayerMode
         '
         Me.Panel9.BackColor = System.Drawing.Color.DarkOrange
         Me.Panel9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.Panel9.Location = New System.Drawing.Point(1193, -139)
+        Me.Panel9.Location = New System.Drawing.Point(1217, -139)
         Me.Panel9.Name = "Panel9"
-        Me.Panel9.Size = New System.Drawing.Size(10, 705)
+        Me.Panel9.Size = New System.Drawing.Size(40, 721)
         Me.Panel9.TabIndex = 8
         Me.Panel9.Visible = False
         '
@@ -210,7 +210,7 @@ Partial Class SinglePlayerMode
         Me.pnlInicio.BackColor = System.Drawing.Color.DarkOrange
         Me.pnlInicio.Location = New System.Drawing.Point(0, -139)
         Me.pnlInicio.Name = "pnlInicio"
-        Me.pnlInicio.Size = New System.Drawing.Size(10, 708)
+        Me.pnlInicio.Size = New System.Drawing.Size(10, 727)
         Me.pnlInicio.TabIndex = 3
         Me.pnlInicio.Visible = False
         '
@@ -357,7 +357,7 @@ Partial Class SinglePlayerMode
         Me.TransPicBox11.ErrorImage = Nothing
         Me.TransPicBox11.Image = Global.ya_ni_se.My.Resources.Resources.ave__8_
         Me.TransPicBox11.InitialImage = Nothing
-        Me.TransPicBox11.Location = New System.Drawing.Point(538, 48)
+        Me.TransPicBox11.Location = New System.Drawing.Point(538, 50)
         Me.TransPicBox11.Name = "TransPicBox11"
         Me.TransPicBox11.Size = New System.Drawing.Size(55, 53)
         Me.TransPicBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -383,7 +383,7 @@ Partial Class SinglePlayerMode
         Me.TransPicBox9.ErrorImage = Nothing
         Me.TransPicBox9.Image = Global.ya_ni_se.My.Resources.Resources.ave__8_
         Me.TransPicBox9.InitialImage = Nothing
-        Me.TransPicBox9.Location = New System.Drawing.Point(923, 48)
+        Me.TransPicBox9.Location = New System.Drawing.Point(923, 50)
         Me.TransPicBox9.Name = "TransPicBox9"
         Me.TransPicBox9.Size = New System.Drawing.Size(55, 53)
         Me.TransPicBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -396,7 +396,7 @@ Partial Class SinglePlayerMode
         Me.TransPicBox8.ErrorImage = Nothing
         Me.TransPicBox8.Image = Global.ya_ni_se.My.Resources.Resources.ave__1_
         Me.TransPicBox8.InitialImage = Nothing
-        Me.TransPicBox8.Location = New System.Drawing.Point(571, 504)
+        Me.TransPicBox8.Location = New System.Drawing.Point(571, 514)
         Me.TransPicBox8.Name = "TransPicBox8"
         Me.TransPicBox8.Size = New System.Drawing.Size(56, 53)
         Me.TransPicBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -429,18 +429,18 @@ Partial Class SinglePlayerMode
         Me.pbBala.TabIndex = 39
         Me.pbBala.TabStop = False
         '
-        'TransPicBox2
+        'principal
         '
-        Me.TransPicBox2.BackColor = System.Drawing.Color.Transparent
-        Me.TransPicBox2.ErrorImage = Nothing
-        Me.TransPicBox2.Image = Global.ya_ni_se.My.Resources.Resources._01
-        Me.TransPicBox2.InitialImage = Nothing
-        Me.TransPicBox2.Location = New System.Drawing.Point(1071, 504)
-        Me.TransPicBox2.Name = "TransPicBox2"
-        Me.TransPicBox2.Size = New System.Drawing.Size(49, 53)
-        Me.TransPicBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.TransPicBox2.TabIndex = 30
-        Me.TransPicBox2.TabStop = False
+        Me.principal.BackColor = System.Drawing.Color.Transparent
+        Me.principal.ErrorImage = Nothing
+        Me.principal.Image = Global.ya_ni_se.My.Resources.Resources._01
+        Me.principal.InitialImage = Nothing
+        Me.principal.Location = New System.Drawing.Point(1071, 504)
+        Me.principal.Name = "principal"
+        Me.principal.Size = New System.Drawing.Size(49, 53)
+        Me.principal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.principal.TabIndex = 30
+        Me.principal.TabStop = False
         '
         'TransPicBox7
         '
@@ -500,7 +500,7 @@ Partial Class SinglePlayerMode
         Me.TransPicBox1.ErrorImage = Nothing
         Me.TransPicBox1.Image = Global.ya_ni_se.My.Resources.Resources.ave__1_
         Me.TransPicBox1.InitialImage = Nothing
-        Me.TransPicBox1.Location = New System.Drawing.Point(112, 504)
+        Me.TransPicBox1.Location = New System.Drawing.Point(112, 513)
         Me.TransPicBox1.Name = "TransPicBox1"
         Me.TransPicBox1.Size = New System.Drawing.Size(56, 53)
         Me.TransPicBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -544,13 +544,13 @@ Partial Class SinglePlayerMode
         Me.lblPowerUp.Size = New System.Drawing.Size(0, 24)
         Me.lblPowerUp.TabIndex = 46
         '
-        'SinglePlayerMode
+        'frmSinglePlayerMode
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.fondito
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1200, 624)
+        Me.ClientSize = New System.Drawing.Size(1223, 679)
         Me.Controls.Add(Me.lblPowerUp)
         Me.Controls.Add(Me.pbCosaR)
         Me.Controls.Add(Me.TransPicBox11)
@@ -564,7 +564,7 @@ Partial Class SinglePlayerMode
         Me.Controls.Add(Me.TransPicBox5)
         Me.Controls.Add(Me.pbBala)
         Me.Controls.Add(Me.lblPuntos)
-        Me.Controls.Add(Me.TransPicBox2)
+        Me.Controls.Add(Me.principal)
         Me.Controls.Add(Me.TransPicBox7)
         Me.Controls.Add(Me.TransPicBox4)
         Me.Controls.Add(Me.TransPicBox3)
@@ -591,8 +591,8 @@ Partial Class SinglePlayerMode
         Me.Controls.Add(Me.pbNumeroEstrellas)
         Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
-        Me.Name = "SinglePlayerMode"
-        Me.Text = "BestoGame"
+        Me.Name = "frmSinglePlayerMode"
+        Me.Text = "SinglePlayerMode"
         Me.TransparencyKey = System.Drawing.Color.Gray
         CType(Me.pbCosaR, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TransPicBox11, System.ComponentModel.ISupportInitialize).EndInit()
@@ -601,7 +601,7 @@ Partial Class SinglePlayerMode
         CType(Me.TransPicBox8, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TransPicBox5, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.pbBala, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TransPicBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.principal, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TransPicBox7, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TransPicBox4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TransPicBox3, System.ComponentModel.ISupportInitialize).EndInit()
@@ -627,7 +627,7 @@ Partial Class SinglePlayerMode
     Friend WithEvents lblVida As System.Windows.Forms.Label
     Friend WithEvents TransPicBox1 As ya_ni_se.TransPicBox
     Friend WithEvents lblFinal As System.Windows.Forms.Label
-    Friend WithEvents TransPicBox2 As ya_ni_se.TransPicBox
+    Friend WithEvents principal As ya_ni_se.TransPicBox
     Friend WithEvents TransPicBox3 As ya_ni_se.TransPicBox
     Friend WithEvents TransPicBox4 As ya_ni_se.TransPicBox
     Friend WithEvents Panel9 As System.Windows.Forms.Panel
