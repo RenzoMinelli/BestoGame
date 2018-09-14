@@ -721,8 +721,7 @@ Public Class frmMultiPlayerMode
         x = principal.Location.X
         y = principal.Location.Y
 
-        'Inicio la animación Idle y muestro el menu de configuraciones
-        'inicio.Show()
+      
         frmRanking.Show()
         frmRanking.Location = New Point(Me.Location.X + Me.Width, Me.Location.Y)
         frmRanking.actTabla()

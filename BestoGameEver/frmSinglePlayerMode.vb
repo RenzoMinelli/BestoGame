@@ -441,13 +441,13 @@
 
         pnlFinal = Panel9
 
-        
-        'Inicio la animación Idle y muestro el menu de configuraciones
-        'inicio.Show()
+       
         frmRanking.Show()
         frmRanking.Location = New Point(Me.Location.X + Me.Width, Me.Location.Y)
         frmRanking.actTabla()
+
         ActVida(vida, 0)
+
         moviVertical = "0"
 
         Dim cont As Integer = 0
