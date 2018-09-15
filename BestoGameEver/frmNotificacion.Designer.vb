@@ -31,7 +31,7 @@ Partial Class frmNotificacion
         '
         Me.lblCambio.AutoSize = True
         Me.lblCambio.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCambio.Location = New System.Drawing.Point(12, 61)
+        Me.lblCambio.Location = New System.Drawing.Point(71, 60)
         Me.lblCambio.Name = "lblCambio"
         Me.lblCambio.Size = New System.Drawing.Size(77, 25)
         Me.lblCambio.TabIndex = 0
@@ -58,7 +58,7 @@ Partial Class frmNotificacion
         Me.lblTitulo.Text = "Label1"
         Me.lblTitulo.Visible = False
         '
-        'Notificacion
+        'frmNotificacion
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -67,7 +67,7 @@ Partial Class frmNotificacion
         Me.Controls.Add(Me.btnContinuar)
         Me.Controls.Add(Me.lblCambio)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Name = "Notificacion"
+        Me.Name = "frmNotificacion"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Notificacion"
         Me.ResumeLayout(False)

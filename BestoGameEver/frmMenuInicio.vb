@@ -5,6 +5,7 @@
     End Sub
     Public Sub actTabla()
         Try
+            dgvRanking.RowCount = 0
             Consulta = "select nombre as 'Nombre', resultado as 'Puntaje' from resultados order by 2 desc;"
             consultar()
             dgvAuxiliar.DataSource = Tabla

@@ -110,6 +110,7 @@ Public Class frmMultiPlayerMode
         frmRanking.Dispose()
         frmMenuInicio.Show()
         frmMenuInicio.actTabla()
+
     End Sub
 
 
@@ -704,7 +705,7 @@ Public Class frmMultiPlayerMode
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
         Dim noti As New frmNotificacion
-        noti.lblCambio.Text = "Jugador1: Flechas" + vbNewLine + "Jugador2: ASWD"
+        noti.lblCambio.Text = "JUGADOR 1: Flechas" + vbNewLine + "JUGADOR 2: ASWD"
         noti.lblTitulo.Visible = True
         noti.lblTitulo.Text = "Controles:"
         noti.ShowDialog()
