@@ -15,7 +15,7 @@
             dgvRanking.Columns(2).HeaderText = "Puntaje"
             For x = 0 To dgvAuxiliar.RowCount - 1
 
-                dgvRanking.Rows.Add((x + 1).ToString, dgvAuxiliar.Rows(x).Cells(0).Value, dgvAuxiliar.Rows(x).Cells(1).Value)
+                dgvRanking.Rows.Add((x + 1).ToString + "°", dgvAuxiliar.Rows(x).Cells(0).Value, dgvAuxiliar.Rows(x).Cells(1).Value)
 
             Next
         Catch ex As Exception

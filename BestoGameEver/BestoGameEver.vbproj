@@ -603,6 +603,19 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ane-gameservices-icon.ico" />
+    <None Include="Resources\saltar.png" />
+    <None Include="Resources\idle5.png" />
+    <None Include="Resources\idle4.png" />
+    <None Include="Resources\idle3.png" />
+    <None Include="Resources\idle2.png" />
+    <None Include="Resources\idle1.png" />
+    <None Include="Resources\hurt1.png" />
+    <None Include="Resources\correr5.png" />
+    <None Include="Resources\correr4.png" />
+    <None Include="Resources\correr3.png" />
+    <None Include="Resources\correr2.png" />
+    <None Include="Resources\correr1.png" />
+    <None Include="Resources\caer2.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">

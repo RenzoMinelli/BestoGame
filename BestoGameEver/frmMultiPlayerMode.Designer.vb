@@ -24,10 +24,6 @@ Partial Class frmMultiPlayerMode
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMultiPlayerMode))
-        Me.Panel15 = New System.Windows.Forms.Panel()
-        Me.Panel12 = New System.Windows.Forms.Panel()
-        Me.Panel7 = New System.Windows.Forms.Panel()
-        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Movimiento_Bala = New System.Windows.Forms.Timer(Me.components)
         Me.lblPuntos = New System.Windows.Forms.Label()
         Me.Panel9 = New System.Windows.Forms.Panel()
@@ -38,27 +34,31 @@ Partial Class frmMultiPlayerMode
         Me.pnlInicio = New System.Windows.Forms.Panel()
         Me.Anim_Movimiento_Principal = New System.Windows.Forms.Timer(Me.components)
         Me.Encontrar_Suelo_Principal = New System.Windows.Forms.Timer(Me.components)
-        Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.Panel6 = New System.Windows.Forms.Panel()
         Me.Movimiento_Principal = New System.Windows.Forms.Timer(Me.components)
         Me.Anim_Idle_Principal = New System.Windows.Forms.Timer(Me.components)
         Me.Movimiento_Enemigo = New System.Windows.Forms.Timer(Me.components)
-        Me.pnlPiso = New System.Windows.Forms.Panel()
-        Me.Panel8 = New System.Windows.Forms.Panel()
-        Me.Panel5 = New System.Windows.Forms.Panel()
         Me.Anim_Movimiento_Enemigo = New System.Windows.Forms.Timer(Me.components)
-        Me.Panel10 = New System.Windows.Forms.Panel()
-        Me.Panel14 = New System.Windows.Forms.Panel()
-        Me.Panel13 = New System.Windows.Forms.Panel()
-        Me.Panel11 = New System.Windows.Forms.Panel()
-        Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.Panel2 = New System.Windows.Forms.Panel()
         Me.lblNumeroEstrella2 = New System.Windows.Forms.Label()
         Me.lblVida2 = New System.Windows.Forms.Label()
         Me.lblNumero2 = New System.Windows.Forms.Label()
         Me.pnlVida2 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.Panel15 = New System.Windows.Forms.Panel()
+        Me.Panel12 = New System.Windows.Forms.Panel()
+        Me.Panel7 = New System.Windows.Forms.Panel()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.Panel6 = New System.Windows.Forms.Panel()
+        Me.pnlPiso = New System.Windows.Forms.Panel()
+        Me.Panel8 = New System.Windows.Forms.Panel()
+        Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.Panel10 = New System.Windows.Forms.Panel()
+        Me.Panel14 = New System.Windows.Forms.Panel()
+        Me.Panel13 = New System.Windows.Forms.Panel()
+        Me.Panel11 = New System.Windows.Forms.Panel()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Panel2 = New System.Windows.Forms.Panel()
         Me.TransPicBox2 = New ya_ni_se.TransPicBox()
         Me.pbNumeroEstrella2 = New ya_ni_se.TransPicBox()
         Me.principal2 = New ya_ni_se.TransPicBox()
@@ -84,42 +84,6 @@ Partial Class frmMultiPlayerMode
         CType(Me.estrella, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pbNumeroEstrellas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'Panel15
-        '
-        Me.Panel15.BackColor = System.Drawing.Color.SaddleBrown
-        Me.Panel15.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.plataforma
-        Me.Panel15.Location = New System.Drawing.Point(36, 227)
-        Me.Panel15.Name = "Panel15"
-        Me.Panel15.Size = New System.Drawing.Size(108, 30)
-        Me.Panel15.TabIndex = 51
-        '
-        'Panel12
-        '
-        Me.Panel12.BackColor = System.Drawing.Color.SaddleBrown
-        Me.Panel12.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.plataforma
-        Me.Panel12.Location = New System.Drawing.Point(203, 110)
-        Me.Panel12.Name = "Panel12"
-        Me.Panel12.Size = New System.Drawing.Size(108, 30)
-        Me.Panel12.TabIndex = 61
-        '
-        'Panel7
-        '
-        Me.Panel7.BackColor = System.Drawing.Color.SaddleBrown
-        Me.Panel7.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.plataforma
-        Me.Panel7.Location = New System.Drawing.Point(893, 110)
-        Me.Panel7.Name = "Panel7"
-        Me.Panel7.Size = New System.Drawing.Size(108, 30)
-        Me.Panel7.TabIndex = 62
-        '
-        'Panel1
-        '
-        Me.Panel1.BackColor = System.Drawing.Color.SaddleBrown
-        Me.Panel1.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.plataforma
-        Me.Panel1.Location = New System.Drawing.Point(552, 110)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(108, 30)
-        Me.Panel1.TabIndex = 59
         '
         'Movimiento_Bala
         '
@@ -203,24 +167,6 @@ Partial Class frmMultiPlayerMode
         '
         Me.Encontrar_Suelo_Principal.Interval = 1
         '
-        'Panel4
-        '
-        Me.Panel4.BackColor = System.Drawing.Color.SaddleBrown
-        Me.Panel4.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.plataforma
-        Me.Panel4.Location = New System.Drawing.Point(371, 443)
-        Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(108, 30)
-        Me.Panel4.TabIndex = 47
-        '
-        'Panel6
-        '
-        Me.Panel6.BackColor = System.Drawing.Color.SaddleBrown
-        Me.Panel6.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.plataforma
-        Me.Panel6.Location = New System.Drawing.Point(203, 342)
-        Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(108, 28)
-        Me.Panel6.TabIndex = 48
-        '
         'Movimiento_Principal
         '
         Me.Movimiento_Principal.Interval = 1
@@ -233,92 +179,9 @@ Partial Class frmMultiPlayerMode
         '
         Me.Movimiento_Enemigo.Interval = 50
         '
-        'pnlPiso
-        '
-        Me.pnlPiso.BackColor = System.Drawing.Color.Black
-        Me.pnlPiso.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.plataforma
-        Me.pnlPiso.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.pnlPiso.Location = New System.Drawing.Point(0, 560)
-        Me.pnlPiso.Name = "pnlPiso"
-        Me.pnlPiso.Size = New System.Drawing.Size(1213, 109)
-        Me.pnlPiso.TabIndex = 45
-        '
-        'Panel8
-        '
-        Me.Panel8.BackColor = System.Drawing.Color.SaddleBrown
-        Me.Panel8.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.plataforma
-        Me.Panel8.Location = New System.Drawing.Point(1068, 441)
-        Me.Panel8.Name = "Panel8"
-        Me.Panel8.Size = New System.Drawing.Size(108, 30)
-        Me.Panel8.TabIndex = 54
-        '
-        'Panel5
-        '
-        Me.Panel5.BackColor = System.Drawing.Color.SaddleBrown
-        Me.Panel5.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.plataforma
-        Me.Panel5.Location = New System.Drawing.Point(893, 342)
-        Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(108, 30)
-        Me.Panel5.TabIndex = 56
-        '
         'Anim_Movimiento_Enemigo
         '
         Me.Anim_Movimiento_Enemigo.Interval = 120
-        '
-        'Panel10
-        '
-        Me.Panel10.BackColor = System.Drawing.Color.SaddleBrown
-        Me.Panel10.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.plataforma
-        Me.Panel10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.Panel10.Location = New System.Drawing.Point(34, 443)
-        Me.Panel10.Name = "Panel10"
-        Me.Panel10.Size = New System.Drawing.Size(108, 28)
-        Me.Panel10.TabIndex = 52
-        '
-        'Panel14
-        '
-        Me.Panel14.BackColor = System.Drawing.Color.SaddleBrown
-        Me.Panel14.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.plataforma
-        Me.Panel14.Location = New System.Drawing.Point(724, 443)
-        Me.Panel14.Name = "Panel14"
-        Me.Panel14.Size = New System.Drawing.Size(108, 30)
-        Me.Panel14.TabIndex = 53
-        '
-        'Panel13
-        '
-        Me.Panel13.BackColor = System.Drawing.Color.SaddleBrown
-        Me.Panel13.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.plataforma
-        Me.Panel13.Location = New System.Drawing.Point(552, 342)
-        Me.Panel13.Name = "Panel13"
-        Me.Panel13.Size = New System.Drawing.Size(108, 28)
-        Me.Panel13.TabIndex = 55
-        '
-        'Panel11
-        '
-        Me.Panel11.BackColor = System.Drawing.Color.SaddleBrown
-        Me.Panel11.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.plataforma
-        Me.Panel11.Location = New System.Drawing.Point(1068, 227)
-        Me.Panel11.Name = "Panel11"
-        Me.Panel11.Size = New System.Drawing.Size(108, 30)
-        Me.Panel11.TabIndex = 58
-        '
-        'Panel3
-        '
-        Me.Panel3.BackColor = System.Drawing.Color.SaddleBrown
-        Me.Panel3.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.plataforma
-        Me.Panel3.Location = New System.Drawing.Point(724, 227)
-        Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(108, 30)
-        Me.Panel3.TabIndex = 57
-        '
-        'Panel2
-        '
-        Me.Panel2.BackColor = System.Drawing.Color.SaddleBrown
-        Me.Panel2.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.plataforma
-        Me.Panel2.Location = New System.Drawing.Point(371, 227)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(108, 30)
-        Me.Panel2.TabIndex = 50
         '
         'lblNumeroEstrella2
         '
@@ -383,6 +246,143 @@ Partial Class frmMultiPlayerMode
         Me.Label2.TabIndex = 88
         Me.Label2.Text = "JUGADOR 2"
         '
+        'Panel15
+        '
+        Me.Panel15.BackColor = System.Drawing.Color.SaddleBrown
+        Me.Panel15.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.plataforma
+        Me.Panel15.Location = New System.Drawing.Point(36, 227)
+        Me.Panel15.Name = "Panel15"
+        Me.Panel15.Size = New System.Drawing.Size(108, 30)
+        Me.Panel15.TabIndex = 51
+        '
+        'Panel12
+        '
+        Me.Panel12.BackColor = System.Drawing.Color.SaddleBrown
+        Me.Panel12.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.plataforma
+        Me.Panel12.Location = New System.Drawing.Point(203, 110)
+        Me.Panel12.Name = "Panel12"
+        Me.Panel12.Size = New System.Drawing.Size(108, 30)
+        Me.Panel12.TabIndex = 61
+        '
+        'Panel7
+        '
+        Me.Panel7.BackColor = System.Drawing.Color.SaddleBrown
+        Me.Panel7.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.plataforma
+        Me.Panel7.Location = New System.Drawing.Point(893, 110)
+        Me.Panel7.Name = "Panel7"
+        Me.Panel7.Size = New System.Drawing.Size(108, 30)
+        Me.Panel7.TabIndex = 62
+        '
+        'Panel1
+        '
+        Me.Panel1.BackColor = System.Drawing.Color.SaddleBrown
+        Me.Panel1.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.plataforma
+        Me.Panel1.Location = New System.Drawing.Point(552, 110)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(108, 30)
+        Me.Panel1.TabIndex = 59
+        '
+        'Panel4
+        '
+        Me.Panel4.BackColor = System.Drawing.Color.SaddleBrown
+        Me.Panel4.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.plataforma
+        Me.Panel4.Location = New System.Drawing.Point(371, 443)
+        Me.Panel4.Name = "Panel4"
+        Me.Panel4.Size = New System.Drawing.Size(108, 30)
+        Me.Panel4.TabIndex = 47
+        '
+        'Panel6
+        '
+        Me.Panel6.BackColor = System.Drawing.Color.SaddleBrown
+        Me.Panel6.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.plataforma
+        Me.Panel6.Location = New System.Drawing.Point(203, 342)
+        Me.Panel6.Name = "Panel6"
+        Me.Panel6.Size = New System.Drawing.Size(108, 28)
+        Me.Panel6.TabIndex = 48
+        '
+        'pnlPiso
+        '
+        Me.pnlPiso.BackColor = System.Drawing.Color.Black
+        Me.pnlPiso.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.plataforma
+        Me.pnlPiso.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.pnlPiso.Location = New System.Drawing.Point(0, 560)
+        Me.pnlPiso.Name = "pnlPiso"
+        Me.pnlPiso.Size = New System.Drawing.Size(1213, 109)
+        Me.pnlPiso.TabIndex = 45
+        '
+        'Panel8
+        '
+        Me.Panel8.BackColor = System.Drawing.Color.SaddleBrown
+        Me.Panel8.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.plataforma
+        Me.Panel8.Location = New System.Drawing.Point(1068, 441)
+        Me.Panel8.Name = "Panel8"
+        Me.Panel8.Size = New System.Drawing.Size(108, 30)
+        Me.Panel8.TabIndex = 54
+        '
+        'Panel5
+        '
+        Me.Panel5.BackColor = System.Drawing.Color.SaddleBrown
+        Me.Panel5.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.plataforma
+        Me.Panel5.Location = New System.Drawing.Point(893, 342)
+        Me.Panel5.Name = "Panel5"
+        Me.Panel5.Size = New System.Drawing.Size(108, 30)
+        Me.Panel5.TabIndex = 56
+        '
+        'Panel10
+        '
+        Me.Panel10.BackColor = System.Drawing.Color.SaddleBrown
+        Me.Panel10.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.plataforma
+        Me.Panel10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.Panel10.Location = New System.Drawing.Point(34, 443)
+        Me.Panel10.Name = "Panel10"
+        Me.Panel10.Size = New System.Drawing.Size(108, 28)
+        Me.Panel10.TabIndex = 52
+        '
+        'Panel14
+        '
+        Me.Panel14.BackColor = System.Drawing.Color.SaddleBrown
+        Me.Panel14.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.plataforma
+        Me.Panel14.Location = New System.Drawing.Point(724, 443)
+        Me.Panel14.Name = "Panel14"
+        Me.Panel14.Size = New System.Drawing.Size(108, 30)
+        Me.Panel14.TabIndex = 53
+        '
+        'Panel13
+        '
+        Me.Panel13.BackColor = System.Drawing.Color.SaddleBrown
+        Me.Panel13.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.plataforma
+        Me.Panel13.Location = New System.Drawing.Point(552, 342)
+        Me.Panel13.Name = "Panel13"
+        Me.Panel13.Size = New System.Drawing.Size(108, 28)
+        Me.Panel13.TabIndex = 55
+        '
+        'Panel11
+        '
+        Me.Panel11.BackColor = System.Drawing.Color.SaddleBrown
+        Me.Panel11.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.plataforma
+        Me.Panel11.Location = New System.Drawing.Point(1068, 227)
+        Me.Panel11.Name = "Panel11"
+        Me.Panel11.Size = New System.Drawing.Size(108, 30)
+        Me.Panel11.TabIndex = 58
+        '
+        'Panel3
+        '
+        Me.Panel3.BackColor = System.Drawing.Color.SaddleBrown
+        Me.Panel3.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.plataforma
+        Me.Panel3.Location = New System.Drawing.Point(724, 227)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(108, 30)
+        Me.Panel3.TabIndex = 57
+        '
+        'Panel2
+        '
+        Me.Panel2.BackColor = System.Drawing.Color.SaddleBrown
+        Me.Panel2.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.plataforma
+        Me.Panel2.Location = New System.Drawing.Point(371, 227)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(108, 30)
+        Me.Panel2.TabIndex = 50
+        '
         'TransPicBox2
         '
         Me.TransPicBox2.BackColor = System.Drawing.Color.Transparent
@@ -413,7 +413,7 @@ Partial Class frmMultiPlayerMode
         '
         Me.principal2.BackColor = System.Drawing.Color.Transparent
         Me.principal2.ErrorImage = Nothing
-        Me.principal2.Image = Global.ya_ni_se.My.Resources.Resources.idle1
+        Me.principal2.Image = Global.ya_ni_se.My.Resources.Resources.idle11
         Me.principal2.InitialImage = Nothing
         Me.principal2.Location = New System.Drawing.Point(928, 507)
         Me.principal2.Name = "principal2"

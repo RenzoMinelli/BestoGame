@@ -8,14 +8,14 @@
     <framework targetVersion="4.0" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="BestoGameEver.exe.manifest" size="3845">
+    <dependentAssembly dependencyType="install" codebase="BestoGameEver.exe.manifest" size="3846">
       <assemblyIdentity name="BestoGameEver.exe" version="1.0.0.2" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="x86" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>Ee3/KYeBKZK18NzEyjcYTuUps84=</dsig:DigestValue>
+        <dsig:DigestValue>xQE5uXJQDVNCpJZYXsGsPQdT7wo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
