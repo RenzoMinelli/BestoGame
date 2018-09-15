@@ -15,95 +15,72 @@ Public Class frmMultiPlayerMode
 
     'Utilizo una copia de las variables para luego devolverlas al valor inicial
 
-
-    Dim pb As PictureBox
-
     Dim verificarVida As Integer = 0
     Dim verificarVida2 As Integer = 0
 
     '//////////////////////////////////////////////////Principal1/////////////////////////////////////////////////////////////////
 
     Dim avanzar2 As Double = avanzar
-    Dim acelereacion2 As Double = acelereacion
     Dim limvel2 As Double = limvel
     Dim salto2 As Double = salto
     Dim pixSubida2 As Double = pixSubida
-    Dim desasubida2 As Double = desasubida
     Dim caida2 As Double = caida
-    Dim acelcaida2 As Double = acelcaida
+
 
     Dim d As Integer = 0
     Dim a As Integer = 0
-
     Dim lado As Integer = 0
-
-    Dim pan As New Panel
-
     Dim cont As Integer = 0
-
     Dim stand As Integer = 0
     Dim foto As Integer = 0
-
     Dim idle As Integer = 0
+
+    Dim vida As Integer = 100
+    Dim puntos As Integer = 0
+
+    Dim pan As New Panel
 
     '0 equivale a caer y 1 a subir
     Dim moviVertical As String = ""
 
-    Dim vida As Double = 100
-
-    Dim puntos As Integer = 0
 
     '////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     '///////////////////////////////////////////////Principal2////////////////////////////////////////////////////////////
 
     Dim avanzar3 As Double = avanzar
-    Dim acelereacion3 As Double = acelereacion
     Dim limvel3 As Double = limvel
     Dim salto3 As Double = salto
     Dim pixSubida3 As Double = pixSubida
-    Dim desasubida3 As Double = desasubida
     Dim caida3 As Double = caida
-    Dim acelcaida3 As Double = acelcaida
 
     Dim d2 As Integer = 0
     Dim a2 As Integer = 0
-
     Dim lado2 As Integer = 0
-
     Dim cont2 As Integer = 0
-
     Dim stand2 As Integer = 0
     Dim foto2 As Integer = 0
-
     Dim idle2 As Integer = 0
+
+    Dim vida2 As Integer = 100
+    Dim puntos2 As Integer = 0
 
     Dim pan2 As New Panel
 
     '0 equivale a caer y 1 a subir
     Dim moviVertical2 As String = ""
 
-    Dim vida2 As Double = 100
-
-    Dim puntos2 As Integer = 0
 
     '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+    Dim pb As PictureBox
 
     Dim listaPB As List(Of PictureBox) = New List(Of PictureBox)
 
     Dim listaVariables(,) As Integer
 
-    Dim principal As PictureBox
-
-    Dim pnlFinal As Panel
-
-
     Dim direc As Integer = 0
-
-    Dim x As Integer
-    Dim y As Integer
-
-
 
     Private Sub BestoGame_Disposed(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Disposed
 
@@ -112,9 +89,6 @@ Public Class frmMultiPlayerMode
         frmMenuInicio.actTabla()
 
     End Sub
-
-
-
 
     Private Sub Form1_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyDown
 
@@ -144,7 +118,7 @@ Public Class frmMultiPlayerMode
             If e.KeyCode = Keys.Right Then
 
                 'Le cambio la imagen a la primera en movimineto para que al menos se muestre un cambio al precionar la tecla
-                If d = 0 And a = 0 And vida <> 0 Then
+                If d = 0 And a = 0 Then
 
                     principal.Image = My.Resources.correr5
                     principal.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
@@ -154,10 +128,8 @@ Public Class frmMultiPlayerMode
                 'Indico de que lado2 debe estar la animacion de correr (derecha)
                 lado = 1
 
-
                 'Levanto la bandera de movimiento a la izquierda e inicio el timer movimiento
                 d = 1
-
 
             End If
 
@@ -214,7 +186,7 @@ Public Class frmMultiPlayerMode
             If e.KeyCode = Keys.D Then
 
                 'Le cambio la imagen a la primera en movimineto para que al menos se muestre un cambio al precionar la tecla
-                If d2 = 0 And a2 = 0 And vida2 <> 0 Then
+                If d2 = 0 And a2 = 0 Then
 
                     principal2.Image = My.Resources.correr51
                     principal2.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
@@ -319,6 +291,7 @@ Public Class frmMultiPlayerMode
 
             End If
         End If
+
         If vida2 <> 0 Then
 
             'Al soltar la tecla A
@@ -380,7 +353,7 @@ Public Class frmMultiPlayerMode
     End Sub
 
 
-    Private Sub Timer3_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Movimiento_Principal.Tick
+    Private Sub Movimiento_Principal_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Movimiento_Principal.Tick
 
         If estrella.Location.X + estrella.Width - 10 > principal.Location.X And estrella.Location.X + 10 < principal.Location.X + principal.Width And estrella.Location.Y + estrella.Height - 10 > principal.Location.Y And estrella.Location.Y < principal.Location.Y + principal.Height - 10 Then
             ubicarEstrella()
@@ -413,7 +386,7 @@ Public Class frmMultiPlayerMode
 
                     'Restablecemos las variables a2 los valores iniciales
                     caida3 = caida
-                    acelcaida3 = acelcaida
+
 
                 End If
 
@@ -424,7 +397,7 @@ Public Class frmMultiPlayerMode
                     principal2.Location = New Point(principal2.Location.X, principal2.Location.Y + caida3)
 
                     'Le sumamos a2 la caida2 la aceleracion, de esta forma acelera mientras cae
-                    caida3 += acelcaida3
+                    caida3 += acelcaida
 
                     'De lo contrario, si la distancia del PictureBox sigue siendo inferior al suelo pero no lo suficiente para sumarle la caida
                 ElseIf principal2.Location.Y + principal2.Height <= pnlPiso.Location.Y Then
@@ -434,12 +407,11 @@ Public Class frmMultiPlayerMode
 
                     'Restablecemos las variables a2 los valores iniciales
                     caida3 = caida
-                    acelcaida3 = acelcaida
+
 
                     'Desactivo la animacion de bajada y el descenso. Además enciendo la animacion idle
 
                     moviVertical2 = ""
-
 
 
                 End If
@@ -452,15 +424,13 @@ Public Class frmMultiPlayerMode
                 If cont2 <= salto3 Then
 
                     'El PictureBox se eleva la cantidad que esta en pixSubida2
-                    principal2.Location = New Point(principal2.Location.X, principal2.Location.Y - pixSubida2)
+                    principal2.Location = New Point(principal2.Location.X, principal2.Location.Y - pixSubida3)
 
                     'Le sumo 1 al contador
                     cont2 += 1
 
                     'La subida debe ser cada vez mas lenta por la gravedad, por eso le resto
-                    pixSubida3 -= desasubida3
-
-
+                    pixSubida3 -= desasubida
 
                 Else
                     'Cuando el número de veces es alcanzado, se restablecen la variables al valor inicial
@@ -504,7 +474,7 @@ Public Class frmMultiPlayerMode
                 'Solo en el caso que el PictureBox no esté descendiendo, se acelerará el movimiento. Sino, solo será la inicial
                 If moviVertical2 = "" And avanzar3 <= limvel3 Then
 
-                    avanzar3 += acelereacion3
+                    avanzar3 += acelereacion
 
                 End If
 
@@ -514,12 +484,12 @@ Public Class frmMultiPlayerMode
 
 
                 'El PictureBox avanza lo que esta en la variable avanzar2
-                principal2.Location = New Point(principal2.Location.X - avanzar2, principal2.Location.Y)
+                principal2.Location = New Point(principal2.Location.X - avanzar3, principal2.Location.Y)
 
                 'Solo en el caso que el PictureBox no esté descendiendo, se acelerará el movimiento. Sino, solo será la inicial
-                If moviVertical2 = "" And avanzar2 <= limvel2 Then
+                If moviVertical2 = "" And avanzar3 <= limvel3 Then
 
-                    avanzar3 += acelereacion3
+                    avanzar3 += acelereacion
 
                 End If
 
@@ -565,7 +535,7 @@ Public Class frmMultiPlayerMode
 
                     'Restablecemos las variables a los valores iniciales
                     caida2 = caida
-                    acelcaida2 = acelcaida
+
 
                 End If
 
@@ -576,7 +546,7 @@ Public Class frmMultiPlayerMode
                     principal.Location = New Point(principal.Location.X, principal.Location.Y + caida2)
 
                     'Le sumamos a la caida2 la aceleracion, de esta forma acelera mientras cae
-                    caida2 += acelcaida2
+                    caida2 += acelcaida
 
                     'De lo contrario, si la distancia del PictureBox sigue siendo inferior al suelo pero no lo suficiente para sumarle la caida
                 ElseIf principal.Location.Y + principal.Height <= pnlPiso.Location.Y Then
@@ -586,7 +556,6 @@ Public Class frmMultiPlayerMode
 
                     'Restablecemos las variables a los valores iniciales
                     caida2 = caida
-                    acelcaida2 = acelcaida
 
                     'Desactivo la animacion de bajada y el descenso. Además enciendo la animacion idle
 
@@ -601,7 +570,7 @@ Public Class frmMultiPlayerMode
 
 
                 'Utilizo un contador para ver si se hicieron los movimientos verticales suficientes
-                If cont <= salto2 Then
+                If cont <= salto Then
 
                     'El PictureBox se eleva la cantidad que esta en pixSubida2
                     principal.Location = New Point(principal.Location.X, principal.Location.Y - pixSubida2)
@@ -610,7 +579,7 @@ Public Class frmMultiPlayerMode
                     cont += 1
 
                     'La subida debe ser cada vez mas lenta por la gravedad, por eso le resto
-                    pixSubida2 -= desasubida2
+                    pixSubida2 -= desasubida
 
 
 
@@ -656,7 +625,7 @@ Public Class frmMultiPlayerMode
                 'Solo en el caso que el PictureBox no esté descendiendo, se acelerará el movimiento. Sino, solo será la inicial
                 If moviVertical = "" And avanzar2 <= limvel2 Then
 
-                    avanzar2 += acelereacion2
+                    avanzar2 += acelereacion
 
                 End If
 
@@ -671,7 +640,7 @@ Public Class frmMultiPlayerMode
                 'Solo en el caso que el PictureBox no esté descendiendo, se acelerará el movimiento. Sino, solo será la inicial
                 If moviVertical = "" And avanzar2 <= limvel2 Then
 
-                    avanzar2 += acelereacion2
+                    avanzar2 += acelereacion
 
                 End If
 
@@ -726,11 +695,6 @@ Public Class frmMultiPlayerMode
         verificarVida2 = 0
 
         pbBala.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-        pnlFinal = Panel9
-        principal = principal1
-        x = principal.Location.X
-        y = principal.Location.Y
-
 
         frmRanking.Show()
         frmRanking.Location = New Point(Me.Location.X + Me.Width, Me.Location.Y)
@@ -774,7 +738,7 @@ Public Class frmMultiPlayerMode
     End Sub
 
 
-    Private Sub Idle_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Anim_Idle_Principal.Tick
+    Private Sub Anim_Idle_Principal_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Anim_Idle_Principal.Tick
         If ((a2 = 1 And d2 = 1) Or (a2 = 0 And d2 = 0)) And moviVertical2 = "" Then
             'En la variable lado2 se indica a que lado2 debe ver el PictureBox, 0 = izquierda,  1 = derecha
             If lado2 = 0 Then
@@ -882,7 +846,7 @@ Public Class frmMultiPlayerMode
 
 
 
-    Private Sub SaltoAnima_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Anim_Movimiento_Principal.Tick
+    Private Sub Anim_Movimiento_Principal_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Anim_Movimiento_Principal.Tick
         If a2 = 1 And d2 = 0 And moviVertical2 = "" Then
 
             'Utilizando la variable foto2 como contador, recorremos el select case una vuelta por tick.
@@ -991,6 +955,7 @@ Public Class frmMultiPlayerMode
                     foto = 0
 
             End Select
+
         ElseIf d = 1 And a = 0 And moviVertical = "" Then
 
             'Utilizando la variable foto como contador, recorremos el select case una vuelta por tick. Volteamos la imagen porque se mueve hacia adelante
@@ -1061,7 +1026,7 @@ Public Class frmMultiPlayerMode
 
 
 
-    Private Sub Timer1_Tick_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Encontrar_Suelo_Principal.Tick
+    Private Sub Encontrar_Suelo_Principal_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Encontrar_Suelo_Principal.Tick
 
         Dim panelfinal As Control = principal
         Dim panelfinal2 As Control = principal2
@@ -2480,7 +2445,7 @@ Public Class frmMultiPlayerMode
             If verificarVida2 = 0 Then
 
                 principal.Location = New Point(-50, -50)
-                principal1.Dispose()
+                principal.Dispose()
 
                 verificarVida = 1
                 moviVertical = "dead"
@@ -2632,7 +2597,7 @@ Public Class frmMultiPlayerMode
         frmRanking.Location = New Point(Me.Location.X + Me.Width, Me.Location.Y)
     End Sub
 
-    Private Sub Timer1_Tick_2(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Movimiento_Bala.Tick
+    Private Sub Movimiento_Bala_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Movimiento_Bala.Tick
 
         If pbBala.Location.X < pnlInicio.Location.X + pnlInicio.Width Then
 
@@ -2668,4 +2633,7 @@ Public Class frmMultiPlayerMode
 
  
 
+    Private Sub Movimiento_Principal_2_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs)
+
+    End Sub
 End Class

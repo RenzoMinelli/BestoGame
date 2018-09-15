@@ -26,7 +26,7 @@ Partial Class frmMultiPlayerMode
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMultiPlayerMode))
         Me.Movimiento_Bala = New System.Windows.Forms.Timer(Me.components)
         Me.lblPuntos = New System.Windows.Forms.Label()
-        Me.Panel9 = New System.Windows.Forms.Panel()
+        Me.pnlFinal = New System.Windows.Forms.Panel()
         Me.lblFinal = New System.Windows.Forms.Label()
         Me.lblVida = New System.Windows.Forms.Label()
         Me.lblNumero = New System.Windows.Forms.Label()
@@ -65,7 +65,7 @@ Partial Class frmMultiPlayerMode
         Me.TransPicBox9 = New ya_ni_se.TransPicBox()
         Me.TransPicBox5 = New ya_ni_se.TransPicBox()
         Me.pbBala = New ya_ni_se.TransPicBox()
-        Me.principal1 = New ya_ni_se.TransPicBox()
+        Me.principal = New ya_ni_se.TransPicBox()
         Me.TransPicBox7 = New ya_ni_se.TransPicBox()
         Me.TransPicBox3 = New ya_ni_se.TransPicBox()
         Me.TransPicBox1 = New ya_ni_se.TransPicBox()
@@ -77,7 +77,7 @@ Partial Class frmMultiPlayerMode
         CType(Me.TransPicBox9, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TransPicBox5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pbBala, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.principal1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.principal, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TransPicBox7, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TransPicBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TransPicBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -100,15 +100,15 @@ Partial Class frmMultiPlayerMode
         Me.lblPuntos.TabIndex = 73
         Me.lblPuntos.Text = ": 0"
         '
-        'Panel9
+        'pnlFinal
         '
-        Me.Panel9.BackColor = System.Drawing.Color.DarkOrange
-        Me.Panel9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.Panel9.Location = New System.Drawing.Point(1203, -136)
-        Me.Panel9.Name = "Panel9"
-        Me.Panel9.Size = New System.Drawing.Size(10, 705)
-        Me.Panel9.TabIndex = 49
-        Me.Panel9.Visible = False
+        Me.pnlFinal.BackColor = System.Drawing.Color.DarkOrange
+        Me.pnlFinal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.pnlFinal.Location = New System.Drawing.Point(1203, -136)
+        Me.pnlFinal.Name = "pnlFinal"
+        Me.pnlFinal.Size = New System.Drawing.Size(10, 705)
+        Me.pnlFinal.TabIndex = 49
+        Me.pnlFinal.Visible = False
         '
         'lblFinal
         '
@@ -461,18 +461,18 @@ Partial Class frmMultiPlayerMode
         Me.pbBala.TabIndex = 75
         Me.pbBala.TabStop = False
         '
-        'principal1
+        'principal
         '
-        Me.principal1.BackColor = System.Drawing.Color.Transparent
-        Me.principal1.ErrorImage = Nothing
-        Me.principal1.Image = Global.ya_ni_se.My.Resources.Resources.idle1
-        Me.principal1.InitialImage = Nothing
-        Me.principal1.Location = New System.Drawing.Point(1076, 507)
-        Me.principal1.Name = "principal1"
-        Me.principal1.Size = New System.Drawing.Size(49, 53)
-        Me.principal1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.principal1.TabIndex = 67
-        Me.principal1.TabStop = False
+        Me.principal.BackColor = System.Drawing.Color.Transparent
+        Me.principal.ErrorImage = Nothing
+        Me.principal.Image = Global.ya_ni_se.My.Resources.Resources.idle1
+        Me.principal.InitialImage = Nothing
+        Me.principal.Location = New System.Drawing.Point(1076, 507)
+        Me.principal.Name = "principal"
+        Me.principal.Size = New System.Drawing.Size(49, 53)
+        Me.principal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.principal.TabIndex = 67
+        Me.principal.TabStop = False
         '
         'TransPicBox7
         '
@@ -564,11 +564,11 @@ Partial Class frmMultiPlayerMode
         Me.Controls.Add(Me.TransPicBox5)
         Me.Controls.Add(Me.pbBala)
         Me.Controls.Add(Me.lblPuntos)
-        Me.Controls.Add(Me.principal1)
+        Me.Controls.Add(Me.principal)
         Me.Controls.Add(Me.TransPicBox7)
         Me.Controls.Add(Me.TransPicBox3)
         Me.Controls.Add(Me.TransPicBox1)
-        Me.Controls.Add(Me.Panel9)
+        Me.Controls.Add(Me.pnlFinal)
         Me.Controls.Add(Me.lblFinal)
         Me.Controls.Add(Me.lblVida)
         Me.Controls.Add(Me.lblNumero)
@@ -598,7 +598,7 @@ Partial Class frmMultiPlayerMode
         CType(Me.TransPicBox9, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TransPicBox5, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.pbBala, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.principal1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.principal, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TransPicBox7, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TransPicBox3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TransPicBox1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -617,11 +617,11 @@ Partial Class frmMultiPlayerMode
     Friend WithEvents TransPicBox5 As ya_ni_se.TransPicBox
     Friend WithEvents pbBala As ya_ni_se.TransPicBox
     Friend WithEvents lblPuntos As System.Windows.Forms.Label
-    Friend WithEvents principal1 As ya_ni_se.TransPicBox
+    Friend WithEvents principal As ya_ni_se.TransPicBox
     Friend WithEvents TransPicBox7 As ya_ni_se.TransPicBox
     Friend WithEvents TransPicBox3 As ya_ni_se.TransPicBox
     Friend WithEvents TransPicBox1 As ya_ni_se.TransPicBox
-    Friend WithEvents Panel9 As System.Windows.Forms.Panel
+    Friend WithEvents pnlFinal As System.Windows.Forms.Panel
     Friend WithEvents lblFinal As System.Windows.Forms.Label
     Friend WithEvents lblVida As System.Windows.Forms.Label
     Friend WithEvents lblNumero As System.Windows.Forms.Label
