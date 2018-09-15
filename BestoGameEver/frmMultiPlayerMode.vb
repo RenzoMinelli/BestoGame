@@ -376,17 +376,23 @@ Public Class frmMultiPlayerMode
         End If
 
 
-
     End Sub
 
-
-    Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs)
-
-
-
-    End Sub
 
     Private Sub Timer3_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Movimiento_Principal.Tick
+
+        If estrella.Location.X + estrella.Width - 10 > principal.Location.X And estrella.Location.X + 10 < principal.Location.X + principal.Width And estrella.Location.Y + estrella.Height - 10 > principal.Location.Y And estrella.Location.Y < principal.Location.Y + principal.Height - 10 Then
+            ubicarEstrella()
+            puntos += 1
+            lblPuntos.Text = ": " + puntos.ToString
+
+        ElseIf estrella.Location.X + estrella.Width - 10 > principal2.Location.X And estrella.Location.X + 10 < principal2.Location.X + principal2.Width And estrella.Location.Y + estrella.Height - 10 > principal2.Location.Y And estrella.Location.Y < principal2.Location.Y + principal2.Height - 10 Then
+            ubicarEstrella()
+            puntos2 += 1
+            lblNumeroEstrella2.Text = ": " + puntos2.ToString
+        End If
+
+
         '/////////////////////////////////////////////////////////// Movimiento Vertical /////////////////////////////////////////////////////////////////////////
         If moviVertical2 <> "" Then
 
@@ -690,16 +696,8 @@ Public Class frmMultiPlayerMode
 
             End If
         End If
-        If estrella.Location.X + estrella.Width - 10 > principal.Location.X And estrella.Location.X + 10 < principal.Location.X + principal.Width And estrella.Location.Y + estrella.Height - 10 > principal.Location.Y And estrella.Location.Y < principal.Location.Y + principal.Height - 10 Then
-            ubicarEstrella()
-            puntos += 1
-            lblPuntos.Text = ": " + puntos.ToString
 
-        ElseIf estrella.Location.X + estrella.Width - 10 > principal2.Location.X And estrella.Location.X + 10 < principal2.Location.X + principal2.Width And estrella.Location.Y + estrella.Height - 10 > principal2.Location.Y And estrella.Location.Y < principal2.Location.Y + principal2.Height - 10 Then
-            ubicarEstrella()
-            puntos2 += 1
-            lblNumeroEstrella2.Text = ": " + puntos2.ToString
-        End If
+
 
     End Sub
 
@@ -1500,9 +1498,9 @@ Public Class frmMultiPlayerMode
                             End Select
 
 
-                        ElseIf Math.Abs(pb.Location.X - principal.Location.X) < 60 Or Math.Abs(pb.Location.X - principal2.Location.X) < 60 Then
+                        ElseIf Math.Abs(pb.Location.X - principal.Location.X) <= 60 Or Math.Abs(pb.Location.X - principal2.Location.X) <= 60 Then
 
-                            If (Math.Abs(pb.Location.X - principal.Location.X)) < 60 Then
+                            If (Math.Abs(pb.Location.X - principal.Location.X)) <= 60 Then
 
 
                                 If pb.Location.X < principal.Location.X Then
@@ -1613,7 +1611,7 @@ Public Class frmMultiPlayerMode
 
                             End If
 
-                            If (Math.Abs(pb.Location.X - principal2.Location.X)) < 60 Then
+                            If (Math.Abs(pb.Location.X - principal2.Location.X)) <= 60 Then
 
 
                                 If pb.Location.X < principal2.Location.X Then
