@@ -95,7 +95,7 @@ Partial Class frmSinglePlayerMode
         'pnlPiso
         '
         Me.pnlPiso.BackColor = System.Drawing.Color.Black
-        Me.pnlPiso.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.kisspng_platform_game_two_dimensional_space_tile_2d_comput_platform_5ac036eb3e40a61
+        Me.pnlPiso.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.plataforma
         Me.pnlPiso.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.pnlPiso.Location = New System.Drawing.Point(0, 570)
         Me.pnlPiso.Name = "pnlPiso"
@@ -119,7 +119,7 @@ Partial Class frmSinglePlayerMode
         'Panel4
         '
         Me.Panel4.BackColor = System.Drawing.Color.SaddleBrown
-        Me.Panel4.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.kisspng_platform_game_two_dimensional_space_tile_2d_comput_platform_5ac036eb3e40a61
+        Me.Panel4.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.plataforma
         Me.Panel4.Location = New System.Drawing.Point(366, 440)
         Me.Panel4.Name = "Panel4"
         Me.Panel4.Size = New System.Drawing.Size(108, 30)
@@ -128,7 +128,7 @@ Partial Class frmSinglePlayerMode
         'Panel6
         '
         Me.Panel6.BackColor = System.Drawing.Color.SaddleBrown
-        Me.Panel6.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.kisspng_platform_game_two_dimensional_space_tile_2d_comput_platform_5ac036eb3e40a61
+        Me.Panel6.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.plataforma
         Me.Panel6.Location = New System.Drawing.Point(198, 339)
         Me.Panel6.Name = "Panel6"
         Me.Panel6.Size = New System.Drawing.Size(108, 28)
@@ -149,7 +149,7 @@ Partial Class frmSinglePlayerMode
         Me.pnlVida.BackColor = System.Drawing.Color.Lime
         Me.pnlVida.Location = New System.Drawing.Point(86, 30)
         Me.pnlVida.Name = "pnlVida"
-        Me.pnlVida.Size = New System.Drawing.Size(195, 24)
+        Me.pnlVida.Size = New System.Drawing.Size(100, 24)
         Me.pnlVida.TabIndex = 14
         '
         'lblNumero
@@ -198,7 +198,7 @@ Partial Class frmSinglePlayerMode
         'Panel10
         '
         Me.Panel10.BackColor = System.Drawing.Color.SaddleBrown
-        Me.Panel10.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.kisspng_platform_game_two_dimensional_space_tile_2d_comput_platform_5ac036eb3e40a61
+        Me.Panel10.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.plataforma
         Me.Panel10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.Panel10.Location = New System.Drawing.Point(29, 440)
         Me.Panel10.Name = "Panel10"
@@ -217,7 +217,7 @@ Partial Class frmSinglePlayerMode
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.SaddleBrown
-        Me.Panel2.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.kisspng_platform_game_two_dimensional_space_tile_2d_comput_platform_5ac036eb3e40a61
+        Me.Panel2.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.plataforma
         Me.Panel2.Location = New System.Drawing.Point(366, 224)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(108, 30)
@@ -226,7 +226,7 @@ Partial Class frmSinglePlayerMode
         'Panel3
         '
         Me.Panel3.BackColor = System.Drawing.Color.SaddleBrown
-        Me.Panel3.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.kisspng_platform_game_two_dimensional_space_tile_2d_comput_platform_5ac036eb3e40a61
+        Me.Panel3.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.plataforma
         Me.Panel3.Location = New System.Drawing.Point(719, 224)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(108, 30)
@@ -235,7 +235,7 @@ Partial Class frmSinglePlayerMode
         'Panel13
         '
         Me.Panel13.BackColor = System.Drawing.Color.SaddleBrown
-        Me.Panel13.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.kisspng_platform_game_two_dimensional_space_tile_2d_comput_platform_5ac036eb3e40a61
+        Me.Panel13.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.plataforma
         Me.Panel13.Location = New System.Drawing.Point(547, 339)
         Me.Panel13.Name = "Panel13"
         Me.Panel13.Size = New System.Drawing.Size(108, 28)
@@ -244,7 +244,7 @@ Partial Class frmSinglePlayerMode
         'Panel14
         '
         Me.Panel14.BackColor = System.Drawing.Color.SaddleBrown
-        Me.Panel14.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.kisspng_platform_game_two_dimensional_space_tile_2d_comput_platform_5ac036eb3e40a61
+        Me.Panel14.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.plataforma
         Me.Panel14.Location = New System.Drawing.Point(719, 440)
         Me.Panel14.Name = "Panel14"
         Me.Panel14.Size = New System.Drawing.Size(108, 30)
@@ -253,7 +253,7 @@ Partial Class frmSinglePlayerMode
         'Panel5
         '
         Me.Panel5.BackColor = System.Drawing.Color.SaddleBrown
-        Me.Panel5.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.kisspng_platform_game_two_dimensional_space_tile_2d_comput_platform_5ac036eb3e40a61
+        Me.Panel5.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.plataforma
         Me.Panel5.Location = New System.Drawing.Point(888, 339)
         Me.Panel5.Name = "Panel5"
         Me.Panel5.Size = New System.Drawing.Size(108, 30)
@@ -262,7 +262,7 @@ Partial Class frmSinglePlayerMode
         'Panel8
         '
         Me.Panel8.BackColor = System.Drawing.Color.SaddleBrown
-        Me.Panel8.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.kisspng_platform_game_two_dimensional_space_tile_2d_comput_platform_5ac036eb3e40a61
+        Me.Panel8.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.plataforma
         Me.Panel8.Location = New System.Drawing.Point(1063, 438)
         Me.Panel8.Name = "Panel8"
         Me.Panel8.Size = New System.Drawing.Size(108, 30)
@@ -271,7 +271,7 @@ Partial Class frmSinglePlayerMode
         'Panel11
         '
         Me.Panel11.BackColor = System.Drawing.Color.SaddleBrown
-        Me.Panel11.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.kisspng_platform_game_two_dimensional_space_tile_2d_comput_platform_5ac036eb3e40a61
+        Me.Panel11.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.plataforma
         Me.Panel11.Location = New System.Drawing.Point(1063, 224)
         Me.Panel11.Name = "Panel11"
         Me.Panel11.Size = New System.Drawing.Size(108, 30)
@@ -296,7 +296,7 @@ Partial Class frmSinglePlayerMode
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.SaddleBrown
-        Me.Panel1.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.kisspng_platform_game_two_dimensional_space_tile_2d_comput_platform_5ac036eb3e40a61
+        Me.Panel1.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.plataforma
         Me.Panel1.Location = New System.Drawing.Point(547, 107)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(108, 30)
@@ -305,7 +305,7 @@ Partial Class frmSinglePlayerMode
         'Panel7
         '
         Me.Panel7.BackColor = System.Drawing.Color.SaddleBrown
-        Me.Panel7.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.kisspng_platform_game_two_dimensional_space_tile_2d_comput_platform_5ac036eb3e40a61
+        Me.Panel7.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.plataforma
         Me.Panel7.Location = New System.Drawing.Point(888, 107)
         Me.Panel7.Name = "Panel7"
         Me.Panel7.Size = New System.Drawing.Size(108, 30)
@@ -314,7 +314,7 @@ Partial Class frmSinglePlayerMode
         'Panel12
         '
         Me.Panel12.BackColor = System.Drawing.Color.SaddleBrown
-        Me.Panel12.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.kisspng_platform_game_two_dimensional_space_tile_2d_comput_platform_5ac036eb3e40a61
+        Me.Panel12.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.plataforma
         Me.Panel12.Location = New System.Drawing.Point(198, 107)
         Me.Panel12.Name = "Panel12"
         Me.Panel12.Size = New System.Drawing.Size(108, 30)
@@ -323,7 +323,7 @@ Partial Class frmSinglePlayerMode
         'Panel15
         '
         Me.Panel15.BackColor = System.Drawing.Color.SaddleBrown
-        Me.Panel15.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.kisspng_platform_game_two_dimensional_space_tile_2d_comput_platform_5ac036eb3e40a61
+        Me.Panel15.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.plataforma
         Me.Panel15.Location = New System.Drawing.Point(31, 224)
         Me.Panel15.Name = "Panel15"
         Me.Panel15.Size = New System.Drawing.Size(108, 30)
@@ -350,7 +350,7 @@ Partial Class frmSinglePlayerMode
         '
         Me.TransPicBox11.BackColor = System.Drawing.Color.Transparent
         Me.TransPicBox11.ErrorImage = Nothing
-        Me.TransPicBox11.Image = Global.ya_ni_se.My.Resources.Resources.ave__8_
+        Me.TransPicBox11.Image = Global.ya_ni_se.My.Resources.Resources.ave8
         Me.TransPicBox11.InitialImage = Nothing
         Me.TransPicBox11.Location = New System.Drawing.Point(538, 50)
         Me.TransPicBox11.Name = "TransPicBox11"
@@ -363,7 +363,7 @@ Partial Class frmSinglePlayerMode
         '
         Me.TransPicBox10.BackColor = System.Drawing.Color.Transparent
         Me.TransPicBox10.ErrorImage = Nothing
-        Me.TransPicBox10.Image = Global.ya_ni_se.My.Resources.Resources.ave__1_
+        Me.TransPicBox10.Image = Global.ya_ni_se.My.Resources.Resources.ave1
         Me.TransPicBox10.InitialImage = Nothing
         Me.TransPicBox10.Location = New System.Drawing.Point(82, 167)
         Me.TransPicBox10.Name = "TransPicBox10"
@@ -376,7 +376,7 @@ Partial Class frmSinglePlayerMode
         '
         Me.TransPicBox9.BackColor = System.Drawing.Color.Transparent
         Me.TransPicBox9.ErrorImage = Nothing
-        Me.TransPicBox9.Image = Global.ya_ni_se.My.Resources.Resources.ave__8_
+        Me.TransPicBox9.Image = Global.ya_ni_se.My.Resources.Resources.ave8
         Me.TransPicBox9.InitialImage = Nothing
         Me.TransPicBox9.Location = New System.Drawing.Point(923, 50)
         Me.TransPicBox9.Name = "TransPicBox9"
@@ -389,7 +389,7 @@ Partial Class frmSinglePlayerMode
         '
         Me.TransPicBox8.BackColor = System.Drawing.Color.Transparent
         Me.TransPicBox8.ErrorImage = Nothing
-        Me.TransPicBox8.Image = Global.ya_ni_se.My.Resources.Resources.ave__1_
+        Me.TransPicBox8.Image = Global.ya_ni_se.My.Resources.Resources.ave1
         Me.TransPicBox8.InitialImage = Nothing
         Me.TransPicBox8.Location = New System.Drawing.Point(571, 514)
         Me.TransPicBox8.Name = "TransPicBox8"
@@ -402,7 +402,7 @@ Partial Class frmSinglePlayerMode
         '
         Me.TransPicBox5.BackColor = System.Drawing.Color.Transparent
         Me.TransPicBox5.ErrorImage = Nothing
-        Me.TransPicBox5.Image = Global.ya_ni_se.My.Resources.Resources.ave__8_
+        Me.TransPicBox5.Image = Global.ya_ni_se.My.Resources.Resources.ave8
         Me.TransPicBox5.InitialImage = Nothing
         Me.TransPicBox5.Location = New System.Drawing.Point(1087, 383)
         Me.TransPicBox5.Name = "TransPicBox5"
@@ -454,7 +454,7 @@ Partial Class frmSinglePlayerMode
         '
         Me.TransPicBox4.BackColor = System.Drawing.Color.Transparent
         Me.TransPicBox4.ErrorImage = Nothing
-        Me.TransPicBox4.Image = Global.ya_ni_se.My.Resources.Resources.ave__1_
+        Me.TransPicBox4.Image = Global.ya_ni_se.My.Resources.Resources.ave1
         Me.TransPicBox4.InitialImage = Nothing
         Me.TransPicBox4.Location = New System.Drawing.Point(547, 167)
         Me.TransPicBox4.Name = "TransPicBox4"
@@ -467,7 +467,7 @@ Partial Class frmSinglePlayerMode
         '
         Me.TransPicBox3.BackColor = System.Drawing.Color.Transparent
         Me.TransPicBox3.ErrorImage = Nothing
-        Me.TransPicBox3.Image = Global.ya_ni_se.My.Resources.Resources.ave__8_
+        Me.TransPicBox3.Image = Global.ya_ni_se.My.Resources.Resources.ave8
         Me.TransPicBox3.InitialImage = Nothing
         Me.TransPicBox3.Location = New System.Drawing.Point(485, 383)
         Me.TransPicBox3.Name = "TransPicBox3"
@@ -480,7 +480,7 @@ Partial Class frmSinglePlayerMode
         '
         Me.TransPicBox6.BackColor = System.Drawing.Color.Transparent
         Me.TransPicBox6.ErrorImage = Nothing
-        Me.TransPicBox6.Image = Global.ya_ni_se.My.Resources.Resources.ave__8_
+        Me.TransPicBox6.Image = Global.ya_ni_se.My.Resources.Resources.ave8
         Me.TransPicBox6.InitialImage = Nothing
         Me.TransPicBox6.Location = New System.Drawing.Point(72, 383)
         Me.TransPicBox6.Name = "TransPicBox6"
@@ -493,7 +493,7 @@ Partial Class frmSinglePlayerMode
         '
         Me.TransPicBox1.BackColor = System.Drawing.Color.Transparent
         Me.TransPicBox1.ErrorImage = Nothing
-        Me.TransPicBox1.Image = Global.ya_ni_se.My.Resources.Resources.ave__1_
+        Me.TransPicBox1.Image = Global.ya_ni_se.My.Resources.Resources.ave1
         Me.TransPicBox1.InitialImage = Nothing
         Me.TransPicBox1.Location = New System.Drawing.Point(112, 513)
         Me.TransPicBox1.Name = "TransPicBox1"

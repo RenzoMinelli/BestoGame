@@ -121,35 +121,32 @@
   <data name="correr5" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\17.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ave (3)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="ave3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ave (3)1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="correr1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\13.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="kisspng-platform-game-two-dimensional-space-tile-2d-comput-platform-5ac036eb3e40a61" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="plataforma" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\kisspng-platform-game-two-dimensional-space-tile-2d-comput-platform-5ac036eb3e40a6.5920299615225464112551.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ave (4)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="ave4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ave (4)1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="idle2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ave (7)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="ave7" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ave (7).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ave (8)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="ave8" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ave (8).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ave (5)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="ave5" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ave (5).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="bullet" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bullet.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="kisspng-platform-game-two-dimensional-space-tile-2d-comput-platform-5ac036eb3e40a6.592029961522546411255" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\kisspng-platform-game-two-dimensional-space-tile-2d-comput-platform-5ac036eb3e40a6.592029961522546411255.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="salto" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\a.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -163,7 +160,7 @@
   <data name="Estrella" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Estrella.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ave (6)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="ave6" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ave (6).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="idle5" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -178,14 +175,11 @@
   <data name="correr4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ave (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="ave1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ave (1)1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="hurt" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\hurt.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="0" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="idle3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -196,7 +190,7 @@
   <data name="idle1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ave (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="ave2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ave (2)1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Block" type="System.Resources.ResXFileRef, System.Windows.Forms">

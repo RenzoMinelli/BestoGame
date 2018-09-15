@@ -15,39 +15,35 @@ BestoGameEver
   Overrides the current thread's CurrentUICulture property for all
   resource lookups using this strongly typed resource class.
 </summary>
-</member><member name="P:ya_ni_se.My.Resources.Resources._0">
+</member><member name="P:ya_ni_se.My.Resources.Resources.ave1">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:ya_ni_se.My.Resources.Resources.ave__1_">
+</member><member name="P:ya_ni_se.My.Resources.Resources.ave2">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:ya_ni_se.My.Resources.Resources.ave__2_">
+</member><member name="P:ya_ni_se.My.Resources.Resources.ave3">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:ya_ni_se.My.Resources.Resources.ave__3_">
+</member><member name="P:ya_ni_se.My.Resources.Resources.ave4">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:ya_ni_se.My.Resources.Resources.ave__4_">
+</member><member name="P:ya_ni_se.My.Resources.Resources.ave5">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:ya_ni_se.My.Resources.Resources.ave__5_">
+</member><member name="P:ya_ni_se.My.Resources.Resources.ave6">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:ya_ni_se.My.Resources.Resources.ave__6_">
+</member><member name="P:ya_ni_se.My.Resources.Resources.ave7">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:ya_ni_se.My.Resources.Resources.ave__7_">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:ya_ni_se.My.Resources.Resources.ave__8_">
+</member><member name="P:ya_ni_se.My.Resources.Resources.ave8">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -115,11 +111,7 @@ BestoGameEver
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:ya_ni_se.My.Resources.Resources.kisspng_platform_game_two_dimensional_space_tile_2d_comput_platform_5ac036eb3e40a6_592029961522546411255">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:ya_ni_se.My.Resources.Resources.kisspng_platform_game_two_dimensional_space_tile_2d_comput_platform_5ac036eb3e40a61">
+</member><member name="P:ya_ni_se.My.Resources.Resources.plataforma">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>

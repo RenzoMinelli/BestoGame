@@ -770,35 +770,35 @@
                                 Select Case listaVariables(indice, 0)
 
                                     Case 0
-                                        pb.Image = My.Resources.ave__1_
+                                        pb.Image = My.Resources.ave1
                                         pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
                                         listaVariables(indice, 0) += 1
                                     Case 1
-                                        pb.Image = My.Resources.ave__2_
+                                        pb.Image = My.Resources.ave2
                                         pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
                                         listaVariables(indice, 0) += 1
                                     Case 2
-                                        pb.Image = My.Resources.ave__3_
+                                        pb.Image = My.Resources.ave3
                                         pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
                                         listaVariables(indice, 0) += 1
                                     Case 3
-                                        pb.Image = My.Resources.ave__4_
+                                        pb.Image = My.Resources.ave4
                                         pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
                                         listaVariables(indice, 0) += 1
                                     Case 4
-                                        pb.Image = My.Resources.ave__5_
+                                        pb.Image = My.Resources.ave5
                                         pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
                                         listaVariables(indice, 0) += 1
                                     Case 5
-                                        pb.Image = My.Resources.ave__6_
+                                        pb.Image = My.Resources.ave6
                                         pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
                                         listaVariables(indice, 0) += 1
                                     Case 6
-                                        pb.Image = My.Resources.ave__7_
+                                        pb.Image = My.Resources.ave7
                                         pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
                                         listaVariables(indice, 0) += 1
                                     Case 7
-                                        pb.Image = My.Resources.ave__8_
+                                        pb.Image = My.Resources.ave8
                                         pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
                                         listaVariables(indice, 0) = 0
 
@@ -811,28 +811,28 @@
                                 Select Case listaVariables(indice, 0)
 
                                     Case 0
-                                        pb.Image = My.Resources.ave__1_
+                                        pb.Image = My.Resources.ave1
                                         listaVariables(indice, 0) += 1
                                     Case 1
-                                        pb.Image = My.Resources.ave__2_
+                                        pb.Image = My.Resources.ave2
                                         listaVariables(indice, 0) += 1
                                     Case 2
-                                        pb.Image = My.Resources.ave__3_
+                                        pb.Image = My.Resources.ave3
                                         listaVariables(indice, 0) += 1
                                     Case 3
-                                        pb.Image = My.Resources.ave__4_
+                                        pb.Image = My.Resources.ave4
                                         listaVariables(indice, 0) += 1
                                     Case 4
-                                        pb.Image = My.Resources.ave__5_
+                                        pb.Image = My.Resources.ave5
                                         listaVariables(indice, 0) += 1
                                     Case 5
-                                        pb.Image = My.Resources.ave__6_
+                                        pb.Image = My.Resources.ave6
                                         listaVariables(indice, 0) += 1
                                     Case 6
-                                        pb.Image = My.Resources.ave__7_
+                                        pb.Image = My.Resources.ave7
                                         listaVariables(indice, 0) += 1
                                     Case 7
-                                        pb.Image = My.Resources.ave__8_
+                                        pb.Image = My.Resources.ave8
                                         listaVariables(indice, 0) = 0
 
                                 End Select
@@ -847,20 +847,20 @@
 
                                 Select Case listaVariables(indice, 1)
                                     Case 0
-                                        pb.Image = My.Resources.ave__1_
+                                        pb.Image = My.Resources.ave1
                                         pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
                                         listaVariables(indice, 1) += 1
 
                                     Case 1
-                                        pb.Image = My.Resources.ave__2_
+                                        pb.Image = My.Resources.ave2
                                         pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
                                         listaVariables(indice, 1) += 1
                                     Case 2
-                                        pb.Image = My.Resources.ave__3_
+                                        pb.Image = My.Resources.ave3
                                         pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
                                         listaVariables(indice, 1) += 1
                                     Case 3
-                                        pb.Image = My.Resources.ave__4_
+                                        pb.Image = My.Resources.ave4
                                         pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
                                         listaVariables(indice, 1) += 1
 
@@ -872,19 +872,19 @@
                                         ActVida(vida, 0)
 
                                     Case 4
-                                        pb.Image = My.Resources.ave__5_
+                                        pb.Image = My.Resources.ave5
                                         pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
                                         listaVariables(indice, 1) += 1
                                     Case 5
-                                        pb.Image = My.Resources.ave__6_
+                                        pb.Image = My.Resources.ave6
                                         pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
                                         listaVariables(indice, 1) += 1
                                     Case 6
-                                        pb.Image = My.Resources.ave__7_
+                                        pb.Image = My.Resources.ave7
                                         pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
                                         listaVariables(indice, 1) += 1
                                     Case 7
-                                        pb.Image = My.Resources.ave__8_
+                                        pb.Image = My.Resources.ave8
                                         pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
                                         listaVariables(indice, 1) = 0
 
@@ -904,17 +904,17 @@
                                 Select Case listaVariables(indice, 1)
 
                                     Case 0
-                                        pb.Image = My.Resources.ave__1_
+                                        pb.Image = My.Resources.ave1
                                         listaVariables(indice, 1) += 1
 
                                     Case 1
-                                        pb.Image = My.Resources.ave__2_
+                                        pb.Image = My.Resources.ave2
                                         listaVariables(indice, 1) += 1
                                     Case 2
-                                        pb.Image = My.Resources.ave__3_
+                                        pb.Image = My.Resources.ave3
                                         listaVariables(indice, 1) += 1
                                     Case 3
-                                        pb.Image = My.Resources.ave__4_
+                                        pb.Image = My.Resources.ave4
                                         listaVariables(indice, 1) += 1
 
                                         If vida <= 1 Then
@@ -925,16 +925,16 @@
                                         ActVida(vida, 1)
 
                                     Case 4
-                                        pb.Image = My.Resources.ave__5_
+                                        pb.Image = My.Resources.ave5
                                         listaVariables(indice, 1) += 1
                                     Case 5
-                                        pb.Image = My.Resources.ave__6_
+                                        pb.Image = My.Resources.ave6
                                         listaVariables(indice, 1) += 1
                                     Case 6
-                                        pb.Image = My.Resources.ave__7_
+                                        pb.Image = My.Resources.ave7
                                         listaVariables(indice, 1) += 1
                                     Case 7
-                                        pb.Image = My.Resources.ave__8_
+                                        pb.Image = My.Resources.ave8
                                         listaVariables(indice, 1) = 0
 
 
@@ -959,62 +959,62 @@
                             Select Case listaVariables(indice, 2)
 
                                 Case 0
-                                    pb.Image = My.Resources.ave__1_
+                                    pb.Image = My.Resources.ave1
                                     pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
                                     listaVariables(indice, 2) += 1
                                 Case 1
-                                    pb.Image = My.Resources.ave__2_
+                                    pb.Image = My.Resources.ave2
                                     pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
                                     listaVariables(indice, 2) += 1
                                 Case 2
-                                    pb.Image = My.Resources.ave__3_
+                                    pb.Image = My.Resources.ave3
                                     pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
                                     listaVariables(indice, 2) += 1
                                 Case 3
-                                    pb.Image = My.Resources.ave__4_
+                                    pb.Image = My.Resources.ave4
                                     pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
                                     listaVariables(indice, 2) += 1
                                 Case 4
-                                    pb.Image = My.Resources.ave__5_
+                                    pb.Image = My.Resources.ave5
                                     pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
                                     listaVariables(indice, 2) += 1
                                 Case 5
-                                    pb.Image = My.Resources.ave__6_
+                                    pb.Image = My.Resources.ave6
                                     pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
                                     listaVariables(indice, 2) += 1
                                 Case 6
-                                    pb.Image = My.Resources.ave__7_
+                                    pb.Image = My.Resources.ave7
                                     pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
                                     listaVariables(indice, 2) += 1
                                 Case 7
-                                    pb.Image = My.Resources.ave__8_
+                                    pb.Image = My.Resources.ave8
                                     pb.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
                                     listaVariables(indice, 2) += 1
 
 
                                 Case 8
-                                    pb.Image = My.Resources.ave__1_
+                                    pb.Image = My.Resources.ave1
                                     listaVariables(indice, 2) += 1
                                 Case 9
-                                    pb.Image = My.Resources.ave__2_
+                                    pb.Image = My.Resources.ave2
                                     listaVariables(indice, 2) += 1
                                 Case 10
-                                    pb.Image = My.Resources.ave__3_
+                                    pb.Image = My.Resources.ave3
                                     listaVariables(indice, 2) += 1
                                 Case 11
-                                    pb.Image = My.Resources.ave__4_
+                                    pb.Image = My.Resources.ave4
                                     listaVariables(indice, 2) += 1
                                 Case 12
-                                    pb.Image = My.Resources.ave__5_
+                                    pb.Image = My.Resources.ave5
                                     listaVariables(indice, 2) += 1
                                 Case 13
-                                    pb.Image = My.Resources.ave__6_
+                                    pb.Image = My.Resources.ave6
                                     listaVariables(indice, 2) += 1
                                 Case 14
-                                    pb.Image = My.Resources.ave__7_
+                                    pb.Image = My.Resources.ave7
                                     listaVariables(indice, 2) += 1
                                 Case 15
-                                    pb.Image = My.Resources.ave__8_
+                                    pb.Image = My.Resources.ave8
                                     listaVariables(indice, 2) = 0
 
 
@@ -1027,19 +1027,19 @@
                         Select Case listaVariables(indice, 3)
 
                             Case 0
-                                pb.Image = My.Resources.ave__1_
+                                pb.Image = My.Resources.ave1
                                 listaVariables(indice, 3) += 1
                             Case 1
-                                pb.Image = My.Resources.ave__2_
+                                pb.Image = My.Resources.ave2
                                 listaVariables(indice, 3) += 1
                             Case 2
-                                pb.Image = My.Resources.ave__3_
+                                pb.Image = My.Resources.ave3
                                 listaVariables(indice, 3) += 1
                             Case 3
-                                pb.Image = My.Resources.ave__4_
+                                pb.Image = My.Resources.ave4
                                 listaVariables(indice, 3) += 1
                             Case 4
-                                pb.Image = My.Resources.ave__1_
+                                pb.Image = My.Resources.ave1
                                 listaVariables(indice, 3) = 0
 
                         End Select
