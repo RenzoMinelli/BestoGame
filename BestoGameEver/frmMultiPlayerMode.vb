@@ -714,7 +714,7 @@ Public Class frmMultiPlayerMode
         Me.Location = New Point(0, 0)
 
         Encontrar_Suelo_Principal.Start()
-        Encontrar_Suelo_Principal_2.Start()
+        'Encontrar_Suelo_Principal_2.Start()
         Movimiento_Bala.Start()
         Movimiento_Enemigo.Start()
         Movimiento_Principal.Start()
@@ -1063,39 +1063,69 @@ Public Class frmMultiPlayerMode
 
     Private Sub Timer1_Tick_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Encontrar_Suelo_Principal.Tick
 
-        Dim panelfinal As Control = principal 'el panelfinal es el personaje
+        Dim panelfinal As Control = principal
+        Dim panelfinal2 As Control = principal2
+
         Dim dy As Integer = 1000
 
         For Each ctrl As Control In Me.Controls
 
-            '   si el valor de la resta de la ubicacion (Y) del objeto y del personaje es menor a dy  y si el objeto esta debajo del personaje(picturebox1) y si el objeto no es el personaje(picturebox1) y si el objeto no es el piso(panel1)
-            If ((ctrl.Location.Y + ctrl.Height) - (principal.Location.Y + principal.Height)) < dy And ctrl.Location.Y >= (principal.Location.Y + principal.Height) And ctrl.Name <> principal.Name And ctrl.Name <> pnlPiso.Name And ctrl.Name <> pnlVida.Name And ctrl.Name <> principal2.Name And ctrl.Name <> pnlVida.Name And ctrl.Name <> pnlVida2.Name Then
+            If TypeOf ctrl Is Panel Then
 
-                '                si el personaje esta adentro del piso (si el picturebox1 esta adentro del limite del objeto que esta de bajo (eje x))
-                If principal.Location.X >= ctrl.Location.X - principal.Width + 5 And principal.Location.X < (ctrl.Location.X + ctrl.Width - 5) Then
 
-                    ' si se verifica lo anterior el panel final es el objeto donde esta el personaje
-                    panelfinal = ctrl
+                '   si el valor de la resta de la ubicacion (Y) del objeto y del personaje es menor a dy  y si el objeto esta debajo del personaje(picturebox1) y si el objeto no es el personaje(picturebox1) y si el objeto no es el piso(panel1)
+                If ((ctrl.Location.Y + ctrl.Height) - (principal.Location.Y + principal.Height)) < dy And ctrl.Location.Y >= (principal.Location.Y + principal.Height) And ctrl.Name <> principal.Name And ctrl.Name <> pnlPiso.Name And ctrl.Name <> pnlVida.Name And ctrl.Name <> principal2.Name And ctrl.Name <> pnlVida.Name And ctrl.Name <> pnlVida2.Name Then
 
-                    ' y el dy es la distancia entre el picturebox y el suelo
-                    dy = ctrl.Location.Y - principal.Location.Y
+                    '                si el personaje esta adentro del piso (si el picturebox1 esta adentro del limite del objeto que esta de bajo (eje x))
+                    If principal.Location.X >= ctrl.Location.X - principal.Width + 5 And principal.Location.X < (ctrl.Location.X + ctrl.Width - 5) Then
+
+                        ' si se verifica lo anterior el panel final es el objeto donde esta el personaje
+                        panelfinal = ctrl
+
+                        ' y el dy es la distancia entre el picturebox y el suelo
+                        dy = ctrl.Location.Y - principal.Location.Y
+
+
+                    End If
 
 
                 End If
 
+                '   si el valor de la resta de la ubicacion (Y) del objeto y del personaje es menor a dy  y si el objeto esta debajo del personaje(picturebox1) y si el objeto no es el personaje(picturebox1) y si el objeto no es el piso(panel1)
+                If ((ctrl.Location.Y + ctrl.Height) - (principal2.Location.Y + principal2.Height)) < dy And ctrl.Location.Y >= (principal2.Location.Y + principal2.Height) And ctrl.Name <> principal2.Name And ctrl.Name <> pnlPiso.Name And ctrl.Name <> pnlVida.Name And ctrl.Name <> principal.Name And ctrl.Name <> pnlVida.Name And ctrl.Name <> pnlVida2.Name Then
+
+                    '                si el personaje esta adentro del piso (si el picturebox1 esta adentro del limite del objeto que esta de bajo (eje x))
+                    If principal2.Location.X >= ctrl.Location.X - principal2.Width + 5 And principal2.Location.X < (ctrl.Location.X + ctrl.Width - 5) Then
+
+                        ' si se verifica lo anterior el panel final es el objeto donde esta el personaje
+                        panelfinal2 = ctrl
+
+                        ' y el dy es la distancia entre el picturebox y el suelo
+                        dy = ctrl.Location.Y - principal2.Location.Y
+
+
+                    End If
+
+
+                End If
 
             End If
-
 
 
         Next
 
         Try
             pan = panelfinal
-
         Catch ex As Exception
 
         End Try
+
+        Try
+            pan2 = panelfinal2
+        Catch ex As Exception
+
+        End Try
+
 
 
 
@@ -2639,7 +2669,7 @@ Public Class frmMultiPlayerMode
         End If
     End Sub
 
-    Private Sub Encontrar_Suelo_Principal_2_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Encontrar_Suelo_Principal_2.Tick
+    Private Sub Encontrar_Suelo_Principal_2_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Dim panelfinal As Control = principal2 'el panelfinal es el personaje
         Dim dy As Integer = 1000
 
@@ -2677,16 +2707,4 @@ Public Class frmMultiPlayerMode
 
     End Sub
 
-    Private Sub Anim_Movimiento_Principal_2_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs)
-
-
-    End Sub
-
-    Private Sub Movimiento_principal2_2_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs)
-
-    End Sub
-
-    Private Sub Anim_Idle_Principal_2_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs)
-
-    End Sub
 End Class

@@ -47,7 +47,6 @@ Partial Class frmSinglePlayerMode
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.Panel8 = New System.Windows.Forms.Panel()
         Me.Panel11 = New System.Windows.Forms.Panel()
-        Me.mover_estrella = New System.Windows.Forms.Timer(Me.components)
         Me.lblPuntos = New System.Windows.Forms.Label()
         Me.Movimiento_Bala = New System.Windows.Forms.Timer(Me.components)
         Me.Panel1 = New System.Windows.Forms.Panel()
@@ -278,10 +277,6 @@ Partial Class frmSinglePlayerMode
         Me.Panel11.Size = New System.Drawing.Size(108, 30)
         Me.Panel11.TabIndex = 13
         '
-        'mover_estrella
-        '
-        Me.mover_estrella.Enabled = True
-        '
         'lblPuntos
         '
         Me.lblPuntos.AutoSize = True
@@ -336,7 +331,6 @@ Partial Class frmSinglePlayerMode
         '
         'cosaRandom
         '
-        Me.cosaRandom.Enabled = True
         Me.cosaRandom.Interval = 10000
         '
         'pbCosaR
@@ -434,7 +428,7 @@ Partial Class frmSinglePlayerMode
         '
         Me.principal.BackColor = System.Drawing.Color.Transparent
         Me.principal.ErrorImage = Nothing
-        Me.principal.Image = Global.ya_ni_se.My.Resources.Resources._01
+        Me.principal.Image = Global.ya_ni_se.My.Resources.Resources.idle1
         Me.principal.InitialImage = Nothing
         Me.principal.Location = New System.Drawing.Point(1071, 504)
         Me.principal.Name = "principal"
@@ -645,7 +639,6 @@ Partial Class frmSinglePlayerMode
     Friend WithEvents TransPicBox6 As ya_ni_se.TransPicBox
     Friend WithEvents TransPicBox7 As ya_ni_se.TransPicBox
     Friend WithEvents estrella As ya_ni_se.TransPicBox
-    Friend WithEvents mover_estrella As System.Windows.Forms.Timer
     Friend WithEvents lblPuntos As System.Windows.Forms.Label
     Friend WithEvents pbNumeroEstrellas As ya_ni_se.TransPicBox
     Friend WithEvents pbBala As ya_ni_se.TransPicBox

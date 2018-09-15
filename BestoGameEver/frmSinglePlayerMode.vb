@@ -54,15 +54,64 @@
 
     Dim direc As Integer = 0
 
-    Private Sub BestoGame_Disposed(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Disposed
+    Dim caso As Integer = 0
+
+    Private Sub BestoGame_Disposed(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Disposed
         frmRanking.Dispose()
         frmMenuInicio.Show()
+        frmMenuInicio.actTabla()
+    End Sub
+
+    Private Sub SinglePlayerMode_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Me.Location = New Point(0, 0)
+        pbBala.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
+
+        pnlFinal = Panel9
+
+
+        frmRanking.Show()
+        frmRanking.Location = New Point(Me.Location.X + Me.Width, Me.Location.Y)
+        frmRanking.actTabla()
+
+        ActVida(vida, 0)
+
+        moviVertical = "0"
+
+        Dim cont As Integer = 0
+
+        For Each ctrl As Control In Me.Controls
+
+            Dim pb As PictureBox = Nothing
+            Try
+                pb = ctrl
+
+                If pb.Name <> principal.Name And pb.Name <> pnlVida.Name And pb.Name <> estrella.Name And pb.Name <> pbNumeroEstrellas.Name And pb.Name <> pbBala.Name And pb.Name <> pbCosaR.Name Then
+
+                    listaPB.Add(pb)
+                    ReDim listaVariables(cont, 3)
+
+                    listaVariables(cont, 0) = 0
+                    listaVariables(cont, 1) = 0
+                    listaVariables(cont, 2) = 0
+                    listaVariables(cont, 3) = 0
+
+                    cont += 1
+                End If
+
+
+            Catch ex As Exception
+
+            End Try
+
+        Next
+
+        ubicarEstrella()
+        ubicarRandom()
+
     End Sub
 
 
-
-
-    Private Sub Form1_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyDown
+    Private Sub Form1_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles MyBase.KeyDown
 
         If vida <> 0 Then
 
@@ -73,7 +122,7 @@
                 'Le cambio la imagen a la primera en movimineto para que al menos se muestre un cambio al precionar la tecla la primera vez
                 If a = 0 And d = 0 Then
 
-                    principal.Image = My.Resources._17
+                    principal.Image = My.Resources.correr5
 
                 End If
 
@@ -92,7 +141,7 @@
                 'Le cambio la imagen a la primera en movimineto para que al menos se muestre un cambio al precionar la tecla
                 If d = 0 And a = 0 And vida <> 0 Then
 
-                    principal.Image = My.Resources._17
+                    principal.Image = My.Resources.correr5
                     principal.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
 
                 End If
@@ -138,7 +187,7 @@
     End Sub
 
 
-    Private Sub Form1_KeyUp(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyUp
+    Private Sub Form1_KeyUp(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles MyBase.KeyUp
 
         If vida <> 0 Then
 
@@ -156,7 +205,7 @@
                 Else
 
                     'Determino esta imagen para mostrar como al soltar, se detiene el caminar
-                    principal.Image = My.Resources._0
+                    principal.Image = My.Resources.idle1
 
                 End If
 
@@ -182,7 +231,7 @@
                 Else
 
                     'Determino esta imagen para mostrar como al soltar, se detiene el caminar
-                    principal.Image = My.Resources._0
+                    principal.Image = My.Resources.idle1
                     principal.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
 
 
@@ -202,38 +251,33 @@
     End Sub
 
 
-    Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs)
-
-
-
-    End Sub
-
     Private Sub Timer3_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Movimiento_Principal.Tick
+
+        If estrella.Location.X + estrella.Width - 10 > principal.Location.X And estrella.Location.X + 10 < principal.Location.X + principal.Width And estrella.Location.Y + estrella.Height - 10 > principal.Location.Y And estrella.Location.Y < principal.Location.Y + principal.Height - 10 Then
+            ubicarEstrella()
+            puntos += 1
+            lblPuntos.Text = ": " + puntos.ToString
+        End If
 
         If principal.Location.X + principal.Width > pbCosaR.Location.X And principal.Location.X < pbCosaR.Location.X + pbCosaR.Width And principal.Location.Y + principal.Height > pbCosaR.Location.Y And principal.Location.Y < pbCosaR.Location.Y + pbCosaR.Height Then
 
             pbCosaR.Location = New Point(-50, -50)
-            
+
 
             Randomize()
-            Dim cosa = Int((9 * Rnd()) + 1)
+            caso = Int((9 * Rnd()) + 1)
 
 
-            Select Case cosa
+            Select Case caso
 
-                Case 9
-                    vida += 10
-                    ActVida(vida, 2)
-                    notificar("Vida +10")
+
                 Case 1
-                    If Movimiento_Enemigo.Interval > 10 Then
-                        Movimiento_Enemigo.Interval -= 10
-                        notificar("Velocidad Enemigos 10% mas rápido")
-                    Else
-                        notificar("Nada")
-                    End If
+
+                    Movimiento_Enemigo.Interval -= 10
+                    notificar("Velocidad Enemigos 10% mas rápido")
 
                 Case 2
+
                     Movimiento_Enemigo.Interval += 10
                     notificar("Velocidad Enemigos 10% mas lento")
 
@@ -243,42 +287,37 @@
                     notificar("Velocidad jugador enlentecido 10%")
 
                 Case 4
-                    If Movimiento_Enemigo.Enabled = True Then
-                        Movimiento_Enemigo.Dispose()
-                        Anim_Movimiento_Enemigo.Dispose()
-                        notificar("Enemigos congelados")
-                    Else
-                        notificar("Nada")
-                    End If
+                    Movimiento_Enemigo.Stop()
+                    Anim_Movimiento_Enemigo.Stop()
+                    notificar("Enemigos congelados")
 
                 Case 5
-                    If Movimiento_Enemigo.Enabled = False Then
-                        Movimiento_Enemigo.Start()
-                        Anim_Movimiento_Enemigo.Start()
-                        notificar("Enemigos descongelados")
-                    Else
-                        notificar("Nada")
-                    End If
+
+                    notificar("Nada")
 
                 Case 6
-                    If Movimiento_Principal.Interval >= 5 Then
-                        Movimiento_Principal.Interval -= 4
-                        notificar("Velocidad jugador aumento 4%")
-                    Else
-                        notificar("Nada")
-                    End If
+
+                    Movimiento_Principal.Interval -= 4
+                    notificar("Velocidad jugador aumento 10%")
+
                 Case 7
                     Movimiento_Bala.Interval += 10
-                    notificar(" Velocidad Bala 10% mas lento")
+                    notificar("Velocidad Bala 10% mas lento")
                 Case 8
-                    If Movimiento_Bala.Interval >= 5 Then
-                        Movimiento_Bala.Interval -= 4
-                        notificar("Velocidad Bala 4% mas rápido")
-                    Else
-                        notificar("Nada")
-                    End If
+
+                    Movimiento_Bala.Interval -= 4
+                    notificar("Velocidad Bala 4% mas rápido")
+
+                Case 9
+
+                    vida += 10
+                    ActVida(vida, 2)
+                    notificar("Vida +10")
 
             End Select
+
+            cosaRandom.Start()
+
         End If
 
         '/////////////////////////////////////////////////////////// Movimiento Vertical /////////////////////////////////////////////////////////////////////////
@@ -435,53 +474,6 @@
 
     End Sub
 
-    Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        Me.Location = New Point(0, 0)
-        pbBala.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
-
-        pnlFinal = Panel9
-
-       
-        frmRanking.Show()
-        frmRanking.Location = New Point(Me.Location.X + Me.Width, Me.Location.Y)
-        frmRanking.actTabla()
-
-        ActVida(vida, 0)
-
-        moviVertical = "0"
-
-        Dim cont As Integer = 0
-
-        For Each ctrl As Control In Me.Controls
-
-            Dim pb As PictureBox = Nothing
-            Try
-                pb = ctrl
-
-                If pb.Name <> principal.Name And pb.Name <> pnlVida.Name And pb.Name <> estrella.Name And pb.Name <> pbNumeroEstrellas.Name And pb.Name <> pbBala.Name And pb.Name <> pbCosaR.Name Then
-
-                    listaPB.Add(pb)
-                    ReDim listaVariables(cont, 3)
-
-                    listaVariables(cont, 0) = 0
-                    listaVariables(cont, 1) = 0
-                    listaVariables(cont, 2) = 0
-                    listaVariables(cont, 3) = 0
-
-                    cont += 1
-                End If
-
-
-            Catch ex As Exception
-
-            End Try
-
-        Next
-
-        ubicarEstrella()
-    End Sub
-
-
     Private Sub Idle_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Anim_Idle_Principal.Tick
         If ((a = 1 And d = 1) Or (a = 0 And d = 0)) And moviVertical = "" Then
             'En la variable lado se indica a que lado debe ver el PictureBox, 0 = izquierda,  1 = derecha
@@ -490,19 +482,19 @@
                 'Utilizando la variable stand como contador, recorremos el select case una vuelta por tick.
                 Select Case stand
                     Case 0
-                        principal.Image = My.Resources._0
+                        principal.Image = My.Resources.idle1
                         stand += 1
                     Case 1
-                        principal.Image = My.Resources._1
+                        principal.Image = My.Resources.idle2
                         stand += 1
                     Case 2
-                        principal.Image = My.Resources._2
+                        principal.Image = My.Resources.idle3
                         stand += 1
                     Case 3
-                        principal.Image = My.Resources._3
+                        principal.Image = My.Resources.idle4
                         stand += 1
                     Case 4
-                        principal.Image = My.Resources._4
+                        principal.Image = My.Resources.idle5
                         stand = 0
                 End Select
 
@@ -511,23 +503,23 @@
                 'Utilizando la variable stand como contador, recorremos el select case una vuelta por tick.
                 Select Case stand
                     Case 0
-                        principal.Image = My.Resources._0
+                        principal.Image = My.Resources.idle1
                         principal.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
                         stand += 1
                     Case 1
-                        principal.Image = My.Resources._1
+                        principal.Image = My.Resources.idle2
                         principal.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
                         stand += 1
                     Case 2
-                        principal.Image = My.Resources._2
+                        principal.Image = My.Resources.idle3
                         principal.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
                         stand += 1
                     Case 3
-                        principal.Image = My.Resources._3
+                        principal.Image = My.Resources.idle4
                         principal.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
                         stand += 1
                     Case 4
-                        principal.Image = My.Resources._4
+                        principal.Image = My.Resources.idle5
                         principal.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
                         stand = 0
                 End Select
@@ -548,19 +540,19 @@
             Select Case foto
 
                 Case 0
-                    principal.Image = My.Resources._17
+                    principal.Image = My.Resources.correr5
                     foto += 1
                 Case 1
-                    principal.Image = My.Resources._16
+                    principal.Image = My.Resources.correr4
                     foto += 1
                 Case 2
-                    principal.Image = My.Resources._15
+                    principal.Image = My.Resources.correr3
                     foto += 1
                 Case 3
-                    principal.Image = My.Resources._14
+                    principal.Image = My.Resources.correr2
                     foto += 1
                 Case 4
-                    principal.Image = My.Resources._13
+                    principal.Image = My.Resources.correr1
                     foto = 0
 
             End Select
@@ -570,23 +562,23 @@
             Select Case foto
 
                 Case 0
-                    principal.Image = My.Resources._17
+                    principal.Image = My.Resources.correr5
                     principal.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
                     foto += 1
                 Case 1
-                    principal.Image = My.Resources._16
+                    principal.Image = My.Resources.correr4
                     principal.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
                     foto += 1
                 Case 2
-                    principal.Image = My.Resources._15
+                    principal.Image = My.Resources.correr3
                     principal.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
                     foto += 1
                 Case 3
-                    principal.Image = My.Resources._14
+                    principal.Image = My.Resources.correr2
                     principal.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
                     foto += 1
                 Case 4
-                    principal.Image = My.Resources._13
+                    principal.Image = My.Resources.correr1
                     principal.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
                     foto = 0
 
@@ -602,11 +594,11 @@
                 'En la variable lado se indica a que lado debe ver el PictureBox, 0 = izquierda,  1 = derecha
                 If lado = 0 Then
 
-                    principal.Image = My.Resources.a
+                    principal.Image = My.Resources.salto
 
                 ElseIf lado = 1 Then
 
-                    principal.Image = My.Resources.a
+                    principal.Image = My.Resources.salto
                     principal.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
 
                 End If
@@ -617,11 +609,11 @@
                 'En la variable lado se indica a que lado debe ver el PictureBox, 0 = izquierda,  1 = derecha
                 If lado = 0 Then
 
-                    principal.Image = My.Resources.c
+                    principal.Image = My.Resources.caida
 
                 ElseIf lado = 1 Then
 
-                    principal.Image = My.Resources.c
+                    principal.Image = My.Resources.caida
                     principal.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
 
                 End If
@@ -1067,15 +1059,12 @@
         Next
     End Sub
 
-    Private Sub PictureBox1_Move(ByVal sender As Object, ByVal e As System.EventArgs)
-        Encontrar_Suelo_Principal.Start()
-    End Sub
     Private Sub ActVida(ByVal v As Double, ByVal dire As Integer)
 
 
         If v = 0 Then
 
-            principal.Image = My.Resources._43
+
             moviVertical = "dead"
             Movimiento_Principal.Dispose()
             Anim_Movimiento_Principal.Dispose()
@@ -1163,7 +1152,7 @@
         For Each ctrl As Control In Me.Controls
 
 
-            If ctrl.Bounds.IntersectsWith(estrella.Bounds) And TypeOf ctrl Is Panel Then
+            If ctrl.Bounds.IntersectsWith(estrella.Bounds) And (TypeOf ctrl Is Panel Or TypeOf ctrl Is Label Or ctrl.Name = pbNumeroEstrellas.Name) Then
 
 
                 control = 1
@@ -1183,23 +1172,72 @@
 
     End Sub
 
-    Private Sub mover_estrella_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mover_estrella.Tick
-
-        If estrella.Location.X + estrella.Width - 10 > principal.Location.X And estrella.Location.X + 10 < principal.Location.X + principal.Width And estrella.Location.Y + estrella.Height - 10 > principal.Location.Y And estrella.Location.Y < principal.Location.Y + principal.Height - 10 Then
-            ubicarEstrella()
-            puntos += 1
-            lblPuntos.Text = ": " + puntos.ToString
-        End If
-
-    End Sub
 
 
-    Private Sub BestoGame_Move(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Move
+    Private Sub BestoGame_Move(ByVal sender As Object, ByVal e As System.EventArgs)
         frmRanking.Location = New Point(Me.Location.X + Me.Width, Me.Location.Y)
     End Sub
 
-    Private Sub Timer1_Tick_2(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Movimiento_Bala.Tick
+    Private Sub cosaRandom_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cosaRandom.Tick
+        ubicarRandom()
+        lblPowerUp.Hide()
 
+        Movimiento_Enemigo.Interval = 50
+        Movimiento_Bala.Interval = 5
+        Movimiento_Principal.Interval = 5
+        Anim_Movimiento_Enemigo.Interval = 120
+
+        cosaRandom.Dispose()
+    End Sub
+
+    Private Sub ubicarRandom()
+
+
+        Dim x
+        Dim y
+
+        Randomize()
+        x = Int(((pnlFinal.Location.X - estrella.Width) * Rnd()) + (pnlInicio.Location.X + pnlInicio.Width))
+
+        Randomize()
+        y = Int(((pnlPiso.Location.Y - estrella.Height) * Rnd()) + 1)
+
+
+        pbCosaR.Location = New Point(x, y)
+
+        Dim control As Integer = 0
+
+        For Each ctrl As Control In Me.Controls
+
+
+            If ctrl.Bounds.IntersectsWith(pbCosaR.Bounds) And (TypeOf ctrl Is Panel Or TypeOf ctrl Is Label Or ctrl.Name = pbNumeroEstrellas.Name) Then
+
+
+                control = 1
+
+            End If
+        Next
+
+        If control = 0 Then
+
+            pbCosaR.Visible = True
+
+
+        Else
+
+            ubicarRandom()
+
+        End If
+    End Sub
+
+    Private Sub notificar(ByVal texto As String)
+
+        lblPowerUp.Show()
+        lblPowerUp.Text = texto
+
+    End Sub
+
+    Private Sub Movimiento_Bala_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Movimiento_Bala.Tick
         If pbBala.Location.X < pnlInicio.Location.X + pnlInicio.Width Then
 
             pbBala.Location = New Point(pbBala.Location.X + 5, pbBala.Location.Y)
@@ -1225,54 +1263,7 @@
             ActVida(0, 2)
 
         End If
-    End Sub
-
-    Private Sub cosaRandom_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cosaRandom.Tick
-        ubicarRandom()
-        lblPowerUp.Hide()
-    End Sub
-    Private Sub ubicarRandom()
-        Dim x
-        Dim y
-
-        Randomize()
-        x = Int(((pnlFinal.Location.X - estrella.Width) * Rnd()) + (pnlInicio.Location.X + pnlInicio.Width))
-
-        Randomize()
-        y = Int(((pnlPiso.Location.Y - estrella.Height) * Rnd()) + 1)
-
-
-        pbCosaR.Location = New Point(x, y)
-
-        Dim control As Integer = 0
-
-        For Each ctrl As Control In Me.Controls
-
-
-            If ctrl.Bounds.IntersectsWith(pbCosaR.Bounds) And TypeOf ctrl Is Panel Then
-
-
-                control = 1
-
-            End If
-        Next
-
-        If control = 0 Then
-
-            pbCosaR.Visible = True
-
-        Else
-
-            ubicarRandom()
-
-        End If
-    End Sub
-
-    Private Sub notificar(ByVal texto As String)
-
-        lblPowerUp.Show()
-        lblPowerUp.Text = texto
-
+        
     End Sub
 
 

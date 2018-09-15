@@ -37,7 +37,6 @@ Partial Class frmMultiPlayerMode
         Me.pnlVida = New System.Windows.Forms.Panel()
         Me.pnlInicio = New System.Windows.Forms.Panel()
         Me.Anim_Movimiento_Principal = New System.Windows.Forms.Timer(Me.components)
-        Me.mover_estrella = New System.Windows.Forms.Timer(Me.components)
         Me.Encontrar_Suelo_Principal = New System.Windows.Forms.Timer(Me.components)
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Panel6 = New System.Windows.Forms.Panel()
@@ -54,7 +53,6 @@ Partial Class frmMultiPlayerMode
         Me.Panel11 = New System.Windows.Forms.Panel()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Encontrar_Suelo_Principal_2 = New System.Windows.Forms.Timer(Me.components)
         Me.lblNumeroEstrella2 = New System.Windows.Forms.Label()
         Me.lblVida2 = New System.Windows.Forms.Label()
         Me.lblNumero2 = New System.Windows.Forms.Label()
@@ -201,9 +199,6 @@ Partial Class frmMultiPlayerMode
         'Anim_Movimiento_Principal
         '
         '
-        'mover_estrella
-        '
-        '
         'Encontrar_Suelo_Principal
         '
         Me.Encontrar_Suelo_Principal.Interval = 1
@@ -324,10 +319,6 @@ Partial Class frmMultiPlayerMode
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(108, 30)
         Me.Panel2.TabIndex = 50
-        '
-        'Encontrar_Suelo_Principal_2
-        '
-        Me.Encontrar_Suelo_Principal_2.Interval = 1
         '
         'lblNumeroEstrella2
         '
@@ -552,6 +543,7 @@ Partial Class frmMultiPlayerMode
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1213, 669)
@@ -599,6 +591,7 @@ Partial Class frmMultiPlayerMode
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmMultiPlayerMode"
         Me.Text = "MultiPlayerMode"
+        Me.TransparencyKey = System.Drawing.Color.Gray
         CType(Me.TransPicBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.pbNumeroEstrella2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.principal2, System.ComponentModel.ISupportInitialize).EndInit()
@@ -635,7 +628,6 @@ Partial Class frmMultiPlayerMode
     Friend WithEvents pnlVida As System.Windows.Forms.Panel
     Friend WithEvents pnlInicio As System.Windows.Forms.Panel
     Friend WithEvents Anim_Movimiento_Principal As System.Windows.Forms.Timer
-    Friend WithEvents mover_estrella As System.Windows.Forms.Timer
     Friend WithEvents estrella As ya_ni_se.TransPicBox
     Friend WithEvents Encontrar_Suelo_Principal As System.Windows.Forms.Timer
     Friend WithEvents Panel4 As System.Windows.Forms.Panel
@@ -655,7 +647,6 @@ Partial Class frmMultiPlayerMode
     Friend WithEvents Panel3 As System.Windows.Forms.Panel
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
     Friend WithEvents principal2 As ya_ni_se.TransPicBox
-    Friend WithEvents Encontrar_Suelo_Principal_2 As System.Windows.Forms.Timer
     Friend WithEvents lblNumeroEstrella2 As System.Windows.Forms.Label
     Friend WithEvents lblVida2 As System.Windows.Forms.Label
     Friend WithEvents lblNumero2 As System.Windows.Forms.Label
