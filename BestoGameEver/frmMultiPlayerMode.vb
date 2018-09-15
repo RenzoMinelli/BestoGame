@@ -714,7 +714,6 @@ Public Class frmMultiPlayerMode
         Me.Location = New Point(0, 0)
 
         Encontrar_Suelo_Principal.Start()
-        'Encontrar_Suelo_Principal_2.Start()
         Movimiento_Bala.Start()
         Movimiento_Enemigo.Start()
         Movimiento_Principal.Start()
@@ -741,6 +740,7 @@ Public Class frmMultiPlayerMode
         ActVida2(vida2, 2)
 
         moviVertical = "0"
+        moviVertical2 = "0"
 
         Dim cont As Integer = 0
 

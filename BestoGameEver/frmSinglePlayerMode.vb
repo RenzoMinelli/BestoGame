@@ -63,6 +63,7 @@
     End Sub
 
     Private Sub SinglePlayerMode_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+
         Me.Location = New Point(0, 0)
         pbBala.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
 
