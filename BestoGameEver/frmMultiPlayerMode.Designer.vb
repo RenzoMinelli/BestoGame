@@ -422,7 +422,7 @@ Partial Class frmMultiPlayerMode
         '
         Me.principal2.BackColor = System.Drawing.Color.Transparent
         Me.principal2.ErrorImage = Nothing
-        Me.principal2.Image = Global.ya_ni_se.My.Resources.Resources._01
+        Me.principal2.Image = Global.ya_ni_se.My.Resources.Resources.idle1
         Me.principal2.InitialImage = Nothing
         Me.principal2.Location = New System.Drawing.Point(928, 507)
         Me.principal2.Name = "principal2"
@@ -474,7 +474,7 @@ Partial Class frmMultiPlayerMode
         '
         Me.principal1.BackColor = System.Drawing.Color.Transparent
         Me.principal1.ErrorImage = Nothing
-        Me.principal1.Image = Global.ya_ni_se.My.Resources.Resources._01
+        Me.principal1.Image = Global.ya_ni_se.My.Resources.Resources.idle1
         Me.principal1.InitialImage = Nothing
         Me.principal1.Location = New System.Drawing.Point(1076, 507)
         Me.principal1.Name = "principal1"

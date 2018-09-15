@@ -123,9 +123,6 @@
   <metadata name="Anim_Movimiento_Principal.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>190, 20</value>
   </metadata>
-  <metadata name="mover_estrella.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>393, 20</value>
-  </metadata>
   <metadata name="Encontrar_Suelo_Principal.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>18, 61</value>
   </metadata>
@@ -139,10 +136,10 @@
     <value>535, 61</value>
   </metadata>
   <metadata name="Anim_Movimiento_Enemigo.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>521, 30</value>
+    <value>382, 20</value>
   </metadata>
   <metadata name="Encontrar_Suelo_Principal_2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>705, 61</value>
+    <value>577, 25</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>93</value>

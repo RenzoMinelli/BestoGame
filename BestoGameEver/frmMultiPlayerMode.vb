@@ -106,9 +106,10 @@ Public Class frmMultiPlayerMode
 
 
     Private Sub BestoGame_Disposed(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Disposed
-        Me.Dispose()
+
         frmRanking.Dispose()
         frmMenuInicio.Show()
+        frmMenuInicio.actTabla()
     End Sub
 
 
@@ -125,7 +126,7 @@ Public Class frmMultiPlayerMode
                 'Le cambio la imagen a la primera en movimineto para que al menos se muestre un cambio al precionar la tecla la primera vez
                 If a = 0 And d = 0 Then
 
-                    principal.Image = My.Resources._17
+                    principal.Image = My.Resources.correr5
 
                 End If
 
@@ -144,7 +145,7 @@ Public Class frmMultiPlayerMode
                 'Le cambio la imagen a la primera en movimineto para que al menos se muestre un cambio al precionar la tecla
                 If d = 0 And a = 0 And vida <> 0 Then
 
-                    principal.Image = My.Resources._17
+                    principal.Image = My.Resources.correr5
                     principal.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
 
                 End If
@@ -195,7 +196,7 @@ Public Class frmMultiPlayerMode
                 'Le cambio la imagen a la primera en movimineto para que al menos se muestre un cambio al precionar la tecla la primera vez
                 If a2 = 0 And d2 = 0 Then
 
-                    principal2.Image = My.Resources._17
+                    principal2.Image = My.Resources.correr5
 
                 End If
 
@@ -214,7 +215,7 @@ Public Class frmMultiPlayerMode
                 'Le cambio la imagen a la primera en movimineto para que al menos se muestre un cambio al precionar la tecla
                 If d2 = 0 And a2 = 0 And vida2 <> 0 Then
 
-                    principal2.Image = My.Resources._17
+                    principal2.Image = My.Resources.correr5
                     principal2.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
 
                 End If
@@ -277,7 +278,7 @@ Public Class frmMultiPlayerMode
                 Else
 
                     'Determino esta imagen para mostrar como al soltar, se detiene el caminar
-                    principal.Image = My.Resources._0
+                    principal.Image = My.Resources.idle1
 
                 End If
 
@@ -303,7 +304,7 @@ Public Class frmMultiPlayerMode
                 Else
 
                     'Determino esta imagen para mostrar como al soltar, se detiene el caminar
-                    principal.Image = My.Resources._0
+                    principal.Image = My.Resources.idle1
                     principal.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
 
 
@@ -333,7 +334,7 @@ Public Class frmMultiPlayerMode
                 Else
 
                     'Determino esta imagen para mostrar como al soltar, se detiene el caminar
-                    principal2.Image = My.Resources._0
+                    principal2.Image = My.Resources.idle1
 
                 End If
 
@@ -359,7 +360,7 @@ Public Class frmMultiPlayerMode
                 Else
 
                     'Determino esta imagen para mostrar como al soltar, se detiene el caminar
-                    principal2.Image = My.Resources._0
+                    principal2.Image = My.Resources.idle1
                     principal2.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
 
 
@@ -689,6 +690,16 @@ Public Class frmMultiPlayerMode
 
             End If
         End If
+        If estrella.Location.X + estrella.Width - 10 > principal.Location.X And estrella.Location.X + 10 < principal.Location.X + principal.Width And estrella.Location.Y + estrella.Height - 10 > principal.Location.Y And estrella.Location.Y < principal.Location.Y + principal.Height - 10 Then
+            ubicarEstrella()
+            puntos += 1
+            lblPuntos.Text = ": " + puntos.ToString
+
+        ElseIf estrella.Location.X + estrella.Width - 10 > principal2.Location.X And estrella.Location.X + 10 < principal2.Location.X + principal2.Width And estrella.Location.Y + estrella.Height - 10 > principal2.Location.Y And estrella.Location.Y < principal2.Location.Y + principal2.Height - 10 Then
+            ubicarEstrella()
+            puntos2 += 1
+            lblNumeroEstrella2.Text = ": " + puntos2.ToString
+        End If
 
     End Sub
 
@@ -710,7 +721,7 @@ Public Class frmMultiPlayerMode
         Anim_Idle_Principal.Start()
         Anim_Movimiento_Principal.Start()
         Anim_Movimiento_Enemigo.Start()
-        mover_estrella.Start()
+
 
         verificarVida = 0
         verificarVida2 = 0
@@ -721,7 +732,7 @@ Public Class frmMultiPlayerMode
         x = principal.Location.X
         y = principal.Location.Y
 
-      
+
         frmRanking.Show()
         frmRanking.Location = New Point(Me.Location.X + Me.Width, Me.Location.Y)
         frmRanking.actTabla()
@@ -771,19 +782,19 @@ Public Class frmMultiPlayerMode
                 'Utilizando la variable stand como contador, recorremos el select case una vuelta por tick.
                 Select Case stand2
                     Case 0
-                        principal2.Image = My.Resources._0
+                        principal2.Image = My.Resources.idle1
                         stand2 += 1
                     Case 1
-                        principal2.Image = My.Resources._1
+                        principal2.Image = My.Resources.idle2
                         stand2 += 1
                     Case 2
-                        principal2.Image = My.Resources._2
+                        principal2.Image = My.Resources.idle3
                         stand2 += 1
                     Case 3
-                        principal2.Image = My.Resources._3
+                        principal2.Image = My.Resources.idle4
                         stand2 += 1
                     Case 4
-                        principal2.Image = My.Resources._4
+                        principal2.Image = My.Resources.idle5
                         stand2 = 0
                 End Select
 
@@ -792,23 +803,23 @@ Public Class frmMultiPlayerMode
                 'Utilizando la variable stand como contador, recorremos el select case una vuelta por tick.
                 Select Case stand2
                     Case 0
-                        principal2.Image = My.Resources._0
+                        principal2.Image = My.Resources.idle1
                         principal2.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
                         stand2 += 1
                     Case 1
-                        principal2.Image = My.Resources._1
+                        principal2.Image = My.Resources.idle2
                         principal2.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
                         stand2 += 1
                     Case 2
-                        principal2.Image = My.Resources._2
+                        principal2.Image = My.Resources.idle3
                         principal2.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
                         stand2 += 1
                     Case 3
-                        principal2.Image = My.Resources._3
+                        principal2.Image = My.Resources.idle4
                         principal2.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
                         stand2 += 1
                     Case 4
-                        principal2.Image = My.Resources._4
+                        principal2.Image = My.Resources.idle5
                         principal2.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
                         stand2 = 0
                 End Select
@@ -822,19 +833,19 @@ Public Class frmMultiPlayerMode
                 'Utilizando la variable stand como contador, recorremos el select case una vuelta por tick.
                 Select Case stand
                     Case 0
-                        principal.Image = My.Resources._0
+                        principal.Image = My.Resources.idle1
                         stand += 1
                     Case 1
-                        principal.Image = My.Resources._1
+                        principal.Image = My.Resources.idle2
                         stand += 1
                     Case 2
-                        principal.Image = My.Resources._2
+                        principal.Image = My.Resources.idle3
                         stand += 1
                     Case 3
-                        principal.Image = My.Resources._3
+                        principal.Image = My.Resources.idle4
                         stand += 1
                     Case 4
-                        principal.Image = My.Resources._4
+                        principal.Image = My.Resources.idle5
                         stand = 0
                 End Select
 
@@ -843,23 +854,23 @@ Public Class frmMultiPlayerMode
                 'Utilizando la variable stand como contador, recorremos el select case una vuelta por tick.
                 Select Case stand
                     Case 0
-                        principal.Image = My.Resources._0
+                        principal.Image = My.Resources.idle1
                         principal.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
                         stand += 1
                     Case 1
-                        principal.Image = My.Resources._1
+                        principal.Image = My.Resources.idle2
                         principal.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
                         stand += 1
                     Case 2
-                        principal.Image = My.Resources._2
+                        principal.Image = My.Resources.idle3
                         principal.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
                         stand += 1
                     Case 3
-                        principal.Image = My.Resources._3
+                        principal.Image = My.Resources.idle4
                         principal.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
                         stand += 1
                     Case 4
-                        principal.Image = My.Resources._4
+                        principal.Image = My.Resources.idle5
                         principal.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
                         stand = 0
                 End Select
@@ -878,19 +889,19 @@ Public Class frmMultiPlayerMode
             Select Case foto2
 
                 Case 0
-                    principal2.Image = My.Resources._17
+                    principal2.Image = My.Resources.correr5
                     foto2 += 1
                 Case 1
-                    principal2.Image = My.Resources._16
+                    principal2.Image = My.Resources.correr4
                     foto2 += 1
                 Case 2
-                    principal2.Image = My.Resources._15
+                    principal2.Image = My.Resources.correr3
                     foto2 += 1
                 Case 3
-                    principal2.Image = My.Resources._14
+                    principal2.Image = My.Resources.correr2
                     foto2 += 1
                 Case 4
-                    principal2.Image = My.Resources._13
+                    principal2.Image = My.Resources.correr1
                     foto2 = 0
 
             End Select
@@ -900,23 +911,23 @@ Public Class frmMultiPlayerMode
             Select Case foto2
 
                 Case 0
-                    principal2.Image = My.Resources._17
+                    principal2.Image = My.Resources.correr5
                     principal2.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
                     foto2 += 1
                 Case 1
-                    principal2.Image = My.Resources._16
+                    principal2.Image = My.Resources.correr4
                     principal2.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
                     foto2 += 1
                 Case 2
-                    principal2.Image = My.Resources._15
+                    principal2.Image = My.Resources.correr3
                     principal2.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
                     foto2 += 1
                 Case 3
-                    principal2.Image = My.Resources._14
+                    principal2.Image = My.Resources.correr2
                     principal2.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
                     foto2 += 1
                 Case 4
-                    principal2.Image = My.Resources._13
+                    principal2.Image = My.Resources.correr1
                     principal2.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
                     foto2 = 0
 
@@ -932,11 +943,11 @@ Public Class frmMultiPlayerMode
                 'En la variable lado22 se indica a2 que lado22 debe ver el PictureBox, 0 = izquierda,  1 = derecha
                 If lado2 = 0 Then
 
-                    principal2.Image = My.Resources.a
+                    principal2.Image = My.Resources.salto
 
                 ElseIf lado2 = 1 Then
 
-                    principal2.Image = My.Resources.a
+                    principal2.Image = My.Resources.salto
                     principal2.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
 
                 End If
@@ -947,11 +958,11 @@ Public Class frmMultiPlayerMode
                 'En la variable lado22 se indica a2 que lado22 debe ver el PictureBox, 0 = izquierda,  1 = derecha
                 If lado2 = 0 Then
 
-                    principal2.Image = My.Resources.c
+                    principal2.Image = My.Resources.caida
 
                 ElseIf lado2 = 1 Then
 
-                    principal2.Image = My.Resources.c
+                    principal2.Image = My.Resources.caida
                     principal2.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
 
                 End If
@@ -964,19 +975,19 @@ Public Class frmMultiPlayerMode
             Select Case foto
 
                 Case 0
-                    principal.Image = My.Resources._17
+                    principal.Image = My.Resources.correr5
                     foto += 1
                 Case 1
-                    principal.Image = My.Resources._16
+                    principal.Image = My.Resources.correr4
                     foto += 1
                 Case 2
-                    principal.Image = My.Resources._15
+                    principal.Image = My.Resources.correr3
                     foto += 1
                 Case 3
-                    principal.Image = My.Resources._14
+                    principal.Image = My.Resources.correr2
                     foto += 1
                 Case 4
-                    principal.Image = My.Resources._13
+                    principal.Image = My.Resources.correr1
                     foto = 0
 
             End Select
@@ -986,23 +997,23 @@ Public Class frmMultiPlayerMode
             Select Case foto
 
                 Case 0
-                    principal.Image = My.Resources._17
+                    principal.Image = My.Resources.correr5
                     principal.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
                     foto += 1
                 Case 1
-                    principal.Image = My.Resources._16
+                    principal.Image = My.Resources.correr4
                     principal.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
                     foto += 1
                 Case 2
-                    principal.Image = My.Resources._15
+                    principal.Image = My.Resources.correr3
                     principal.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
                     foto += 1
                 Case 3
-                    principal.Image = My.Resources._14
+                    principal.Image = My.Resources.correr2
                     principal.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
                     foto += 1
                 Case 4
-                    principal.Image = My.Resources._13
+                    principal.Image = My.Resources.correr1
                     principal.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
                     foto = 0
 
@@ -1018,11 +1029,11 @@ Public Class frmMultiPlayerMode
                 'En la variable lado2 se indica a que lado2 debe ver el PictureBox, 0 = izquierda,  1 = derecha
                 If lado = 0 Then
 
-                    principal.Image = My.Resources.a
+                    principal.Image = My.Resources.salto
 
                 ElseIf lado = 1 Then
 
-                    principal.Image = My.Resources.a
+                    principal.Image = My.Resources.salto
                     principal.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
 
                 End If
@@ -1033,11 +1044,11 @@ Public Class frmMultiPlayerMode
                 'En la variable lado2 se indica a que lado2 debe ver el PictureBox, 0 = izquierda,  1 = derecha
                 If lado = 0 Then
 
-                    principal.Image = My.Resources.c
+                    principal.Image = My.Resources.caida
 
                 ElseIf lado = 1 Then
 
-                    principal.Image = My.Resources.c
+                    principal.Image = My.Resources.caida
                     principal.Image.RotateFlip(RotateFlipType.Rotate180FlipY)
 
                 End If
@@ -1058,7 +1069,7 @@ Public Class frmMultiPlayerMode
         For Each ctrl As Control In Me.Controls
 
             '   si el valor de la resta de la ubicacion (Y) del objeto y del personaje es menor a dy  y si el objeto esta debajo del personaje(picturebox1) y si el objeto no es el personaje(picturebox1) y si el objeto no es el piso(panel1)
-            If ((ctrl.Location.Y + ctrl.Height) - (principal.Location.Y + principal.Height)) < dy And ctrl.Location.Y >= (principal.Location.Y + principal.Height) And ctrl.Name <> principal.Name And ctrl.Name <> pnlPiso.Name And ctrl.Name <> pnlVida.Name And ctrl.Name <> principal2.Name And ctrl.Name <> pbNumeroEstrella2.Name Then
+            If ((ctrl.Location.Y + ctrl.Height) - (principal.Location.Y + principal.Height)) < dy And ctrl.Location.Y >= (principal.Location.Y + principal.Height) And ctrl.Name <> principal.Name And ctrl.Name <> pnlPiso.Name And ctrl.Name <> pnlVida.Name And ctrl.Name <> principal2.Name And ctrl.Name <> pnlVida.Name And ctrl.Name <> pnlVida2.Name Then
 
                 '                si el personaje esta adentro del piso (si el picturebox1 esta adentro del limite del objeto que esta de bajo (eje x))
                 If principal.Location.X >= ctrl.Location.X - principal.Width + 5 And principal.Location.X < (ctrl.Location.X + ctrl.Width - 5) Then
@@ -2567,7 +2578,7 @@ Public Class frmMultiPlayerMode
         For Each ctrl As Control In Me.Controls
 
 
-            If ctrl.Bounds.IntersectsWith(estrella.Bounds) And TypeOf ctrl Is Panel Then
+            If ctrl.Bounds.IntersectsWith(estrella.Bounds) And (TypeOf ctrl Is Panel Or TypeOf ctrl Is Label Or ctrl.Name = pbNumeroEstrellas.Name Or ctrl.Name = pbNumeroEstrella2.Name) Then
 
 
                 control = 1
@@ -2587,21 +2598,7 @@ Public Class frmMultiPlayerMode
 
     End Sub
 
-    Private Sub mover_estrella_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mover_estrella.Tick
-
-        If estrella.Location.X + estrella.Width - 10 > principal.Location.X And estrella.Location.X + 10 < principal.Location.X + principal.Width And estrella.Location.Y + estrella.Height - 10 > principal.Location.Y And estrella.Location.Y < principal.Location.Y + principal.Height - 10 Then
-            ubicarEstrella()
-            puntos += 1
-            lblPuntos.Text = ": " + puntos.ToString
-
-        ElseIf estrella.Location.X + estrella.Width - 10 > principal2.Location.X And estrella.Location.X + 10 < principal2.Location.X + principal2.Width And estrella.Location.Y + estrella.Height - 10 > principal2.Location.Y And estrella.Location.Y < principal2.Location.Y + principal2.Height - 10 Then
-            ubicarEstrella()
-            puntos2 += 1
-            lblNumeroEstrella2.Text = ": " + puntos2.ToString
-        End If
-
-
-    End Sub
+ 
 
 
     Private Sub BestoGame_Move(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Move
@@ -2649,7 +2646,7 @@ Public Class frmMultiPlayerMode
         For Each ctrl As Control In Me.Controls
 
             '   si el valor de la resta de la ubicacion (Y) del objeto y del personaje es menor a dy  y si el objeto esta debajo del personaje(picturebox1) y si el objeto no es el personaje(picturebox1) y si el objeto no es el piso(panel1)
-            If ((ctrl.Location.Y + ctrl.Height) - (principal2.Location.Y + principal2.Height)) < dy And ctrl.Location.Y >= (principal2.Location.Y + principal2.Height) And ctrl.Name <> principal2.Name And ctrl.Name <> pnlPiso.Name And ctrl.Name <> pnlVida.Name And ctrl.Name <> principal.Name And ctrl.Name <> pbNumeroEstrella2.Name Then
+            If ((ctrl.Location.Y + ctrl.Height) - (principal2.Location.Y + principal2.Height)) < dy And ctrl.Location.Y >= (principal2.Location.Y + principal2.Height) And ctrl.Name <> principal2.Name And ctrl.Name <> pnlPiso.Name And ctrl.Name <> pnlVida.Name And ctrl.Name <> principal.Name And ctrl.Name <> pnlVida.Name And ctrl.Name <> pnlVida2.Name Then
 
                 '                si el personaje esta adentro del piso (si el picturebox1 esta adentro del limite del objeto que esta de bajo (eje x))
                 If principal2.Location.X >= ctrl.Location.X - principal2.Width + 5 And principal2.Location.X < (ctrl.Location.X + ctrl.Width - 5) Then
