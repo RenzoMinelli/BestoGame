@@ -10,7 +10,7 @@ Public Class frmMultiPlayerMode
     Public pixSubida As Double = 7
     Public desasubida As Double = 0.01
     Public caida As Double = 7
-    Public acelcaida As Double = 0.01
+    Public acelcaida As Double = 0.05
     '//////////////////////////////////////////////////////////////////////////
 
     'Utilizo una copia de las variables para luego devolverlas al valor inicial
@@ -1082,7 +1082,7 @@ Public Class frmMultiPlayerMode
                 End If
 
                 '   si el valor de la resta de la ubicacion (Y) del objeto y del personaje es menor a dy  y si el objeto esta debajo del personaje(picturebox1) y si el objeto no es el personaje(picturebox1) y si el objeto no es el piso(panel1)
-                If ((ctrl.Location.Y) - (principal.Location.Y + principal.Height)) < dy And ctrl.Location.Y >= (principal.Location.Y + principal.Height) And ctrl.Name <> principal.Name And ctrl.Name <> pnlVida.Name And ctrl.Name <> principal2.Name And ctrl.Name <> pnlVida2.Name Then
+                If Math.Abs((ctrl.Location.Y) - (principal.Location.Y + principal.Height)) < dy And ctrl.Location.Y >= (principal.Location.Y + principal.Height) And ctrl.Name <> principal.Name And ctrl.Name <> pnlVida.Name And ctrl.Name <> principal2.Name And ctrl.Name <> pnlVida2.Name Then
 
                     '                si el personaje esta adentro del piso (si el picturebox1 esta adentro del limite del objeto que esta de bajo (eje x))
                     If principal.Location.X >= ctrl.Location.X - principal.Width + 5 And principal.Location.X < (ctrl.Location.X + ctrl.Width - 5) Then
@@ -1106,6 +1106,7 @@ Public Class frmMultiPlayerMode
 
        
         pan = panelFinal
+        lblPiso.Text = pan.Name
         pan2 = panelFinal2
 
 
@@ -2401,7 +2402,7 @@ Public Class frmMultiPlayerMode
                         Dim nombre2 As String = ""
                         While nombre2 = ""
 
-                            nombre2 = InputBox("Ingrese su nombre (Jugador 2)", "Registro")
+                            nombre2 = InputBox("Ingrese su nombre Jugador 2", "Registro")
 
                         End While
 

@@ -116,7 +116,7 @@ Partial Class frmMultiPlayerMode
         Me.lblFinal.AutoSize = True
         Me.lblFinal.BackColor = System.Drawing.Color.Transparent
         Me.lblFinal.Font = New System.Drawing.Font("Microsoft Sans Serif", 48.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblFinal.Location = New System.Drawing.Point(144, 243)
+        Me.lblFinal.Location = New System.Drawing.Point(78, 78)
         Me.lblFinal.Name = "lblFinal"
         Me.lblFinal.Size = New System.Drawing.Size(0, 73)
         Me.lblFinal.TabIndex = 66
@@ -557,7 +557,6 @@ Partial Class frmMultiPlayerMode
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.fondito
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1213, 669)
         Me.Controls.Add(Me.lblPiso)
@@ -601,7 +600,6 @@ Partial Class frmMultiPlayerMode
         Me.Controls.Add(Me.pbNumeroEstrella2)
         Me.Controls.Add(Me.lblNumeroEstrella2)
         Me.Controls.Add(Me.estrella)
-        Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmMultiPlayerMode"

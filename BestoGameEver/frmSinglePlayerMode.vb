@@ -7,8 +7,8 @@
     Public salto As Double = 20
     Public pixSubida As Double = 7
     Public desasubida As Double = 0.01
-    Public caida As Double = 5
-    Public acelcaida As Double = 0.01
+    Public caida As Double = 7
+    Public acelcaida As Double = 0.05
     '//////////////////////////////////////////////////////////////////////////
 
     'Utilizo una copia de las variables para luego devolverlas al valor inicial
@@ -177,7 +177,7 @@
                     If moviVertical = "" And principal.Location.Y < pan.Location.Y Then
 
                         'Muevo el PictureBox un poco mas abajo para que de esta forma no este dentro del margen de control para frenar e inicio el descenso con animación
-                        principal.Location = New Point(principal.Location.X, principal.Location.Y + pan.Height)
+                        principal.Location = New Point(principal.Location.X, pan.Location.Y + pan.Height)
                         moviVertical = "0"
 
                     End If
@@ -487,8 +487,11 @@
 
             End If
 
+
             'Si el PictureBox no está ascendiendo ni bajando
             If moviVertical = "" Then
+
+
 
                 'Si el PictureBox esta a la izquierda o la derecha del Panel (Plataforma)
                 If principal.Location.X < (pan.Location.X - principal.Width + 5) Or principal.Location.X > pan.Location.X + pan.Width - 10 Then
@@ -502,8 +505,16 @@
 
                     End If
 
+
+
                 End If
 
+
+            End If
+
+            If Math.Abs((principal.Location.Y + principal.Height) - pan.Location.Y) > 5 And moviVertical = "" Then
+
+                moviVertical = "0"
             End If
         End If
 
@@ -663,15 +674,16 @@
 
     Private Sub Timer1_Tick_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Encontrar_Suelo_Principal.Tick
 
-        Dim panelfinal As Control = pnlPiso 'el panelfinal es el personaje
+        Dim panelfinal As Panel = pnlPiso
         Dim dy As Integer = 1000
 
         For Each ctrl As Control In Me.Controls
 
             If TypeOf ctrl Is Panel Then
 
+
                 '   si el valor de la resta de la ubicacion (Y) del objeto y del personaje es menor a dy  y si el objeto esta debajo del personaje(picturebox1) y si el objeto no es el personaje(picturebox1) y si el objeto no es el piso(panel1)
-                If ((ctrl.Location.Y) - (principal.Location.Y + principal.Height)) < dy And ctrl.Location.Y >= (principal.Location.Y + principal.Height) And ctrl.Name <> principal.Name And ctrl.Name <> pnlVida.Name Then
+                If Math.Abs(ctrl.Location.Y - (principal.Location.Y + principal.Height)) < dy And ctrl.Location.Y >= (principal.Location.Y + principal.Height - 10) And ctrl.Name <> pnlVida.Name Then
 
                     '                si el personaje esta adentro del piso (si el picturebox1 esta adentro del limite del objeto que esta de bajo (eje x))
                     If principal.Location.X >= ctrl.Location.X - principal.Width + 5 And principal.Location.X < (ctrl.Location.X + ctrl.Width - 5) Then
@@ -695,7 +707,7 @@
 
         pan = panelfinal
 
-
+        lblPiso.Text = pan.Name
 
     End Sub
 
