@@ -13,13 +13,11 @@
 
     'Utilizo una copia de las variables para luego devolverlas al valor inicial
     Dim avanzar2 As Double = avanzar
-    Dim acelereacion2 As Double = acelereacion
     Dim limvel2 As Double = limvel
     Dim salto2 As Double = salto
     Dim pixSubida2 As Double = pixSubida
-    Dim desasubida2 As Double = desasubida
     Dim caida2 As Double = caida
-    Dim acelcaida2 As Double = acelcaida
+
 
     Dim pan As New Panel
     Dim lado As Integer = 0
@@ -173,14 +171,19 @@
             'Al presionar la tecla S
             If e.KeyCode = Keys.S Or e.KeyCode = Keys.Down Then
 
-                'Verifico que no estoy ascendiendo ni descendiendo además de que debe estar por ensima del panel4 (plataforma)
-                If moviVertical = "" And principal.Location.Y < pan.Location.Y Then
+                If pan IsNot pnlPiso Then
 
-                    'Muevo el PictureBox un poco mas abajo para que de esta forma no este dentro del margen de control para frenar e inicio el descenso con animación
-                    principal.Location = New Point(principal.Location.X, principal.Location.Y + pan.Height)
-                    moviVertical = "0"
+                    'Verifico que no estoy ascendiendo ni descendiendo además de que debe estar por ensima del panel4 (plataforma)
+                    If moviVertical = "" And principal.Location.Y < pan.Location.Y Then
+
+                        'Muevo el PictureBox un poco mas abajo para que de esta forma no este dentro del margen de control para frenar e inicio el descenso con animación
+                        principal.Location = New Point(principal.Location.X, principal.Location.Y + pan.Height)
+                        moviVertical = "0"
+
+                    End If
 
                 End If
+                
             End If
         End If
 
@@ -266,7 +269,7 @@
 
 
             Randomize()
-            caso = Int((9 * Rnd()) + 1)
+            caso = Int((15 * Rnd()) + 1)
 
 
             Select Case caso
@@ -288,13 +291,15 @@
                     notificar("Velocidad jugador enlentecido 10%")
 
                 Case 4
-                    Movimiento_Enemigo.Stop()
-                    Anim_Movimiento_Enemigo.Stop()
-                    notificar("Enemigos congelados")
+                    Movimiento_Bala.Interval -= 4
+                    notificar("Velocidad Bala 4% mas rápido")
 
                 Case 5
 
-                    notificar("Nada")
+                    vida += 10
+                    ActVida(vida, 2)
+                    notificar("Vida +10")
+
 
                 Case 6
 
@@ -306,14 +311,44 @@
                     notificar("Velocidad Bala 10% mas lento")
                 Case 8
 
+                    Movimiento_Enemigo.Stop()
+                    Anim_Movimiento_Enemigo.Stop()
+                    notificar("Enemigos congelados")
+
+                Case 9
+
+                    Movimiento_Enemigo.Interval -= 10
+                    notificar("Velocidad Enemigos 10% mas rápido")
+
+                Case 10
+
+                    Movimiento_Enemigo.Interval += 10
+                    notificar("Velocidad Enemigos 10% mas lento")
+
+                Case 11
+
+                    Movimiento_Principal.Interval += 10
+                    notificar("Velocidad jugador enlentecido 10%")
+
+                Case 12
                     Movimiento_Bala.Interval -= 4
                     notificar("Velocidad Bala 4% mas rápido")
 
-                Case 9
+                Case 13
 
                     vida += 10
                     ActVida(vida, 2)
                     notificar("Vida +10")
+
+
+                Case 14
+
+                    Movimiento_Principal.Interval -= 4
+                    notificar("Velocidad jugador aumento 10%")
+
+                Case 15
+                    Movimiento_Bala.Interval += 10
+                    notificar("Velocidad Bala 10% mas lento")
 
             End Select
 
@@ -340,7 +375,7 @@
 
                     'Restablecemos las variables a los valores iniciales
                     caida2 = caida
-                    acelcaida2 = acelcaida
+
 
                 End If
 
@@ -351,7 +386,7 @@
                     principal.Location = New Point(principal.Location.X, principal.Location.Y + caida2)
 
                     'Le sumamos a la caida2 la aceleracion, de esta forma acelera mientras cae
-                    caida2 += acelcaida2
+                    caida2 += acelcaida
 
                     'De lo contrario, si la distancia del PictureBox sigue siendo inferior al suelo pero no lo suficiente para sumarle la caida
                 ElseIf principal.Location.Y + principal.Height <= pnlPiso.Location.Y Then
@@ -361,7 +396,6 @@
 
                     'Restablecemos las variables a los valores iniciales
                     caida2 = caida
-                    acelcaida2 = acelcaida
 
                     'Desactivo la animacion de bajada y el descenso. Además enciendo la animacion idle
 
@@ -385,7 +419,7 @@
                     cont += 1
 
                     'La subida debe ser cada vez mas lenta por la gravedad, por eso le resto
-                    pixSubida2 -= desasubida2
+                    pixSubida2 -= desasubida
 
 
 
@@ -431,7 +465,7 @@
                 'Solo en el caso que el PictureBox no esté descendiendo, se acelerará el movimiento. Sino, solo será la inicial
                 If moviVertical = "" And avanzar2 <= limvel2 Then
 
-                    avanzar2 += acelereacion2
+                    avanzar2 += acelereacion
 
                 End If
 
@@ -446,7 +480,7 @@
                 'Solo en el caso que el PictureBox no esté descendiendo, se acelerará el movimiento. Sino, solo será la inicial
                 If moviVertical = "" And avanzar2 <= limvel2 Then
 
-                    avanzar2 += acelereacion2
+                    avanzar2 += acelereacion
 
                 End If
 
@@ -629,39 +663,37 @@
 
     Private Sub Timer1_Tick_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Encontrar_Suelo_Principal.Tick
 
-        Dim panelfinal As Control = principal 'el panelfinal es el personaje
+        Dim panelfinal As Control = pnlPiso 'el panelfinal es el personaje
         Dim dy As Integer = 1000
 
         For Each ctrl As Control In Me.Controls
 
-            '   si el valor de la resta de la ubicacion (Y) del objeto y del personaje es menor a dy  y si el objeto esta debajo del personaje(picturebox1) y si el objeto no es el personaje(picturebox1) y si el objeto no es el piso(panel1)
-            If ((ctrl.Location.Y + ctrl.Height) - (principal.Location.Y + principal.Height)) < dy And ctrl.Location.Y >= (principal.Location.Y + principal.Height) And ctrl.Name <> principal.Name And ctrl.Name <> pnlPiso.Name And ctrl.Name <> pnlVida.Name And ctrl.Name <> pbCosaR.Name Then
+            If TypeOf ctrl Is Panel Then
 
-                '                si el personaje esta adentro del piso (si el picturebox1 esta adentro del limite del objeto que esta de bajo (eje x))
-                If principal.Location.X >= ctrl.Location.X - principal.Width + 5 And principal.Location.X < (ctrl.Location.X + ctrl.Width - 5) Then
+                '   si el valor de la resta de la ubicacion (Y) del objeto y del personaje es menor a dy  y si el objeto esta debajo del personaje(picturebox1) y si el objeto no es el personaje(picturebox1) y si el objeto no es el piso(panel1)
+                If ((ctrl.Location.Y) - (principal.Location.Y + principal.Height)) < dy And ctrl.Location.Y >= (principal.Location.Y + principal.Height) And ctrl.Name <> principal.Name And ctrl.Name <> pnlVida.Name Then
 
-                    ' si se verifica lo anterior el panel final es el objeto donde esta el personaje
-                    panelfinal = ctrl
+                    '                si el personaje esta adentro del piso (si el picturebox1 esta adentro del limite del objeto que esta de bajo (eje x))
+                    If principal.Location.X >= ctrl.Location.X - principal.Width + 5 And principal.Location.X < (ctrl.Location.X + ctrl.Width - 5) Then
 
-                    ' y el dy es la distancia entre el picturebox y el suelo
-                    dy = ctrl.Location.Y - principal.Location.Y
+                        ' si se verifica lo anterior el panel final es el objeto donde esta el personaje
+                        panelfinal = ctrl
+
+                        ' y el dy es la distancia entre el picturebox y el suelo
+                        dy = Math.Abs(ctrl.Location.Y - (principal.Location.Y + principal.Height))
+
+
+                    End If
 
 
                 End If
 
-
             End If
-
 
 
         Next
 
-        Try
-            pan = panelfinal
-
-        Catch ex As Exception
-
-        End Try
+        pan = panelfinal
 
 
 
@@ -1108,6 +1140,7 @@
             Catch ex As Exception
                 MsgBox("Error al guardar", MsgBoxStyle.Exclamation)
             End Try
+
         ElseIf v = 100 Then
 
             pnlVida.Width = v
@@ -1184,6 +1217,8 @@
         lblPowerUp.Hide()
 
         Movimiento_Enemigo.Interval = 50
+        Movimiento_Enemigo.Start()
+        Anim_Movimiento_Enemigo.Start()
         Movimiento_Bala.Interval = 5
         Movimiento_Principal.Interval = 5
         Anim_Movimiento_Enemigo.Interval = 120
@@ -1262,10 +1297,14 @@
         If pbBala.Bounds.IntersectsWith(principal.Bounds) Then
 
             ActVida(0, 2)
+            Movimiento_Bala.Dispose()
 
         End If
         
     End Sub
 
 
+    Private Sub frmSinglePlayerMode_Move(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Move
+        frmRanking.Location = New Point(Me.Location.X + Me.Width, Me.Location.Y)
+    End Sub
 End Class

@@ -9,7 +9,7 @@ Public Class frmMultiPlayerMode
     Public salto As Double = 20
     Public pixSubida As Double = 7
     Public desasubida As Double = 0.01
-    Public caida As Double = 5
+    Public caida As Double = 7
     Public acelcaida As Double = 0.01
     '//////////////////////////////////////////////////////////////////////////
 
@@ -149,14 +149,19 @@ Public Class frmMultiPlayerMode
             'Al presionar la tecla S
             If e.KeyCode = Keys.Down Then
 
-                'Verifico que no estoy ascendiendo ni descendiendo además de que debe estar por ensima del panel4 (plataforma)
-                If moviVertical = "" And principal.Location.Y < pan.Location.Y Then
+                If pan IsNot pnlPiso Then
 
-                    'Muevo el PictureBox un poco mas abajo para que de esta forma no este dentro del margen de control para frenar e inicio el descenso con animación
-                    principal.Location = New Point(principal.Location.X, principal.Location.Y + pan.Height)
-                    moviVertical = "0"
+                    'Verifico que no estoy ascendiendo ni descendiendo además de que debe estar por ensima del panel4 (plataforma)
+                    If moviVertical = "" And principal.Location.Y < pan.Location.Y Then
+
+                        'Muevo el PictureBox un poco mas abajo para que de esta forma no este dentro del margen de control para frenar e inicio el descenso con animación
+                        principal.Location = New Point(principal.Location.X, principal.Location.Y + pan.Height)
+                        moviVertical = "0"
+
+                    End If
 
                 End If
+               
             End If
         End If
 
@@ -219,14 +224,23 @@ Public Class frmMultiPlayerMode
             'Al presionar la tecla S
             If e.KeyCode = Keys.S Then
 
-                'Verifico que no estoy ascendiendo ni descendiendo además de que debe estar por ensima del panel4 (plataforma)
-                If moviVertical2 = "" And principal2.Location.Y < pan2.Location.Y Then
+                If pan2 IsNot pnlPiso Then
 
-                    'Muevo el PictureBox un poco mas abajo para que de esta forma no este dentro del margen de control para frenar e inicio el descenso con animación
-                    principal2.Location = New Point(principal2.Location.X, principal2.Location.Y + pan2.Height)
-                    moviVertical2 = "0"
+                    'Verifico que no estoy ascendiendo ni descendiendo además de que debe estar por ensima del panel4 (plataforma)
+                    If moviVertical2 = "" And principal2.Location.Y < pan2.Location.Y Then
+
+                        'Muevo el PictureBox un poco mas abajo para que de esta forma no este dentro del margen de control para frenar e inicio el descenso con animación
+                        principal2.Location = New Point(principal2.Location.X, principal2.Location.Y + principal2.Height + pan2.Height)
+                        moviVertical2 = "0"
+
+                    End If
 
                 End If
+
+                
+
+
+
             End If
         End If
 
@@ -373,48 +387,46 @@ Public Class frmMultiPlayerMode
             '////////////////////// Descenso /////////////////////////////////
             If moviVertical2 = "0" Then
 
-                'Si el PictureBox se encuentra sobre el Panel a2 una distancia menor a2 20 pixeles
-                If principal2.Location.Y + principal2.Height >= (pan2.Location.Y - 20) And principal2.Location.Y + principal2.Height <= pan2.Location.Y And principal2.Location.X > pan2.Location.X - principal2.Width + 5 And principal2.Location.X < (pan2.Location.X + pan2.Width - 5) Then
+                If pan2 IsNot pnlPiso Then
+
+                    If principal2.Location.Y + principal2.Height + caida3 < pan2.Location.Y - 20 Then
+
+                        principal2.Location = New Point(principal2.Location.X, principal2.Location.Y + caida3)
+                        caida3 += acelcaida
 
 
-                    'Mi objetivo es reubicarlo en un punto por defecto del eje 
-                    principal2.Location = New Point(principal2.Location.X, pan2.Location.Y - principal2.Height - 5)
+                    ElseIf principal2.Location.Y + principal2.Height + caida3 >= pan2.Location.Y - 20 And principal2.Location.Y + principal2.Height + caida3 <= pan2.Location.Y Then
 
-                    'Desactivo la animacion de bajada y el descenso. Además enciendo la animacion idle
-                    moviVertical2 = ""
-
-
-                    'Restablecemos las variables a2 los valores iniciales
-                    caida3 = caida
+                        principal2.Location = New Point(principal2.Location.X, pan2.Location.Y - principal2.Height)
+                        caida3 = caida
+                        moviVertical2 = ""
 
 
-                End If
+                    ElseIf principal2.Location.Y + principal2.Height >= pan2.Location.Y - 20 And principal2.Location.Y + principal2.Height <= pnlPiso.Location.Y Then
 
-                'Si el punto en donde quedaría el PictureBox al bajar sigue siendo menor a2 la del suelo
-                If (principal2.Location.Y + principal2.Height + caida3) <= pnlPiso.Location.Y Then
+                        principal2.Location = New Point(principal2.Location.X, pan2.Location.Y - principal2.Height)
+                        caida3 = caida
+                        moviVertical2 = ""
 
-                    'Descendemos el mismo segun la variable caida2
-                    principal2.Location = New Point(principal2.Location.X, principal2.Location.Y + caida3)
+                    End If
+                Else
 
-                    'Le sumamos a2 la caida2 la aceleracion, de esta forma acelera mientras cae
-                    caida3 += acelcaida
+                    If principal2.Location.Y + principal2.Height + caida3 < pnlPiso.Location.Y - 20 Then
 
-                    'De lo contrario, si la distancia del PictureBox sigue siendo inferior al suelo pero no lo suficiente para sumarle la caida
-                ElseIf principal2.Location.Y + principal2.Height <= pnlPiso.Location.Y Then
+                        principal2.Location = New Point(principal2.Location.X, principal2.Location.Y + caida3)
+                        caida3 += acelcaida
 
-                    'Descendemos el PictureBox al suelo
-                    principal2.Location = New Point(principal2.Location.X, pnlPiso.Location.Y - principal2.Height)
+                    ElseIf principal2.Location.Y + principal2.Height + caida3 >= pnlPiso.Location.Y - 20 Then
 
-                    'Restablecemos las variables a2 los valores iniciales
-                    caida3 = caida
+                        principal2.Location = New Point(principal2.Location.X, pnlPiso.Location.Y - principal2.Height)
+                        caida3 = caida
+                        moviVertical2 = ""
 
 
-                    'Desactivo la animacion de bajada y el descenso. Además enciendo la animacion idle
-
-                    moviVertical2 = ""
-
+                    End If
 
                 End If
+
 
                 '////////////////////// Ascenso /////////////////////////////////
             ElseIf moviVertical2 = "1" Then
@@ -499,6 +511,8 @@ Public Class frmMultiPlayerMode
             'Si el PictureBox no está ascendiendo ni bajando
             If moviVertical2 = "" Then
 
+
+
                 'Si el PictureBox esta a2 la izquierda o la derecha del Panel (Plataforma)
                 If principal2.Location.X < (pan2.Location.X - principal2.Width + 5) Or principal2.Location.X > pan2.Location.X + pan2.Width - 10 Then
 
@@ -513,6 +527,9 @@ Public Class frmMultiPlayerMode
 
                 End If
 
+
+
+
             End If
         End If
 
@@ -522,48 +539,47 @@ Public Class frmMultiPlayerMode
             '////////////////////// Descenso /////////////////////////////////
             If moviVertical = "0" Then
 
-                'Si el PictureBox se encuentra sobre el Panel a una distancia menor a 20 pixeles
-                If principal.Location.Y + principal.Height >= (pan.Location.Y - 20) And principal.Location.Y + principal.Height <= pan.Location.Y And principal.Location.X > pan.Location.X - principal.Width + 5 And principal.Location.X < (pan.Location.X + pan.Width - 5) Then
+
+                If pan IsNot pnlPiso Then
+
+                    If principal.Location.Y + principal.Height + caida2 < pan.Location.Y - 20 Then
+
+                        principal.Location = New Point(principal.Location.X, principal.Location.Y + caida2)
+                        caida2 += acelcaida
 
 
-                    'Mi objetivo es reubicarlo en un punto por defecto del eje 
-                    principal.Location = New Point(principal.Location.X, pan.Location.Y - principal.Height - 5)
+                    ElseIf principal.Location.Y + principal.Height + caida2 >= pan.Location.Y - 20 And principal.Location.Y + principal.Height + caida2 <= pan.Location.Y Then
 
-                    'Desactivo la animacion de bajada y el descenso. Además enciendo la animacion idle
-                    moviVertical = ""
-
-
-                    'Restablecemos las variables a los valores iniciales
-                    caida2 = caida
+                        principal.Location = New Point(principal.Location.X, pan.Location.Y - principal.Height)
+                        caida2 = caida
+                        moviVertical = ""
 
 
-                End If
+                    ElseIf principal.Location.Y + principal.Height >= pan.Location.Y - 20 And principal.Location.Y + principal.Height <= pnlPiso.Location.Y Then
 
-                'Si el punto en donde quedaría el PictureBox al bajar sigue siendo menor a la del suelo
-                If (principal.Location.Y + principal.Height + caida2) <= pnlPiso.Location.Y Then
+                        principal.Location = New Point(principal.Location.X, pan.Location.Y - principal.Height)
+                        caida2 = caida
+                        moviVertical = ""
 
-                    'Descendemos el mismo segun la variable caida2
-                    principal.Location = New Point(principal.Location.X, principal.Location.Y + caida2)
+                    End If
+                Else
 
-                    'Le sumamos a la caida2 la aceleracion, de esta forma acelera mientras cae
-                    caida2 += acelcaida
+                    If principal.Location.Y + principal.Height + caida2 < pnlPiso.Location.Y - 20 Then
 
-                    'De lo contrario, si la distancia del PictureBox sigue siendo inferior al suelo pero no lo suficiente para sumarle la caida
-                ElseIf principal.Location.Y + principal.Height <= pnlPiso.Location.Y Then
+                        principal.Location = New Point(principal.Location.X, principal.Location.Y + caida2)
+                        caida2 += acelcaida
 
-                    'Descendemos el PictureBox al suelo
-                    principal.Location = New Point(principal.Location.X, pnlPiso.Location.Y - principal.Height)
+                    ElseIf principal.Location.Y + principal.Height + caida2 >= pnlPiso.Location.Y - 20 Then
 
-                    'Restablecemos las variables a los valores iniciales
-                    caida2 = caida
-
-                    'Desactivo la animacion de bajada y el descenso. Además enciendo la animacion idle
-
-                    moviVertical = ""
+                        principal.Location = New Point(principal.Location.X, pnlPiso.Location.Y - principal.Height)
+                        caida2 = caida
+                        moviVertical = ""
 
 
+                    End If
 
                 End If
+
 
                 '////////////////////// Ascenso /////////////////////////////////
             ElseIf moviVertical = "1" Then
@@ -650,6 +666,8 @@ Public Class frmMultiPlayerMode
             'Si el PictureBox no está ascendiendo ni bajando
             If moviVertical = "" Then
 
+
+
                 'Si el PictureBox esta a la izquierda o la derecha del Panel (Plataforma)
                 If principal.Location.X < (pan.Location.X - principal.Width + 5) Or principal.Location.X > pan.Location.X + pan.Width - 10 Then
 
@@ -662,7 +680,10 @@ Public Class frmMultiPlayerMode
 
                     End If
 
+
+
                 End If
+
 
             End If
         End If
@@ -680,16 +701,16 @@ Public Class frmMultiPlayerMode
         noti.ShowDialog()
 
         Me.Location = New Point(0, 0)
+       
 
         Encontrar_Suelo_Principal.Start()
         Movimiento_Bala.Start()
         Movimiento_Enemigo.Start()
-        Movimiento_Principal.Start()
         Anim_Idle_Principal.Start()
         Anim_Movimiento_Principal.Start()
         Anim_Movimiento_Enemigo.Start()
-
-
+        Movimiento_Principal.Start()
+       
 
         verificarVida = 0
         verificarVida2 = 0
@@ -703,8 +724,8 @@ Public Class frmMultiPlayerMode
         ActVida(vida, 2)
         ActVida2(vida2, 2)
 
-        moviVertical = "0"
-        moviVertical2 = "0"
+        moviVertical = ""
+        moviVertical2 = ""
 
         Dim cont As Integer = 0
 
@@ -735,6 +756,9 @@ Public Class frmMultiPlayerMode
         Next
 
         ubicarEstrella()
+
+
+
     End Sub
 
 
@@ -1028,10 +1052,10 @@ Public Class frmMultiPlayerMode
 
     Private Sub Encontrar_Suelo_Principal_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Encontrar_Suelo_Principal.Tick
 
-        Dim panelfinal As Control = principal
-        Dim panelfinal2 As Control = principal2
-
+        Dim panelFinal As Panel = pnlPiso
+        Dim panelFinal2 As Panel = pnlPiso
         Dim dy As Integer = 1000
+        Dim dy2 As Integer = 1000
 
         For Each ctrl As Control In Me.Controls
 
@@ -1039,16 +1063,17 @@ Public Class frmMultiPlayerMode
 
 
                 '   si el valor de la resta de la ubicacion (Y) del objeto y del personaje es menor a dy  y si el objeto esta debajo del personaje(picturebox1) y si el objeto no es el personaje(picturebox1) y si el objeto no es el piso(panel1)
-                If ((ctrl.Location.Y + ctrl.Height) - (principal.Location.Y + principal.Height)) < dy And ctrl.Location.Y >= (principal.Location.Y + principal.Height) And ctrl.Name <> principal.Name And ctrl.Name <> pnlPiso.Name And ctrl.Name <> pnlVida.Name And ctrl.Name <> principal2.Name And ctrl.Name <> pnlVida.Name And ctrl.Name <> pnlVida2.Name Then
+                If Math.Abs(ctrl.Location.Y - (principal2.Location.Y + principal2.Height)) < dy2 And ctrl.Location.Y >= (principal2.Location.Y + principal2.Height) And ctrl.Name <> principal2.Name And ctrl.Name <> pnlVida.Name And ctrl.Name <> principal.Name And ctrl.Name <> pnlVida2.Name Then
 
                     '                si el personaje esta adentro del piso (si el picturebox1 esta adentro del limite del objeto que esta de bajo (eje x))
-                    If principal.Location.X >= ctrl.Location.X - principal.Width + 5 And principal.Location.X < (ctrl.Location.X + ctrl.Width - 5) Then
+                    If principal2.Location.X >= ctrl.Location.X - principal2.Width + 5 And principal2.Location.X < (ctrl.Location.X + ctrl.Width - 5) Then
 
                         ' si se verifica lo anterior el panel final es el objeto donde esta el personaje
-                        panelfinal = ctrl
+                        panelFinal2 = ctrl
+
 
                         ' y el dy es la distancia entre el picturebox y el suelo
-                        dy = ctrl.Location.Y - principal.Location.Y
+                        dy2 = Math.Abs(ctrl.Location.Y - (principal2.Location.Y + principal2.Height))
 
 
                     End If
@@ -1057,16 +1082,16 @@ Public Class frmMultiPlayerMode
                 End If
 
                 '   si el valor de la resta de la ubicacion (Y) del objeto y del personaje es menor a dy  y si el objeto esta debajo del personaje(picturebox1) y si el objeto no es el personaje(picturebox1) y si el objeto no es el piso(panel1)
-                If ((ctrl.Location.Y + ctrl.Height) - (principal2.Location.Y + principal2.Height)) < dy And ctrl.Location.Y >= (principal2.Location.Y + principal2.Height) And ctrl.Name <> principal2.Name And ctrl.Name <> pnlPiso.Name And ctrl.Name <> pnlVida.Name And ctrl.Name <> principal.Name And ctrl.Name <> pnlVida.Name And ctrl.Name <> pnlVida2.Name Then
+                If ((ctrl.Location.Y) - (principal.Location.Y + principal.Height)) < dy And ctrl.Location.Y >= (principal.Location.Y + principal.Height) And ctrl.Name <> principal.Name And ctrl.Name <> pnlVida.Name And ctrl.Name <> principal2.Name And ctrl.Name <> pnlVida2.Name Then
 
                     '                si el personaje esta adentro del piso (si el picturebox1 esta adentro del limite del objeto que esta de bajo (eje x))
-                    If principal2.Location.X >= ctrl.Location.X - principal2.Width + 5 And principal2.Location.X < (ctrl.Location.X + ctrl.Width - 5) Then
+                    If principal.Location.X >= ctrl.Location.X - principal.Width + 5 And principal.Location.X < (ctrl.Location.X + ctrl.Width - 5) Then
 
                         ' si se verifica lo anterior el panel final es el objeto donde esta el personaje
-                        panelfinal2 = ctrl
+                        panelFinal = ctrl
 
                         ' y el dy es la distancia entre el picturebox y el suelo
-                        dy = ctrl.Location.Y - principal2.Location.Y
+                        dy = Math.Abs(ctrl.Location.Y - (principal.Location.Y + principal.Height))
 
 
                     End If
@@ -1074,21 +1099,14 @@ Public Class frmMultiPlayerMode
 
                 End If
 
+
             End If
 
         Next
 
-        Try
-            pan = panelfinal
-        Catch ex As Exception
-
-        End Try
-        Try
-            pan2 = panelfinal2
-        Catch ex As Exception
-
-        End Try
-
+       
+        pan = panelFinal
+        pan2 = panelFinal2
 
 
     End Sub

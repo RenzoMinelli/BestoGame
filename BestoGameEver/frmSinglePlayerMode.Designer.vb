@@ -54,7 +54,6 @@ Partial Class frmSinglePlayerMode
         Me.Panel12 = New System.Windows.Forms.Panel()
         Me.Panel15 = New System.Windows.Forms.Panel()
         Me.cosaRandom = New System.Windows.Forms.Timer(Me.components)
-        Me.pbCosaR = New ya_ni_se.TransPicBox()
         Me.TransPicBox11 = New ya_ni_se.TransPicBox()
         Me.TransPicBox10 = New ya_ni_se.TransPicBox()
         Me.TransPicBox9 = New ya_ni_se.TransPicBox()
@@ -67,10 +66,10 @@ Partial Class frmSinglePlayerMode
         Me.TransPicBox3 = New ya_ni_se.TransPicBox()
         Me.TransPicBox6 = New ya_ni_se.TransPicBox()
         Me.TransPicBox1 = New ya_ni_se.TransPicBox()
-        Me.estrella = New ya_ni_se.TransPicBox()
         Me.pbNumeroEstrellas = New ya_ni_se.TransPicBox()
         Me.lblPowerUp = New System.Windows.Forms.Label()
-        CType(Me.pbCosaR, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pbCosaR = New System.Windows.Forms.PictureBox()
+        Me.estrella = New System.Windows.Forms.PictureBox()
         CType(Me.TransPicBox11, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TransPicBox10, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TransPicBox9, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -83,14 +82,15 @@ Partial Class frmSinglePlayerMode
         CType(Me.TransPicBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TransPicBox6, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TransPicBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.estrella, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pbNumeroEstrellas, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pbCosaR, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.estrella, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Movimiento_Principal
         '
         Me.Movimiento_Principal.Enabled = True
-        Me.Movimiento_Principal.Interval = 1
+        Me.Movimiento_Principal.Interval = 5
         '
         'pnlPiso
         '
@@ -179,7 +179,7 @@ Partial Class frmSinglePlayerMode
         Me.lblFinal.AutoSize = True
         Me.lblFinal.BackColor = System.Drawing.Color.Transparent
         Me.lblFinal.Font = New System.Drawing.Font("Microsoft Sans Serif", 48.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblFinal.Location = New System.Drawing.Point(139, 240)
+        Me.lblFinal.Location = New System.Drawing.Point(93, 50)
         Me.lblFinal.Name = "lblFinal"
         Me.lblFinal.Size = New System.Drawing.Size(0, 73)
         Me.lblFinal.TabIndex = 28
@@ -332,19 +332,6 @@ Partial Class frmSinglePlayerMode
         'cosaRandom
         '
         Me.cosaRandom.Interval = 10000
-        '
-        'pbCosaR
-        '
-        Me.pbCosaR.BackColor = System.Drawing.Color.Transparent
-        Me.pbCosaR.ErrorImage = Nothing
-        Me.pbCosaR.Image = Global.ya_ni_se.My.Resources.Resources.Block
-        Me.pbCosaR.InitialImage = Nothing
-        Me.pbCosaR.Location = New System.Drawing.Point(574, 285)
-        Me.pbCosaR.Name = "pbCosaR"
-        Me.pbCosaR.Size = New System.Drawing.Size(53, 48)
-        Me.pbCosaR.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.pbCosaR.TabIndex = 45
-        Me.pbCosaR.TabStop = False
         '
         'TransPicBox11
         '
@@ -502,19 +489,6 @@ Partial Class frmSinglePlayerMode
         Me.TransPicBox1.TabIndex = 24
         Me.TransPicBox1.TabStop = False
         '
-        'estrella
-        '
-        Me.estrella.BackColor = System.Drawing.Color.Transparent
-        Me.estrella.ErrorImage = Nothing
-        Me.estrella.Image = Global.ya_ni_se.My.Resources.Resources.Estrella
-        Me.estrella.InitialImage = Nothing
-        Me.estrella.Location = New System.Drawing.Point(888, 155)
-        Me.estrella.Name = "estrella"
-        Me.estrella.Size = New System.Drawing.Size(55, 53)
-        Me.estrella.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.estrella.TabIndex = 36
-        Me.estrella.TabStop = False
-        '
         'pbNumeroEstrellas
         '
         Me.pbNumeroEstrellas.BackColor = System.Drawing.Color.Transparent
@@ -534,10 +508,31 @@ Partial Class frmSinglePlayerMode
         Me.lblPowerUp.BackColor = System.Drawing.Color.Transparent
         Me.lblPowerUp.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblPowerUp.ForeColor = System.Drawing.Color.White
-        Me.lblPowerUp.Location = New System.Drawing.Point(300, 30)
+        Me.lblPowerUp.Location = New System.Drawing.Point(213, 30)
         Me.lblPowerUp.Name = "lblPowerUp"
         Me.lblPowerUp.Size = New System.Drawing.Size(0, 24)
         Me.lblPowerUp.TabIndex = 46
+        '
+        'pbCosaR
+        '
+        Me.pbCosaR.Image = Global.ya_ni_se.My.Resources.Resources.Block
+        Me.pbCosaR.Location = New System.Drawing.Point(584, 294)
+        Me.pbCosaR.Name = "pbCosaR"
+        Me.pbCosaR.Size = New System.Drawing.Size(43, 39)
+        Me.pbCosaR.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.pbCosaR.TabIndex = 47
+        Me.pbCosaR.TabStop = False
+        '
+        'estrella
+        '
+        Me.estrella.BackColor = System.Drawing.Color.Transparent
+        Me.estrella.Image = Global.ya_ni_se.My.Resources.Resources.Estrella
+        Me.estrella.Location = New System.Drawing.Point(771, 155)
+        Me.estrella.Name = "estrella"
+        Me.estrella.Size = New System.Drawing.Size(56, 53)
+        Me.estrella.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.estrella.TabIndex = 48
+        Me.estrella.TabStop = False
         '
         'frmSinglePlayerMode
         '
@@ -546,33 +541,18 @@ Partial Class frmSinglePlayerMode
         Me.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.fondito
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1223, 679)
+        Me.Controls.Add(Me.principal)
         Me.Controls.Add(Me.lblPowerUp)
-        Me.Controls.Add(Me.pbCosaR)
-        Me.Controls.Add(Me.TransPicBox11)
-        Me.Controls.Add(Me.TransPicBox10)
-        Me.Controls.Add(Me.TransPicBox9)
         Me.Controls.Add(Me.Panel15)
         Me.Controls.Add(Me.Panel12)
         Me.Controls.Add(Me.Panel7)
         Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.TransPicBox8)
-        Me.Controls.Add(Me.TransPicBox5)
         Me.Controls.Add(Me.pbBala)
-        Me.Controls.Add(Me.lblPuntos)
-        Me.Controls.Add(Me.principal)
         Me.Controls.Add(Me.TransPicBox7)
-        Me.Controls.Add(Me.TransPicBox4)
-        Me.Controls.Add(Me.TransPicBox3)
-        Me.Controls.Add(Me.TransPicBox6)
-        Me.Controls.Add(Me.TransPicBox1)
         Me.Controls.Add(Me.Panel9)
         Me.Controls.Add(Me.lblFinal)
-        Me.Controls.Add(Me.lblVida)
-        Me.Controls.Add(Me.lblNumero)
-        Me.Controls.Add(Me.pnlVida)
         Me.Controls.Add(Me.pnlInicio)
         Me.Controls.Add(Me.pnlPiso)
-        Me.Controls.Add(Me.estrella)
         Me.Controls.Add(Me.Panel4)
         Me.Controls.Add(Me.Panel10)
         Me.Controls.Add(Me.Panel14)
@@ -583,14 +563,28 @@ Partial Class frmSinglePlayerMode
         Me.Controls.Add(Me.Panel11)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel2)
+        Me.Controls.Add(Me.TransPicBox9)
+        Me.Controls.Add(Me.TransPicBox11)
+        Me.Controls.Add(Me.TransPicBox4)
+        Me.Controls.Add(Me.TransPicBox10)
+        Me.Controls.Add(Me.TransPicBox6)
+        Me.Controls.Add(Me.TransPicBox3)
+        Me.Controls.Add(Me.TransPicBox5)
+        Me.Controls.Add(Me.TransPicBox8)
+        Me.Controls.Add(Me.TransPicBox1)
+        Me.Controls.Add(Me.pnlVida)
+        Me.Controls.Add(Me.lblVida)
+        Me.Controls.Add(Me.lblNumero)
         Me.Controls.Add(Me.pbNumeroEstrellas)
+        Me.Controls.Add(Me.lblPuntos)
+        Me.Controls.Add(Me.estrella)
+        Me.Controls.Add(Me.pbCosaR)
         Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmSinglePlayerMode"
         Me.Text = "SinglePlayerMode"
         Me.TransparencyKey = System.Drawing.Color.Gray
-        CType(Me.pbCosaR, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TransPicBox11, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TransPicBox10, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TransPicBox9, System.ComponentModel.ISupportInitialize).EndInit()
@@ -603,8 +597,9 @@ Partial Class frmSinglePlayerMode
         CType(Me.TransPicBox3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TransPicBox6, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TransPicBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.estrella, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.pbNumeroEstrellas, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pbCosaR, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.estrella, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -638,7 +633,6 @@ Partial Class frmSinglePlayerMode
     Friend WithEvents Panel11 As System.Windows.Forms.Panel
     Friend WithEvents TransPicBox6 As ya_ni_se.TransPicBox
     Friend WithEvents TransPicBox7 As ya_ni_se.TransPicBox
-    Friend WithEvents estrella As ya_ni_se.TransPicBox
     Friend WithEvents lblPuntos As System.Windows.Forms.Label
     Friend WithEvents pbNumeroEstrellas As ya_ni_se.TransPicBox
     Friend WithEvents pbBala As ya_ni_se.TransPicBox
@@ -653,6 +647,7 @@ Partial Class frmSinglePlayerMode
     Friend WithEvents TransPicBox10 As ya_ni_se.TransPicBox
     Friend WithEvents TransPicBox11 As ya_ni_se.TransPicBox
     Friend WithEvents cosaRandom As System.Windows.Forms.Timer
-    Friend WithEvents pbCosaR As ya_ni_se.TransPicBox
     Friend WithEvents lblPowerUp As System.Windows.Forms.Label
+    Friend WithEvents pbCosaR As System.Windows.Forms.PictureBox
+    Friend WithEvents estrella As System.Windows.Forms.PictureBox
 End Class

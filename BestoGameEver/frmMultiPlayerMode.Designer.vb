@@ -59,30 +59,31 @@ Partial Class frmMultiPlayerMode
         Me.Panel11 = New System.Windows.Forms.Panel()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.TransPicBox2 = New ya_ni_se.TransPicBox()
-        Me.pbNumeroEstrella2 = New ya_ni_se.TransPicBox()
         Me.principal2 = New ya_ni_se.TransPicBox()
-        Me.TransPicBox9 = New ya_ni_se.TransPicBox()
-        Me.TransPicBox5 = New ya_ni_se.TransPicBox()
-        Me.pbBala = New ya_ni_se.TransPicBox()
         Me.principal = New ya_ni_se.TransPicBox()
-        Me.TransPicBox7 = New ya_ni_se.TransPicBox()
+        Me.pbBala = New ya_ni_se.TransPicBox()
         Me.TransPicBox3 = New ya_ni_se.TransPicBox()
         Me.TransPicBox1 = New ya_ni_se.TransPicBox()
-        Me.estrella = New ya_ni_se.TransPicBox()
+        Me.TransPicBox5 = New ya_ni_se.TransPicBox()
+        Me.TransPicBox7 = New ya_ni_se.TransPicBox()
+        Me.TransPicBox2 = New ya_ni_se.TransPicBox()
+        Me.TransPicBox9 = New ya_ni_se.TransPicBox()
         Me.pbNumeroEstrellas = New ya_ni_se.TransPicBox()
-        CType(Me.TransPicBox2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pbNumeroEstrella2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pbNumeroEstrella2 = New ya_ni_se.TransPicBox()
+        Me.estrella = New ya_ni_se.TransPicBox()
+        Me.lblPiso = New System.Windows.Forms.Label()
         CType(Me.principal2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TransPicBox9, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TransPicBox5, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pbBala, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.principal, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TransPicBox7, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pbBala, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TransPicBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TransPicBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.estrella, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TransPicBox5, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TransPicBox7, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TransPicBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TransPicBox9, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pbNumeroEstrellas, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pbNumeroEstrella2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.estrella, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Movimiento_Bala
@@ -305,9 +306,9 @@ Partial Class frmMultiPlayerMode
         Me.pnlPiso.BackColor = System.Drawing.Color.Black
         Me.pnlPiso.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.plataforma
         Me.pnlPiso.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.pnlPiso.Location = New System.Drawing.Point(0, 560)
+        Me.pnlPiso.Location = New System.Drawing.Point(0, 565)
         Me.pnlPiso.Name = "pnlPiso"
-        Me.pnlPiso.Size = New System.Drawing.Size(1213, 109)
+        Me.pnlPiso.Size = New System.Drawing.Size(1213, 104)
         Me.pnlPiso.TabIndex = 45
         '
         'Panel8
@@ -383,70 +384,31 @@ Partial Class frmMultiPlayerMode
         Me.Panel2.Size = New System.Drawing.Size(108, 30)
         Me.Panel2.TabIndex = 50
         '
-        'TransPicBox2
-        '
-        Me.TransPicBox2.BackColor = System.Drawing.Color.Transparent
-        Me.TransPicBox2.ErrorImage = Nothing
-        Me.TransPicBox2.Image = Global.ya_ni_se.My.Resources.Resources.ave8
-        Me.TransPicBox2.InitialImage = Nothing
-        Me.TransPicBox2.Location = New System.Drawing.Point(580, 55)
-        Me.TransPicBox2.Name = "TransPicBox2"
-        Me.TransPicBox2.Size = New System.Drawing.Size(55, 53)
-        Me.TransPicBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.TransPicBox2.TabIndex = 89
-        Me.TransPicBox2.TabStop = False
-        '
-        'pbNumeroEstrella2
-        '
-        Me.pbNumeroEstrella2.BackColor = System.Drawing.Color.Transparent
-        Me.pbNumeroEstrella2.ErrorImage = Nothing
-        Me.pbNumeroEstrella2.Image = Global.ya_ni_se.My.Resources.Resources.Estrella
-        Me.pbNumeroEstrella2.InitialImage = Nothing
-        Me.pbNumeroEstrella2.Location = New System.Drawing.Point(1071, 66)
-        Me.pbNumeroEstrella2.Name = "pbNumeroEstrella2"
-        Me.pbNumeroEstrella2.Size = New System.Drawing.Size(33, 36)
-        Me.pbNumeroEstrella2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.pbNumeroEstrella2.TabIndex = 86
-        Me.pbNumeroEstrella2.TabStop = False
-        '
         'principal2
         '
         Me.principal2.BackColor = System.Drawing.Color.Transparent
         Me.principal2.ErrorImage = Nothing
         Me.principal2.Image = Global.ya_ni_se.My.Resources.Resources.idle11
         Me.principal2.InitialImage = Nothing
-        Me.principal2.Location = New System.Drawing.Point(928, 507)
+        Me.principal2.Location = New System.Drawing.Point(899, 512)
         Me.principal2.Name = "principal2"
         Me.principal2.Size = New System.Drawing.Size(49, 53)
         Me.principal2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.principal2.TabIndex = 81
         Me.principal2.TabStop = False
         '
-        'TransPicBox9
+        'principal
         '
-        Me.TransPicBox9.BackColor = System.Drawing.Color.Transparent
-        Me.TransPicBox9.ErrorImage = Nothing
-        Me.TransPicBox9.Image = Global.ya_ni_se.My.Resources.Resources.ave8
-        Me.TransPicBox9.InitialImage = Nothing
-        Me.TransPicBox9.Location = New System.Drawing.Point(402, 170)
-        Me.TransPicBox9.Name = "TransPicBox9"
-        Me.TransPicBox9.Size = New System.Drawing.Size(55, 53)
-        Me.TransPicBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.TransPicBox9.TabIndex = 78
-        Me.TransPicBox9.TabStop = False
-        '
-        'TransPicBox5
-        '
-        Me.TransPicBox5.BackColor = System.Drawing.Color.Transparent
-        Me.TransPicBox5.ErrorImage = Nothing
-        Me.TransPicBox5.Image = Global.ya_ni_se.My.Resources.Resources.ave8
-        Me.TransPicBox5.InitialImage = Nothing
-        Me.TransPicBox5.Location = New System.Drawing.Point(1052, 386)
-        Me.TransPicBox5.Name = "TransPicBox5"
-        Me.TransPicBox5.Size = New System.Drawing.Size(55, 53)
-        Me.TransPicBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.TransPicBox5.TabIndex = 76
-        Me.TransPicBox5.TabStop = False
+        Me.principal.BackColor = System.Drawing.Color.Transparent
+        Me.principal.ErrorImage = Nothing
+        Me.principal.Image = Global.ya_ni_se.My.Resources.Resources.idle1
+        Me.principal.InitialImage = Nothing
+        Me.principal.Location = New System.Drawing.Point(954, 513)
+        Me.principal.Name = "principal"
+        Me.principal.Size = New System.Drawing.Size(49, 53)
+        Me.principal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.principal.TabIndex = 67
+        Me.principal.TabStop = False
         '
         'pbBala
         '
@@ -460,32 +422,6 @@ Partial Class frmMultiPlayerMode
         Me.pbBala.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.pbBala.TabIndex = 75
         Me.pbBala.TabStop = False
-        '
-        'principal
-        '
-        Me.principal.BackColor = System.Drawing.Color.Transparent
-        Me.principal.ErrorImage = Nothing
-        Me.principal.Image = Global.ya_ni_se.My.Resources.Resources.idle1
-        Me.principal.InitialImage = Nothing
-        Me.principal.Location = New System.Drawing.Point(1076, 507)
-        Me.principal.Name = "principal"
-        Me.principal.Size = New System.Drawing.Size(49, 53)
-        Me.principal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.principal.TabIndex = 67
-        Me.principal.TabStop = False
-        '
-        'TransPicBox7
-        '
-        Me.TransPicBox7.BackColor = System.Drawing.Color.Transparent
-        Me.TransPicBox7.ErrorImage = Nothing
-        Me.TransPicBox7.Image = Nothing
-        Me.TransPicBox7.InitialImage = Nothing
-        Me.TransPicBox7.Location = New System.Drawing.Point(1047, 171)
-        Me.TransPicBox7.Name = "TransPicBox7"
-        Me.TransPicBox7.Size = New System.Drawing.Size(55, 53)
-        Me.TransPicBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.TransPicBox7.TabIndex = 71
-        Me.TransPicBox7.TabStop = False
         '
         'TransPicBox3
         '
@@ -513,18 +449,57 @@ Partial Class frmMultiPlayerMode
         Me.TransPicBox1.TabIndex = 65
         Me.TransPicBox1.TabStop = False
         '
-        'estrella
+        'TransPicBox5
         '
-        Me.estrella.BackColor = System.Drawing.Color.Transparent
-        Me.estrella.ErrorImage = Nothing
-        Me.estrella.Image = Global.ya_ni_se.My.Resources.Resources.Estrella
-        Me.estrella.InitialImage = Nothing
-        Me.estrella.Location = New System.Drawing.Point(893, 158)
-        Me.estrella.Name = "estrella"
-        Me.estrella.Size = New System.Drawing.Size(55, 53)
-        Me.estrella.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.estrella.TabIndex = 72
-        Me.estrella.TabStop = False
+        Me.TransPicBox5.BackColor = System.Drawing.Color.Transparent
+        Me.TransPicBox5.ErrorImage = Nothing
+        Me.TransPicBox5.Image = Global.ya_ni_se.My.Resources.Resources.ave8
+        Me.TransPicBox5.InitialImage = Nothing
+        Me.TransPicBox5.Location = New System.Drawing.Point(1052, 386)
+        Me.TransPicBox5.Name = "TransPicBox5"
+        Me.TransPicBox5.Size = New System.Drawing.Size(55, 53)
+        Me.TransPicBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.TransPicBox5.TabIndex = 76
+        Me.TransPicBox5.TabStop = False
+        '
+        'TransPicBox7
+        '
+        Me.TransPicBox7.BackColor = System.Drawing.Color.Transparent
+        Me.TransPicBox7.ErrorImage = Nothing
+        Me.TransPicBox7.Image = Nothing
+        Me.TransPicBox7.InitialImage = Nothing
+        Me.TransPicBox7.Location = New System.Drawing.Point(1047, 171)
+        Me.TransPicBox7.Name = "TransPicBox7"
+        Me.TransPicBox7.Size = New System.Drawing.Size(55, 53)
+        Me.TransPicBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.TransPicBox7.TabIndex = 71
+        Me.TransPicBox7.TabStop = False
+        '
+        'TransPicBox2
+        '
+        Me.TransPicBox2.BackColor = System.Drawing.Color.Transparent
+        Me.TransPicBox2.ErrorImage = Nothing
+        Me.TransPicBox2.Image = Global.ya_ni_se.My.Resources.Resources.ave8
+        Me.TransPicBox2.InitialImage = Nothing
+        Me.TransPicBox2.Location = New System.Drawing.Point(580, 55)
+        Me.TransPicBox2.Name = "TransPicBox2"
+        Me.TransPicBox2.Size = New System.Drawing.Size(55, 53)
+        Me.TransPicBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.TransPicBox2.TabIndex = 89
+        Me.TransPicBox2.TabStop = False
+        '
+        'TransPicBox9
+        '
+        Me.TransPicBox9.BackColor = System.Drawing.Color.Transparent
+        Me.TransPicBox9.ErrorImage = Nothing
+        Me.TransPicBox9.Image = Global.ya_ni_se.My.Resources.Resources.ave8
+        Me.TransPicBox9.InitialImage = Nothing
+        Me.TransPicBox9.Location = New System.Drawing.Point(402, 170)
+        Me.TransPicBox9.Name = "TransPicBox9"
+        Me.TransPicBox9.Size = New System.Drawing.Size(55, 53)
+        Me.TransPicBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.TransPicBox9.TabIndex = 78
+        Me.TransPicBox9.TabStop = False
         '
         'pbNumeroEstrellas
         '
@@ -539,45 +514,66 @@ Partial Class frmMultiPlayerMode
         Me.pbNumeroEstrellas.TabIndex = 74
         Me.pbNumeroEstrellas.TabStop = False
         '
+        'pbNumeroEstrella2
+        '
+        Me.pbNumeroEstrella2.BackColor = System.Drawing.Color.Transparent
+        Me.pbNumeroEstrella2.ErrorImage = Nothing
+        Me.pbNumeroEstrella2.Image = Global.ya_ni_se.My.Resources.Resources.Estrella
+        Me.pbNumeroEstrella2.InitialImage = Nothing
+        Me.pbNumeroEstrella2.Location = New System.Drawing.Point(1071, 66)
+        Me.pbNumeroEstrella2.Name = "pbNumeroEstrella2"
+        Me.pbNumeroEstrella2.Size = New System.Drawing.Size(33, 36)
+        Me.pbNumeroEstrella2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.pbNumeroEstrella2.TabIndex = 86
+        Me.pbNumeroEstrella2.TabStop = False
+        '
+        'estrella
+        '
+        Me.estrella.BackColor = System.Drawing.Color.Transparent
+        Me.estrella.ErrorImage = Nothing
+        Me.estrella.Image = Global.ya_ni_se.My.Resources.Resources.Estrella
+        Me.estrella.InitialImage = Nothing
+        Me.estrella.Location = New System.Drawing.Point(893, 158)
+        Me.estrella.Name = "estrella"
+        Me.estrella.Size = New System.Drawing.Size(55, 53)
+        Me.estrella.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.estrella.TabIndex = 72
+        Me.estrella.TabStop = False
+        '
+        'lblPiso
+        '
+        Me.lblPiso.AutoSize = True
+        Me.lblPiso.BackColor = System.Drawing.Color.Transparent
+        Me.lblPiso.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPiso.Location = New System.Drawing.Point(398, 18)
+        Me.lblPiso.Name = "lblPiso"
+        Me.lblPiso.Size = New System.Drawing.Size(115, 24)
+        Me.lblPiso.TabIndex = 90
+        Me.lblPiso.Text = "JUGADOR 1"
+        '
         'frmMultiPlayerMode
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.fondito
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1213, 669)
-        Me.Controls.Add(Me.TransPicBox2)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.lblNumeroEstrella2)
-        Me.Controls.Add(Me.lblVida2)
-        Me.Controls.Add(Me.lblNumero2)
-        Me.Controls.Add(Me.pnlVida2)
-        Me.Controls.Add(Me.pbNumeroEstrella2)
+        Me.Controls.Add(Me.lblPiso)
         Me.Controls.Add(Me.principal2)
-        Me.Controls.Add(Me.TransPicBox9)
+        Me.Controls.Add(Me.principal)
+        Me.Controls.Add(Me.pnlVida2)
         Me.Controls.Add(Me.Panel15)
         Me.Controls.Add(Me.Panel12)
         Me.Controls.Add(Me.Panel7)
         Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.TransPicBox5)
         Me.Controls.Add(Me.pbBala)
-        Me.Controls.Add(Me.lblPuntos)
-        Me.Controls.Add(Me.principal)
-        Me.Controls.Add(Me.TransPicBox7)
-        Me.Controls.Add(Me.TransPicBox3)
-        Me.Controls.Add(Me.TransPicBox1)
         Me.Controls.Add(Me.pnlFinal)
         Me.Controls.Add(Me.lblFinal)
-        Me.Controls.Add(Me.lblVida)
-        Me.Controls.Add(Me.lblNumero)
-        Me.Controls.Add(Me.pnlVida)
         Me.Controls.Add(Me.pnlInicio)
-        Me.Controls.Add(Me.estrella)
         Me.Controls.Add(Me.Panel4)
         Me.Controls.Add(Me.Panel6)
-        Me.Controls.Add(Me.pbNumeroEstrellas)
         Me.Controls.Add(Me.pnlPiso)
         Me.Controls.Add(Me.Panel8)
         Me.Controls.Add(Me.Panel5)
@@ -587,23 +583,42 @@ Partial Class frmMultiPlayerMode
         Me.Controls.Add(Me.Panel11)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel2)
+        Me.Controls.Add(Me.TransPicBox3)
+        Me.Controls.Add(Me.TransPicBox1)
+        Me.Controls.Add(Me.TransPicBox5)
+        Me.Controls.Add(Me.TransPicBox7)
+        Me.Controls.Add(Me.TransPicBox2)
+        Me.Controls.Add(Me.TransPicBox9)
+        Me.Controls.Add(Me.pnlVida)
+        Me.Controls.Add(Me.pbNumeroEstrellas)
+        Me.Controls.Add(Me.lblPuntos)
+        Me.Controls.Add(Me.lblNumero)
+        Me.Controls.Add(Me.lblVida)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.lblVida2)
+        Me.Controls.Add(Me.lblNumero2)
+        Me.Controls.Add(Me.pbNumeroEstrella2)
+        Me.Controls.Add(Me.lblNumeroEstrella2)
+        Me.Controls.Add(Me.estrella)
+        Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmMultiPlayerMode"
         Me.Text = "MultiPlayerMode"
         Me.TransparencyKey = System.Drawing.Color.Gray
-        CType(Me.TransPicBox2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pbNumeroEstrella2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.principal2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TransPicBox9, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TransPicBox5, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pbBala, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.principal, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TransPicBox7, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pbBala, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TransPicBox3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TransPicBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.estrella, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TransPicBox5, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TransPicBox7, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TransPicBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TransPicBox9, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.pbNumeroEstrellas, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pbNumeroEstrella2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.estrella, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -655,4 +670,5 @@ Partial Class frmMultiPlayerMode
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents TransPicBox2 As ya_ni_se.TransPicBox
+    Friend WithEvents lblPiso As System.Windows.Forms.Label
 End Class
