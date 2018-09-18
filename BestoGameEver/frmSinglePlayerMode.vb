@@ -177,7 +177,7 @@
                     If moviVertical = "" And principal.Location.Y < pan.Location.Y Then
 
                         'Muevo el PictureBox un poco mas abajo para que de esta forma no este dentro del margen de control para frenar e inicio el descenso con animación
-                        principal.Location = New Point(principal.Location.X, pan.Location.Y + pan.Height)
+                        principal.Location = New Point(principal.Location.X, pan.Location.Y + 20)
                         moviVertical = "0"
 
                     End If
@@ -707,7 +707,7 @@
 
         pan = panelfinal
 
-        lblPiso.Text = pan.Name
+
 
     End Sub
 

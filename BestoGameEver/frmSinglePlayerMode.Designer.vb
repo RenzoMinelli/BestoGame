@@ -70,7 +70,6 @@ Partial Class frmSinglePlayerMode
         Me.TransPicBox8 = New ya_ni_se.TransPicBox()
         Me.TransPicBox1 = New ya_ni_se.TransPicBox()
         Me.pbNumeroEstrellas = New ya_ni_se.TransPicBox()
-        Me.lblPiso = New System.Windows.Forms.Label()
         CType(Me.pbCosaR, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.estrella, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.principal, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -535,17 +534,6 @@ Partial Class frmSinglePlayerMode
         Me.pbNumeroEstrellas.TabIndex = 38
         Me.pbNumeroEstrellas.TabStop = False
         '
-        'lblPiso
-        '
-        Me.lblPiso.AutoSize = True
-        Me.lblPiso.BackColor = System.Drawing.Color.Transparent
-        Me.lblPiso.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPiso.Location = New System.Drawing.Point(394, 30)
-        Me.lblPiso.Name = "lblPiso"
-        Me.lblPiso.Size = New System.Drawing.Size(53, 24)
-        Me.lblPiso.TabIndex = 49
-        Me.lblPiso.Text = "Vida:"
-        '
         'frmSinglePlayerMode
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -553,7 +541,6 @@ Partial Class frmSinglePlayerMode
         Me.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.fondito
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1223, 679)
-        Me.Controls.Add(Me.lblPiso)
         Me.Controls.Add(Me.principal)
         Me.Controls.Add(Me.lblPowerUp)
         Me.Controls.Add(Me.Panel15)
@@ -663,5 +650,4 @@ Partial Class frmSinglePlayerMode
     Friend WithEvents lblPowerUp As System.Windows.Forms.Label
     Friend WithEvents pbCosaR As System.Windows.Forms.PictureBox
     Friend WithEvents estrella As System.Windows.Forms.PictureBox
-    Friend WithEvents lblPiso As System.Windows.Forms.Label
 End Class

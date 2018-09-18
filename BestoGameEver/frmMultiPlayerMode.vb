@@ -155,7 +155,7 @@ Public Class frmMultiPlayerMode
                     If moviVertical = "" And principal.Location.Y < pan.Location.Y Then
 
                         'Muevo el PictureBox un poco mas abajo para que de esta forma no este dentro del margen de control para frenar e inicio el descenso con animación
-                        principal.Location = New Point(principal.Location.X, principal.Location.Y + pan.Height)
+                        principal.Location = New Point(principal.Location.X, pan.Location.Y + 20)
                         moviVertical = "0"
 
                     End If
@@ -230,7 +230,7 @@ Public Class frmMultiPlayerMode
                     If moviVertical2 = "" And principal2.Location.Y < pan2.Location.Y Then
 
                         'Muevo el PictureBox un poco mas abajo para que de esta forma no este dentro del margen de control para frenar e inicio el descenso con animación
-                        principal2.Location = New Point(principal2.Location.X, principal2.Location.Y + principal2.Height + pan2.Height)
+                        principal2.Location = New Point(principal2.Location.X, pan2.Location.Y + 20)
                         moviVertical2 = "0"
 
                     End If
@@ -1106,7 +1106,7 @@ Public Class frmMultiPlayerMode
 
        
         pan = panelFinal
-        lblPiso.Text = pan.Name
+
         pan2 = panelFinal2
 
 

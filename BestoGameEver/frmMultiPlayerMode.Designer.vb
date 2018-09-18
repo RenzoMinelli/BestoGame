@@ -71,7 +71,6 @@ Partial Class frmMultiPlayerMode
         Me.pbNumeroEstrellas = New ya_ni_se.TransPicBox()
         Me.pbNumeroEstrella2 = New ya_ni_se.TransPicBox()
         Me.estrella = New ya_ni_se.TransPicBox()
-        Me.lblPiso = New System.Windows.Forms.Label()
         CType(Me.principal2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.principal, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pbBala, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -540,17 +539,6 @@ Partial Class frmMultiPlayerMode
         Me.estrella.TabIndex = 72
         Me.estrella.TabStop = False
         '
-        'lblPiso
-        '
-        Me.lblPiso.AutoSize = True
-        Me.lblPiso.BackColor = System.Drawing.Color.Transparent
-        Me.lblPiso.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPiso.Location = New System.Drawing.Point(398, 18)
-        Me.lblPiso.Name = "lblPiso"
-        Me.lblPiso.Size = New System.Drawing.Size(115, 24)
-        Me.lblPiso.TabIndex = 90
-        Me.lblPiso.Text = "JUGADOR 1"
-        '
         'frmMultiPlayerMode
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -559,7 +547,6 @@ Partial Class frmMultiPlayerMode
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1213, 669)
-        Me.Controls.Add(Me.lblPiso)
         Me.Controls.Add(Me.principal2)
         Me.Controls.Add(Me.principal)
         Me.Controls.Add(Me.pnlVida2)
@@ -668,5 +655,4 @@ Partial Class frmMultiPlayerMode
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents TransPicBox2 As ya_ni_se.TransPicBox
-    Friend WithEvents lblPiso As System.Windows.Forms.Label
 End Class

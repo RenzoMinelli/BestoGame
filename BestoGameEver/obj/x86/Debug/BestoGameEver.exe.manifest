@@ -48,14 +48,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="BestoGameEver.exe" size="15854080">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="BestoGameEver.exe" size="15853056">
       <assemblyIdentity name="BestoGameEver" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>MmoOzF8tXSv9O5rHhhysxDH4XwY=</dsig:DigestValue>
+        <dsig:DigestValue>yquS4X879ae99zk53Rqn+zkn2nY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
