@@ -42,7 +42,7 @@ Partial Class frmMenuInicio
         '
         Me.btnSinglePlayer.BackColor = System.Drawing.Color.Transparent
         Me.btnSinglePlayer.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSinglePlayer.Location = New System.Drawing.Point(117, 235)
+        Me.btnSinglePlayer.Location = New System.Drawing.Point(31, 235)
         Me.btnSinglePlayer.Name = "btnSinglePlayer"
         Me.btnSinglePlayer.Size = New System.Drawing.Size(175, 69)
         Me.btnSinglePlayer.TabIndex = 0
@@ -53,7 +53,7 @@ Partial Class frmMenuInicio
         '
         Me.btnMultiPlayer.BackColor = System.Drawing.Color.Transparent
         Me.btnMultiPlayer.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnMultiPlayer.Location = New System.Drawing.Point(396, 235)
+        Me.btnMultiPlayer.Location = New System.Drawing.Point(267, 235)
         Me.btnMultiPlayer.Name = "btnMultiPlayer"
         Me.btnMultiPlayer.Size = New System.Drawing.Size(175, 69)
         Me.btnMultiPlayer.TabIndex = 1
@@ -77,7 +77,7 @@ Partial Class frmMenuInicio
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 71.99999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(39, 32)
+        Me.Label2.Location = New System.Drawing.Point(1, 23)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(551, 108)
         Me.Label2.TabIndex = 3
@@ -121,7 +121,7 @@ Partial Class frmMenuInicio
         Me.Label3.AutoSize = True
         Me.Label3.BackColor = System.Drawing.Color.Transparent
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(636, 98)
+        Me.Label3.Location = New System.Drawing.Point(552, 98)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(130, 33)
         Me.Label3.TabIndex = 5
@@ -152,11 +152,11 @@ Partial Class frmMenuInicio
         DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.dgvRanking.DefaultCellStyle = DataGridViewCellStyle4
-        Me.dgvRanking.Location = New System.Drawing.Point(642, 134)
+        Me.dgvRanking.Location = New System.Drawing.Point(558, 134)
         Me.dgvRanking.Name = "dgvRanking"
         Me.dgvRanking.ReadOnly = True
         Me.dgvRanking.RowHeadersVisible = False
-        Me.dgvRanking.Size = New System.Drawing.Size(324, 413)
+        Me.dgvRanking.Size = New System.Drawing.Size(408, 413)
         Me.dgvRanking.TabIndex = 6
         '
         'frmMenuInicio

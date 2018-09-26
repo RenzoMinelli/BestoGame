@@ -89,3 +89,5 @@ C:\Users\Renzo\Documents\GitHub\BestoGame\BestoGameEver\obj\x86\Debug\ya_ni_se.f
 C:\Users\Renzo\Documents\GitHub\BestoGame\BestoGameEver\obj\x86\Debug\ya_ni_se.frmRanking.resources
 C:\Users\Renzo\Documents\GitHub\BestoGame\BestoGameEver\obj\x86\Debug\BestoGameEver.exe.manifest
 C:\Users\Renzo\Documents\GitHub\BestoGame\BestoGameEver\obj\x86\Debug\BestoGameEver.application
+C:\Users\Renzo\Documents\GitHub\BestoGame\BestoGameEver\bin\Debug\MySql.Data.dll
+C:\Users\Renzo\Documents\GitHub\BestoGame\BestoGameEver\bin\Debug\MySql.Data.xml

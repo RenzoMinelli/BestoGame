@@ -81,6 +81,7 @@ Public Class frmMultiPlayerMode
     Dim listaVariables(,) As Integer
 
     Dim direc As Integer = 0
+    Dim bandera1 As Integer
 
     Private Sub BestoGame_Disposed(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Disposed
 
@@ -88,6 +89,13 @@ Public Class frmMultiPlayerMode
         frmMenuInicio.Show()
         frmMenuInicio.actTabla()
 
+    End Sub
+
+    Private Sub frmMultiPlayerMode_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
+        If vida = 0 And vida2 = 0 Then
+            e.Cancel = True
+            MsgBox("Debe registrarse primero", MsgBoxStyle.Exclamation)
+        End If
     End Sub
 
     Private Sub Form1_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyDown
@@ -757,7 +765,15 @@ Public Class frmMultiPlayerMode
 
         ubicarEstrella()
 
+        txbNombre.ForeColor = Color.Gray
+        txbNombre.Text = "Ingrese su Nombre"
+        txbCedula.ForeColor = Color.Gray
+        txbCedula.Text = "Ingrese su Cédula"
 
+        txbNombre2.ForeColor = Color.Gray
+        txbNombre2.Text = "Ingrese su Nombre"
+        txbCedula2.ForeColor = Color.Gray
+        txbCedula2.Text = "Ingrese su Cédula"
 
     End Sub
 
@@ -2375,62 +2391,14 @@ Public Class frmMultiPlayerMode
                     ctrl.Visible = False
                 Next
                 lblFinal.Visible = True
-                lblFinal.Text = "Game Over" + vbNewLine + vbNewLine + "Puntos conseguidos jugador1: " + puntos.ToString + vbNewLine + "Puntos conseguidos jugador2: " + puntos2.ToString
+                lblFinal.Text = "Game Over" + vbNewLine + vbNewLine + "Puntos conseguidos JUGADOR 1: " + puntos.ToString + vbNewLine + vbNewLine + "Puntos conseguidos JUGADOR 2: " + puntos2.ToString
 
-                Try
-                    Dim nombre As String = ""
-                    While nombre = ""
-
-                        nombre = InputBox("Ingrese su nombre Jugador 1", "Registro")
-
-                    End While
-
-
-                    Dim regDate As Date = Date.Now()
-
-                    Dim fecha As String = regDate.ToString("yyyy-MM-dd")
-                    Dim hora As String = regDate.ToString("hh:mm:ss")
-
-
-
-                    Consulta = "insert into resultados (nombre, fecha, hora, resultado) values ('" + nombre + "', '" + fecha + "', '" + hora + "','" + puntos.ToString + "');"
-                    consultar()
-
-                    frmRanking.actTabla()
-
-                    Try
-                        Dim nombre2 As String = ""
-                        While nombre2 = ""
-
-                            nombre2 = InputBox("Ingrese su nombre Jugador 2", "Registro")
-
-                        End While
-
-
-                        Dim regDate2 As Date = Date.Now()
-
-                        Dim fecha2 As String = regDate.ToString("yyyy-MM-dd")
-                        Dim hora2 As String = regDate.ToString("hh:mm:ss")
-
-
-
-                        Consulta = "insert into resultados (nombre, fecha, hora, resultado) values ('" + nombre2 + "', '" + fecha2 + "', '" + hora2 + "','" + puntos2.ToString + "');"
-                        consultar()
-
-                        frmRanking.actTabla()
-
-                        MsgBox("Guardado", MsgBoxStyle.Information)
-
-                        Me.Dispose()
-
-                    Catch ex As Exception
-                        MsgBox("Error al guardar", MsgBoxStyle.Exclamation)
-                    End Try
-
-
-                Catch ex As Exception
-                    MsgBox("Error al guardar", MsgBoxStyle.Exclamation)
-                End Try
+                txbCedula.Visible = True
+                txbCedula2.Visible = True
+                txbNombre.Visible = True
+                txbNombre2.Visible = True
+                btnRegistrar.Visible = True
+                btnRegistrar2.Visible = True
 
             End If
 
@@ -2439,7 +2407,7 @@ Public Class frmMultiPlayerMode
             Anim_Idle_Principal.Start()
 
         Else
-            'Anim_Idle_Principal_2.Dispose()
+
 
             If dire = 0 Then
                 principal2.Image = My.Resources.hurt1
@@ -2485,62 +2453,13 @@ Public Class frmMultiPlayerMode
                     ctrl.Visible = False
                 Next
                 lblFinal.Visible = True
-                lblFinal.Text = "Game Over" + vbNewLine + vbNewLine + "Puntos conseguidos jugador1: " + puntos.ToString + vbNewLine + "Puntos conseguidos jugador2: " + puntos2.ToString
-
-                Try
-                    Dim nombre As String = ""
-                    While nombre = ""
-
-                        nombre = InputBox("Ingrese su nombre Jugador 1", "Registro")
-
-                    End While
-
-
-                    Dim regDate As Date = Date.Now()
-
-                    Dim fecha As String = regDate.ToString("yyyy-MM-dd")
-                    Dim hora As String = regDate.ToString("hh:mm:ss")
-
-
-
-                    Consulta = "insert into resultados (nombre, fecha, hora, resultado) values ('" + nombre + "', '" + fecha + "', '" + hora + "','" + puntos.ToString + "');"
-                    consultar()
-
-                    frmRanking.actTabla()
-
-                    Try
-                        Dim nombre2 As String = ""
-                        Do
-
-                            nombre2 = InputBox("Ingrese su nombre (Jugador 2)", "Registro")
-
-                        Loop While nombre2 = ""
-
-
-                        Dim regDate2 As Date = Date.Now()
-
-                        Dim fecha2 As String = regDate.ToString("yyyy-MM-dd")
-                        Dim hora2 As String = regDate.ToString("hh:mm:ss")
-
-
-
-                        Consulta = "insert into resultados (nombre, fecha, hora, resultado) values ('" + nombre2 + "', '" + fecha2 + "', '" + hora2 + "','" + puntos2.ToString + "');"
-                        consultar()
-
-                        frmRanking.actTabla()
-
-                        MsgBox("Guardado", MsgBoxStyle.Information)
-
-                        Me.Dispose()
-
-                    Catch ex As Exception
-                        MsgBox("Error al guardar", MsgBoxStyle.Exclamation)
-                    End Try
-
-
-                Catch ex As Exception
-                    MsgBox("Error al guardar", MsgBoxStyle.Exclamation)
-                End Try
+                lblFinal.Text = "Game Over" + vbNewLine + vbNewLine + "Puntos conseguidos JUGADOR 1: " + puntos.ToString + vbNewLine + vbNewLine + "Puntos conseguidos JUGADOR 2: " + puntos2.ToString
+                txbCedula.Visible = True
+                txbCedula2.Visible = True
+                txbNombre.Visible = True
+                txbNombre2.Visible = True
+                btnRegistrar.Visible = True
+                btnRegistrar2.Visible = True
 
             End If
 
@@ -2610,8 +2529,6 @@ Public Class frmMultiPlayerMode
     End Sub
 
 
-
-
     Private Sub BestoGame_Move(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Move
         frmRanking.Location = New Point(Me.Location.X + Me.Width, Me.Location.Y)
     End Sub
@@ -2649,10 +2566,384 @@ Public Class frmMultiPlayerMode
 
         End If
     End Sub
+    Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnRegistrar2.Click
 
- 
+        If txbCedula2.Text = "" Or txbNombre2.Text = "" Or txbCedula2.ForeColor = Color.Gray Or txbNombre2.ForeColor = Color.Gray Then
 
-    Private Sub Movimiento_Principal_2_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs)
+            MsgBox("Complete los campos", MsgBoxStyle.Exclamation)
+
+        ElseIf verificarCedula(txbCedula2.Text) = False Then
+
+            MsgBox("Cédula no válida", MsgBoxStyle.Exclamation)
+
+        Else
+            Try
+
+                ceduJug = txbCedula2.Text
+                nombreJug = txbNombre2.Text
+
+                Dim regDate As Date = Date.Now()
+
+                Dim fecha As String = regDate.ToString("yyyy-MM-dd")
+                Dim hora As String = regDate.ToString("hh:mm:ss")
+
+
+                Consulta = "insert into resultados (nombre, fecha, hora, resultado, cedula) values ('" + nombreJug + "', '" + fecha + "', '" + hora + "','" + puntos.ToString + "','" + ceduJug + "');"
+                consultar()
+
+                frmRanking.actTabla()
+
+                txbCedula2.Hide()
+                txbNombre2.Hide()
+                btnRegistrar2.Hide()
+                lblRegistro2.Show()
+
+                If bandera1 = 1 Then
+
+                    MsgBox("Guardado", MsgBoxStyle.Information)
+                    Me.Dispose()
+
+                End If
+
+                bandera1 = 1
+
+            Catch ex As Exception
+                MsgBox("Error al guardar el JUGADOR2", MsgBoxStyle.Exclamation)
+            End Try
+           
+
+
+
+        End If
 
     End Sub
+    Private Sub txbNombre2_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles txbNombre2.Click
+
+        'Si el contenido de txbNombre2 es Buscar y de color gris
+        If txbNombre2.Text = "Ingrese su Nombre" And txbNombre2.ForeColor = Color.Gray Then
+
+            'El cursos se ubique al inicio
+            Me.txbNombre2.SelectionStart = 0
+
+        End If
+
+    End Sub
+
+    Private Sub txbNombre2_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles txbNombre2.GotFocus
+
+        'Si el contenido de txbNombre2 es Buscar y de color gris
+        If txbNombre2.Text = "Ingrese su Nombre" And txbNombre2.ForeColor = Color.Gray Then
+
+            'El cursos se ubique al inicio
+            txbNombre2.SelectionStart = 0
+
+        End If
+
+    End Sub
+
+    Private Sub txbNombre2_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txbNombre2.KeyDown
+
+        'Si el contenido de txbNombre2 es Buscar, de color gris y la tecla presionada no es 
+        If txbNombre2.Text = "Ingrese su Nombre" And txbNombre2.ForeColor = Color.Gray And Not e.KeyCode = Keys.Back Then
+
+            'Borrar el contenido del txbNombre2 y volver el color negro
+            txbNombre2.Text = ""
+            txbNombre2.ForeColor = Color.Black
+
+
+            'Si txbNombre2 solo tiene una letra y la tecla presionada fue borrar, 
+        ElseIf e.KeyCode = Keys.Back And txbNombre2.Text.Length = 1 Then
+
+            'Introduzco el texto 'Buscar' al txbNombre2 de color Gris
+            txbNombre2.Text = "Ingrese su Nombre"
+            txbNombre2.ForeColor = Color.Gray
+
+        ElseIf e.KeyCode = Keys.Back And txbNombre2.SelectedText = "Ingrese su Nombre" Then
+
+            txbNombre2.Text = ""
+            txbNombre2.ForeColor = Color.Black
+
+            'Si la tecla presionada es borrar y todo el texto esta seleccionado
+        ElseIf e.KeyCode = Keys.Back And txbNombre2.SelectedText = txbNombre2.Text Then
+
+            'Introduzco el texto 'Buscar' al txbNombre2 de color Gris
+            txbNombre2.Text = "Ingrese su Nombre"
+            txbNombre2.ForeColor = Color.Gray
+
+
+        End If
+    End Sub
+    '------------------------------------------------------------------------------------------
+    Private Sub txbCedula2_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles txbCedula2.Click
+
+        'Si el contenido de txbNombre es Buscar y de color gris
+        If txbCedula2.Text = "Ingrese su Cédula" And txbCedula2.ForeColor = Color.Gray Then
+
+            'El cursos se ubique al inicio
+            Me.txbCedula2.SelectionStart = 0
+
+        End If
+
+    End Sub
+
+    Private Sub txbCedula2_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles txbCedula2.GotFocus
+
+        'Si el contenido de txbNombre es Buscar y de color gris
+        If txbCedula2.Text = "Ingrese su Cédula" And txbCedula2.ForeColor = Color.Gray Then
+
+            'El cursos se ubique al inicio
+            txbCedula2.SelectionStart = 0
+
+        End If
+
+    End Sub
+
+    Private Sub txbCedula2_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txbCedula2.KeyDown
+
+        'Si el contenido de txbNombre es Buscar, de color gris y la tecla presionada no es 
+        If txbCedula2.Text = "Ingrese su Cédula" And txbCedula2.ForeColor = Color.Gray And Not e.KeyCode = Keys.Back Then
+
+            'Borrar el contenido del txbNombre y volver el color negro
+            txbCedula2.Text = ""
+            txbCedula2.ForeColor = Color.Black
+
+
+            'Si txbNombre solo tiene una letra y la tecla presionada fue borrar, 
+        ElseIf e.KeyCode = Keys.Back And txbCedula2.Text.Length = 1 Then
+
+            'Introduzco el texto 'Buscar' al txbNombre de color Gris
+            txbCedula2.Text = "Ingrese su Cédula"
+            txbCedula2.ForeColor = Color.Gray
+
+        ElseIf e.KeyCode = Keys.Back And txbCedula2.SelectedText = "Ingrese su Cédula" Then
+
+            txbNombre.Text = ""
+            txbNombre.ForeColor = Color.Black
+
+            'Si la tecla presionada es borrar y todo el texto esta seleccionado
+        ElseIf e.KeyCode = Keys.Back And txbCedula2.SelectedText = txbCedula2.Text Then
+
+            'Introduzco el texto 'Buscar' al txbNombre de color Gris
+            txbCedula2.Text = "Ingrese su Cédula"
+            txbCedula2.ForeColor = Color.Gray
+
+
+        End If
+    End Sub
+    '---------------------------------------------------------------------------------------------------------------------------------------------------------
+    '------------------------------------------------------------------------------------------------------------
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnRegistrar.Click
+
+        If txbCedula.Text = "" Or txbNombre.Text = "" Or txbCedula.ForeColor = Color.Gray Or txbNombre.ForeColor = Color.Gray Then
+
+            MsgBox("Complete los campos", MsgBoxStyle.Exclamation)
+
+        ElseIf verificarCedula(txbCedula.Text) = False Then
+
+            MsgBox("Cédula no válida", MsgBoxStyle.Exclamation)
+
+        Else
+            Try
+
+
+                ceduJug = txbCedula.Text
+                nombreJug = txbNombre.Text
+
+
+
+                Dim regDate As Date = Date.Now()
+
+                Dim fecha As String = regDate.ToString("yyyy-MM-dd")
+                Dim hora As String = regDate.ToString("hh:mm:ss")
+
+
+
+                Consulta = "insert into resultados (nombre, fecha, hora, resultado,cedula) values ('" + nombreJug + "', '" + fecha + "', '" + hora + "','" + puntos.ToString + "','" + ceduJug + "');"
+                consultar()
+
+
+                frmRanking.actTabla()
+
+                txbCedula.Hide()
+                txbNombre.Hide()
+                btnRegistrar.Hide()
+                lblRegistro.Show()
+
+                If bandera1 = 1 Then
+
+                    MsgBox("Guardado", MsgBoxStyle.Information)
+                    Me.Dispose()
+
+                End If
+
+                bandera1 = 1
+            Catch ex As Exception
+
+                MsgBox("Error al registrar el JUGADOR1", MsgBoxStyle.Exclamation)
+            End Try
+            
+
+
+        End If
+
+    End Sub
+    Private Sub txbNombre_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles txbNombre.Click
+
+        'Si el contenido de txbNombre es Buscar y de color gris
+        If txbNombre.Text = "Ingrese su Nombre" And txbNombre.ForeColor = Color.Gray Then
+
+            'El cursos se ubique al inicio
+            Me.txbNombre.SelectionStart = 0
+
+        End If
+
+    End Sub
+
+    Private Sub txbNombre_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles txbNombre.GotFocus
+
+        'Si el contenido de txbNombre es Buscar y de color gris
+        If txbNombre.Text = "Ingrese su Nombre" And txbNombre.ForeColor = Color.Gray Then
+
+            'El cursos se ubique al inicio
+            txbNombre.SelectionStart = 0
+
+        End If
+
+    End Sub
+
+    Private Sub txbNombre_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txbNombre.KeyDown
+
+        'Si el contenido de txbNombre es Buscar, de color gris y la tecla presionada no es 
+        If txbNombre.Text = "Ingrese su Nombre" And txbNombre.ForeColor = Color.Gray And Not e.KeyCode = Keys.Back Then
+
+            'Borrar el contenido del txbNombre y volver el color negro
+            txbNombre.Text = ""
+            txbNombre.ForeColor = Color.Black
+
+
+            'Si txbNombre solo tiene una letra y la tecla presionada fue borrar, 
+        ElseIf e.KeyCode = Keys.Back And txbNombre.Text.Length = 1 Then
+
+            'Introduzco el texto 'Buscar' al txbNombre de color Gris
+            txbNombre.Text = "Ingrese su Nombre"
+            txbNombre.ForeColor = Color.Gray
+
+        ElseIf e.KeyCode = Keys.Back And txbNombre.SelectedText = "Ingrese su Nombre" Then
+
+            txbNombre.Text = ""
+            txbNombre.ForeColor = Color.Black
+
+            'Si la tecla presionada es borrar y todo el texto esta seleccionado
+        ElseIf e.KeyCode = Keys.Back And txbNombre.SelectedText = txbNombre.Text Then
+
+            'Introduzco el texto 'Buscar' al txbNombre de color Gris
+            txbNombre.Text = "Ingrese su Nombre"
+            txbNombre.ForeColor = Color.Gray
+
+
+        End If
+    End Sub
+    '------------------------------------------------------------------------------------------
+    Private Sub txbCedula_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles txbCedula.Click
+
+        'Si el contenido de txbNombre es Buscar y de color gris
+        If txbCedula.Text = "Ingrese su Cédula" And txbCedula.ForeColor = Color.Gray Then
+
+            'El cursos se ubique al inicio
+            Me.txbCedula.SelectionStart = 0
+
+        End If
+
+    End Sub
+
+    Private Sub txbCedula_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles txbCedula.GotFocus
+
+        'Si el contenido de txbNombre es Buscar y de color gris
+        If txbCedula.Text = "Ingrese su Cédula" And txbCedula.ForeColor = Color.Gray Then
+
+            'El cursos se ubique al inicio
+            txbCedula.SelectionStart = 0
+
+        End If
+
+    End Sub
+
+    Private Sub txbcedula_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txbCedula.KeyDown
+
+        'Si el contenido de txbNombre es Buscar, de color gris y la tecla presionada no es 
+        If txbCedula.Text = "Ingrese su Cédula" And txbCedula.ForeColor = Color.Gray And Not e.KeyCode = Keys.Back Then
+
+            'Borrar el contenido del txbNombre y volver el color negro
+            txbCedula.Text = ""
+            txbCedula.ForeColor = Color.Black
+
+
+            'Si txbNombre solo tiene una letra y la tecla presionada fue borrar, 
+        ElseIf e.KeyCode = Keys.Back And txbCedula.Text.Length = 1 Then
+
+            'Introduzco el texto 'Buscar' al txbNombre de color Gris
+            txbCedula.Text = "Ingrese su Cédula"
+            txbCedula.ForeColor = Color.Gray
+
+        ElseIf e.KeyCode = Keys.Back And txbCedula.SelectedText = "Ingrese su Cédula" Then
+
+            txbNombre.Text = ""
+            txbNombre.ForeColor = Color.Black
+
+            'Si la tecla presionada es borrar y todo el texto esta seleccionado
+        ElseIf e.KeyCode = Keys.Back And txbCedula.SelectedText = txbCedula.Text Then
+
+            'Introduzco el texto 'Buscar' al txbNombre de color Gris
+            txbCedula.Text = "Ingrese su Cédula"
+            txbCedula.ForeColor = Color.Gray
+
+
+        End If
+    End Sub
+
+    Private Function verificarCedula(ByVal cedula As String)
+
+        If cedula.Length = 8 And IsNumeric(cedula) Then
+            Try
+
+                Dim cedulaChar(7) As Char
+                Dim suma As Integer
+                Dim calculo() As Integer = {2, 9, 8, 7, 6, 3, 4}
+
+                cedulaChar = cedula.ToCharArray()
+
+                For i = 0 To 6
+                    Dim num1 As Integer = Val(cedulaChar(i))
+                    suma = (num1 * calculo(i)) + suma
+                Next
+
+                cedulaChar = cedula.ToCharArray()
+
+                Dim liResto As Integer = 10 - (suma Mod 10)
+
+                If liResto = 10 Then
+                    liResto = 0
+                End If
+
+
+                If liResto = Val(cedulaChar(7)) Then
+                    Return True
+                Else
+                    Return False
+                End If
+
+            Catch ex As Exception
+
+                Return False
+
+            End Try
+
+        Else
+
+            Return False
+
+        End If
+
+    End Function
+
 End Class

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 09-09-2018 a las 19:12:24
--- Versión del servidor: 5.7.19
--- Versión de PHP: 5.6.31
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 26-09-2018 a las 14:48:09
+-- Versión del servidor: 10.1.35-MariaDB
+-- Versión de PHP: 7.2.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -28,25 +28,44 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `resultados`
 --
 
-DROP TABLE IF EXISTS `resultados`;
-CREATE TABLE IF NOT EXISTS `resultados` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `resultados` (
+  `id` int(11) NOT NULL,
   `nombre` varchar(30) NOT NULL,
   `fecha` date NOT NULL,
   `hora` time NOT NULL,
   `resultado` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+  `cedula` varchar(30) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `resultados`
 --
 
-INSERT INTO `resultados` (`id`, `nombre`, `fecha`, `hora`, `resultado`) VALUES
-(11, 'Prueba', '2018-09-09', '04:05:04', 2),
-(10, 'nada', '2018-09-09', '03:44:43', 0),
-(9, 'Nico', '2018-09-09', '02:30:21', 6),
-(8, 'Renzo', '2018-09-09', '02:29:42', 5);
+INSERT INTO `resultados` (`id`, `nombre`, `fecha`, `hora`, `resultado`, `cedula`) VALUES
+(24, 'JUG2', '2018-09-26', '09:46:50', 1, '51209556'),
+(23, 'jug1', '2018-09-26', '09:46:50', 0, '51209556'),
+(22, 'Prueba1', '2018-09-26', '09:44:17', 3, '51209556'),
+(21, 'Renzo', '2018-09-26', '09:42:12', 1, '51209556');
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `resultados`
+--
+ALTER TABLE `resultados`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `resultados`
+--
+ALTER TABLE `resultados`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

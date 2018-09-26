@@ -10,7 +10,8 @@ Module Module1
     Public Consulta As String
     Public MysqlConexion As MySqlConnection = New MySqlConnection(ubicacion)
 
-   
+    Public nombreJug As String
+    Public ceduJug As String
 
     Public Sub consultar()
         Try
@@ -24,6 +25,7 @@ Module Module1
 
     End Sub
 
+   
 End Module
 
 

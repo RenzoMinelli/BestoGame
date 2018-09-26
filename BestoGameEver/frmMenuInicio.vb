@@ -6,17 +6,18 @@
     Public Sub actTabla()
         Try
             dgvRanking.RowCount = 0
-            Consulta = "select nombre as 'Nombre', resultado as 'Puntaje' from resultados order by 2 desc;"
+            Consulta = "select nombre as 'Nombre', resultado as 'Puntaje', cedula  from resultados order by 2 desc;"
             consultar()
             dgvAuxiliar.DataSource = Tabla
 
-            dgvRanking.ColumnCount = 3
+            dgvRanking.ColumnCount = 4
             dgvRanking.Columns(0).HeaderText = "Posición"
             dgvRanking.Columns(1).HeaderText = "Nombre"
-            dgvRanking.Columns(2).HeaderText = "Puntaje"
+            dgvRanking.Columns(2).HeaderText = "Cédula"
+            dgvRanking.Columns(3).HeaderText = "Puntaje"
             For x = 0 To dgvAuxiliar.RowCount - 1
 
-                dgvRanking.Rows.Add((x + 1).ToString + "°", dgvAuxiliar.Rows(x).Cells(0).Value, dgvAuxiliar.Rows(x).Cells(1).Value)
+                dgvRanking.Rows.Add((x + 1).ToString + "°", dgvAuxiliar.Rows(x).Cells(0).Value, dgvAuxiliar.Rows(x).Cells(2).Value, dgvAuxiliar.Rows(x).Cells(1).Value)
 
             Next
         Catch ex As Exception
