@@ -1,4 +1,6 @@
 ﻿
+Imports System.ComponentModel
+
 Public Class frmMultiPlayerMode
 
 
@@ -169,7 +171,7 @@ Public Class frmMultiPlayerMode
                     End If
 
                 End If
-               
+
             End If
         End If
 
@@ -245,7 +247,7 @@ Public Class frmMultiPlayerMode
 
                 End If
 
-                
+
 
 
 
@@ -701,7 +703,7 @@ Public Class frmMultiPlayerMode
     End Sub
 
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-       
+
 
         Dim noti As New frmNotificacion
         noti.lblCambio.Text = "JUGADOR 1: Flechas" + vbNewLine + "JUGADOR 2: ASWD"
@@ -710,7 +712,7 @@ Public Class frmMultiPlayerMode
         noti.ShowDialog()
 
         Me.Location = New Point(0, 0)
-       
+
 
         Encontrar_Suelo_Principal.Start()
         Movimiento_Bala.Start()
@@ -719,7 +721,7 @@ Public Class frmMultiPlayerMode
         Anim_Movimiento_Principal.Start()
         Anim_Movimiento_Enemigo.Start()
         Movimiento_Principal.Start()
-       
+
 
         verificarVida = 0
         verificarVida2 = 0
@@ -766,7 +768,7 @@ Public Class frmMultiPlayerMode
 
         ubicarEstrella()
 
-      
+
 
     End Sub
 
@@ -1113,7 +1115,7 @@ Public Class frmMultiPlayerMode
 
         Next
 
-       
+
         pan = panelFinal
 
         pan2 = panelFinal2
@@ -2603,14 +2605,14 @@ Public Class frmMultiPlayerMode
             Catch ex As Exception
                 MsgBox("Error al guardar el JUGADOR2", MsgBoxStyle.Exclamation)
             End Try
-           
+
 
 
 
         End If
 
     End Sub
-  
+
     '---------------------------------------------------------------------------------------------------------------------------------------------------------
     '------------------------------------------------------------------------------------------------------------
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnRegistrar.Click
@@ -2662,13 +2664,17 @@ Public Class frmMultiPlayerMode
 
                 MsgBox("Error al registrar el JUGADOR1", MsgBoxStyle.Exclamation)
             End Try
-            
+
 
 
         End If
 
     End Sub
-   
+
+    Private Sub frmMultiPlayerMode_Closing(sender As Object, e As CancelEventArgs) Handles Me.FormClosing
+        e.Cancel = True
+        MsgBox("Primero debe registrarse", MsgBoxStyle.Information)
+    End Sub
 
     Private Function verificarCedula(ByVal cedula As String)
 

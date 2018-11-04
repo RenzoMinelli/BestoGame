@@ -63,6 +63,8 @@ Partial Class frmMultiPlayerMode
         Me.btnRegistrar2 = New System.Windows.Forms.Button()
         Me.lblRegistro = New System.Windows.Forms.Label()
         Me.lblRegistro2 = New System.Windows.Forms.Label()
+        Me.txbNombre2 = New ya_ni_se.PlaceHolder()
+        Me.txbNombre = New ya_ni_se.PlaceHolder()
         Me.principal2 = New ya_ni_se.TransPicBox()
         Me.principal = New ya_ni_se.TransPicBox()
         Me.pbBala = New ya_ni_se.TransPicBox()
@@ -75,9 +77,7 @@ Partial Class frmMultiPlayerMode
         Me.pbNumeroEstrellas = New ya_ni_se.TransPicBox()
         Me.pbNumeroEstrella2 = New ya_ni_se.TransPicBox()
         Me.estrella = New ya_ni_se.TransPicBox()
-        Me.txbNombre = New ya_ni_se.PlaceHolder()
         Me.txbCedula = New ya_ni_se.PlaceHolder()
-        Me.txbNombre2 = New ya_ni_se.PlaceHolder()
         Me.txbCedula2 = New ya_ni_se.PlaceHolder()
         CType(Me.principal2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.principal, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -437,6 +437,28 @@ Partial Class frmMultiPlayerMode
         Me.lblRegistro2.Text = "Registrado"
         Me.lblRegistro2.Visible = False
         '
+        'txbNombre2
+        '
+        Me.txbNombre2.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txbNombre2.Location = New System.Drawing.Point(82, 468)
+        Me.txbNombre2.Name = "txbNombre2"
+        Me.txbNombre2.Size = New System.Drawing.Size(226, 31)
+        Me.txbNombre2.TabIndex = 100
+        Me.txbNombre2.Visible = False
+        Me.txbNombre2.WaterMarkColor = System.Drawing.Color.Gray
+        Me.txbNombre2.WaterMarkText = "Ingrese su Nombre"
+        '
+        'txbNombre
+        '
+        Me.txbNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txbNombre.Location = New System.Drawing.Point(82, 314)
+        Me.txbNombre.Name = "txbNombre"
+        Me.txbNombre.Size = New System.Drawing.Size(226, 31)
+        Me.txbNombre.TabIndex = 98
+        Me.txbNombre.Visible = False
+        Me.txbNombre.WaterMarkColor = System.Drawing.Color.Gray
+        Me.txbNombre.WaterMarkText = "Ingrese su Nombre"
+        '
         'principal2
         '
         Me.principal2.BackColor = System.Drawing.Color.Transparent
@@ -593,17 +615,6 @@ Partial Class frmMultiPlayerMode
         Me.estrella.TabIndex = 72
         Me.estrella.TabStop = False
         '
-        'txbNombre
-        '
-        Me.txbNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txbNombre.Location = New System.Drawing.Point(82, 314)
-        Me.txbNombre.Name = "txbNombre"
-        Me.txbNombre.Size = New System.Drawing.Size(226, 31)
-        Me.txbNombre.TabIndex = 98
-        Me.txbNombre.Visible = False
-        Me.txbNombre.WaterMarkColor = System.Drawing.Color.Gray
-        Me.txbNombre.WaterMarkText = "Ingrese su Nombre"
-        '
         'txbCedula
         '
         Me.txbCedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -614,17 +625,6 @@ Partial Class frmMultiPlayerMode
         Me.txbCedula.Visible = False
         Me.txbCedula.WaterMarkColor = System.Drawing.Color.Gray
         Me.txbCedula.WaterMarkText = "Ingrese su Cédula"
-        '
-        'txbNombre2
-        '
-        Me.txbNombre2.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txbNombre2.Location = New System.Drawing.Point(82, 468)
-        Me.txbNombre2.Name = "txbNombre2"
-        Me.txbNombre2.Size = New System.Drawing.Size(226, 31)
-        Me.txbNombre2.TabIndex = 100
-        Me.txbNombre2.Visible = False
-        Me.txbNombre2.WaterMarkColor = System.Drawing.Color.Gray
-        Me.txbNombre2.WaterMarkText = "Ingrese su Nombre"
         '
         'txbCedula2
         '
@@ -646,6 +646,7 @@ Partial Class frmMultiPlayerMode
         Me.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.fondito
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1213, 669)
+        Me.Controls.Add(Me.txbCedula)
         Me.Controls.Add(Me.txbNombre2)
         Me.Controls.Add(Me.txbNombre)
         Me.Controls.Add(Me.lblRegistro2)
@@ -692,7 +693,6 @@ Partial Class frmMultiPlayerMode
         Me.Controls.Add(Me.pbNumeroEstrella2)
         Me.Controls.Add(Me.lblNumeroEstrella2)
         Me.Controls.Add(Me.estrella)
-        Me.Controls.Add(Me.txbCedula)
         Me.Controls.Add(Me.txbCedula2)
         Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow

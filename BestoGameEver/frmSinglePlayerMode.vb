@@ -1,4 +1,6 @@
-﻿Public Class frmSinglePlayerMode
+﻿Imports System.ComponentModel
+
+Public Class frmSinglePlayerMode
 
     '////////////////////////////////////PERSONALIZACION///////////////////////
     Public avanzar As Double = 5
@@ -110,7 +112,7 @@
         ubicarEstrella()
         ubicarRandom()
 
-       
+
 
     End Sub
 
@@ -188,7 +190,7 @@
                     End If
 
                 End If
-                
+
             End If
         End If
 
@@ -1118,7 +1120,7 @@
             txbCedula.Visible = True
             txbNombre.Visible = True
             btnRegistrar.Visible = True
-            
+
 
         ElseIf v = 100 Then
 
@@ -1279,7 +1281,7 @@
             Movimiento_Bala.Dispose()
 
         End If
-        
+
     End Sub
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnRegistrar.Click
 
@@ -1325,7 +1327,7 @@
         End If
 
     End Sub
-   
+
     Private Function verificarCedula(ByVal cedula As String)
 
         If cedula.Length = 8 And IsNumeric(cedula) Then

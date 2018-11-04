@@ -6,174 +6,215 @@ BestoGameEver
 </name>
 </assembly>
 <members>
+<member name="T:ya_ni_se.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
 <member name="P:ya_ni_se.My.Resources.Resources.ResourceManager">
-	<summary>
+<summary>
   Returns the cached ResourceManager instance used by this class.
 </summary>
-</member><member name="P:ya_ni_se.My.Resources.Resources.Culture">
-	<summary>
+</member>
+<member name="P:ya_ni_se.My.Resources.Resources.Culture">
+<summary>
   Overrides the current thread's CurrentUICulture property for all
   resource lookups using this strongly typed resource class.
 </summary>
-</member><member name="P:ya_ni_se.My.Resources.Resources.ave1">
-	<summary>
+</member>
+<member name="P:ya_ni_se.My.Resources.Resources.ave1">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:ya_ni_se.My.Resources.Resources.ave2">
-	<summary>
+</member>
+<member name="P:ya_ni_se.My.Resources.Resources.ave2">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:ya_ni_se.My.Resources.Resources.ave3">
-	<summary>
+</member>
+<member name="P:ya_ni_se.My.Resources.Resources.ave3">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:ya_ni_se.My.Resources.Resources.ave4">
-	<summary>
+</member>
+<member name="P:ya_ni_se.My.Resources.Resources.ave4">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:ya_ni_se.My.Resources.Resources.ave5">
-	<summary>
+</member>
+<member name="P:ya_ni_se.My.Resources.Resources.ave5">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:ya_ni_se.My.Resources.Resources.ave6">
-	<summary>
+</member>
+<member name="P:ya_ni_se.My.Resources.Resources.ave6">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:ya_ni_se.My.Resources.Resources.ave7">
-	<summary>
+</member>
+<member name="P:ya_ni_se.My.Resources.Resources.ave7">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:ya_ni_se.My.Resources.Resources.ave8">
-	<summary>
+</member>
+<member name="P:ya_ni_se.My.Resources.Resources.ave8">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:ya_ni_se.My.Resources.Resources.Block">
-	<summary>
+</member>
+<member name="P:ya_ni_se.My.Resources.Resources.Block">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:ya_ni_se.My.Resources.Resources.bullet">
-	<summary>
+</member>
+<member name="P:ya_ni_se.My.Resources.Resources.bullet">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:ya_ni_se.My.Resources.Resources.caer2">
-	<summary>
+</member>
+<member name="P:ya_ni_se.My.Resources.Resources.caer2">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:ya_ni_se.My.Resources.Resources.caida">
-	<summary>
+</member>
+<member name="P:ya_ni_se.My.Resources.Resources.caida">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:ya_ni_se.My.Resources.Resources.correr1">
-	<summary>
+</member>
+<member name="P:ya_ni_se.My.Resources.Resources.correr1">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:ya_ni_se.My.Resources.Resources.correr11">
-	<summary>
+</member>
+<member name="P:ya_ni_se.My.Resources.Resources.correr11">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:ya_ni_se.My.Resources.Resources.correr2">
-	<summary>
+</member>
+<member name="P:ya_ni_se.My.Resources.Resources.correr2">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:ya_ni_se.My.Resources.Resources.correr21">
-	<summary>
+</member>
+<member name="P:ya_ni_se.My.Resources.Resources.correr21">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:ya_ni_se.My.Resources.Resources.correr3">
-	<summary>
+</member>
+<member name="P:ya_ni_se.My.Resources.Resources.correr3">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:ya_ni_se.My.Resources.Resources.correr31">
-	<summary>
+</member>
+<member name="P:ya_ni_se.My.Resources.Resources.correr31">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:ya_ni_se.My.Resources.Resources.correr4">
-	<summary>
+</member>
+<member name="P:ya_ni_se.My.Resources.Resources.correr4">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:ya_ni_se.My.Resources.Resources.correr41">
-	<summary>
+</member>
+<member name="P:ya_ni_se.My.Resources.Resources.correr41">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:ya_ni_se.My.Resources.Resources.correr5">
-	<summary>
+</member>
+<member name="P:ya_ni_se.My.Resources.Resources.correr5">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:ya_ni_se.My.Resources.Resources.correr51">
-	<summary>
+</member>
+<member name="P:ya_ni_se.My.Resources.Resources.correr51">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:ya_ni_se.My.Resources.Resources.Estrella">
-	<summary>
+</member>
+<member name="P:ya_ni_se.My.Resources.Resources.Estrella">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:ya_ni_se.My.Resources.Resources.fondito">
-	<summary>
+</member>
+<member name="P:ya_ni_se.My.Resources.Resources.fondito">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:ya_ni_se.My.Resources.Resources.hurt">
-	<summary>
+</member>
+<member name="P:ya_ni_se.My.Resources.Resources.hurt">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:ya_ni_se.My.Resources.Resources.hurt1">
-	<summary>
+</member>
+<member name="P:ya_ni_se.My.Resources.Resources.hurt1">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:ya_ni_se.My.Resources.Resources.idle1">
-	<summary>
+</member>
+<member name="P:ya_ni_se.My.Resources.Resources.idle1">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:ya_ni_se.My.Resources.Resources.idle11">
-	<summary>
+</member>
+<member name="P:ya_ni_se.My.Resources.Resources.idle11">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:ya_ni_se.My.Resources.Resources.idle2">
-	<summary>
+</member>
+<member name="P:ya_ni_se.My.Resources.Resources.idle2">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:ya_ni_se.My.Resources.Resources.idle21">
-	<summary>
+</member>
+<member name="P:ya_ni_se.My.Resources.Resources.idle21">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:ya_ni_se.My.Resources.Resources.idle3">
-	<summary>
+</member>
+<member name="P:ya_ni_se.My.Resources.Resources.idle3">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:ya_ni_se.My.Resources.Resources.idle31">
-	<summary>
+</member>
+<member name="P:ya_ni_se.My.Resources.Resources.idle31">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:ya_ni_se.My.Resources.Resources.idle4">
-	<summary>
+</member>
+<member name="P:ya_ni_se.My.Resources.Resources.idle4">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:ya_ni_se.My.Resources.Resources.idle41">
-	<summary>
+</member>
+<member name="P:ya_ni_se.My.Resources.Resources.idle41">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:ya_ni_se.My.Resources.Resources.idle5">
-	<summary>
+</member>
+<member name="P:ya_ni_se.My.Resources.Resources.idle5">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:ya_ni_se.My.Resources.Resources.idle51">
-	<summary>
+</member>
+<member name="P:ya_ni_se.My.Resources.Resources.idle51">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:ya_ni_se.My.Resources.Resources.plataforma">
-	<summary>
+</member>
+<member name="P:ya_ni_se.My.Resources.Resources.plataforma">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:ya_ni_se.My.Resources.Resources.saltar">
-	<summary>
+</member>
+<member name="P:ya_ni_se.My.Resources.Resources.saltar">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:ya_ni_se.My.Resources.Resources.salto">
-	<summary>
+</member>
+<member name="P:ya_ni_se.My.Resources.Resources.salto">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="T:ya_ni_se.My.Resources.Resources">
-	<summary>
-  A strongly-typed resource class, for looking up localized strings, etc.
 </summary>
 </member>
 </members>

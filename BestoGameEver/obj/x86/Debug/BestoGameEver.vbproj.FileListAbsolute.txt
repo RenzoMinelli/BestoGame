@@ -101,7 +101,6 @@ C:\Users\renmi\OneDrive\Documentos\GitHub\BestoGame\BestoGameEver\bin\Debug\Best
 C:\Users\renmi\OneDrive\Documentos\GitHub\BestoGame\BestoGameEver\bin\Debug\BestoGameEver.xml
 C:\Users\renmi\OneDrive\Documentos\GitHub\BestoGame\BestoGameEver\bin\Debug\MySql.Data.dll
 C:\Users\renmi\OneDrive\Documentos\GitHub\BestoGame\BestoGameEver\bin\Debug\MySql.Data.xml
-C:\Users\renmi\OneDrive\Documentos\GitHub\BestoGame\BestoGameEver\obj\x86\Debug\BestoGameEver.vbprojResolveAssemblyReference.cache
 C:\Users\renmi\OneDrive\Documentos\GitHub\BestoGame\BestoGameEver\obj\x86\Debug\ya_ni_se.frmMultiPlayerMode.resources
 C:\Users\renmi\OneDrive\Documentos\GitHub\BestoGame\BestoGameEver\obj\x86\Debug\ya_ni_se.frmNotificacion.resources
 C:\Users\renmi\OneDrive\Documentos\GitHub\BestoGame\BestoGameEver\obj\x86\Debug\ya_ni_se.frmSinglePlayerMode.resources
@@ -112,3 +111,6 @@ C:\Users\renmi\OneDrive\Documentos\GitHub\BestoGame\BestoGameEver\obj\x86\Debug\
 C:\Users\renmi\OneDrive\Documentos\GitHub\BestoGame\BestoGameEver\obj\x86\Debug\BestoGameEver.vbproj.GenerateResource.Cache
 C:\Users\renmi\OneDrive\Documentos\GitHub\BestoGame\BestoGameEver\obj\x86\Debug\BestoGameEver.exe.manifest
 C:\Users\renmi\OneDrive\Documentos\GitHub\BestoGame\BestoGameEver\obj\x86\Debug\BestoGameEver.application
+C:\Users\renmi\OneDrive\Documentos\GitHub\BestoGame\BestoGameEver\obj\x86\Debug\BestoGameEver.vbprojAssemblyReference.cache
+C:\Users\renmi\OneDrive\Documentos\GitHub\BestoGame\BestoGameEver\obj\x86\Debug\BestoGameEver.vbproj.CoreCompileInputs.cache
+C:\Users\renmi\OneDrive\Documentos\GitHub\BestoGame\BestoGameEver\obj\x86\Debug\BestoGameEver.vbproj.CopyComplete
