@@ -163,6 +163,9 @@
     <Compile Include="frmRanking.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="PlaceHolder.vb">
+      <SubType>Component</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="frmMultiPlayerMode.resx">

@@ -701,6 +701,7 @@ Public Class frmMultiPlayerMode
     End Sub
 
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+       
 
         Dim noti As New frmNotificacion
         noti.lblCambio.Text = "JUGADOR 1: Flechas" + vbNewLine + "JUGADOR 2: ASWD"
@@ -765,15 +766,7 @@ Public Class frmMultiPlayerMode
 
         ubicarEstrella()
 
-        txbNombre.ForeColor = Color.Gray
-        txbNombre.Text = "Ingrese su Nombre"
-        txbCedula.ForeColor = Color.Gray
-        txbCedula.Text = "Ingrese su Cédula"
-
-        txbNombre2.ForeColor = Color.Gray
-        txbNombre2.Text = "Ingrese su Nombre"
-        txbCedula2.ForeColor = Color.Gray
-        txbCedula2.Text = "Ingrese su Cédula"
+      
 
     End Sub
 
@@ -2617,119 +2610,7 @@ Public Class frmMultiPlayerMode
         End If
 
     End Sub
-    Private Sub txbNombre2_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles txbNombre2.Click
-
-        'Si el contenido de txbNombre2 es Buscar y de color gris
-        If txbNombre2.Text = "Ingrese su Nombre" And txbNombre2.ForeColor = Color.Gray Then
-
-            'El cursos se ubique al inicio
-            Me.txbNombre2.SelectionStart = 0
-
-        End If
-
-    End Sub
-
-    Private Sub txbNombre2_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles txbNombre2.GotFocus
-
-        'Si el contenido de txbNombre2 es Buscar y de color gris
-        If txbNombre2.Text = "Ingrese su Nombre" And txbNombre2.ForeColor = Color.Gray Then
-
-            'El cursos se ubique al inicio
-            txbNombre2.SelectionStart = 0
-
-        End If
-
-    End Sub
-
-    Private Sub txbNombre2_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txbNombre2.KeyDown
-
-        'Si el contenido de txbNombre2 es Buscar, de color gris y la tecla presionada no es 
-        If txbNombre2.Text = "Ingrese su Nombre" And txbNombre2.ForeColor = Color.Gray And Not e.KeyCode = Keys.Back Then
-
-            'Borrar el contenido del txbNombre2 y volver el color negro
-            txbNombre2.Text = ""
-            txbNombre2.ForeColor = Color.Black
-
-
-            'Si txbNombre2 solo tiene una letra y la tecla presionada fue borrar, 
-        ElseIf e.KeyCode = Keys.Back And txbNombre2.Text.Length = 1 Then
-
-            'Introduzco el texto 'Buscar' al txbNombre2 de color Gris
-            txbNombre2.Text = "Ingrese su Nombre"
-            txbNombre2.ForeColor = Color.Gray
-
-        ElseIf e.KeyCode = Keys.Back And txbNombre2.SelectedText = "Ingrese su Nombre" Then
-
-            txbNombre2.Text = ""
-            txbNombre2.ForeColor = Color.Black
-
-            'Si la tecla presionada es borrar y todo el texto esta seleccionado
-        ElseIf e.KeyCode = Keys.Back And txbNombre2.SelectedText = txbNombre2.Text Then
-
-            'Introduzco el texto 'Buscar' al txbNombre2 de color Gris
-            txbNombre2.Text = "Ingrese su Nombre"
-            txbNombre2.ForeColor = Color.Gray
-
-
-        End If
-    End Sub
-    '------------------------------------------------------------------------------------------
-    Private Sub txbCedula2_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles txbCedula2.Click
-
-        'Si el contenido de txbNombre es Buscar y de color gris
-        If txbCedula2.Text = "Ingrese su Cédula" And txbCedula2.ForeColor = Color.Gray Then
-
-            'El cursos se ubique al inicio
-            Me.txbCedula2.SelectionStart = 0
-
-        End If
-
-    End Sub
-
-    Private Sub txbCedula2_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles txbCedula2.GotFocus
-
-        'Si el contenido de txbNombre es Buscar y de color gris
-        If txbCedula2.Text = "Ingrese su Cédula" And txbCedula2.ForeColor = Color.Gray Then
-
-            'El cursos se ubique al inicio
-            txbCedula2.SelectionStart = 0
-
-        End If
-
-    End Sub
-
-    Private Sub txbCedula2_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txbCedula2.KeyDown
-
-        'Si el contenido de txbNombre es Buscar, de color gris y la tecla presionada no es 
-        If txbCedula2.Text = "Ingrese su Cédula" And txbCedula2.ForeColor = Color.Gray And Not e.KeyCode = Keys.Back Then
-
-            'Borrar el contenido del txbNombre y volver el color negro
-            txbCedula2.Text = ""
-            txbCedula2.ForeColor = Color.Black
-
-
-            'Si txbNombre solo tiene una letra y la tecla presionada fue borrar, 
-        ElseIf e.KeyCode = Keys.Back And txbCedula2.Text.Length = 1 Then
-
-            'Introduzco el texto 'Buscar' al txbNombre de color Gris
-            txbCedula2.Text = "Ingrese su Cédula"
-            txbCedula2.ForeColor = Color.Gray
-
-        ElseIf e.KeyCode = Keys.Back And txbCedula2.SelectedText = "Ingrese su Cédula" Then
-
-            txbNombre.Text = ""
-            txbNombre.ForeColor = Color.Black
-
-            'Si la tecla presionada es borrar y todo el texto esta seleccionado
-        ElseIf e.KeyCode = Keys.Back And txbCedula2.SelectedText = txbCedula2.Text Then
-
-            'Introduzco el texto 'Buscar' al txbNombre de color Gris
-            txbCedula2.Text = "Ingrese su Cédula"
-            txbCedula2.ForeColor = Color.Gray
-
-
-        End If
-    End Sub
+  
     '---------------------------------------------------------------------------------------------------------------------------------------------------------
     '------------------------------------------------------------------------------------------------------------
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnRegistrar.Click
@@ -2787,119 +2668,7 @@ Public Class frmMultiPlayerMode
         End If
 
     End Sub
-    Private Sub txbNombre_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles txbNombre.Click
-
-        'Si el contenido de txbNombre es Buscar y de color gris
-        If txbNombre.Text = "Ingrese su Nombre" And txbNombre.ForeColor = Color.Gray Then
-
-            'El cursos se ubique al inicio
-            Me.txbNombre.SelectionStart = 0
-
-        End If
-
-    End Sub
-
-    Private Sub txbNombre_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles txbNombre.GotFocus
-
-        'Si el contenido de txbNombre es Buscar y de color gris
-        If txbNombre.Text = "Ingrese su Nombre" And txbNombre.ForeColor = Color.Gray Then
-
-            'El cursos se ubique al inicio
-            txbNombre.SelectionStart = 0
-
-        End If
-
-    End Sub
-
-    Private Sub txbNombre_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txbNombre.KeyDown
-
-        'Si el contenido de txbNombre es Buscar, de color gris y la tecla presionada no es 
-        If txbNombre.Text = "Ingrese su Nombre" And txbNombre.ForeColor = Color.Gray And Not e.KeyCode = Keys.Back Then
-
-            'Borrar el contenido del txbNombre y volver el color negro
-            txbNombre.Text = ""
-            txbNombre.ForeColor = Color.Black
-
-
-            'Si txbNombre solo tiene una letra y la tecla presionada fue borrar, 
-        ElseIf e.KeyCode = Keys.Back And txbNombre.Text.Length = 1 Then
-
-            'Introduzco el texto 'Buscar' al txbNombre de color Gris
-            txbNombre.Text = "Ingrese su Nombre"
-            txbNombre.ForeColor = Color.Gray
-
-        ElseIf e.KeyCode = Keys.Back And txbNombre.SelectedText = "Ingrese su Nombre" Then
-
-            txbNombre.Text = ""
-            txbNombre.ForeColor = Color.Black
-
-            'Si la tecla presionada es borrar y todo el texto esta seleccionado
-        ElseIf e.KeyCode = Keys.Back And txbNombre.SelectedText = txbNombre.Text Then
-
-            'Introduzco el texto 'Buscar' al txbNombre de color Gris
-            txbNombre.Text = "Ingrese su Nombre"
-            txbNombre.ForeColor = Color.Gray
-
-
-        End If
-    End Sub
-    '------------------------------------------------------------------------------------------
-    Private Sub txbCedula_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles txbCedula.Click
-
-        'Si el contenido de txbNombre es Buscar y de color gris
-        If txbCedula.Text = "Ingrese su Cédula" And txbCedula.ForeColor = Color.Gray Then
-
-            'El cursos se ubique al inicio
-            Me.txbCedula.SelectionStart = 0
-
-        End If
-
-    End Sub
-
-    Private Sub txbCedula_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles txbCedula.GotFocus
-
-        'Si el contenido de txbNombre es Buscar y de color gris
-        If txbCedula.Text = "Ingrese su Cédula" And txbCedula.ForeColor = Color.Gray Then
-
-            'El cursos se ubique al inicio
-            txbCedula.SelectionStart = 0
-
-        End If
-
-    End Sub
-
-    Private Sub txbcedula_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txbCedula.KeyDown
-
-        'Si el contenido de txbNombre es Buscar, de color gris y la tecla presionada no es 
-        If txbCedula.Text = "Ingrese su Cédula" And txbCedula.ForeColor = Color.Gray And Not e.KeyCode = Keys.Back Then
-
-            'Borrar el contenido del txbNombre y volver el color negro
-            txbCedula.Text = ""
-            txbCedula.ForeColor = Color.Black
-
-
-            'Si txbNombre solo tiene una letra y la tecla presionada fue borrar, 
-        ElseIf e.KeyCode = Keys.Back And txbCedula.Text.Length = 1 Then
-
-            'Introduzco el texto 'Buscar' al txbNombre de color Gris
-            txbCedula.Text = "Ingrese su Cédula"
-            txbCedula.ForeColor = Color.Gray
-
-        ElseIf e.KeyCode = Keys.Back And txbCedula.SelectedText = "Ingrese su Cédula" Then
-
-            txbNombre.Text = ""
-            txbNombre.ForeColor = Color.Black
-
-            'Si la tecla presionada es borrar y todo el texto esta seleccionado
-        ElseIf e.KeyCode = Keys.Back And txbCedula.SelectedText = txbCedula.Text Then
-
-            'Introduzco el texto 'Buscar' al txbNombre de color Gris
-            txbCedula.Text = "Ingrese su Cédula"
-            txbCedula.ForeColor = Color.Gray
-
-
-        End If
-    End Sub
+   
 
     Private Function verificarCedula(ByVal cedula As String)
 
@@ -2946,4 +2715,5 @@ Public Class frmMultiPlayerMode
 
     End Function
 
+  
 End Class

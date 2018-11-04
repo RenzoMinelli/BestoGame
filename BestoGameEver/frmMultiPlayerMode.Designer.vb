@@ -60,11 +60,7 @@ Partial Class frmMultiPlayerMode
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.btnRegistrar = New System.Windows.Forms.Button()
-        Me.txbCedula = New System.Windows.Forms.TextBox()
-        Me.txbNombre = New System.Windows.Forms.TextBox()
         Me.btnRegistrar2 = New System.Windows.Forms.Button()
-        Me.txbCedula2 = New System.Windows.Forms.TextBox()
-        Me.txbNombre2 = New System.Windows.Forms.TextBox()
         Me.lblRegistro = New System.Windows.Forms.Label()
         Me.lblRegistro2 = New System.Windows.Forms.Label()
         Me.principal2 = New ya_ni_se.TransPicBox()
@@ -79,6 +75,10 @@ Partial Class frmMultiPlayerMode
         Me.pbNumeroEstrellas = New ya_ni_se.TransPicBox()
         Me.pbNumeroEstrella2 = New ya_ni_se.TransPicBox()
         Me.estrella = New ya_ni_se.TransPicBox()
+        Me.txbNombre = New ya_ni_se.PlaceHolder()
+        Me.txbCedula = New ya_ni_se.PlaceHolder()
+        Me.txbNombre2 = New ya_ni_se.PlaceHolder()
+        Me.txbCedula2 = New ya_ni_se.PlaceHolder()
         CType(Me.principal2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.principal, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pbBala, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -402,24 +402,6 @@ Partial Class frmMultiPlayerMode
         Me.btnRegistrar.UseVisualStyleBackColor = True
         Me.btnRegistrar.Visible = False
         '
-        'txbCedula
-        '
-        Me.txbCedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txbCedula.Location = New System.Drawing.Point(357, 316)
-        Me.txbCedula.Name = "txbCedula"
-        Me.txbCedula.Size = New System.Drawing.Size(261, 31)
-        Me.txbCedula.TabIndex = 91
-        Me.txbCedula.Visible = False
-        '
-        'txbNombre
-        '
-        Me.txbNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txbNombre.Location = New System.Drawing.Point(85, 316)
-        Me.txbNombre.Name = "txbNombre"
-        Me.txbNombre.Size = New System.Drawing.Size(266, 31)
-        Me.txbNombre.TabIndex = 90
-        Me.txbNombre.Visible = False
-        '
         'btnRegistrar2
         '
         Me.btnRegistrar2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -430,24 +412,6 @@ Partial Class frmMultiPlayerMode
         Me.btnRegistrar2.Text = "Registrar"
         Me.btnRegistrar2.UseVisualStyleBackColor = True
         Me.btnRegistrar2.Visible = False
-        '
-        'txbCedula2
-        '
-        Me.txbCedula2.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txbCedula2.Location = New System.Drawing.Point(357, 469)
-        Me.txbCedula2.Name = "txbCedula2"
-        Me.txbCedula2.Size = New System.Drawing.Size(261, 31)
-        Me.txbCedula2.TabIndex = 94
-        Me.txbCedula2.Visible = False
-        '
-        'txbNombre2
-        '
-        Me.txbNombre2.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txbNombre2.Location = New System.Drawing.Point(85, 469)
-        Me.txbNombre2.Name = "txbNombre2"
-        Me.txbNombre2.Size = New System.Drawing.Size(266, 31)
-        Me.txbNombre2.TabIndex = 93
-        Me.txbNombre2.Visible = False
         '
         'lblRegistro
         '
@@ -629,6 +593,50 @@ Partial Class frmMultiPlayerMode
         Me.estrella.TabIndex = 72
         Me.estrella.TabStop = False
         '
+        'txbNombre
+        '
+        Me.txbNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txbNombre.Location = New System.Drawing.Point(82, 314)
+        Me.txbNombre.Name = "txbNombre"
+        Me.txbNombre.Size = New System.Drawing.Size(226, 31)
+        Me.txbNombre.TabIndex = 98
+        Me.txbNombre.Visible = False
+        Me.txbNombre.WaterMarkColor = System.Drawing.Color.Gray
+        Me.txbNombre.WaterMarkText = "Ingrese su Nombre"
+        '
+        'txbCedula
+        '
+        Me.txbCedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txbCedula.Location = New System.Drawing.Point(392, 316)
+        Me.txbCedula.Name = "txbCedula"
+        Me.txbCedula.Size = New System.Drawing.Size(226, 31)
+        Me.txbCedula.TabIndex = 99
+        Me.txbCedula.Visible = False
+        Me.txbCedula.WaterMarkColor = System.Drawing.Color.Gray
+        Me.txbCedula.WaterMarkText = "Ingrese su Cédula"
+        '
+        'txbNombre2
+        '
+        Me.txbNombre2.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txbNombre2.Location = New System.Drawing.Point(82, 468)
+        Me.txbNombre2.Name = "txbNombre2"
+        Me.txbNombre2.Size = New System.Drawing.Size(226, 31)
+        Me.txbNombre2.TabIndex = 100
+        Me.txbNombre2.Visible = False
+        Me.txbNombre2.WaterMarkColor = System.Drawing.Color.Gray
+        Me.txbNombre2.WaterMarkText = "Ingrese su Nombre"
+        '
+        'txbCedula2
+        '
+        Me.txbCedula2.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txbCedula2.Location = New System.Drawing.Point(392, 468)
+        Me.txbCedula2.Name = "txbCedula2"
+        Me.txbCedula2.Size = New System.Drawing.Size(226, 31)
+        Me.txbCedula2.TabIndex = 101
+        Me.txbCedula2.Visible = False
+        Me.txbCedula2.WaterMarkColor = System.Drawing.Color.Gray
+        Me.txbCedula2.WaterMarkText = "Ingrese su Cédula"
+        '
         'frmMultiPlayerMode
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -638,14 +646,12 @@ Partial Class frmMultiPlayerMode
         Me.BackgroundImage = Global.ya_ni_se.My.Resources.Resources.fondito
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1213, 669)
+        Me.Controls.Add(Me.txbNombre2)
+        Me.Controls.Add(Me.txbNombre)
         Me.Controls.Add(Me.lblRegistro2)
         Me.Controls.Add(Me.lblRegistro)
         Me.Controls.Add(Me.btnRegistrar2)
-        Me.Controls.Add(Me.txbCedula2)
-        Me.Controls.Add(Me.txbNombre2)
         Me.Controls.Add(Me.btnRegistrar)
-        Me.Controls.Add(Me.txbCedula)
-        Me.Controls.Add(Me.txbNombre)
         Me.Controls.Add(Me.principal2)
         Me.Controls.Add(Me.principal)
         Me.Controls.Add(Me.pnlVida2)
@@ -686,6 +692,8 @@ Partial Class frmMultiPlayerMode
         Me.Controls.Add(Me.pbNumeroEstrella2)
         Me.Controls.Add(Me.lblNumeroEstrella2)
         Me.Controls.Add(Me.estrella)
+        Me.Controls.Add(Me.txbCedula)
+        Me.Controls.Add(Me.txbCedula2)
         Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -756,11 +764,11 @@ Partial Class frmMultiPlayerMode
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents TransPicBox2 As ya_ni_se.TransPicBox
     Friend WithEvents btnRegistrar As System.Windows.Forms.Button
-    Friend WithEvents txbCedula As System.Windows.Forms.TextBox
-    Friend WithEvents txbNombre As System.Windows.Forms.TextBox
     Friend WithEvents btnRegistrar2 As System.Windows.Forms.Button
-    Friend WithEvents txbCedula2 As System.Windows.Forms.TextBox
-    Friend WithEvents txbNombre2 As System.Windows.Forms.TextBox
     Friend WithEvents lblRegistro As System.Windows.Forms.Label
     Friend WithEvents lblRegistro2 As System.Windows.Forms.Label
+    Friend WithEvents txbNombre As ya_ni_se.PlaceHolder
+    Friend WithEvents txbCedula As ya_ni_se.PlaceHolder
+    Friend WithEvents txbNombre2 As ya_ni_se.PlaceHolder
+    Friend WithEvents txbCedula2 As ya_ni_se.PlaceHolder
 End Class
