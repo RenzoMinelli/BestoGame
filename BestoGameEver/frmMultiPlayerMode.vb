@@ -2581,7 +2581,7 @@ Public Class frmMultiPlayerMode
                 Dim hora As String = regDate.ToString("hh:mm:ss")
 
 
-                Consulta = "insert into resultados (nombre, fecha, hora, resultado, cedula) values ('" + nombreJug + "', '" + fecha + "', '" + hora + "','" + puntos.ToString + "','" + ceduJug + "');"
+                Consulta = "insert into resultados (nombre, fecha, hora, resultado, cedula) values ('" + nombreJug + "', '" + fecha + "', '" + hora + "','" + puntos2.ToString + "','" + ceduJug + "');"
                 consultar()
 
                 frmRanking.actTabla()
