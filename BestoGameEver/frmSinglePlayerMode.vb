@@ -1120,7 +1120,7 @@ Public Class frmSinglePlayerMode
             txbCedula.Visible = True
             txbNombre.Visible = True
             btnRegistrar.Visible = True
-
+            vida = 0
 
         ElseIf v = 100 Then
 

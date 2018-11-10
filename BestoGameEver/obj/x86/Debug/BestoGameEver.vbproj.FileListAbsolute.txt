@@ -111,6 +111,4 @@ C:\Users\renmi\OneDrive\Documentos\GitHub\BestoGame\BestoGameEver\obj\x86\Debug\
 C:\Users\renmi\OneDrive\Documentos\GitHub\BestoGame\BestoGameEver\obj\x86\Debug\BestoGameEver.vbproj.GenerateResource.Cache
 C:\Users\renmi\OneDrive\Documentos\GitHub\BestoGame\BestoGameEver\obj\x86\Debug\BestoGameEver.exe.manifest
 C:\Users\renmi\OneDrive\Documentos\GitHub\BestoGame\BestoGameEver\obj\x86\Debug\BestoGameEver.application
-C:\Users\renmi\OneDrive\Documentos\GitHub\BestoGame\BestoGameEver\obj\x86\Debug\BestoGameEver.vbprojAssemblyReference.cache
-C:\Users\renmi\OneDrive\Documentos\GitHub\BestoGame\BestoGameEver\obj\x86\Debug\BestoGameEver.vbproj.CoreCompileInputs.cache
-C:\Users\renmi\OneDrive\Documentos\GitHub\BestoGame\BestoGameEver\obj\x86\Debug\BestoGameEver.vbproj.CopyComplete
+C:\Users\renmi\OneDrive\Documentos\GitHub\BestoGame\BestoGameEver\obj\x86\Debug\BestoGameEver.vbprojResolveAssemblyReference.cache

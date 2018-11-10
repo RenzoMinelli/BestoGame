@@ -77,11 +77,12 @@ Partial Class frmMenuInicio
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 71.99999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(1, 23)
+        Me.Label2.Location = New System.Drawing.Point(13, 12)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(551, 108)
+        Me.Label2.Size = New System.Drawing.Size(634, 108)
         Me.Label2.TabIndex = 3
-        Me.Label2.Text = "BestoGame"
+        Me.Label2.Text = "Jump the Bird"
+        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'dgvAuxiliar
         '
@@ -121,7 +122,7 @@ Partial Class frmMenuInicio
         Me.Label3.AutoSize = True
         Me.Label3.BackColor = System.Drawing.Color.Transparent
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(552, 98)
+        Me.Label3.Location = New System.Drawing.Point(552, 131)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(130, 33)
         Me.Label3.TabIndex = 5
@@ -152,11 +153,11 @@ Partial Class frmMenuInicio
         DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.dgvRanking.DefaultCellStyle = DataGridViewCellStyle4
-        Me.dgvRanking.Location = New System.Drawing.Point(558, 134)
+        Me.dgvRanking.Location = New System.Drawing.Point(558, 172)
         Me.dgvRanking.Name = "dgvRanking"
         Me.dgvRanking.ReadOnly = True
         Me.dgvRanking.RowHeadersVisible = False
-        Me.dgvRanking.Size = New System.Drawing.Size(408, 413)
+        Me.dgvRanking.Size = New System.Drawing.Size(408, 375)
         Me.dgvRanking.TabIndex = 6
         '
         'frmMenuInicio
@@ -177,7 +178,7 @@ Partial Class frmMenuInicio
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmMenuInicio"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "BestoGame Selección Modo de Juego"
+        Me.Text = "JumpTheBird Selección Modo de Juego"
         CType(Me.dgvAuxiliar, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgvRanking, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

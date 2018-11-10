@@ -93,12 +93,7 @@ Public Class frmMultiPlayerMode
 
     End Sub
 
-    Private Sub frmMultiPlayerMode_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
-        If vida = 0 And vida2 = 0 Then
-            e.Cancel = True
-            MsgBox("Debe registrarse primero", MsgBoxStyle.Exclamation)
-        End If
-    End Sub
+    
 
     Private Sub Form1_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyDown
 
@@ -2387,7 +2382,8 @@ Public Class frmMultiPlayerMode
                 Next
                 lblFinal.Visible = True
                 lblFinal.Text = "Game Over" + vbNewLine + vbNewLine + "Puntos conseguidos JUGADOR 1: " + puntos.ToString + vbNewLine + vbNewLine + "Puntos conseguidos JUGADOR 2: " + puntos2.ToString
-
+                vida = 0
+                vida2 = 0
                 txbCedula.Visible = True
                 txbCedula2.Visible = True
                 txbNombre.Visible = True
@@ -2449,6 +2445,8 @@ Public Class frmMultiPlayerMode
                 Next
                 lblFinal.Visible = True
                 lblFinal.Text = "Game Over" + vbNewLine + vbNewLine + "Puntos conseguidos JUGADOR 1: " + puntos.ToString + vbNewLine + vbNewLine + "Puntos conseguidos JUGADOR 2: " + puntos2.ToString
+                vida = 0
+                vida2 = 0
                 txbCedula.Visible = True
                 txbCedula2.Visible = True
                 txbNombre.Visible = True
@@ -2671,9 +2669,15 @@ Public Class frmMultiPlayerMode
 
     End Sub
 
-    Private Sub frmMultiPlayerMode_Closing(sender As Object, e As CancelEventArgs) Handles Me.FormClosing
-        e.Cancel = True
-        MsgBox("Primero debe registrarse", MsgBoxStyle.Information)
+   
+    Private Sub frmMultiPlayerMode_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
+
+        If vida = 0 And vida2 = 0 Then
+            e.Cancel = True
+
+            MsgBox("Debe registrarse primero", MsgBoxStyle.Exclamation)
+        End If
+
     End Sub
 
     Private Function verificarCedula(ByVal cedula As String)
