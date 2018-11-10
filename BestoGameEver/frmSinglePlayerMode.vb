@@ -283,8 +283,10 @@ Public Class frmSinglePlayerMode
 
 
                 Case 1
+                    If Movimiento_Enemigo.Interval > 10 Then
+                        Movimiento_Enemigo.Interval -= 10
+                    End If
 
-                    Movimiento_Enemigo.Interval -= 10
                     notificar("Velocidad Enemigos 10% mas rápido")
 
                 Case 2
@@ -298,7 +300,10 @@ Public Class frmSinglePlayerMode
                     notificar("Velocidad jugador enlentecido 10%")
 
                 Case 4
-                    Movimiento_Bala.Interval -= 4
+                    If Movimiento_Bala.Interval > 4 Then
+                        Movimiento_Bala.Interval -= 4
+                    End If
+
                     notificar("Velocidad Bala 4% mas rápido")
 
                 Case 5
@@ -309,8 +314,10 @@ Public Class frmSinglePlayerMode
 
 
                 Case 6
+                    If Movimiento_Principal.Interval > 4 Then
+                        Movimiento_Principal.Interval -= 4
+                    End If
 
-                    Movimiento_Principal.Interval -= 4
                     notificar("Velocidad jugador aumento 10%")
 
                 Case 7
@@ -323,8 +330,10 @@ Public Class frmSinglePlayerMode
                     notificar("Enemigos congelados")
 
                 Case 9
+                    If Movimiento_Enemigo.Interval > 10 Then
+                        Movimiento_Enemigo.Interval -= 10
+                    End If
 
-                    Movimiento_Enemigo.Interval -= 10
                     notificar("Velocidad Enemigos 10% mas rápido")
 
                 Case 10
@@ -338,7 +347,10 @@ Public Class frmSinglePlayerMode
                     notificar("Velocidad jugador enlentecido 10%")
 
                 Case 12
-                    Movimiento_Bala.Interval -= 4
+                    If Movimiento_Bala.Interval > 4 Then
+                        Movimiento_Bala.Interval -= 4
+                    End If
+
                     notificar("Velocidad Bala 4% mas rápido")
 
                 Case 13
@@ -349,8 +361,10 @@ Public Class frmSinglePlayerMode
 
 
                 Case 14
+                    If Movimiento_Principal.Interval > 4 Then
+                        Movimiento_Principal.Interval -= 4
+                    End If
 
-                    Movimiento_Principal.Interval -= 4
                     notificar("Velocidad jugador aumento 10%")
 
                 Case 15
