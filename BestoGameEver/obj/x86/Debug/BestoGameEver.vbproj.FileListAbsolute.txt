@@ -112,3 +112,6 @@ C:\Users\renmi\OneDrive\Documentos\GitHub\BestoGame\BestoGameEver\obj\x86\Debug\
 C:\Users\renmi\OneDrive\Documentos\GitHub\BestoGame\BestoGameEver\obj\x86\Debug\BestoGameEver.exe.manifest
 C:\Users\renmi\OneDrive\Documentos\GitHub\BestoGame\BestoGameEver\obj\x86\Debug\BestoGameEver.application
 C:\Users\renmi\OneDrive\Documentos\GitHub\BestoGame\BestoGameEver\obj\x86\Debug\BestoGameEver.vbprojResolveAssemblyReference.cache
+C:\Users\renmi\OneDrive\Escritorio\BestoGame\BestoGameEver\obj\x86\Debug\BestoGameEver.exe
+C:\Users\renmi\OneDrive\Escritorio\BestoGame\BestoGameEver\obj\x86\Debug\BestoGameEver.xml
+C:\Users\renmi\OneDrive\Escritorio\BestoGame\BestoGameEver\obj\x86\Debug\BestoGameEver.pdb

@@ -278,100 +278,104 @@ Public Class frmSinglePlayerMode
             Randomize()
             caso = Int((15 * Rnd()) + 1)
 
-
-            Select Case caso
-
-
-                Case 1
-                    If Movimiento_Enemigo.Interval > 10 Then
-                        Movimiento_Enemigo.Interval -= 10
-                    End If
-
-                    notificar("Velocidad Enemigos 10% mas rápido")
-
-                Case 2
-
-                    Movimiento_Enemigo.Interval += 10
-                    notificar("Velocidad Enemigos 10% mas lento")
-
-                Case 3
-
-                    Movimiento_Principal.Interval += 10
-                    notificar("Velocidad jugador enlentecido 10%")
-
-                Case 4
-                    If Movimiento_Bala.Interval > 4 Then
-                        Movimiento_Bala.Interval -= 4
-                    End If
-
-                    notificar("Velocidad Bala 4% mas rápido")
-
-                Case 5
-
-                    vida += 10
-                    ActVida(vida, 2)
-                    notificar("Vida +10")
+            Try
+                Select Case caso
 
 
-                Case 6
-                    If Movimiento_Principal.Interval > 4 Then
-                        Movimiento_Principal.Interval -= 4
-                    End If
+                    Case 1
+                        If Movimiento_Enemigo.Interval > 10 Then
+                            Movimiento_Enemigo.Interval -= 10
+                        End If
 
-                    notificar("Velocidad jugador aumento 10%")
+                        notificar("Velocidad Enemigos 10% mas rápido")
 
-                Case 7
-                    Movimiento_Bala.Interval += 10
-                    notificar("Velocidad Bala 10% mas lento")
-                Case 8
+                    Case 2
 
-                    Movimiento_Enemigo.Stop()
-                    Anim_Movimiento_Enemigo.Stop()
-                    notificar("Enemigos congelados")
+                        Movimiento_Enemigo.Interval += 10
+                        notificar("Velocidad Enemigos 10% mas lento")
 
-                Case 9
-                    If Movimiento_Enemigo.Interval > 10 Then
-                        Movimiento_Enemigo.Interval -= 10
-                    End If
+                    Case 3
 
-                    notificar("Velocidad Enemigos 10% mas rápido")
+                        Movimiento_Principal.Interval += 10
+                        notificar("Velocidad jugador enlentecido 10%")
 
-                Case 10
+                    Case 4
+                        If Movimiento_Bala.Interval > 4 Then
+                            Movimiento_Bala.Interval -= 4
+                        End If
 
-                    Movimiento_Enemigo.Interval += 10
-                    notificar("Velocidad Enemigos 10% mas lento")
+                        notificar("Velocidad Bala 4% mas rápido")
 
-                Case 11
+                    Case 5
 
-                    Movimiento_Principal.Interval += 10
-                    notificar("Velocidad jugador enlentecido 10%")
-
-                Case 12
-                    If Movimiento_Bala.Interval > 4 Then
-                        Movimiento_Bala.Interval -= 4
-                    End If
-
-                    notificar("Velocidad Bala 4% mas rápido")
-
-                Case 13
-
-                    vida += 10
-                    ActVida(vida, 2)
-                    notificar("Vida +10")
+                        vida += 10
+                        ActVida(vida, 2)
+                        notificar("Vida +10")
 
 
-                Case 14
-                    If Movimiento_Principal.Interval > 4 Then
-                        Movimiento_Principal.Interval -= 4
-                    End If
+                    Case 6
+                        If Movimiento_Principal.Interval > 4 Then
+                            Movimiento_Principal.Interval -= 4
+                        End If
 
-                    notificar("Velocidad jugador aumento 10%")
+                        notificar("Velocidad jugador aumento 10%")
 
-                Case 15
-                    Movimiento_Bala.Interval += 10
-                    notificar("Velocidad Bala 10% mas lento")
+                    Case 7
+                        Movimiento_Bala.Interval += 10
+                        notificar("Velocidad Bala 10% mas lento")
+                    Case 8
 
-            End Select
+                        Movimiento_Enemigo.Stop()
+                        Anim_Movimiento_Enemigo.Stop()
+                        notificar("Enemigos congelados")
+
+                    Case 9
+                        If Movimiento_Enemigo.Interval > 10 Then
+                            Movimiento_Enemigo.Interval -= 10
+                        End If
+
+                        notificar("Velocidad Enemigos 10% mas rápido")
+
+                    Case 10
+
+                        Movimiento_Enemigo.Interval += 10
+                        notificar("Velocidad Enemigos 10% mas lento")
+
+                    Case 11
+
+                        Movimiento_Principal.Interval += 10
+                        notificar("Velocidad jugador enlentecido 10%")
+
+                    Case 12
+                        If Movimiento_Bala.Interval > 4 Then
+                            Movimiento_Bala.Interval -= 4
+                        End If
+
+                        notificar("Velocidad Bala 4% mas rápido")
+
+                    Case 13
+
+                        vida += 10
+                        ActVida(vida, 2)
+                        notificar("Vida +10")
+
+
+                    Case 14
+                        If Movimiento_Principal.Interval > 4 Then
+                            Movimiento_Principal.Interval -= 4
+                        End If
+
+                        notificar("Velocidad jugador aumento 10%")
+
+                    Case 15
+                        Movimiento_Bala.Interval += 10
+                        notificar("Velocidad Bala 10% mas lento")
+
+                End Select
+            Catch ex As Exception
+
+            End Try
+           
 
             cosaRandom.Start()
 
